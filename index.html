@@ -74,7 +74,6 @@
     footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
     footer .links { color: rgba(255,255,255,0.2); font-size: 12px; margin-top: 8px; }
     footer .links a { color: rgba(255,255,255,0.4); text-decoration: underline; }
-
     .contact-section { padding: 0 20px 100px; }
     .contact-inner { max-width: 800px; margin: 0 auto; text-align: center; }
     .contact-badge { display: inline-block; background: rgba(0,201,255,0.1); border: 1px solid rgba(0,201,255,0.3); border-radius: 50px; padding: 6px 18px; font-size: 13px; color: #00C9FF; margin-bottom: 20px; font-weight: 500; }
@@ -88,10 +87,60 @@
     .contact-value { color: #00C9FF; font-size: 14px; font-weight: 600; word-break: break-all; }
     .contact-founder { color: rgba(255,255,255,0.3); font-size: 14px; }
     .contact-founder strong { color: rgba(255,255,255,0.6); }
+
+    /* FOUNDING MEMBER SECTION */
+    .founding { padding: 0 20px 100px; }
+    .founding-inner { max-width: 1060px; margin: 0 auto; }
+    .founding-header { text-align: center; margin-bottom: 16px; }
+    .founding-badge { display: inline-block; background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); border-radius: 50px; padding: 6px 18px; font-size: 13px; color: #FFD700; margin-bottom: 20px; font-weight: 500; }
+    .founding-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .founding-header p { color: rgba(255,255,255,0.55); font-size: 17px; max-width: 580px; margin: 0 auto 32px; line-height: 1.7; }
+    .prize-counter { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 28px; max-width: 480px; margin: 0 auto 48px; }
+    .prize-counter-top { display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+    .prize-progress { background: rgba(255,255,255,0.08); border-radius: 999px; height: 10px; margin-bottom: 10px; overflow: hidden; }
+    .prize-bar { background: linear-gradient(90deg, #00C9FF, #7B2FFF); height: 100%; border-radius: 999px; transition: width 0.6s ease; }
+    .prize-counter-label { font-weight: 700; font-size: 15px; color: #fff; }
+    .prize-counter-sub { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 4px; }
+    .founding-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 760px; margin: 0 auto 48px; }
+    .founding-how-step { text-align: center; padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; }
+    .founding-how-step .step-icon { font-size: 28px; margin-bottom: 10px; }
+    .founding-how-step h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .founding-how-step p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+    .founding-verify { background: rgba(0,201,255,0.06); border: 1px solid rgba(0,201,255,0.2); border-radius: 12px; padding: 14px 20px; max-width: 640px; margin: 0 auto 48px; text-align: center; font-size: 13px; color: rgba(0,201,255,0.9); line-height: 1.6; }
+    .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .tier-card { background: rgba(255,255,255,0.04); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s; }
+    .tier-card:hover { transform: translateY(-4px); }
+    .tier-card.bronze { border: 1px solid rgba(180,100,30,0.5); }
+    .tier-card.silver { border: 1px solid rgba(160,160,180,0.5); }
+    .tier-card.gold { border: 2px solid rgba(255,215,0,0.5); }
+    .tier-popular { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #aaaaaa, #dddddd); color: #000; font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: 999px; white-space: nowrap; }
+    .tier-best { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: 999px; white-space: nowrap; }
+    .tier-emoji { font-size: 36px; margin-bottom: 12px; }
+    .tier-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+    .tier-price { margin-bottom: 16px; }
+    .tier-price span { font-size: 36px; font-weight: 900; }
+    .tier-price small { color: rgba(255,255,255,0.4); font-size: 14px; }
+    .tier-dbu { border-radius: 10px; padding: 10px 14px; text-align: center; font-weight: 700; font-size: 14px; color: #000; margin-bottom: 20px; }
+    .bronze .tier-dbu { background: linear-gradient(135deg, #a0522d, #cd853f); }
+    .silver .tier-dbu { background: linear-gradient(135deg, #808080, #c0c0c0); }
+    .gold .tier-dbu { background: linear-gradient(135deg, #DAA520, #FFD700); }
+    .tier-perks { list-style: none; margin-bottom: 24px; flex: 1; }
+    .tier-perks li { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.7); padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .tier-perks li:last-child { border-bottom: none; }
+    .tier-perks .check { color: #00C9FF; flex-shrink: 0; margin-top: 1px; }
+    .tier-btn { width: 100%; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; font-family: inherit; transition: opacity 0.2s, transform 0.1s; }
+    .tier-btn:hover { opacity: 0.9; }
+    .tier-btn:active { transform: scale(0.97); }
+    .bronze .tier-btn { background: linear-gradient(135deg, #a0522d, #cd853f); color: #fff; }
+    .silver .tier-btn { background: linear-gradient(135deg, #808080, #c0c0c0); color: #000; }
+    .gold .tier-btn { background: linear-gradient(135deg, #DAA520, #FFD700); color: #000; }
+    .founding-legal { text-align: center; color: rgba(255,255,255,0.2); font-size: 11px; margin-top: 28px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
       .waitlist-box { padding: 36px 24px; }
       .donate-section { padding: 48px 24px; }
+      .tier-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -103,7 +152,7 @@
       <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
       <span>Urbyte</span>
     </div>
-    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+    <a href="#founding" class="btn-primary">Become a Founding Member</a>
   </nav>
 
   <!-- HERO -->
@@ -112,7 +161,7 @@
     <h1>Your unused data is worth <span class="gradient-text">something.</span><br/>Start claiming it.</h1>
     <p>Every month, Australians lose billions in unused mobile data to telcos. Urbyte converts that wasted data into DBUs — digital currency you control. Spend it, cash it out, or donate it to people who need it most.</p>
     <div class="hero-btns">
-      <a href="#waitlist" class="btn-primary-lg">Join the Waitlist →</a>
+      <a href="#founding" class="btn-primary-lg">Become a Founding Member →</a>
       <a href="#how" class="btn-secondary">How It Works</a>
     </div>
     <p class="hero-note">Every person who's seen Urbyte has joined the waitlist · zero marketing spend</p>
@@ -219,12 +268,116 @@
     </div>
   </div>
 
+  <!-- FOUNDING MEMBER -->
+  <div class="founding" id="founding">
+    <div class="founding-inner">
+      <div class="founding-header">
+        <div class="founding-badge">🏆 Founders Prize Draw — Win Equity in Urbyte</div>
+        <h2>Become a <span class="gradient-text">Founding Member</span></h2>
+        <p>Be among the first 50,000 Australians to take back control of their data. Every Founding Member is automatically entered into the <strong style="color:#fff;">Founders Prize Draw</strong> — with a chance to win equity in Urbyte.</p>
+      </div>
+
+      <!-- Prize Draw Counter -->
+      <div class="prize-counter">
+        <div class="prize-counter-top">
+          <span>🎟️ Founders Prize Draw</span>
+          <span id="counter-nums">0 / 50,000</span>
+        </div>
+        <div class="prize-progress">
+          <div class="prize-bar" id="prize-bar" style="width:0%"></div>
+        </div>
+        <div class="prize-counter-label" id="spots-remaining">50,000 spots remaining</div>
+        <div class="prize-counter-sub">Every Founding Member gets automatic entry. One winner receives equity in Urbyte.</div>
+      </div>
+
+      <!-- How it works -->
+      <div class="founding-how">
+        <div class="founding-how-step">
+          <div class="step-icon">📱</div>
+          <h4>Convert now</h4>
+          <p>Your existing unused data is converted to DBUs immediately on signup</p>
+        </div>
+        <div class="founding-how-step">
+          <div class="step-icon">📊</div>
+          <h4>Build your balance</h4>
+          <p>Submit your bill each month. We verify your average unused data over 3 billing cycles</p>
+        </div>
+        <div class="founding-how-step">
+          <div class="step-icon">🎁</div>
+          <h4>Redeem</h4>
+          <p>Spend DBUs on rewards, cash back, or donate to causes you care about</p>
+        </div>
+      </div>
+
+      <div class="founding-verify">
+        💡 The 3-cycle verification protects you — it ensures your DBU balance reflects your real unused data before you spend
+      </div>
+
+      <!-- Tier Cards -->
+      <div class="tier-grid">
+
+        <!-- BRONZE -->
+        <div class="tier-card bronze">
+          <div class="tier-emoji">🥉</div>
+          <div class="tier-name">Bronze</div>
+          <div class="tier-price"><span>$5</span><small>/month</small></div>
+          <div class="tier-dbu">+50 DBUs on signup</div>
+          <ul class="tier-perks">
+            <li><span class="check">✓</span> Early access to Urbyte beta</li>
+            <li><span class="check">✓</span> Convert your existing unused data now</li>
+            <li><span class="check">✓</span> 50 bonus DBUs on signup</li>
+            <li><span class="check">✓</span> Automatic entry into Founders Prize Draw</li>
+            <li><span class="check">✓</span> Founding Member badge — forever</li>
+          </ul>
+          <button class="tier-btn" onclick="joinTier('bronze')">Join as Bronze Member</button>
+        </div>
+
+        <!-- SILVER -->
+        <div class="tier-card silver">
+          <div class="tier-popular">Most Popular</div>
+          <div class="tier-emoji">🥈</div>
+          <div class="tier-name">Silver</div>
+          <div class="tier-price"><span>$15</span><small>/month</small></div>
+          <div class="tier-dbu">+150 DBUs on signup</div>
+          <ul class="tier-perks">
+            <li><span class="check">✓</span> Everything in Bronze</li>
+            <li><span class="check">✓</span> 150 bonus DBUs on signup</li>
+            <li><span class="check">✓</span> Priority redemption queue</li>
+            <li><span class="check">✓</span> Locked-in Silver rate forever</li>
+            <li><span class="check">✓</span> Early access to new reward partners</li>
+          </ul>
+          <button class="tier-btn" onclick="joinTier('silver')">Join as Silver Member</button>
+        </div>
+
+        <!-- GOLD -->
+        <div class="tier-card gold">
+          <div class="tier-best">Best Value</div>
+          <div class="tier-emoji">🥇</div>
+          <div class="tier-name">Gold</div>
+          <div class="tier-price"><span>$29</span><small>/month</small></div>
+          <div class="tier-dbu">+350 DBUs on signup</div>
+          <ul class="tier-perks">
+            <li><span class="check">✓</span> Everything in Silver</li>
+            <li><span class="check">✓</span> 350 bonus DBUs on signup</li>
+            <li><span class="check">✓</span> Locked-in best DBU conversion rate — forever</li>
+            <li><span class="check">✓</span> Founding Gold badge — permanently displayed</li>
+            <li><span class="check">✓</span> Priority support & feature voting rights</li>
+          </ul>
+          <button class="tier-btn" onclick="joinTier('gold')">Join as Gold Member</button>
+        </div>
+
+      </div>
+
+      <p class="founding-legal">Founding Member subscriptions are billed monthly and can be cancelled anytime. DBU redemptions unlock after 3 completed billing cycles for usage verification. The Founders Prize Draw is open to the first 50,000 Founding Members. Equity prize subject to final terms and conditions. Urbyte Pty Ltd, Australia.</p>
+    </div>
+  </div>
+
   <!-- WAITLIST -->
   <div class="waitlist" id="waitlist">
     <div class="waitlist-box">
       <div id="form-area">
-        <h2>Join the Waitlist</h2>
-        <p class="sub">Be among the first Australians to turn their unused data into something real.</p>
+        <h2>Not ready yet? Join the Waitlist</h2>
+        <p class="sub">Stay in the loop — we'll let you know when Urbyte is ready for you.</p>
         <form id="waitlist-form">
           <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
@@ -234,7 +387,7 @@
           <div id="error-msg" class="error" style="display:none;"></div>
           <button type="submit" id="submit-btn">Claim My Spot →</button>
         </form>
-        <p class="privacy-note">🔒 We respect your privacy. Your data is never sold. <a href="/privacy.html">Privacy Policy</a></p>
+        <p class="privacy-note">🔒 We respect your privacy. Your data is never sold. <a href="/privacy">Privacy Policy</a></p>
       </div>
       <div id="success-area" class="success" style="display:none;">
         <div class="emoji">🎉</div>
@@ -243,7 +396,6 @@
       </div>
     </div>
   </div>
-
 
   <!-- CONTACT -->
   <div class="contact-section">
@@ -279,10 +431,77 @@
       <span>Urbyte</span>
     </div>
     <p>Converting unused data into real value for real Australians.</p>
-    <p class="links">© 2026 Urbyte Pty Ltd · All rights reserved · <a href="/privacy.html">Privacy Policy</a></p>
+    <p class="links">© 2026 Urbyte Pty Ltd · All rights reserved · <a href="/privacy">Privacy Policy</a></p>
   </footer>
 
   <script>
+    // Stripe price IDs
+    const STRIPE_PRICES = {
+      bronze: 'price_1TPiS8RMg1xVoYK7eqb3JUTU',
+      silver: 'price_1TPiS8RMg1xVoYK7kCYkw5QO',
+      gold:   'price_1TPiS8RMg1xVoYK7s9idnWUO'
+    };
+
+    const STRIPE_PK = 'pk_test_51TPiJ9RMg1xVoYK7RzjbmZuq9qWE7wfrSKiZZAkgD0fFUgpwWwXxlOOpdP50MBl8OEYHdR5nvXEvWXkwtJ4uKajs00zse1yREl';
+
+    async function joinTier(tier) {
+      const btn = event.target;
+      btn.textContent = 'Redirecting to checkout...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tier,
+            successUrl: window.location.origin + '/?founding=success&tier=' + tier,
+            cancelUrl: window.location.origin + '/#founding'
+          })
+        });
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          throw new Error(data.error || 'Unknown error');
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+        btn.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' Member';
+        btn.disabled = false;
+      }
+    }
+
+    // Load founder count for prize draw counter
+    async function loadFounderCount() {
+      try {
+        const res = await fetch('https://api.base44.com/api/apps/69b4b3be3eb13fdbcb5a0228/entities/FoundersEntry', {
+          headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await res.json();
+        const count = Array.isArray(data) ? data.length : (data.count || 0);
+        const remaining = Math.max(0, 50000 - count);
+        const pct = Math.min(100, (count / 50000) * 100);
+        document.getElementById('counter-nums').textContent = count.toLocaleString() + ' / 50,000';
+        document.getElementById('spots-remaining').textContent = remaining.toLocaleString() + ' spots remaining';
+        document.getElementById('prize-bar').style.width = pct + '%';
+      } catch(e) {}
+    }
+    loadFounderCount();
+
+    // Check for success redirect
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('founding') === 'success') {
+      const tier = params.get('tier') || 'bronze';
+      const dbuMap = { bronze: 50, silver: 150, gold: 350 };
+      const emojiMap = { bronze: '🥉', silver: '🥈', gold: '🥇' };
+      document.getElementById('founding').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        alert(emojiMap[tier] + ' Welcome to Urbyte! Your ' + dbuMap[tier] + ' DBUs have been added to your wallet. You\'re entered in the Founders Prize Draw!');
+      }, 500);
+    }
+
+    // Waitlist form
     document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
