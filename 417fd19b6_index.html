@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urbyte — Turn Your Unused Data Into Real Value</title>
+  <meta name="description" content="Urbyte converts your unused mobile data into DBUs — digital currency you can spend, cash out, or donate to Australian charities." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; background: #0A0E1A; color: #fff; }
+    a { text-decoration: none; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { width: 40px; height: 40px; border-radius: 8px; }
+    .nav-logo span { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .btn-primary { background: linear-gradient(135deg, #00C9FF, #0077FF); color: #fff; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 14px; }
+    .btn-primary-lg { background: linear-gradient(135deg, #00C9FF, #0077FF); color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 16px; box-shadow: 0 8px 32px rgba(0,119,255,0.4); display: inline-block; }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: #fff; padding: 16px 36px; border-radius: 50px; font-weight: 600; font-size: 16px; border: 1px solid rgba(255,255,255,0.15); display: inline-block; }
+    .hero { text-align: center; padding: 100px 20px 80px; max-width: 800px; margin: 0 auto; }
+    .badge { display: inline-block; background: rgba(0,201,255,0.1); border: 1px solid rgba(0,201,255,0.3); border-radius: 50px; padding: 6px 18px; font-size: 13px; color: #00C9FF; margin-bottom: 24px; font-weight: 500; }
+    h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; }
+    .gradient-text { background: linear-gradient(135deg, #00C9FF, #0077FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 20px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .hero-note { color: rgba(255,255,255,0.35); font-size: 13px; }
+    .stats { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 48px 20px; }
+    .stats-inner { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, #00C9FF, #0077FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { color: rgba(255,255,255,0.5); font-size: 14px; max-width: 180px; margin-top: 6px; }
+    section.how { padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
+    section.how h2 { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+    section.how .sub { text-align: center; color: rgba(255,255,255,0.5); font-size: 18px; margin-bottom: 64px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px; }
+    .card-icon { font-size: 40px; margin-bottom: 16px; }
+    .card-step { color: #00C9FF; font-size: 13px; font-weight: 700; margin-bottom: 8px; letter-spacing: 1px; }
+    .card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .card p { color: rgba(255,255,255,0.55); line-height: 1.7; font-size: 15px; }
+    .donate-section { background: rgba(0,201,255,0.05); border: 1px solid rgba(0,201,255,0.12); border-radius: 24px; max-width: 1000px; margin: 0 auto 100px; padding: 64px 40px; }
+    .donate-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; text-align: center; }
+    .donate-section .sub { color: rgba(255,255,255,0.55); font-size: 18px; max-width: 580px; margin: 0 auto; line-height: 1.7; text-align: center; }
+    .charity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 48px; }
+    .charity-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 20px 16px; text-align: center; }
+    .charity-dot { width: 12px; height: 12px; border-radius: 50%; margin: 0 auto 12px; }
+    .charity-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+    .charity-cause { color: rgba(255,255,255,0.4); font-size: 12px; }
+    .donate-note { text-align: center; color: rgba(255,255,255,0.3); font-size: 13px; margin-top: 32px; }
+    .testimonials { padding: 0 20px 100px; max-width: 1000px; margin: 0 auto; }
+    .testimonials h2 { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 56px; letter-spacing: -1px; }
+    .quote-mark { font-size: 32px; color: #00C9FF; margin-bottom: 16px; line-height: 1; }
+    .quote-text { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .quote-name { color: rgba(255,255,255,0.35); font-size: 13px; }
+    .waitlist { padding: 0 20px 100px; max-width: 600px; margin: 0 auto; }
+    .waitlist-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 56px 48px; text-align: center; }
+    .waitlist-box h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; }
+    .waitlist-box .sub { color: rgba(255,255,255,0.5); margin-bottom: 36px; font-size: 16px; line-height: 1.6; }
+    form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+    input, textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 14px 18px; color: #fff; font-size: 15px; outline: none; font-family: inherit; width: 100%; }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.35); }
+    textarea { resize: vertical; }
+    button[type=submit] { background: linear-gradient(135deg, #00C9FF, #0077FF); color: #fff; padding: 16px; border-radius: 50px; font-weight: 700; font-size: 16px; border: none; cursor: pointer; margin-top: 8px; box-shadow: 0 8px 32px rgba(0,119,255,0.4); font-family: inherit; }
+    button[type=submit]:hover { opacity: 0.9; }
+    .privacy-note { color: rgba(255,255,255,0.25); font-size: 12px; margin-top: 16px; line-height: 1.6; }
+    .privacy-note a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+    .success { padding: 40px 0; }
+    .success .emoji { font-size: 56px; margin-bottom: 24px; }
+    .success h2 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
+    .success p { color: rgba(255,255,255,0.55); font-size: 17px; line-height: 1.7; }
+    .error { color: #FF6B6B; font-size: 14px; }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 20px; text-align: center; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
+    .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
+    .footer-logo span { font-weight: 700; font-size: 16px; }
+    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
+    footer .links { color: rgba(255,255,255,0.2); font-size: 12px; margin-top: 8px; }
+    footer .links a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .waitlist-box { padding: 36px 24px; }
+      .donate-section { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <span>Urbyte</span>
+    </div>
+    <a href="#waitlist" class="btn-primary">Join Waitlist</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">🇦🇺 Built in Australia, for Australians</div>
+    <h1>Your unused data is worth <span class="gradient-text">something.</span><br/>Start claiming it.</h1>
+    <p>Every month, Australians lose billions in unused mobile data to telcos. Urbyte converts that wasted data into DBUs — digital currency you control. Spend it, cash it out, or donate it to people who need it most.</p>
+    <div class="hero-btns">
+      <a href="#waitlist" class="btn-primary-lg">Join the Waitlist →</a>
+      <a href="#how" class="btn-secondary">How It Works</a>
+    </div>
+    <p class="hero-note">Every person who's seen Urbyte has joined the waitlist · zero marketing spend</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-num">26M+</div>
+        <div class="stat-label">Australians paying for data they don't use</div>
+      </div>
+      <div>
+        <div class="stat-num">$1B+</div>
+        <div class="stat-label">Worth of data wasted every year</div>
+      </div>
+      <div>
+        <div class="stat-num">122,000</div>
+        <div class="stat-label">Australians experiencing homelessness tonight</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <h2>How Urbyte Works</h2>
+    <p class="sub">Simple, transparent, yours.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <div class="card-step">STEP 01</div>
+        <h3>Log Your Usage</h3>
+        <p>Enter your monthly mobile plan and how much data you actually used. Takes 30 seconds.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <div class="card-step">STEP 02</div>
+        <h3>Earn DBUs</h3>
+        <p>Urbyte converts your unused data into DBUs — Data Backed Units. 1GB = 10 DBUs. Your data, your value.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">❤️</div>
+        <div class="card-step">STEP 03</div>
+        <h3>Choose What Matters</h3>
+        <p>Spend DBUs on rewards and cash back, or donate directly to Australian charities that need it most.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <div class="donate-section">
+    <div style="font-size:40px;text-align:center;margin-bottom:16px;">❤️</div>
+    <h2>Your data can change a life</h2>
+    <p class="sub">Donate your DBUs directly to Australian charities making a real difference. No middlemen. No admin fees. Just your unused data, doing good.</p>
+    <div class="charity-grid">
+      <div class="charity-card">
+        <div class="charity-dot" style="background:#003F8A;box-shadow:0 0 12px #003F8A;"></div>
+        <div class="charity-name">Beyond Blue</div>
+        <div class="charity-cause">Mental Health</div>
+      </div>
+      <div class="charity-card">
+        <div class="charity-dot" style="background:#F37021;box-shadow:0 0 12px #F37021;"></div>
+        <div class="charity-name">Orange Sky Australia</div>
+        <div class="charity-cause">Homelessness</div>
+      </div>
+      <div class="charity-card">
+        <div class="charity-dot" style="background:#E63946;box-shadow:0 0 12px #E63946;"></div>
+        <div class="charity-name">Homelessness Australia</div>
+        <div class="charity-cause">Housing Support</div>
+      </div>
+      <div class="charity-card">
+        <div class="charity-dot" style="background:#7B2D8B;box-shadow:0 0 12px #7B2D8B;"></div>
+        <div class="charity-name">1800RESPECT</div>
+        <div class="charity-cause">Domestic Violence</div>
+      </div>
+      <div class="charity-card">
+        <div class="charity-dot" style="background:#E67E22;box-shadow:0 0 12px #E67E22;"></div>
+        <div class="charity-name">Indigenous Literacy Foundation</div>
+        <div class="charity-cause">Education</div>
+      </div>
+    </div>
+    <p class="donate-note">Urbyte was founded by someone who lived this. The charities we support aren't random — they're personal.</p>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <h2>What people are saying</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">To finally earn something back from Telco company!</p>
+        <div class="quote-name">— Early Supporter</div>
+      </div>
+      <div class="card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Passing the data on to worthy causes and out of the pockets of big tech.</p>
+        <div class="quote-name">— Waitlist Member</div>
+      </div>
+      <div class="card">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Reclaiming data is a massive cost savings.</p>
+        <div class="quote-name">— Beta User</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAITLIST -->
+  <div class="waitlist" id="waitlist">
+    <div class="waitlist-box">
+      <div id="form-area">
+        <h2>Join the Waitlist</h2>
+        <p class="sub">Be among the first Australians to turn their unused data into something real.</p>
+        <form id="waitlist-form">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Email address" required />
+          <input type="text" id="telco" placeholder="Your telco (e.g. Telstra, Optus)" />
+          <input type="text" id="plan_gb" placeholder="Your data plan size (e.g. 20GB)" />
+          <textarea id="message" rows="3" placeholder="Anything else you'd like to tell us? (optional)"></textarea>
+          <div id="error-msg" class="error" style="display:none;"></div>
+          <button type="submit" id="submit-btn">Claim My Spot →</button>
+        </form>
+        <p class="privacy-note">🔒 We respect your privacy. Your data is never sold. <a href="/privacy">Privacy Policy</a></p>
+      </div>
+      <div id="success-area" class="success" style="display:none;">
+        <div class="emoji">🎉</div>
+        <h2>You're on the list!</h2>
+        <p>Welcome to Urbyte. You're one of the first Australians to take back what's yours. We'll be in touch soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <span>Urbyte</span>
+    </div>
+    <p>Converting unused data into real value for real Australians.</p>
+    <p class="links">© 2026 Urbyte Pty Ltd · All rights reserved · <a href="/privacy">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const err = document.getElementById('error-msg');
+      btn.textContent = 'Joining...';
+      btn.disabled = true;
+      err.style.display = 'none';
+      try {
+        const res = await fetch('https://api.base44.com/api/apps/69e54848f3653b389b5d9ecc/entities/WaitlistEntry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            telco: document.getElementById('telco').value,
+            plan_gb: document.getElementById('plan_gb').value,
+            message: document.getElementById('message').value,
+          })
+        });
+        if (res.ok) {
+          document.getElementById('form-area').style.display = 'none';
+          document.getElementById('success-area').style.display = 'block';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        err.textContent = 'Something went wrong. Please try again.';
+        err.style.display = 'block';
+        btn.textContent = 'Claim My Spot →';
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
