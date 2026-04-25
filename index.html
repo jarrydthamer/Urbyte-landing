@@ -143,6 +143,11 @@
       .tier-grid { grid-template-columns: 1fr; }
     }
 
+    /* Prepaid callout */
+    .prepaid-callout { display: flex; align-items: flex-start; gap: 16px; background: rgba(255,180,0,0.07); border: 1px solid rgba(255,180,0,0.25); border-radius: 14px; padding: 20px 24px; max-width: 760px; margin: 0 auto 48px; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .prepaid-callout-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .prepaid-callout strong { color: #FFB400; display: block; margin-bottom: 4px; font-size: 15px; }
+
     /* FAQ */
     .faq-section { padding: 80px 20px; max-width: 760px; margin: 0 auto; }
     .faq-section h2 { text-align: center; font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
@@ -327,6 +332,13 @@
         💡 The 3-cycle verification protects you — it ensures your DBU balance reflects your real unused data before you spend
       </div>
 
+      <div class="prepaid-callout">
+        <div class="prepaid-callout-icon">📱</div>
+        <div>
+          <strong>On a prepaid plan?</strong> If you use all your data before the month ends, there's nothing left to bank — and no DBUs to earn. The fix is simple: <span style="color:#fff;">upgrading to a higher recharge gives you a buffer of unused data</span> that Urbyte converts into DBUs every cycle. The bigger your recharge, the more you earn.
+        </div>
+      </div>
+
       <!-- Tier Cards -->
       <div class="tier-grid">
 
@@ -469,6 +481,16 @@
       </button>
       <div class="faq-answer">
         <p>Absolutely. Urbyte only reads the data usage figures from your telco bill — we never access your calls, messages, or personal content. All data is handled under the Australian Privacy Act 1988. Read our <a href="/privacy">Privacy Policy</a> for full details.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        I'm on a prepaid plan — can I still earn DBUs?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — but it depends on your recharge size. If you use all your data before the month ends, there's nothing left to bank. The key is upgrading to a higher recharge so you consistently have unused data at the end of each cycle. Urbyte converts that leftover into DBUs automatically. Think of a bigger prepaid recharge as an investment — the excess pays you back in DBUs.</p>
       </div>
     </div>
 
