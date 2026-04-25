@@ -149,11 +149,11 @@
     .prepaid-callout strong { color: #FFB400; display: block; margin-bottom: 4px; font-size: 15px; }
 
     /* FAQ */
-    .faq-section { padding: 80px 20px; max-width: 760px; margin: 0 auto; }
+    .faq-section { padding: 80px 20px; max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
     .faq-section h2 { text-align: center; font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
     .faq-section .faq-sub { text-align: center; color: rgba(255,255,255,0.45); font-size: 16px; margin-bottom: 48px; }
     .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 20px 0; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 20px 0; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; position: relative; z-index: 2; }
     .faq-question:hover { color: #00e5ff; }
     .faq-icon { font-size: 20px; transition: transform 0.3s; flex-shrink: 0; color: rgba(255,255,255,0.4); }
     .faq-item.open .faq-icon { transform: rotate(45deg); color: #00e5ff; }
@@ -341,6 +341,7 @@
       background: rgba(255,255,255,0.2);
       transform: skewX(-20deg);
       transition: left 0.5s ease;
+      pointer-events: none;
     }
     .tier-btn:hover::after {
       left: 125%;
@@ -601,7 +602,7 @@
             <li><span class="check">✓</span> 5 entries into Founders Prize Draw</li>
             <li><span class="check">✓</span> Founding Member badge — forever</li>
           </ul>
-          <button class="tier-btn" onclick="joinTier('bronze')">Join as Bronze Member</button>
+          <button class="tier-btn" onclick="joinTier('bronze', this)">Join as Bronze Member</button>
         </div>
 
         <!-- SILVER -->
@@ -619,7 +620,7 @@
             <li><span class="check">✓</span> Locked-in Silver rate forever</li>
             <li><span class="check">✓</span> Early access to new reward partners</li>
           </ul>
-          <button class="tier-btn" onclick="joinTier('silver')">Join as Silver Member</button>
+          <button class="tier-btn" onclick="joinTier('silver', this)">Join as Silver Member</button>
         </div>
 
         <!-- GOLD -->
@@ -636,7 +637,7 @@
             <li><span class="check">✓</span> Founding Gold badge — permanently displayed</li>
             <li><span class="check">✓</span> Priority support & feature voting rights</li>
           </ul>
-          <button class="tier-btn" onclick="joinTier('gold')">Join as Gold Member</button>
+          <button class="tier-btn" onclick="joinTier('gold', this)">Join as Gold Member</button>
         </div>
 
       </div>
@@ -828,8 +829,8 @@
 
     const STRIPE_PK = 'pk_test_51TPiJ9RMg1xVoYK7RzjbmZuq9qWE7wfrSKiZZAkgD0fFUgpwWwXxlOOpdP50MBl8OEYHdR5nvXEvWXkwtJ4uKajs00zse1yREl';
 
-    async function joinTier(tier) {
-      const btn = event.target;
+    async function joinTier(tier, el) {
+      const btn = el || event.currentTarget;
       const originalText = btn.textContent;
       btn.textContent = 'Redirecting to checkout...';
       btn.disabled = true;
