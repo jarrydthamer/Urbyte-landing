@@ -808,6 +808,17 @@
   </footer>
 
   <script>
+    // ── FAQ Toggle ──────────────────────────────────────────────
+    function toggleFaq(btn) {
+      try {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      } catch(e) { console.error('FAQ error:', e); }
+    }
+
+    // ── Stripe Checkout ─────────────────────────────────────────
     // Stripe price IDs
     const STRIPE_PRICES = {
       bronze: 'price_1TPiS8RMg1xVoYK7eqb3JUTU',
@@ -900,13 +911,6 @@
         btn.disabled = false;
       }
     });
-  
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
 
   </script>
 
