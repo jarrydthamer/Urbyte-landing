@@ -142,6 +142,20 @@
       .donate-section { padding: 48px 24px; }
       .tier-grid { grid-template-columns: 1fr; }
     }
+
+    /* FAQ */
+    .faq-section { padding: 80px 20px; max-width: 760px; margin: 0 auto; }
+    .faq-section h2 { text-align: center; font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    .faq-section .faq-sub { text-align: center; color: rgba(255,255,255,0.45); font-size: 16px; margin-bottom: 48px; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 20px 0; font-size: 16px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question:hover { color: #00e5ff; }
+    .faq-icon { font-size: 20px; transition: transform 0.3s; flex-shrink: 0; color: rgba(255,255,255,0.4); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); color: #00e5ff; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.75; padding-bottom: 20px; margin: 0; }
+    .faq-answer a { color: #00e5ff; text-decoration: none; }
+    .faq-item.open .faq-answer { max-height: 400px; }
   </style>
 </head>
 <body>
@@ -372,6 +386,104 @@
     </div>
   </div>
 
+
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <p class="faq-sub">Everything you need to know about Urbyte and DBUs.</p>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is a DBU?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>DBU stands for Data Backed Unit. It's Urbyte's digital currency — 1GB of unused data = 10 DBUs, each valued at $0.05 USD. Think of them as loyalty points, but backed by something real: your unused mobile data.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How does Urbyte convert my unused data into DBUs?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>You submit your monthly telco bill to Urbyte. We calculate how much data went unused that cycle and convert it into DBUs at a rate of 10 DBUs per GB. After 3 billing cycles of verification, your balance unlocks for redemption.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What can I do with my DBUs?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Spend them on rewards and gift cards, convert them to cash back, or donate to Australian charities like Beyond Blue, Orange Sky Australia, 1800RESPECT, and more. You choose.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Why do I need to wait 3 billing cycles to redeem?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>The 3-cycle window protects you. It lets us verify your actual average unused data before crediting your wallet — so your DBU balance is accurate and fair. Founding Members get their bonus DBUs immediately; the wait applies to data-backed conversions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Which telcos are supported?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We're building support for all major Australian carriers — Telstra, Optus, Vodafone, TPG, Boost, and more. Join the waitlist and tell us your telco so we can prioritise accordingly.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is the Founders Prize Draw?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Every Founding Member is automatically entered. One winner from the first 50,000 Founding Members will receive equity in Urbyte Pty Ltd. It's our way of saying thank you to the people who believed in us from day one. Full terms will be published prior to the draw.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I cancel my Founding Member subscription?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, anytime. No lock-in contracts. If you cancel, your Founding Member status and any accrued DBUs remain in your wallet — you just won't receive future monthly bonuses.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is my data safe?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely. Urbyte only reads the data usage figures from your telco bill — we never access your calls, messages, or personal content. All data is handled under the Australian Privacy Act 1988. Read our <a href="/privacy">Privacy Policy</a> for full details.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        When does Urbyte launch?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We're currently in the founding phase and building toward our beta launch. Founding Members get first access. Join the waitlist or become a Founding Member to be first in line. You can access the <a href="https://app.urbyte.com.au" target="_blank">Urbyte platform preview</a> right now.</p>
+      </div>
+    </div>
+
+  </div>
+
   <!-- WAITLIST -->
   <div class="waitlist" id="waitlist">
     <div class="waitlist-box">
@@ -475,7 +587,7 @@
     // Load founder count for prize draw counter
     async function loadFounderCount() {
       try {
-        const res = await fetch('https://api.base44.com/api/apps/69b4b3be3eb13fdbcb5a0228/entities/FoundersEntry', {
+        const res = await fetch('https://sage-cb5a0228.base44.app/functions/getFounderCount', {
           headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
@@ -534,6 +646,14 @@
         btn.disabled = false;
       }
     });
+  
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
   </script>
 
 </body>
