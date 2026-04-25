@@ -558,6 +558,7 @@
 
     async function joinTier(tier) {
       const btn = event.target;
+      const originalText = btn.textContent;
       btn.textContent = 'Redirecting to checkout...';
       btn.disabled = true;
 
@@ -568,7 +569,7 @@
           body: JSON.stringify({
             tier,
             successUrl: 'https://app.urbyte.com.au?founding=success&tier=' + tier,
-            cancelUrl: window.location.origin + '/#founding'
+            cancelUrl: 'https://urbyte.com.au/#founding'
           })
         });
         const data = await res.json();
@@ -579,7 +580,7 @@
         }
       } catch (err) {
         alert('Something went wrong. Please try again.');
-        btn.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' Member';
+        btn.textContent = originalText;
         btn.disabled = false;
       }
     }
