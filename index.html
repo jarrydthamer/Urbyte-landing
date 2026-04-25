@@ -293,20 +293,20 @@
       <div class="founding-header">
         <div class="founding-badge">🏆 Founders Prize Draw — Win Equity in Urbyte</div>
         <h2>Become a <span class="gradient-text">Founding Member</span></h2>
-        <p>Be among the first 50,000 Australians to take back control of their data. Every Founding Member is automatically entered into the <strong style="color:#fff;">Founders Prize Draw</strong> — with a chance to win equity in Urbyte.</p>
+        <p>Be among the first 10,000 Founding Members and earn entries into the <strong style="color:#fff;">Founders Prize Draw</strong> — with a chance to win equity in Urbyte. Higher tiers earn more entries.</p>
       </div>
 
       <!-- Prize Draw Counter -->
       <div class="prize-counter">
         <div class="prize-counter-top">
           <span>🎟️ Founders Prize Draw</span>
-          <span id="counter-nums">0 / 50,000</span>
+          <span id="counter-nums">0 / 10,000</span>
         </div>
         <div class="prize-progress">
           <div class="prize-bar" id="prize-bar" style="width:0%"></div>
         </div>
-        <div class="prize-counter-label" id="spots-remaining">50,000 spots remaining</div>
-        <div class="prize-counter-sub">Every Founding Member gets automatic entry. One winner receives equity in Urbyte.</div>
+        <div class="prize-counter-label" id="spots-remaining">🎯 Milestone: 10,000 Founding Members</div>
+        <div class="prize-counter-sub">🥉 Bronze = 5 entries &nbsp;·&nbsp; 🥈 Silver = 15 entries &nbsp;·&nbsp; 🥇 Gold = 29 entries. Draw held when milestone is reached.</div>
       </div>
 
       <!-- How it works -->
@@ -352,7 +352,7 @@
             <li><span class="check">✓</span> Early access to Urbyte beta</li>
             <li><span class="check">✓</span> Convert your existing unused data now</li>
             <li><span class="check">✓</span> 50 bonus DBUs on signup</li>
-            <li><span class="check">✓</span> Automatic entry into Founders Prize Draw</li>
+            <li><span class="check">✓</span> 5 entries into Founders Prize Draw</li>
             <li><span class="check">✓</span> Founding Member badge — forever</li>
           </ul>
           <button class="tier-btn" onclick="joinTier('bronze')">Join as Bronze Member</button>
@@ -367,6 +367,7 @@
           <div class="tier-dbu">+150 DBUs on signup</div>
           <ul class="tier-perks">
             <li><span class="check">✓</span> Everything in Bronze</li>
+            <li><span class="check">✓</span> 15 entries into Founders Prize Draw</li>
             <li><span class="check">✓</span> 150 bonus DBUs on signup</li>
             <li><span class="check">✓</span> Priority redemption queue</li>
             <li><span class="check">✓</span> Locked-in Silver rate forever</li>
@@ -394,7 +395,7 @@
 
       </div>
 
-      <p class="founding-legal">Founding Member subscriptions are billed monthly and can be cancelled anytime. DBU redemptions unlock after 3 completed billing cycles for usage verification. The Founders Prize Draw is open to the first 50,000 Founding Members. Equity prize subject to final terms and conditions. Urbyte Pty Ltd, Australia.</p>
+      <p class="founding-legal">Founding Member subscriptions are billed monthly and can be cancelled anytime. DBU redemptions unlock after 3 completed billing cycles for usage verification. The Founders Prize Draw draw is held when 10,000 Founding Members are reached. Bronze members receive 5 entries, Silver 15 entries, Gold 29 entries. Equity prize subject to final terms and conditions. Urbyte Pty Ltd, Australia.</p>
     </div>
   </div>
 
@@ -460,7 +461,7 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Every Founding Member is automatically entered. One winner from the first 50,000 Founding Members will receive equity in Urbyte Pty Ltd. It's our way of saying thank you to the people who believed in us from day one. Full terms will be published prior to the draw.</p>
+        <p>Every Founding Member is automatically entered. One winner from the first 10,000 Founding Members will receive equity in Urbyte Pty Ltd. Bronze members receive 5 entries, Silver 15, and Gold 29 — the more you invest, the better your odds. It's our way of saying thank you to the people who believed in us from day one. Full terms will be published prior to the draw.</p>
       </div>
     </div>
 
@@ -618,10 +619,9 @@
         });
         const data = await res.json();
         const count = Array.isArray(data) ? data.length : (data.count || 0);
-        const remaining = Math.max(0, 50000 - count);
-        const pct = Math.min(100, (count / 50000) * 100);
-        document.getElementById('counter-nums').textContent = count.toLocaleString() + ' / 50,000';
-        document.getElementById('spots-remaining').textContent = remaining.toLocaleString() + ' spots remaining';
+        const pct = Math.min(100, (count / 10000) * 100);
+        document.getElementById('counter-nums').textContent = count.toLocaleString() + ' / 10,000';
+        document.getElementById('spots-remaining').textContent = '🎯 Milestone: 10,000 Founding Members';
         document.getElementById('prize-bar').style.width = pct + '%';
       } catch(e) {}
     }
