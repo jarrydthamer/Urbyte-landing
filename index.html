@@ -161,9 +161,255 @@
     .faq-answer p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.75; padding-bottom: 20px; margin: 0; }
     .faq-answer a { color: #00e5ff; text-decoration: none; }
     .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* ===== VISUAL ENHANCEMENTS ===== */
+
+    /* Shimmer animation */
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 12px rgba(255,215,0,0.2), 0 0 24px rgba(255,215,0,0.1); }
+      50% { box-shadow: 0 0 24px rgba(255,215,0,0.5), 0 0 48px rgba(255,215,0,0.25); }
+    }
+    @keyframes pulse-glow-blue {
+      0%, 100% { box-shadow: 0 0 12px rgba(0,201,255,0.2), 0 0 24px rgba(0,201,255,0.1); }
+      50% { box-shadow: 0 0 24px rgba(0,201,255,0.5), 0 0 48px rgba(0,201,255,0.2); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes border-spin {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero floating badge */
+    .badge {
+      animation: pulse-glow-blue 3s ease-in-out infinite;
+    }
+
+    /* Shimmer on founding badge */
+    .founding-badge {
+      background: linear-gradient(90deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.25) 40%, rgba(255,215,0,0.1) 60%, rgba(255,215,0,0.1) 100%);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite, pulse-glow 3s ease-in-out infinite;
+    }
+
+    /* Shimmer on tier emoji badges */
+    .tier-emoji {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 8px;
+      animation: float 3s ease-in-out infinite;
+    }
+    .tier-card.bronze .tier-emoji { animation-delay: 0s; }
+    .tier-card.silver .tier-emoji { animation-delay: 0.4s; }
+    .tier-card.gold .tier-emoji { animation-delay: 0.8s; }
+
+    /* Shimmer on tier names */
+    .tier-card.bronze .tier-name {
+      background: linear-gradient(90deg, #cd7f32, #e8a87c, #cd7f32, #b87333);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+    .tier-card.silver .tier-name {
+      background: linear-gradient(90deg, #a8a9ad, #e8e8e8, #d4d5d9, #a8a9ad);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 2.5s linear infinite;
+    }
+    .tier-card.gold .tier-name {
+      background: linear-gradient(90deg, #FFD700, #FFF8DC, #FFD700, #FFA500);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 2s linear infinite;
+    }
+
+    /* Tier card hover glow */
+    .tier-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    }
+    .tier-card.bronze:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(205,127,50,0.25);
+      border-color: rgba(205,127,50,0.5) !important;
+    }
+    .tier-card.silver:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(192,192,192,0.25);
+      border-color: rgba(192,192,192,0.5) !important;
+    }
+    .tier-card.gold:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(255,215,0,0.3);
+      border-color: rgba(255,215,0,0.6) !important;
+    }
+
+    /* Gold card base glow */
+    .tier-card.gold {
+      box-shadow: 0 8px 32px rgba(255,215,0,0.12);
+    }
+
+    /* Prize counter animated border */
+    .prize-counter {
+      position: relative;
+      background: rgba(255,255,255,0.04) !important;
+      border: none !important;
+      border-radius: 16px;
+      padding: 20px 28px;
+      max-width: 480px;
+      margin: 0 auto 48px;
+    }
+    .prize-counter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(90deg, #00C9FF, #7B2FFF, #FFD700, #00C9FF);
+      background-size: 300% 300%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: border-spin 4s linear infinite;
+    }
+
+    /* Prize bar shimmer */
+    .prize-bar {
+      background: linear-gradient(90deg, #00C9FF, #7B2FFF, #00C9FF) !important;
+      background-size: 200% auto !important;
+      animation: shimmer 2s linear infinite !important;
+    }
+
+    /* Stat numbers shimmer */
+    .stat-num {
+      background: linear-gradient(90deg, #00C9FF, #7B2FFF, #00C9FF, #0077FF);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* Card hover lift */
+    .card {
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,201,255,0.3) !important;
+      box-shadow: 0 12px 40px rgba(0,201,255,0.1);
+    }
+
+    /* Charity card hover */
+    .charity-card {
+      transition: transform 0.3s ease, border-color 0.3s ease !important;
+    }
+    .charity-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,201,255,0.3) !important;
+    }
+
+    /* Tier button shimmer on hover */
+    .tier-btn {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    .tier-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -75%;
+      width: 50%;
+      height: 200%;
+      background: rgba(255,255,255,0.2);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+    .tier-btn:hover::after {
+      left: 125%;
+    }
+    .tier-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,119,255,0.4);
+    }
+
+    /* Hero section fade in */
+    .hero { animation: fadeInUp 0.8s ease both; }
+
+    /* Particles canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    nav, .hero, section, .founding, .waitlist, .contact-section, footer {
+      position: relative;
+      z-index: 1;
+    }
+    /* ===== END VISUAL ENHANCEMENTS ===== */
+
   </style>
 </head>
 <body>
+
+  <!-- Particle background -->
+  <canvas id="particles-canvas"></canvas>
+  <script>
+    (function() {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+      for (let i = 0; i < 60; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          dx: (Math.random() - 0.5) * 0.3,
+          dy: (Math.random() - 0.5) * 0.3,
+          alpha: Math.random() * 0.5 + 0.1,
+          color: Math.random() > 0.5 ? '0,201,255' : '123,47,255'
+        });
+      }
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha + ')';
+          ctx.fill();
+          p.x += p.dx; p.y += p.dy;
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+
 
   <!-- NAV -->
   <nav>
