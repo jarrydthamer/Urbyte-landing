@@ -515,6 +515,7 @@
         <form id="waitlist-form">
           <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
+          <input type="tel" id="mobile" placeholder="Mobile number (e.g. 0412 345 678)" />
           <input type="text" id="telco" placeholder="Your telco (e.g. Telstra, Optus)" />
           <input type="text" id="plan_gb" placeholder="Your data plan size (e.g. 20GB)" />
           <textarea id="message" rows="3" placeholder="Anything else you'd like to tell us? (optional)"></textarea>
@@ -527,6 +528,7 @@
         <div class="emoji">🎉</div>
         <h2>You're on the list!</h2>
         <p>Welcome to Urbyte. You're one of the first Australians to take back what's yours. We'll be in touch soon.</p>
+        <p id="telco-detect-msg" style="color:#00e5ff; font-weight:700; margin-top:8px; display:none;"></p>
       </div>
     </div>
   </div>
@@ -651,14 +653,21 @@
           body: JSON.stringify({
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
+            mobile: document.getElementById('mobile').value,
             telco: document.getElementById('telco').value,
             plan_gb: document.getElementById('plan_gb').value,
             message: document.getElementById('message').value,
           })
         });
         if (res.ok) {
+          const data = await res.json();
           document.getElementById('form-area').style.display = 'none';
           document.getElementById('success-area').style.display = 'block';
+          if (data.detected_telco && data.detected_telco !== 'Unknown' && data.detected_telco !== 'Other') {
+            const msg = document.getElementById('telco-detect-msg');
+            msg.textContent = '📱 We detected you're on ' + data.detected_telco + ' — your unused data could be worth ~' + data.estimatedDBU + ' DBUs/month!';
+            msg.style.display = 'block';
+          }
         } else {
           throw new Error();
         }
