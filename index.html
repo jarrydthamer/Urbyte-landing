@@ -221,6 +221,7 @@
     .tier-badge.popular { background:rgba(160,160,180,0.9); color:#000; }
     .tier-badge.best { background:linear-gradient(90deg,#8B6914,#DAA520); color:#000; }
     .tier-geo { width:40px; height:40px; margin-bottom:14px; }
+    .tier-size-label { font-size:8px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:rgba(0,229,204,0.4); margin-bottom:4px; }
     .tier-name { font-size:14px; font-weight:900; letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; color:rgba(255,255,255,0.7); }
     .tier-price { margin-bottom:14px; }
     .tier-price span { font-size:44px; font-weight:900; letter-spacing:-3px; }
@@ -251,6 +252,73 @@
     .faq-item.open .faq-a { max-height:400px; }
     .faq-a p { color:rgba(255,255,255,0.35); font-size:14px; line-height:2; padding-bottom:22px; }
     .faq-a a { color:#00E5CC; text-decoration:underline; }
+
+
+    /* FLAGS */
+    .footer-flags { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:16px; }
+    .flag-wrap { display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .flag-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.15); }
+    .flag-svg { width:48px; height:30px; border-radius:2px; overflow:hidden; }
+    /* Aboriginal flag glow animation */
+    @keyframes abo-glow {
+      0% { filter:drop-shadow(0 0 3px rgba(255,218,0,0.2)) drop-shadow(0 0 6px rgba(204,0,0,0.2)); opacity:0.85; }
+      25% { filter:drop-shadow(0 0 8px rgba(255,218,0,0.6)) drop-shadow(0 0 16px rgba(204,0,0,0.4)); opacity:1; }
+      50% { filter:drop-shadow(0 0 14px rgba(255,218,0,0.9)) drop-shadow(0 0 28px rgba(204,0,0,0.6)) drop-shadow(0 0 50px rgba(255,218,0,0.3)); opacity:1; }
+      75% { filter:drop-shadow(0 0 8px rgba(255,218,0,0.6)) drop-shadow(0 0 16px rgba(204,0,0,0.4)); opacity:1; }
+      100% { filter:drop-shadow(0 0 3px rgba(255,218,0,0.2)) drop-shadow(0 0 6px rgba(204,0,0,0.2)); opacity:0.85; }
+    }
+    .flag-abo { animation:abo-glow 4s ease-in-out infinite; }
+    .footer-acknowledge { color:rgba(255,255,255,0.12); font-size:10px; margin-top:12px; line-height:1.9; max-width:560px; margin-left:auto; margin-right:auto; font-style:italic; letter-spacing:0.3px; }
+
+    /* HERO LIGHT SWEEP */
+    .hero-sweep-wrap { position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+    .hero-sweep-text {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      font-size:clamp(80px,18vw,240px); font-weight:900; letter-spacing:-6px;
+      color:transparent; white-space:nowrap; user-select:none;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(91,0,255,0.08) 0px, rgba(91,0,255,0.08) 1px,
+        transparent 1px, transparent 8px,
+        rgba(0,229,204,0.04) 8px, rgba(0,229,204,0.04) 9px,
+        transparent 9px, transparent 16px
+      );
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-stroke:1px rgba(91,0,255,0.12);
+    }
+    @keyframes sweep {
+      0% { --sweep-x:-200%; }
+      100% { --sweep-x:300%; }
+    }
+    .hero-sweep-text::before {
+      content:attr(data-text);
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(194,0,58,0.05) 0px, rgba(194,0,58,0.05) 1px,
+        transparent 1px, transparent 10px
+      );
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+    }
+    .hero-sweep-text::after {
+      content:attr(data-text);
+      position:absolute; inset:0;
+      background: linear-gradient(105deg, transparent 0%, transparent 35%, rgba(255,255,255,0.65) 48%, rgba(167,139,255,0.45) 52%, rgba(0,229,204,0.2) 56%, transparent 68%, transparent 100%);
+      background-size:400% 100%;
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+      animation:sweepAnim 6s ease-in-out infinite;
+    }
+    @keyframes sweepAnim {
+      0% { background-position:200% center; }
+      100% { background-position:-100% center; }
+    }
+
+    /* Flower of life logo overlay */
+    .logo-fol { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:32px; height:32px; opacity:0.4; pointer-events:none; }
+    @keyframes fol-pulse { 0%,100%{opacity:0.35;} 50%{opacity:0.55;} }
+    .logo-fol-nav { animation:fol-pulse 4s ease-in-out infinite; }
 
     /* WAITLIST */
     .waitlist-wrap { max-width:560px; margin:0 auto; }
@@ -438,7 +506,19 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+    <div style="position:relative;display:inline-block;width:34px;height:34px;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;" />
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 4s ease-in-out infinite;">
+        <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="34.4" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="65.6" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="34.4" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="65.6" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(91,0,255,0.2)" stroke-width="0.8"/>
+      </svg>
+    </div>
     <span>Urbyte</span>
     <span class="nav-tag">// BETA</span>
   </div>
@@ -485,6 +565,10 @@
       <line x1="500" y1="0" x2="625" y2="500" stroke="url(#fg)" stroke-width="0.4"/>
     </svg>
   </div>
+  <!-- HERO LIGHT SWEEP BACKDROP -->
+  <div class="hero-sweep-wrap">
+    <div class="hero-sweep-text" data-text="URBYTE">URBYTE</div>
+  </div>
   <div class="hero-vortex"></div>
   <div class="hero-content">
     <div class="sys-badge"><span class="sys-dot"></span> SYSTEM ONLINE · AUSTRALIA · SIGNAL RETURNING</div>
@@ -493,9 +577,9 @@
       <span class="h1-line2">What You've</span>
       <span class="h1-line3">Already Paid For.</span>
     </h1>
-    <p class="hero-sub">Every month, Australians pay for more than they use. That value doesn't vanish. It waits. Urbyte returns it.</p>
+    <p class="hero-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
     <div class="hero-btns">
-      <a href="#founding" class="btn-primary">Join the Waitlist</a>
+      <a href="#founding" class="btn-primary">Get Your Byte</a>
       <a href="#how" class="btn-ghost">How It Works</a>
     </div>
     <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
@@ -507,7 +591,7 @@
   <div class="stats-inner">
     <div><div class="stat-num s1">26M+</div><div class="stat-label">Australians paying for more than they use</div></div>
     <div><div class="stat-num s2">$9.6B+</div><div class="stat-label">In value lost to the system every year</div></div>
-    <div><div class="stat-num s3">55GB</div><div class="stat-label">Average signal left unclaimed each month</div></div>
+    <div><div class="stat-num s3">55GB</div><div class="stat-label">Bytes left unclaimed each month</div></div>
   </div>
 </div>
 
@@ -538,7 +622,7 @@
   <div class="sec-inner">
     <div class="sec-tag">Something Is Building</div>
     <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
-    <p class="sec-sub">Every month, a signal builds. Quietly. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
     <div class="signal-wrap">
       <div class="signal-orb">
         <svg class="signal-inner"><use href="#ico-signal"/></svg>
@@ -621,6 +705,7 @@
 <div class="sec">
   <div class="sec-inner">
     <div class="sec-tag">Where It Goes</div>
+    <div style="display:inline-block;margin-bottom:16px;padding:6px 20px;border:1px solid rgba(0,229,204,0.25);background:rgba(0,229,204,0.04);letter-spacing:4px;font-size:11px;font-weight:900;text-transform:uppercase;color:rgba(0,229,204,0.7);">Givabit</div>
     <h2 class="sec-title">Direct your signal.<br/>Change something real.</h2>
     <p class="sec-sub">Choose to channel returned value toward Australian organisations doing work that matters. No middlemen. Nothing lost in transit.</p>
     <div class="charity-grid">
@@ -642,7 +727,7 @@
     <div class="founder-box">
       <div class="founder-label">Why I Built This</div>
       <div class="founder-text">
-        <p>My name is Jarryd. If you'd told me I'd be a tech founder, I wouldn't have believed you. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour. I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
+        <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
       </div>
       <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
     </div>
@@ -721,7 +806,7 @@
     <div class="tier-grid">
       <div class="tier-card bronze">
         <svg class="tier-geo"><use href="#ico-tri"/></svg>
-        <div class="tier-name">Bronze</div>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
         <div class="tier-price"><span>$5</span><small>/mo</small></div>
         <div class="tier-signal">Signal activated on signup</div>
         <ul class="tier-perks">
@@ -729,12 +814,12 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
-        <button class="tier-btn" onclick="joinTier('bronze',this)">Join as Bronze</button>
+        <button class="tier-btn" onclick="joinTier('bronze',this)">Get Your Byte · Bronze</button>
       </div>
       <div class="tier-card silver">
         <div class="tier-badge popular">Most Popular</div>
         <svg class="tier-geo"><use href="#ico-hex"/></svg>
-        <div class="tier-name">Silver</div>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Silver</div>
         <div class="tier-price"><span>$15</span><small>/mo</small></div>
         <div class="tier-signal">Amplified signal on signup</div>
         <ul class="tier-perks">
@@ -745,12 +830,12 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
-        <button class="tier-btn" onclick="joinTier('silver',this)">Join as Silver</button>
+        <button class="tier-btn" onclick="joinTier('silver',this)">Get Your Byte · Silver</button>
       </div>
       <div class="tier-card gold">
         <div class="tier-badge best">Best Value</div>
         <svg class="tier-geo"><use href="#ico-diamond"/></svg>
-        <div class="tier-name">Gold</div>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
         <div class="tier-price"><span>$29</span><small>/mo</small></div>
         <div class="tier-signal">Maximum signal on signup</div>
         <ul class="tier-perks">
@@ -763,7 +848,7 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
         </ul>
-        <button class="tier-btn" onclick="joinTier('gold',this)">Join as Gold</button>
+        <button class="tier-btn" onclick="joinTier('gold',this)">Get Your Byte · Gold</button>
       </div>
     </div>
     <p class="founding-legal">Founding Member subscriptions are billed monthly and can be cancelled anytime. Value unlocks after 3 completed billing cycles for usage verification. Founding Member rates are locked in for the life of your active subscription. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
@@ -809,7 +894,7 @@
           <input type="text" id="plan_gb" placeholder="Your data plan size (e.g. 20GB)" />
           <textarea id="message" rows="3" placeholder="Anything else? (optional)"></textarea>
           <div id="error-msg" class="error" style="display:none;"></div>
-          <button type="submit" id="submit-btn">Stay in Range →</button>
+          <button type="submit" id="submit-btn">Get Your Byte →</button>
         </form>
         <p class="privacy-note">Protected under the Australian Privacy Act 1988 · <a href="/privacy">Privacy Policy</a> · <a href="mailto:information@urbyte.com.au">Contact</a></p>
       </div>
@@ -847,8 +932,24 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+  <div class="footer-logo" style="position:relative;">
+    <div style="position:relative;display:inline-block;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
+        <!-- Flower of Life: central circle + 6 surrounding -->
+        <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <!-- outer boundary circle -->
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(91,0,255,0.4)" stroke-width="0.8"/>
+        <!-- inner detail rings -->
+        <circle cx="50" cy="50" r="9" fill="none" stroke="rgba(0,229,204,0.3)" stroke-width="0.6"/>
+      </svg>
+    </div>
     <span>Urbyte</span>
   </div>
   <p>© 2025 Urbyte Pty Ltd ACN 692 885 019. All rights reserved.</p>
@@ -857,7 +958,59 @@
     <a href="/terms">Terms &amp; Conditions</a>
     <a href="mailto:information@urbyte.com.au">Contact</a>
   </div>
-  <p class="footer-acknowledge">We acknowledge the Widjabul Wiabul people of the Bundjalung Nation as the traditional custodians of the land on which Urbyte was founded.</p>
+  <div class="footer-flags">
+    <div class="flag-wrap">
+      <svg class="flag-svg flag-abo" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Aboriginal Flag: black top, red bottom, yellow circle -->
+        <rect width="48" height="15" fill="#000000"/>
+        <rect y="15" width="48" height="15" fill="#CC0000"/>
+        <circle cx="24" cy="15" r="7" fill="#FFDA00"/>
+        <!-- glow rings -->
+        <circle cx="24" cy="15" r="8" fill="none" stroke="rgba(255,218,0,0.35)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="9.5" fill="none" stroke="rgba(255,218,0,0.15)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="11" fill="none" stroke="rgba(255,218,0,0.07)" stroke-width="1"/>
+      </svg>
+      <span class="flag-label">Aboriginal</span>
+    </div>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Torres Strait Islander Flag: green top & bottom, blue middle, black stripes, white star & dhari -->
+        <rect width="48" height="30" fill="#009B77"/>
+        <rect y="9" width="48" height="12" fill="#0047AB"/>
+        <rect y="7.5" width="48" height="2" fill="#000"/>
+        <rect y="20.5" width="48" height="2" fill="#000"/>
+        <!-- dhari (headdress) simplified as white diamond -->
+        <polygon points="24,6 27,15 24,24 21,15" fill="white" opacity="0.9"/>
+        <!-- star -->
+        <polygon points="24,11 24.9,13.8 27.8,13.8 25.5,15.4 26.4,18.2 24,16.5 21.6,18.2 22.5,15.4 20.2,13.8 23.1,13.8" fill="#009B77"/>
+      </svg>
+      <span class="flag-label">Torres Strait</span>
+    </div>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Australian Flag simplified -->
+        <rect width="48" height="30" fill="#00008B"/>
+        <rect width="16" height="10" fill="#012169"/>
+        <!-- Union Jack simplified -->
+        <line x1="0" y1="0" x2="16" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="0" y1="0" x2="16" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="white" stroke-width="3"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="white" stroke-width="3"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="#CC0000" stroke-width="1"/>
+        <!-- Southern cross simplified dots -->
+        <circle cx="36" cy="9" r="1.2" fill="white"/>
+        <circle cx="42" cy="14" r="1.2" fill="white"/>
+        <circle cx="38" cy="20" r="1.2" fill="white"/>
+        <circle cx="32" cy="20" r="1.2" fill="white"/>
+        <circle cx="30" cy="13" r="0.9" fill="white"/>
+      </svg>
+      <span class="flag-label">Australia</span>
+    </div>
+  </div>
+  <p class="footer-acknowledge">We acknowledge the Widjabul Wiabul people of the Bundjalung Nation as the traditional custodians of the land on which Urbyte was conceived and built. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples across Australia. Always was, always will be, Aboriginal land.</p>
 </footer>
 
 <script>
