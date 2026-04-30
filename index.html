@@ -59,13 +59,13 @@
       width:260px; height:260px; border-radius:50%;
       background: radial-gradient(circle, #4A0080 0%, #8B0057 35%, #C2003A 60%, #1A0030 100%);
       filter: blur(1px);
-      animation: sun-breathe 5s ease-in-out infinite alternate;
+      animation: sun-breathe 12s ease-in-out infinite alternate;
       pointer-events:none;
       box-shadow: 0 0 80px rgba(139,0,87,0.5), 0 0 160px rgba(74,0,128,0.3);
     }
     .hero-sun-stripes { position:absolute; bottom:28%; left:50%; transform:translateX(-50%); width:260px; height:130px; overflow:hidden; pointer-events:none; }
     .sun-stripe { position:absolute; left:0; right:0; height:6px; background:rgba(0,0,10,0.85); }
-    @keyframes sun-breathe { from{opacity:0.85;transform:translateX(-50%) scale(1)} to{opacity:1;transform:translateX(-50%) scale(1.03)} }
+    @keyframes sun-breathe { from{opacity:0.3;transform:translateX(-50%) scale(1)} to{opacity:0.45;transform:translateX(-50%) scale(1.02)} }
     .hero-vortex {
       position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
       width:700px; height:700px; border-radius:50%;
@@ -97,7 +97,7 @@
     }
     @keyframes spectrum { to { background-position:300% center; } }
 
-    .hero-sub { font-size:16px; color:rgba(255,255,255,0.38); line-height:2; max-width:500px; margin:0 auto 44px; letter-spacing:0.3px; text-shadow:0 0 20px rgba(0,0,0,0.9); }
+    .hero-sub { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; max-width:500px; margin:0 auto 44px; letter-spacing:0.3px; text-shadow:0 0 20px rgba(0,0,0,0.9); }
     .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
     .btn-primary { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:15px 42px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 0 40px rgba(0,229,204,0.3),0 0 80px rgba(91,0,255,0.15); transition:all 0.3s; display:inline-block; border:none; }
     .btn-primary:hover { box-shadow:0 0 60px rgba(0,229,204,0.5),0 0 120px rgba(91,0,255,0.25); transform:translateY(-2px); }
@@ -156,13 +156,13 @@
       width:180px; height:180px; border-radius:50%; margin:0 auto 32px;
       background: radial-gradient(circle, rgba(0,229,204,0.25) 0%, rgba(91,0,255,0.15) 50%, transparent 75%);
       border: 1px solid rgba(0,229,204,0.2);
-      animation: signal-pulse 3s ease-in-out infinite;
+      animation: signal-pulse 8s ease-in-out infinite;
       position:relative; display:flex; align-items:center; justify-content:center;
     }
-    .signal-orb::before { content:''; position:absolute; inset:-20px; border-radius:50%; border:1px solid rgba(91,0,255,0.1); animation:signal-pulse 3s ease-in-out infinite 0.5s; }
-    .signal-orb::after { content:''; position:absolute; inset:-40px; border-radius:50%; border:1px solid rgba(194,0,58,0.07); animation:signal-pulse 3s ease-in-out infinite 1s; }
+    .signal-orb::before { content:''; position:absolute; inset:-20px; border-radius:50%; border:1px solid rgba(91,0,255,0.1); animation:signal-pulse 8s ease-in-out infinite 0.5s; }
+    .signal-orb::after { content:''; position:absolute; inset:-40px; border-radius:50%; border:1px solid rgba(194,0,58,0.07); animation:signal-pulse 8s ease-in-out infinite 1s; }
     .signal-inner { width:60px; height:60px; }
-    @keyframes signal-pulse { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.04)} }
+    @keyframes signal-pulse { 0%,100%{opacity:0.15;transform:scale(1)} 50%{opacity:0.3;transform:scale(1.02)} }
     .signal-text { font-size:13px; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; line-height:2; }
     .signal-text strong { display:block; font-size:22px; font-weight:900; letter-spacing:-1px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:none; }
 
@@ -170,7 +170,7 @@
     .movement-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(91,0,255,0.12); padding:90px 70px; text-align:center; position:relative; overflow:hidden; max-width:960px; margin:0 auto; }
     .movement-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 120%,rgba(91,0,255,0.1) 0%,transparent 65%); pointer-events:none; }
     .movement-box h2 { font-size:clamp(30px,4vw,50px); font-weight:900; letter-spacing:-2px; margin-bottom:24px; text-shadow:0 0 60px rgba(91,0,255,0.3); }
-    .movement-box p { font-size:16px; color:rgba(255,255,255,0.38); line-height:2; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .movement-box p { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
     .movement-tagline { font-size:24px; font-weight:900; letter-spacing:-1px; margin-top:36px !important; background:linear-gradient(90deg,#00E5CC,#5B00FF,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.3)); }
 
     /* CHARITIES */
@@ -231,7 +231,7 @@
     .silver .tier-signal { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
     .gold .tier-signal { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
     .tier-perks { list-style:none; margin-bottom:28px; flex:1; }
-    .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.38); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
+    .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.22); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
     .tier-perks li:last-child { border-bottom:none; }
     .tier-perks .ck { color:#00E5CC; flex-shrink:0; margin-top:1px; line-height:1; }
     .tier-btn { width:100%; padding:15px; font-weight:900; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; transition:all 0.2s; }
@@ -317,8 +317,8 @@
 
     /* Flower of life logo overlay */
     .logo-fol { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:32px; height:32px; opacity:0.4; pointer-events:none; }
-    @keyframes fol-pulse { 0%,100%{opacity:0.35;} 50%{opacity:0.55;} }
-    .logo-fol-nav { animation:fol-pulse 4s ease-in-out infinite; }
+    @keyframes fol-pulse { 0%,100%{opacity:0.18;} 50%{opacity:0.28;} }
+    .logo-fol-nav { animation:fol-pulse 10s ease-in-out infinite; }
 
     /* WAITLIST */
     .waitlist-wrap { max-width:560px; margin:0 auto; }
@@ -508,7 +508,7 @@
   <div class="nav-logo">
     <div style="position:relative;display:inline-block;width:34px;height:34px;">
       <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;" />
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 4s ease-in-out infinite;">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 10s ease-in-out infinite;">
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
         <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
         <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
@@ -774,13 +774,10 @@
   <div class="sec-inner">
     <div class="founding-header">
       <div class="founding-badge-tag">Founding Members — Limited Spots</div>
-      <h2 class="sec-title" style="text-align:center;">Become a <span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Founding Member.</span></h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center;">Be among the first 10,000 Australians. Lock in your position before the signal reaches everyone else.</p>
+      <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Founding Members are the first Australians to say — not anymore.</p>
     </div>
-    <div class="milestone-bar">
-      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
-      <div class="milestone-sub">Early members lock in the best rates for life</div>
-    </div>
+
     <div class="founding-how">
       <div class="fh-step">
         <svg class="fh-geo"><use href="#ico-hex"/></svg>
@@ -795,13 +792,37 @@
       <div class="fh-step">
         <svg class="fh-geo"><use href="#ico-star"/></svg>
         <div class="fh-title">You Direct It</div>
-        <p class="fh-desc">Spend it on rewards, experiences, or causes you care about</p>
+        <p class="fh-desc">Spend it on rewards, experiences, or the causes that need it most</p>
       </div>
     </div>
+
     <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
+
+    <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
+      <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#00E5CC;">100%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Conversion Rate</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Every single person shown Urbyte signed up</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#8B5CF6;">$9.6B</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Lost Every Year</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">In paid-but-unused Australian mobile data</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#C2003A;">14</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Charity Partners</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Ready to receive what the system has been keeping</div>
+      </div>
+    </div>
+
     <div class="prepaid-callout">
       <svg class="prepaid-mark"><use href="#ico-tri"/></svg>
       <div><strong>On a prepaid plan?</strong> If you use all your data before month-end, there's nothing left to return. Upgrading to a higher recharge creates a buffer — and Urbyte captures that residual value every cycle.</div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:20px;">Choose your position</div>
     </div>
     <div class="tier-grid">
       <div class="tier-card bronze">
@@ -851,7 +872,11 @@
         <button class="tier-btn" onclick="joinTier('gold',this)">Get Your Byte · Gold</button>
       </div>
     </div>
-    <p class="founding-legal">Founding Member subscriptions are billed monthly and can be cancelled anytime. Value unlocks after 3 completed billing cycles for usage verification. Founding Member rates are locked in for the life of your active subscription. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
+    <div class="milestone-bar" style="margin-top:40px;">
+      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
+      <div class="milestone-sub">Early members lock in the best rates — permanently</div>
+    </div>
+    <p class="founding-legal">Cancel anytime. No lock-in. Your founding rate is locked in for the life of your active subscription. Value unlocks after 3 completed billing cycles for usage verification. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
   </div>
 </div>
 
