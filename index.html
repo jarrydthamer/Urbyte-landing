@@ -578,11 +578,28 @@
       <span class="h1-line3">Already Paid For.</span>
     </h1>
     <p class="hero-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
-    <div class="hero-btns">
-      <a href="#founding" class="btn-primary">Get Your Byte</a>
-      <a href="#how" class="btn-ghost">How It Works</a>
-    </div>
-    <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
+    <form id="hero-waitlist-form" style="margin-top:32px;max-width:480px;margin-left:auto;margin-right:auto;">
+      <div style="display:flex;gap:0;margin-bottom:10px;">
+        <input type="text" id="hero-name" placeholder="Your name" required style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(91,0,255,0.25);border-right:none;color:#fff;padding:14px 18px;font-size:13px;font-family:inherit;outline:none;"/>
+        <input type="email" id="hero-email" placeholder="Email address" required style="flex:1.4;background:rgba(255,255,255,0.04);border:1px solid rgba(91,0,255,0.25);color:#fff;padding:14px 18px;font-size:13px;font-family:inherit;outline:none;border-left:none;"/>
+      </div>
+      <div style="display:flex;gap:0;">
+        <input type="text" id="hero-telco" placeholder="Your telco (optional)" style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(91,0,255,0.25);border-right:none;color:#fff;padding:14px 18px;font-size:13px;font-family:inherit;outline:none;"/>
+        <button type="submit" id="hero-submit-btn" style="background:linear-gradient(135deg,#5B00FF,#00E5CC);color:#fff;border:none;padding:14px 24px;font-weight:900;font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 0.2s;">Stay in Range</button>
+        <button type="button" id="hero-support-btn" title="Show your support" onclick="toggleHeroSupport(this)" style="width:50px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);border-left:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="hero-thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" fill="none"/>
+          </svg>
+        </button>
+      </div>
+      <div id="hero-support-label" style="display:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);text-align:right;margin-top:6px;">Signal added</div>
+      <div id="hero-error-msg" style="display:none;color:#C2003A;font-size:12px;margin-top:8px;"></div>
+      <div id="hero-success-msg" style="display:none;text-align:center;padding:16px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);margin-top:10px;">
+        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:4px;">Signal received</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);">Check your inbox — 20 DBUs are waiting for you.</div>
+      </div>
+    </form>
+    <p class="hero-micro" style="margin-top:16px;">Limited early access · Australian owned &amp; operated</p>
   </div>
 </div>
 
@@ -592,46 +609,6 @@
     <div><div class="stat-num s1">26M+</div><div class="stat-label">Australians paying for more than they use</div></div>
     <div><div class="stat-num s2">$9.6B+</div><div class="stat-label">In value lost to the system every year</div></div>
     <div><div class="stat-num s3">55GB</div><div class="stat-label">Bytes left unclaimed each month</div></div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- PROBLEM -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="prob-wrap">
-      <div>
-        <div class="sec-tag">The Pattern</div>
-        <h2 class="sec-title">The system was designed to keep it.</h2>
-        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
-      </div>
-      <div class="prob-lines">
-        <div class="prob-line">You paid for it.</div>
-        <div class="prob-line">You didn't use it.</div>
-        <div class="prob-line accent">And somehow… you still lose it.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- SIGNAL CONCEPT — no label, just sensation -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-tag">Something Is Building</div>
-    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
-    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
-    <div class="signal-wrap">
-      <div class="signal-orb">
-        <svg class="signal-inner"><use href="#ico-signal"/></svg>
-      </div>
-      <div class="signal-text">
-        <strong>Your signal is growing.</strong>
-        It was always there. Now it has somewhere to go.
-      </div>
-    </div>
   </div>
 </div>
 
@@ -663,6 +640,44 @@
         <div class="g-step">Step 03</div>
         <div class="g-title">Direct It</div>
         <p class="g-desc">Spend it on rewards and experiences, or channel it toward Australian causes that matter to you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+<!-- SIGNAL CONCEPT — no label, just sensation -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Something Is Building</div>
+    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <div class="signal-wrap">
+      <div class="signal-orb">
+        <svg class="signal-inner"><use href="#ico-signal"/></svg>
+      </div>
+      <div class="signal-text">
+        <strong>Your signal is growing.</strong>
+        It was always there. Now it has somewhere to go.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+<!-- PROBLEM -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="prob-wrap">
+      <div>
+        <div class="sec-tag">The Pattern</div>
+        <h2 class="sec-title">The system was designed to keep it.</h2>
+        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
+      </div>
+      <div class="prob-lines">
+        <div class="prob-line">You paid for it.</div>
+        <div class="prob-line">You didn't use it.</div>
+        <div class="prob-line accent">And somehow… you still lose it.</div>
       </div>
     </div>
   </div>
@@ -914,12 +929,18 @@
         <form id="waitlist-form">
           <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
-          <input type="tel" id="mobile" placeholder="Mobile number" />
-          <input type="text" id="telco" placeholder="Your telco (e.g. Telstra, Optus)" />
-          <input type="text" id="plan_gb" placeholder="Your data plan size (e.g. 20GB)" />
-          <textarea id="message" rows="3" placeholder="Anything else? (optional)"></textarea>
+          <input type="text" id="telco" placeholder="Your telco provider (e.g. Telstra, Optus)" />
+          <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
           <div id="error-msg" class="error" style="display:none;"></div>
-          <button type="submit" id="submit-btn">Get Your Byte →</button>
+          <div style="display:flex;gap:12px;align-items:stretch;">
+            <button type="submit" id="submit-btn" style="flex:1;">Stay in Range</button>
+            <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
+              </svg>
+            </button>
+          </div>
+          <div id="support-count" style="display:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);text-align:right;margin-top:6px;">Signal added</div>
         </form>
         <p class="privacy-note">Protected under the Australian Privacy Act 1988 · <a href="/privacy">Privacy Policy</a> · <a href="mailto:information@urbyte.com.au">Contact</a></p>
       </div>
@@ -1057,12 +1078,73 @@
     document.getElementById('founding').scrollIntoView({behavior:'smooth'});
     setTimeout(()=>{alert('Welcome to Urbyte. Your signal has been activated. Welcome to the founding community.');},500);
   }
+  function toggleHeroSupport(btn){
+    const path=document.getElementById('hero-thumb-path');
+    const label=document.getElementById('hero-support-label');
+    const active=btn.getAttribute('data-active')==='1';
+    if(active){
+      btn.setAttribute('data-active','0');
+      btn.style.background='rgba(91,0,255,0.08)';
+      btn.style.borderColor='rgba(91,0,255,0.25)';
+      path.setAttribute('stroke','rgba(255,255,255,0.25)');
+      path.setAttribute('fill','none');
+      label.style.display='none';
+    } else {
+      btn.setAttribute('data-active','1');
+      btn.style.background='rgba(0,229,204,0.08)';
+      btn.style.borderColor='rgba(0,229,204,0.4)';
+      path.setAttribute('stroke','#00E5CC');
+      path.setAttribute('fill','rgba(0,229,204,0.15)');
+      label.style.display='block';
+    }
+  }
+
+  document.getElementById('hero-waitlist-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('hero-submit-btn');
+    const err=document.getElementById('hero-error-msg');
+    const success=document.getElementById('hero-success-msg');
+    const supported=document.getElementById('hero-support-btn').getAttribute('data-active')==='1';
+    const origText=btn.textContent;
+    btn.textContent='...'; btn.disabled=true; err.style.display='none';
+    try{
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('hero-name').value,email:document.getElementById('hero-email').value,telco:document.getElementById('hero-telco').value,supported:supported})});
+      if(res.ok){
+        success.style.display='block';
+        btn.style.display='none';
+        document.getElementById('hero-support-btn').style.display='none';
+      }else{throw new Error();}
+    }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent=origText;btn.disabled=false;}
+  });
+
+  function toggleSupport(btn){
+    const path=document.getElementById('thumb-path');
+    const count=document.getElementById('support-count');
+    const active=btn.getAttribute('data-active')==='1';
+    if(active){
+      btn.setAttribute('data-active','0');
+      btn.style.background='rgba(91,0,255,0.08)';
+      btn.style.borderColor='rgba(91,0,255,0.25)';
+      path.setAttribute('stroke','rgba(255,255,255,0.3)');
+      path.setAttribute('fill','none');
+      count.style.display='none';
+    } else {
+      btn.setAttribute('data-active','1');
+      btn.style.background='rgba(0,229,204,0.08)';
+      btn.style.borderColor='rgba(0,229,204,0.4)';
+      path.setAttribute('stroke','#00E5CC');
+      path.setAttribute('fill','rgba(0,229,204,0.15)');
+      count.style.display='block';
+    }
+  }
+
   document.getElementById('waitlist-form').addEventListener('submit',async function(e){
     e.preventDefault();
     const btn=document.getElementById('submit-btn'), err=document.getElementById('error-msg');
+    const supported=document.getElementById('support-btn')&&document.getElementById('support-btn').getAttribute('data-active')==='1';
     btn.textContent='...'; btn.disabled=true; err.style.display='none';
     try{
-      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:document.getElementById('email').value,mobile:document.getElementById('mobile').value,telco:document.getElementById('telco').value,plan_gb:document.getElementById('plan_gb').value,message:document.getElementById('message').value})});
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:document.getElementById('email').value,telco:document.getElementById('telco').value,message:document.getElementById('message').value,supported:supported})});
       if(res.ok){
         const data=await res.json();
         document.getElementById('form-area').style.display='none';
@@ -1073,7 +1155,7 @@
           msg.style.display='block';
         }
       }else{throw new Error();}
-    }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='Stay in Range →';btn.disabled=false;}
+    }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='Stay in Range';btn.disabled=false;}
   });
 </script>
 </body>
