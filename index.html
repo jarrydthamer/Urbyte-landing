@@ -602,7 +602,6 @@
   <div class="sec-inner">
     <div class="sec-tag">How It Works</div>
     <h2 class="sec-title">Simple. Transparent. Yours.</h2>
-    <p class="sec-sub" style="margin-bottom:32px;">When you join, Urbyte tracks your unused data and converts it into credits — redeemable for rewards or donated to Australian charities.</p>
     <div class="grid-3">
       <div class="g-card">
         <div class="g-num">01</div>
@@ -913,7 +912,7 @@
         <form id="waitlist-form">
           <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
-          <input type="text" id="telco" placeholder="Your telco provider (e.g. Telstra, Optus)" />
+          <select id="telco" style="background:#111;color:#fff;border:1px solid #333;border-radius:8px;padding:12px 16px;width:100%;font-size:15px;"><option value="" disabled selected>Select your telco provider</option><option value="Telstra">Telstra</option><option value="Optus">Optus</option><option value="Vodafone">Vodafone</option><option value="TPG">TPG</option><option value="Boost">Boost Mobile</option><option value="Amaysim">Amaysim</option><option value="Woolworths Mobile">Woolworths Mobile</option><option value="Other">Other</option></select>
           <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
           <div id="error-msg" class="error" style="display:none;"></div>
           <div style="display:flex;gap:12px;align-items:stretch;">
