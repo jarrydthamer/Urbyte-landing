@@ -4,165 +4,278 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms & Conditions — Urbyte</title>
-  <meta name="description" content="Urbyte Terms & Conditions — Founding Member subscriptions, DBU rewards credits, and platform usage." />
-  <link rel="icon" href="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" type="image/png" />
+  <meta name="description" content="Urbyte Terms & Conditions" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #0a0a0f; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #00000A; color: #fff; overflow-x: hidden; line-height: 1.8; }
+    a { color: #00E5CC; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
+      pointer-events: none; z-index: 9998;
+    }
 
     nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 32px; border-bottom: 1px solid rgba(255,255,255,0.06);
-      position: sticky; top: 0; background: rgba(10,10,15,0.95);
-      backdrop-filter: blur(12px); z-index: 100;
+      padding: 18px 52px;
+      background: rgba(0,0,10,0.85);
+      backdrop-filter: blur(28px);
+      border-bottom: 1px solid rgba(91,0,255,0.15);
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
-    .nav-logo img { width: 28px; height: 28px; border-radius: 6px; }
-    .nav-logo span { font-weight: 700; font-size: 16px; }
-    .btn-back { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 8px 18px; border-radius: 8px; font-size: 14px; text-decoration: none; transition: background 0.2s; }
-    .btn-back:hover { background: rgba(255,255,255,0.12); }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo span { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: #fff; }
+    .nav-back {
+      background: transparent;
+      border: 1px solid rgba(91,0,255,0.4);
+      color: rgba(140,60,255,0.9);
+      padding: 9px 24px;
+      font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; font-family: inherit; transition: all 0.3s;
+      text-decoration: none; display: inline-block;
+    }
+    .nav-back:hover { background: rgba(91,0,255,0.12); text-decoration: none; }
 
-    .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 100px; }
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 140px 32px 100px;
+      position: relative; z-index: 1;
+    }
 
-    .page-badge { display: inline-block; background: rgba(0,201,255,0.1); border: 1px solid rgba(0,201,255,0.25); border-radius: 50px; padding: 5px 16px; font-size: 12px; color: #00C9FF; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
-    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; }
-    .updated { color: rgba(255,255,255,0.35); font-size: 13px; margin-bottom: 48px; }
+    .page-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
+      color: rgba(0,229,204,0.6); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .page-tag::before { content: ''; display: block; width: 32px; height: 1px; background: linear-gradient(90deg, rgba(0,229,204,0.6), transparent); }
 
-    .section { margin-bottom: 48px; }
-    h2 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 14px; }
-    ol, ul { color: rgba(255,255,255,0.6); font-size: 15px; padding-left: 20px; margin-bottom: 14px; }
-    li { margin-bottom: 10px; line-height: 1.7; }
-    a { color: #00C9FF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    strong { color: rgba(255,255,255,0.85); }
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900; letter-spacing: -3px; line-height: 0.95;
+      margin-bottom: 16px;
+    }
 
-    .highlight-box { background: rgba(0,201,255,0.06); border: 1px solid rgba(0,201,255,0.15); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
-    .highlight-box p { margin: 0; color: rgba(255,255,255,0.55); font-size: 14px; }
+    .last-updated {
+      font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 64px;
+      border-bottom: 1px solid rgba(91,0,255,0.1); padding-bottom: 32px;
+    }
 
-    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 20px; text-align: center; }
-    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
-    .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
-    .footer-logo span { font-weight: 700; font-size: 16px; }
-    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
-    footer .links { color: rgba(255,255,255,0.2); font-size: 12px; margin-top: 8px; }
-    footer .links a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+    .section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-size: 18px; font-weight: 800; letter-spacing: -0.5px;
+      color: rgba(255,255,255,0.9); margin-bottom: 16px;
+      padding-top: 8px;
+      border-left: 2px solid rgba(0,229,204,0.4);
+      padding-left: 16px;
+    }
+
+    p {
+      font-size: 14px; color: rgba(255,255,255,0.45); line-height: 2;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      margin: 12px 0 16px 0; padding-left: 0; list-style: none;
+    }
+    ul li {
+      font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.9;
+      padding: 6px 0 6px 20px; position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li::before { content: '—'; position: absolute; left: 0; color: rgba(0,229,204,0.4); }
+
+    .highlight-box {
+      background: rgba(0,229,204,0.04);
+      border: 1px solid rgba(0,229,204,0.12);
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: rgba(0,229,204,0.7);
+      line-height: 1.9;
+    }
+
+    .warning-box {
+      background: rgba(194,0,58,0.04);
+      border: 1px solid rgba(194,0,58,0.15);
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: rgba(255,100,100,0.7);
+      line-height: 1.9;
+    }
+
+    .footer-legal {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(91,0,255,0.1);
+      font-size: 10px;
+      color: rgba(255,255,255,0.12);
+      letter-spacing: 1px;
+      line-height: 2;
+      text-align: center;
+    }
+
+    .section-num {
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      color: rgba(91,0,255,0.4); text-transform: uppercase; margin-bottom: 6px;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .page-wrap { padding: 110px 20px 80px; }
+    }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="nav-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
-      <span>Urbyte</span>
-    </a>
-    <a href="/" class="btn-back">← Back to Home</a>
-  </nav>
+<nav>
+  <a href="/" class="nav-logo">
+    <span>Urbyte</span>
+  </a>
+  <a href="/" class="nav-back">← Back</a>
+</nav>
 
-  <div class="container">
+<div class="page-wrap">
 
-    <div class="page-badge">Legal</div>
-    <h1>Terms &amp; Conditions</h1>
-    <p class="updated">Last updated: April 2026 &nbsp;·&nbsp; Urbyte Pty Ltd, ACN 692 885 019</p>
+  <div class="page-tag">Legal</div>
+  <h1>Terms &amp;<br>Conditions</h1>
+  <p class="last-updated">Last updated: 30 April 2026 &nbsp;·&nbsp; Urbyte Pty Ltd &nbsp;·&nbsp; ACN 692 885 019 · ABN 54 692 885 019</p>
 
-    <div class="highlight-box">
-      <p>These terms govern your use of the Urbyte platform and any subscription services. By signing up or subscribing, you agree to these terms. If you have questions, contact us at <a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a>.</p>
-    </div>
-
-    <div class="section">
-      <h2>1. Founding Member Subscriptions</h2>
-      <ol>
-        <li>Founding Member subscriptions are offered at three tiers: <strong>Bronze ($5/month)</strong>, <strong>Silver ($15/month)</strong>, and <strong>Gold ($29/month)</strong>.</li>
-        <li>Subscriptions are billed monthly via Stripe. By subscribing, you authorise Urbyte to charge your nominated payment method on a recurring monthly basis.</li>
-        <li>You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing period. No partial refunds are provided for unused days within a billing cycle.</li>
-        <li>Founding Member status, bonus DBUs, and locked-in tier rates apply for the life of your active subscription. If you cancel and later re-subscribe, standard rates at the time of re-subscription will apply.</li>
-        <li>Urbyte reserves the right to modify subscription pricing with at least <strong>30 days written notice</strong> to active subscribers. Locked-in Founding Member rates are exempt from general pricing changes while your subscription remains active and uninterrupted.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>2. DBUs (Data Backed Units)</h2>
-      <ol>
-        <li>DBUs are <strong>rewards credits</strong> issued by Urbyte. They are not currency, financial products, securities, or investments. They carry no guaranteed monetary value and cannot be exchanged directly for cash.</li>
-        <li>DBUs may be redeemed for rewards, gift cards, or directed to charitable causes, subject to available redemption options at the time of redemption.</li>
-        <li>Bonus DBUs granted on signup are credited to your wallet immediately upon confirmation of payment.</li>
-        <li>Data-backed DBU conversions (derived from your unused mobile data) unlock for redemption after <strong>3 completed billing cycles</strong>. This verification period ensures your DBU balance accurately reflects your actual unused data.</li>
-        <li>Urbyte reserves the right to adjust DBU redemption options and available reward partners with 30 days written notice to active subscribers.</li>
-        <li>DBUs do not expire while your subscription remains active. Upon cancellation, accrued DBUs remain in your wallet but future monthly bonuses will cease.</li>
-        <li>Urbyte does not guarantee the continued availability of any specific reward, gift card, or redemption partner.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>3. Data Conversion</h2>
-      <ol>
-        <li>To earn data-backed DBUs, you must submit your monthly telco bill to Urbyte for verification. Urbyte calculates unused data based on the figures shown on your bill.</li>
-        <li>Urbyte only reads <strong>data usage figures</strong> from your bill. We do not access your calls, messages, browsing history, or personal communications.</li>
-        <li>You are responsible for ensuring the bills you submit are accurate and belong to you. Submitting fraudulent or altered bills may result in account suspension.</li>
-        <li>Urbyte does not guarantee a minimum DBU earning per cycle. Earnings depend entirely on your actual unused data each billing period.</li>
-        <li>If you are on a prepaid plan and use all your data before the end of a cycle, no data-backed DBUs will be earned for that period.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>4. Privacy</h2>
-      <ol>
-        <li>Your personal information is collected and handled in accordance with the <strong>Australian Privacy Act 1988</strong> and our <a href="/privacy">Privacy Policy</a>.</li>
-        <li>We will never sell your personal data to third parties.</li>
-        <li>By submitting your telco bill, you consent to Urbyte processing the data usage information contained within it for the purpose of DBU calculation.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>5. Charitable Giving</h2>
-      <ol>
-        <li>Urbyte's charitable giving program is <strong>aspirational</strong>. We are actively working to establish formal partnerships with Australian charities focused on mental health, homelessness, and domestic violence support.</li>
-        <li>Until formal partnerships are confirmed and published on our website, DBUs cannot be directed to charitable causes. Urbyte will notify all subscribers when this feature becomes available.</li>
-        <li>Urbyte does not represent itself as a charity or social enterprise for taxation purposes.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>6. Platform Availability &amp; Changes</h2>
-      <ol>
-        <li>Urbyte is currently in <strong>beta</strong>. Features, pricing, and redemption options may change as the platform develops.</li>
-        <li>We will provide at least 30 days notice of any material changes to subscription pricing or DBU redemption conditions to active subscribers.</li>
-        <li>Urbyte reserves the right to suspend or terminate accounts that breach these terms, engage in fraudulent activity, or abuse the platform.</li>
-        <li>We will make reasonable efforts to maintain platform availability but do not guarantee uninterrupted access.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>7. Limitation of Liability</h2>
-      <ol>
-        <li>To the maximum extent permitted by Australian law, Urbyte's total liability for any claim arising from your use of the platform is limited to the total amount you paid to Urbyte in the <strong>3 months preceding the claim</strong>.</li>
-        <li>Urbyte is not liable for indirect, incidental, special, or consequential losses, including loss of data or loss of earnings.</li>
-        <li>Nothing in these terms excludes or limits rights you have under the <strong>Australian Consumer Law</strong> that cannot lawfully be excluded.</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h2>8. Governing Law</h2>
-      <p>These terms are governed by the laws of <strong>New South Wales, Australia</strong>. Any disputes will be subject to the non-exclusive jurisdiction of the courts of New South Wales.</p>
-    </div>
-
-    <div class="section">
-      <h2>9. Contact</h2>
-      <p>For questions about these terms, contact us at <a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a>.</p>
-      <p>Urbyte Pty Ltd · ACN 692 885 019 · Northern Rivers, NSW, Australia</p>
-    </div>
-
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2>About Urbyte</h2>
+    <p>Urbyte Pty Ltd (ACN 692 885 019 · ABN 54 692 885 019) ("Urbyte", "we", "us", "our") operates the Urbyte platform, including the website at urbyte.com.au and any associated applications or services. By accessing or using our platform, you agree to these Terms and Conditions.</p>
+    <p>If you do not agree, please do not use the platform.</p>
   </div>
 
-  <footer>
-    <div class="footer-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
-      <span>Urbyte</span>
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2>Founding Member Subscriptions</h2>
+    <p>Founding Member subscriptions are monthly memberships that support the development of the Urbyte platform and grant access to early features, platform credits, and community benefits as outlined at the time of purchase.</p>
+    <ul>
+      <li>Subscriptions are billed monthly to the payment method provided at signup</li>
+      <li>You may cancel at any time — no lock-in period applies</li>
+      <li>Founding Member rates are locked in for the life of your active, uninterrupted subscription</li>
+      <li>If a subscription lapses or is cancelled, the founding rate is forfeited and cannot be reinstated</li>
+      <li>Urbyte reserves the right to change pricing for new subscribers at any time</li>
+    </ul>
+    <div class="highlight-box">
+      Founding Members support Urbyte's mission to return value to everyday Australians — and in doing so, lock in the lowest rate available for as long as they remain active.
     </div>
-    <p>Converting unused data into real value for real Australians.</p>
-    <p style="color:rgba(255,255,255,0.25); font-size:12px; max-width:600px; margin:16px auto 8px; line-height:1.7; font-style:italic;">We acknowledge that the community work we do takes place on the unceded lands of the Widjabul Wiabul people of the Bundjalung Nation. This work pays respect to the care and knowledge of the elders over deep time, the elders of the present and emerging leaders.</p>
-    <p class="links">© 2026 Urbyte Pty Ltd · ACN 692 885 019 · All rights reserved · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms &amp; Conditions</a></p>
-  </footer>
+  </div>
 
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2>DBUs — Data Backed Units</h2>
+    <p>DBUs (Data Backed Units) are Urbyte's internal rewards credits system. They are issued by Urbyte at our discretion and governed by the following conditions:</p>
+
+    <div class="warning-box">
+      DBUs are rewards credits issued by Urbyte. They are not currency, financial products, securities, or investments. They carry no guaranteed monetary value and cannot be exchanged directly for cash.
+    </div>
+
+    <ul>
+      <li>DBUs are issued based on self-reported mobile usage data submitted via your telco bill</li>
+      <li>The standard conversion rate is 10 DBUs per GB of verified unused data</li>
+      <li>DBUs may be redeemed for rewards, gift cards, or charitable donations as listed in the Urbyte platform at the time of redemption</li>
+      <li>DBU redemption values and available rewards are subject to change at Urbyte's discretion</li>
+      <li>DBUs have no expiry while your account remains active</li>
+      <li>DBUs are non-transferable and cannot be sold, gifted, or traded between accounts</li>
+      <li>DBUs are not redeemable for cash under any circumstances</li>
+      <li>Urbyte does not guarantee the availability of any specific reward or redemption option</li>
+    </ul>
+
+    <p>Founding Members receive an initial DBU allocation on signup as a signal of their early commitment. This allocation is part of the membership benefit and is subject to the same conditions above.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2>The 3-Cycle Verification Window</h2>
+    <p>Full DBU value unlocks after 3 completed billing cycles. This window exists to protect members — it allows Urbyte to build an accurate picture of your genuine monthly unused data average before rewards are issued.</p>
+    <ul>
+      <li>A billing cycle is one calendar month from your subscription start date</li>
+      <li>Members must submit bill data each month to receive DBU credits for that cycle</li>
+      <li>Failure to submit bill data in a given cycle forfeits DBU credits for that cycle only</li>
+      <li>Founding Members receive a signal activation on signup — partial credits may be accessible before the 3-cycle window closes, at Urbyte's discretion</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2>Data &amp; Privacy</h2>
+    <p>Urbyte only collects the data necessary to operate the platform. This includes your name, email address, mobile plan details, and usage figures submitted via bill upload.</p>
+    <ul>
+      <li>Urbyte does not access your calls, messages, browsing history, or personal content</li>
+      <li>All data is handled in accordance with the Australian Privacy Act 1988</li>
+      <li>We do not sell your personal data to third parties</li>
+      <li>Full details are available in our <a href="/privacy">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">06</div>
+    <h2>Accuracy of Usage Data</h2>
+    <p>Urbyte relies on member-submitted bill data to calculate unused data and issue DBUs. By submitting usage data, you confirm it is accurate and reflects your genuine telco bill.</p>
+    <ul>
+      <li>Submitting false or misleading usage data constitutes a breach of these Terms</li>
+      <li>Urbyte reserves the right to suspend or terminate accounts where data misrepresentation is suspected</li>
+      <li>DBUs issued on the basis of inaccurate data may be reversed</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">07</div>
+    <h2>Charitable Donations</h2>
+    <p>Members may elect to direct DBU value toward Urbyte's registered charity partners. Charitable donations facilitated through the platform are subject to the following:</p>
+    <ul>
+      <li>Donations are made in equivalent value, not cash, unless otherwise stated</li>
+      <li>Charity partner availability is subject to change</li>
+      <li>Urbyte does not guarantee tax deductibility of donations made via the platform — consult a registered tax agent for advice</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">08</div>
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by Australian law, Urbyte is not liable for any indirect, incidental, or consequential loss arising from your use of the platform, including but not limited to loss of DBU value, failure of reward redemption, or service interruption.</p>
+    <p>Urbyte's total liability to any member shall not exceed the total subscription fees paid by that member in the 3 months prior to the claim.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">09</div>
+    <h2>Changes to These Terms</h2>
+    <p>Urbyte may update these Terms from time to time. Material changes will be communicated via email to active members at least 14 days before taking effect. Continued use of the platform after that date constitutes acceptance of the updated Terms.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">10</div>
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by the laws of New South Wales, Australia. Any disputes will be subject to the exclusive jurisdiction of the courts of New South Wales.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">11</div>
+    <h2>Contact</h2>
+    <p>For questions about these Terms, contact us at <a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a>.</p>
+    <p>Urbyte Pty Ltd &nbsp;·&nbsp; ACN 692 885 019 · ABN 54 692 885 019 &nbsp;·&nbsp; Northern Rivers, NSW, Australia</p>
+  </div>
+
+  <div class="footer-legal">
+    © 2026 Urbyte Pty Ltd · ACN 692 885 019 · ABN 54 692 885 019 · All rights reserved<br>
+    Urbyte is not a financial product, investment vehicle, or regulated entity under the Corporations Act 2001 (Cth).<br>
+    DBUs are internal rewards credits only and carry no guaranteed monetary value.
+  </div>
+
+</div>
 </body>
 </html>
