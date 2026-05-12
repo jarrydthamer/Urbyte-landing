@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Urbyte Platform</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:#00000A;color:#fff;min-height:100vh;}
+    a{text-decoration:none;color:inherit;}
+    body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:9998;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;background:rgba(0,0,10,0.85);backdrop-filter:blur(32px);border-bottom:1px solid rgba(91,0,255,0.12);}
+    .nav-logo{display:flex;align-items:center;gap:10px;}
+    .nav-mark{width:32px;height:32px;background:linear-gradient(135deg,#5B00FF,#00E5CC);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;}
+    .nav-word{font-size:18px;font-weight:900;letter-spacing:-0.5px;}
+    .nav-tabs{display:flex;gap:4px;}
+    .nav-tab{padding:8px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);cursor:pointer;border:1px solid transparent;transition:all 0.3s;}
+    .nav-tab.active{color:#00E5CC;border-color:rgba(0,229,204,0.2);background:rgba(0,229,204,0.05);}
+    .nav-tab:hover{color:rgba(255,255,255,0.7);}
+
+    /* PAGES */
+    .page{display:none;padding-top:80px;min-height:100vh;}
+    .page.active{display:block;}
+
+    /* ═══════════════════════════════════════
+       MEMBER DASHBOARD
+    ═══════════════════════════════════════ */
+    .dash-wrap{max-width:1100px;margin:0 auto;padding:48px 24px;}
+    .dash-header{margin-bottom:48px;}
+    .dash-greeting{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-2px;margin-bottom:6px;}
+    .dash-sub{font-size:13px;color:rgba(255,255,255,0.25);letter-spacing:1px;}
+    .dash-tier-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border:1px solid rgba(91,0,255,0.25);background:rgba(91,0,255,0.06);font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(140,60,255,0.85);margin-top:12px;}
+
+    /* KPI CARDS */
+    .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-bottom:48px;}
+    .kpi-card{padding:36px 28px;background:rgba(0,0,10,0.6);border:1px solid rgba(91,0,255,0.08);position:relative;overflow:hidden;transition:background 0.3s;}
+    .kpi-card:hover{background:rgba(91,0,255,0.05);}
+    .kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+    .kpi-card.teal::before{background:linear-gradient(90deg,#00E5CC,transparent);}
+    .kpi-card.violet::before{background:linear-gradient(90deg,#5B00FF,transparent);}
+    .kpi-card.crimson::before{background:linear-gradient(90deg,#C2003A,transparent);}
+    .kpi-card.amber::before{background:linear-gradient(90deg,#FF6A00,transparent);}
+    .kpi-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:16px;}
+    .kpi-val{font-size:40px;font-weight:900;letter-spacing:-2px;line-height:1;}
+    .kpi-val.teal{background:linear-gradient(135deg,#00E5CC,#00A080);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .kpi-val.violet{background:linear-gradient(135deg,#8B5CF6,#5B00FF);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .kpi-val.crimson{background:linear-gradient(135deg,#C2003A,#8B0020);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .kpi-val.amber{background:linear-gradient(135deg,#FF6A00,#C2003A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .kpi-unit{font-size:11px;color:rgba(255,255,255,0.2);margin-top:8px;letter-spacing:1px;}
+
+    /* USAGE LOG */
+    .dash-section-title{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .dash-section-title::before{content:'';display:block;width:24px;height:1px;background:rgba(0,229,204,0.4);}
+    .usage-form{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:1px;margin-bottom:32px;}
+    .u-input{background:rgba(0,0,10,0.7);border:1px solid rgba(91,0,255,0.15);color:#fff;padding:14px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.3s;width:100%;}
+    .u-input:focus{border-color:rgba(0,229,204,0.35);}
+    .u-input::placeholder{color:rgba(255,255,255,0.18);}
+    .u-select{background:rgba(0,0,10,0.7);border:1px solid rgba(91,0,255,0.15);color:rgba(255,255,255,0.6);padding:14px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;width:100%;}
+    .u-select option{background:#00000A;}
+    .u-btn{background:linear-gradient(135deg,#00E5CC,#5B00FF);color:#fff;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;transition:all 0.3s;}
+    .u-btn:hover{opacity:0.85;}
+
+    .usage-table{width:100%;border-collapse:collapse;}
+    .usage-table th{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:12px 20px;text-align:left;border-bottom:1px solid rgba(91,0,255,0.1);}
+    .usage-table td{padding:16px 20px;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:middle;}
+    .usage-table tr:hover td{background:rgba(91,0,255,0.03);}
+    .dbu-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:rgba(0,229,204,0.08);border:1px solid rgba(0,229,204,0.2);font-size:11px;font-weight:700;color:#00E5CC;}
+    .unused-bar-wrap{width:100px;height:4px;background:rgba(255,255,255,0.06);overflow:hidden;}
+    .unused-bar{height:100%;background:linear-gradient(90deg,#00E5CC,#5B00FF);}
+
+    /* COUNTDOWN */
+    .redemption-card{background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.15);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-top:48px;}
+    .redemption-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(91,0,255,0.4),transparent);}
+    .redemption-info h3{font-size:24px;font-weight:900;letter-spacing:-1px;margin-bottom:8px;}
+    .redemption-info p{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.8;max-width:400px;}
+    .countdown-wrap{display:flex;gap:1px;}
+    .count-block{padding:20px 24px;background:rgba(0,0,10,0.6);border:1px solid rgba(91,0,255,0.1);text-align:center;min-width:72px;}
+    .count-num{font-size:32px;font-weight:900;letter-spacing:-2px;color:#5B00FF;}
+    .count-label{font-size:8px;color:rgba(255,255,255,0.2);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
+
+    /* ═══════════════════════════════════════
+       CHARITY DONATION
+    ═══════════════════════════════════════ */
+    .give-wrap{max-width:1100px;margin:0 auto;padding:48px 24px;}
+    .give-header{margin-bottom:52px;}
+    .give-title{font-size:clamp(32px,5vw,60px);font-weight:900;letter-spacing:-3px;margin-bottom:12px;}
+    .give-sub{font-size:14px;color:rgba(255,255,255,0.28);line-height:1.9;max-width:560px;}
+
+    .give-balance{display:inline-flex;align-items:center;gap:16px;padding:16px 28px;background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);margin-bottom:48px;}
+    .give-bal-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+    .give-bal-num{font-size:32px;font-weight:900;letter-spacing:-2px;color:#00E5CC;}
+    .give-bal-unit{font-size:11px;color:rgba(0,229,204,0.5);align-self:flex-end;padding-bottom:4px;}
+
+    .charity-select-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-bottom:40px;}
+    .charity-opt{padding:28px 18px;text-align:center;background:rgba(0,0,10,0.5);border:2px solid rgba(255,255,255,0.04);cursor:pointer;transition:all 0.3s;position:relative;}
+    .charity-opt:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.15);}
+    .charity-opt.selected{background:rgba(0,229,204,0.06);border-color:rgba(0,229,204,0.4);}
+    .charity-opt.selected::after{content:'✓';position:absolute;top:8px;right:10px;font-size:10px;color:#00E5CC;}
+    .c-dot{width:12px;height:12px;border-radius:50%;margin:0 auto 12px;}
+    .c-name{font-size:11px;font-weight:700;margin-bottom:4px;}
+    .c-cause{font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:2px;text-transform:uppercase;}
+
+    .give-amount-wrap{margin-bottom:32px;}
+    .amount-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:16px;}
+    .amount-pills{display:flex;gap:1px;flex-wrap:wrap;margin-bottom:16px;}
+    .amt-pill{padding:12px 24px;background:rgba(0,0,10,0.5);border:1px solid rgba(91,0,255,0.12);font-size:12px;font-weight:700;cursor:pointer;transition:all 0.3s;}
+    .amt-pill:hover{background:rgba(91,0,255,0.06);}
+    .amt-pill.selected{background:rgba(91,0,255,0.1);border-color:rgba(91,0,255,0.4);color:#8B5CF6;}
+    .give-custom{background:rgba(0,0,10,0.7);border:1px solid rgba(91,0,255,0.15);color:#fff;padding:12px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:180px;}
+
+    .give-msg{background:rgba(0,0,10,0.7);border:1px solid rgba(91,0,255,0.15);color:#fff;padding:14px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:100%;resize:none;height:80px;margin-bottom:24px;}
+    .give-msg::placeholder{color:rgba(255,255,255,0.15);}
+    .give-submit{background:linear-gradient(135deg,#00E5CC,#5B00FF);color:#fff;padding:16px 48px;font-size:10px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;box-shadow:0 0 30px rgba(0,229,204,0.2);}
+    .give-submit:hover{box-shadow:0 0 50px rgba(0,229,204,0.35);transform:translateY(-1px);}
+
+    .donation-history{margin-top:64px;}
+    .don-row{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:rgba(0,0,10,0.4);border:1px solid rgba(255,255,255,0.03);margin-bottom:1px;transition:background 0.3s;}
+    .don-row:hover{background:rgba(0,229,204,0.03);}
+    .don-org{font-size:13px;font-weight:600;}
+    .don-date{font-size:11px;color:rgba(255,255,255,0.2);}
+    .don-amt{font-size:14px;font-weight:700;color:#00E5CC;}
+    .don-status{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(0,229,204,0.2);color:rgba(0,229,204,0.7);}
+
+    /* ═══════════════════════════════════════
+       URBYTE INSIGHT
+    ═══════════════════════════════════════ */
+    .insight-hero{padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+    .insight-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(91,0,255,0.15) 0%,transparent 70%);pointer-events:none;}
+    .insight-grid-bg{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(rgba(91,0,255,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(91,0,255,0.5) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;}
+    .insight-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(91,0,255,0.3);background:rgba(91,0,255,0.06);padding:7px 22px;margin-bottom:36px;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(140,60,255,0.8);}
+    .insight-title{font-size:clamp(44px,7vw,88px);font-weight:900;letter-spacing:-5px;line-height:0.9;margin-bottom:28px;}
+    .insight-title span{background:linear-gradient(135deg,#8B5CF6,#5B00FF,#00E5CC);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .insight-sub{font-size:16px;color:rgba(255,255,255,0.28);line-height:1.9;max-width:580px;margin:0 auto 52px;}
+    .insight-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .i-btn-primary{background:linear-gradient(135deg,#5B00FF,#8B5CF6);color:#fff;padding:15px 44px;font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;box-shadow:0 0 30px rgba(91,0,255,0.3);transition:all 0.3s;}
+    .i-btn-primary:hover{box-shadow:0 0 50px rgba(91,0,255,0.5);}
+    .i-btn-ghost{background:transparent;color:rgba(255,255,255,0.35);padding:15px 44px;border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;cursor:pointer;}
+
+    /* METRICS */
+    .insight-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:900px;margin:0 auto 80px;}
+    .i-met{padding:32px;background:rgba(0,0,10,0.5);border:1px solid rgba(91,0,255,0.08);text-align:center;}
+    .i-met-num{font-size:36px;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#8B5CF6,#5B00FF);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .i-met-label{font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:2px;text-transform:uppercase;margin-top:8px;line-height:1.6;}
+
+    /* FEATURES */
+    .insight-features{max-width:1100px;margin:0 auto;padding:0 48px 100px;}
+    .if-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:48px;}
+    .if-card{padding:48px 36px;background:rgba(0,0,10,0.5);border:1px solid rgba(91,0,255,0.08);transition:all 0.4s;position:relative;}
+    .if-card:hover{background:rgba(91,0,255,0.04);}
+    .if-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(91,0,255,0.5),transparent);}
+    .if-icon{font-size:28px;margin-bottom:20px;opacity:0.8;}
+    .if-title{font-size:20px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;}
+    .if-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.9;}
+    .if-tag{display:inline-block;margin-top:20px;font-size:9px;font-weight:700;letter-spacing:2px;padding:4px 12px;border:1px solid rgba(91,0,255,0.2);color:rgba(140,60,255,0.6);text-transform:uppercase;}
+
+    /* DEMO CHART */
+    .insight-demo{max-width:1100px;margin:0 auto;padding:0 48px 100px;}
+    .demo-card{background:rgba(0,0,10,0.6);border:1px solid rgba(91,0,255,0.12);padding:48px;position:relative;overflow:hidden;}
+    .demo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#5B00FF,#00E5CC,#C2003A);}
+    .chart-wrap{height:200px;display:flex;align-items:flex-end;gap:4px;margin:32px 0;padding:0 8px;}
+    .bar{flex:1;background:linear-gradient(0deg,rgba(91,0,255,0.6),rgba(0,229,204,0.3));position:relative;transition:opacity 0.3s;cursor:pointer;min-width:0;}
+    .bar:hover{opacity:0.8;}
+    .bar::after{content:attr(data-val);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:rgba(255,255,255,0.3);white-space:nowrap;}
+    .chart-labels{display:flex;gap:4px;padding:0 8px;}
+    .chart-lbl{flex:1;text-align:center;font-size:9px;color:rgba(255,255,255,0.15);letter-spacing:1px;min-width:0;}
+
+    /* LEAD FORM */
+    .insight-cta{max-width:700px;margin:0 auto;padding:0 48px 100px;text-align:center;}
+    .insight-cta-box{background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.15);padding:64px 56px;position:relative;}
+    .insight-cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#5B00FF,#00E5CC,transparent);}
+    .insight-form{display:flex;flex-direction:column;gap:12px;margin-top:36px;}
+    .if-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+    /* SUCCESS MESSAGES */
+    .success-msg{display:none;padding:20px 28px;background:rgba(0,229,204,0.06);border:1px solid rgba(0,229,204,0.2);color:#00E5CC;font-size:13px;font-weight:600;margin-top:16px;}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav{padding:14px 20px;}
+      .nav-tabs{display:none;}
+      .kpi-grid{grid-template-columns:1fr 1fr;}
+      .charity-select-grid{grid-template-columns:repeat(3,1fr);}
+      .insight-metrics{grid-template-columns:1fr 1fr;}
+      .if-grid{grid-template-columns:1fr;}
+      .insight-features,.insight-demo,.insight-cta{padding-left:20px;padding-right:20px;}
+      .insight-hero{padding:100px 20px 60px;}
+      .usage-form{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;}
+    }
+    @media(max-width:600px){
+      .kpi-grid{grid-template-columns:1fr;}
+      .charity-select-grid{grid-template-columns:1fr 1fr;}
+      .insight-metrics{grid-template-columns:1fr 1fr;}
+      .if-row{grid-template-columns:1fr;}
+      .insight-cta-box{padding:36px 20px;}
+    }
+
+    /* MOBILE NAV */
+    .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(0,0,10,0.95);border-top:1px solid rgba(91,0,255,0.15);padding:12px 0;}
+    .mobile-nav-inner{display:flex;justify-content:space-around;}
+    .mob-tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 16px;cursor:pointer;color:rgba(255,255,255,0.3);font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:color 0.3s;}
+    .mob-tab.active{color:#00E5CC;}
+    .mob-icon{font-size:18px;}
+    @media(max-width:900px){.mobile-nav{display:block;}.page{padding-bottom:80px;}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-mark">U</div>
+    <span class="nav-word">Urbyte</span>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showPage('dashboard')">Dashboard</div>
+    <div class="nav-tab" onclick="showPage('givabit')">Givabit</div>
+    <div class="nav-tab" onclick="showPage('insight')">Urbyte Insight</div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <div class="mob-tab active" onclick="showPage('dashboard')"><span class="mob-icon">◈</span>Dashboard</div>
+    <div class="mob-tab" onclick="showPage('givabit')"><span class="mob-icon">◇</span>Givabit</div>
+    <div class="mob-tab" onclick="showPage('insight')"><span class="mob-icon">◆</span>Insight</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     PAGE: MEMBER DASHBOARD
+═══════════════════════════════ -->
+<div class="page active" id="page-dashboard">
+  <div class="dash-wrap">
+    <div class="dash-header">
+      <div class="dash-greeting" id="greeting">Welcome back.</div>
+      <div class="dash-sub">Your data. Your value. Your control.</div>
+      <div class="dash-tier-badge" id="tierBadge">⬡ Silver Member · Founding</div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card teal">
+        <div class="kpi-label">DBU Balance</div>
+        <div class="kpi-val teal" id="dbuBalance">0</div>
+        <div class="kpi-unit">Data Backed Units</div>
+      </div>
+      <div class="kpi-card violet">
+        <div class="kpi-label">Total Unused Data</div>
+        <div class="kpi-val violet" id="totalUnused">0 GB</div>
+        <div class="kpi-unit">Across all cycles</div>
+      </div>
+      <div class="kpi-card crimson">
+        <div class="kpi-label">AUD Equivalent</div>
+        <div class="kpi-val crimson" id="audEquiv">$0.00</div>
+        <div class="kpi-unit">At $0.05 per DBU</div>
+      </div>
+      <div class="kpi-card amber">
+        <div class="kpi-label">Billing Cycles</div>
+        <div class="kpi-val amber" id="cyclesCount">0/3</div>
+        <div class="kpi-unit">Until redemption unlocks</div>
+      </div>
+    </div>
+
+    <!-- LOG USAGE -->
+    <div class="dash-section-title">Log This Month's Usage</div>
+    <div class="usage-form">
+      <input class="u-input" type="month" id="usageMonth" placeholder="Month"/>
+      <select class="u-select" id="usageTelco">
+        <option value="">Telco</option>
+        <option>Telstra</option><option>Optus</option><option>Vodafone</option>
+        <option>TPG</option><option>Aldi Mobile</option><option>Woolworths Mobile</option>
+        <option>Boost Mobile</option><option>Amaysim</option><option>Other</option>
+      </select>
+      <input class="u-input" type="number" id="planGb" placeholder="Plan GB" min="0" step="0.1"/>
+      <input class="u-input" type="number" id="usedGb" placeholder="Used GB" min="0" step="0.1"/>
+      <button class="u-btn" onclick="logUsage()">Log Usage</button>
+    </div>
+    <div id="usageSuccess" class="success-msg">✓ Usage logged. DBUs added to your balance.</div>
+
+    <!-- USAGE TABLE -->
+    <div class="dash-section-title" style="margin-top:40px;">Usage History</div>
+    <table class="usage-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Telco</th>
+          <th>Plan</th>
+          <th>Used</th>
+          <th>Unused</th>
+          <th>Recovery</th>
+          <th>DBUs Earned</th>
+        </tr>
+      </thead>
+      <tbody id="usageTableBody">
+        <tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,0.15);padding:32px;font-size:12px;letter-spacing:2px;">NO USAGE LOGGED YET</td></tr>
+      </tbody>
+    </table>
+
+    <!-- REDEMPTION COUNTDOWN -->
+    <div class="redemption-card" style="position:relative;margin-top:48px;">
+      <div class="redemption-info">
+        <h3>Redemption Unlock</h3>
+        <p>Your DBUs become redeemable after 3 completed billing cycles. This protects the platform's integrity and ensures sustainable value for every member.</p>
+      </div>
+      <div class="countdown-wrap">
+        <div class="count-block">
+          <div class="count-num" id="cyclesRemain">3</div>
+          <div class="count-label">Cycles Left</div>
+        </div>
+        <div class="count-block">
+          <div class="count-num" id="dbuLocked">0</div>
+          <div class="count-label">DBUs Locked</div>
+        </div>
+        <div class="count-block">
+          <div class="count-num" id="dbuUnlocked">0</div>
+          <div class="count-label">DBUs Ready</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     PAGE: GIVABIT
+═══════════════════════════════ -->
+<div class="page" id="page-givabit">
+  <div class="give-wrap">
+    <div class="give-header">
+      <div class="dash-section-title">Social Impact</div>
+      <div class="give-title">Direct your<br/>signal.</div>
+      <p class="give-sub">Convert your DBU credits into real support for Australian organisations doing work that matters. No middlemen. No fees. 100% of your directed value goes to your chosen cause.</p>
+    </div>
+
+    <div class="give-balance">
+      <div>
+        <div class="give-bal-label">Available DBU Balance</div>
+        <div style="display:flex;align-items:baseline;gap:8px;">
+          <div class="give-bal-num" id="giveBalance">0</div>
+          <div class="give-bal-unit">DBUs</div>
+        </div>
+      </div>
+      <div style="width:1px;height:40px;background:rgba(0,229,204,0.15);"></div>
+      <div>
+        <div class="give-bal-label">AUD Equivalent</div>
+        <div style="font-size:18px;font-weight:700;color:rgba(0,229,204,0.6);" id="giveAud">$0.00</div>
+      </div>
+    </div>
+
+    <!-- CHARITY SELECTION -->
+    <div class="dash-section-title">Choose Your Cause</div>
+    <div class="charity-select-grid" id="charityGrid">
+      <div class="charity-opt" onclick="selectCharity(this,'Beyond Blue','Mental Health')" data-name="Beyond Blue" data-cause="Mental Health">
+        <div class="c-dot" style="background:#003F8A;box-shadow:0 0 8px rgba(0,63,138,0.4);"></div>
+        <div class="c-name">Beyond Blue</div><div class="c-cause">Mental Health</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Orange Sky','Homelessness')" data-name="Orange Sky" data-cause="Homelessness">
+        <div class="c-dot" style="background:#F37021;box-shadow:0 0 8px rgba(243,112,33,0.4);"></div>
+        <div class="c-name">Orange Sky</div><div class="c-cause">Homelessness</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Homelessness Australia','Housing & Advocacy')" data-name="Homelessness Australia" data-cause="Housing & Advocacy">
+        <div class="c-dot" style="background:#00A651;box-shadow:0 0 8px rgba(0,166,81,0.4);"></div>
+        <div class="c-name">Homelessness Australia</div><div class="c-cause">Housing & Advocacy</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'1800RESPECT','Domestic Violence')" data-name="1800RESPECT" data-cause="Domestic Violence">
+        <div class="c-dot" style="background:#C2003A;box-shadow:0 0 8px rgba(194,0,58,0.4);"></div>
+        <div class="c-name">1800RESPECT</div><div class="c-cause">Domestic Violence</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Indigenous Literacy Foundation','First Nations')" data-name="Indigenous Literacy Foundation" data-cause="First Nations">
+        <div class="c-dot" style="background:#F7941D;box-shadow:0 0 8px rgba(247,148,29,0.4);"></div>
+        <div class="c-name">Indigenous Literacy</div><div class="c-cause">First Nations</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Lifeline','Crisis Support')" data-name="Lifeline" data-cause="Crisis Support">
+        <div class="c-dot" style="background:#0099CC;box-shadow:0 0 8px rgba(0,153,204,0.4);"></div>
+        <div class="c-name">Lifeline</div><div class="c-cause">Crisis Support</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Kids Helpline','Youth Mental Health')" data-name="Kids Helpline" data-cause="Youth Mental Health">
+        <div class="c-dot" style="background:#009845;box-shadow:0 0 8px rgba(0,152,69,0.4);"></div>
+        <div class="c-name">Kids Helpline</div><div class="c-cause">Youth Mental Health</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Salvation Army','Welfare & Poverty')" data-name="Salvation Army" data-cause="Welfare & Poverty">
+        <div class="c-dot" style="background:#E31837;box-shadow:0 0 8px rgba(227,24,55,0.4);"></div>
+        <div class="c-name">Salvation Army</div><div class="c-cause">Welfare & Poverty</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Mission Australia','Homelessness')" data-name="Mission Australia" data-cause="Homelessness">
+        <div class="c-dot" style="background:#5B00FF;box-shadow:0 0 8px rgba(91,0,255,0.4);"></div>
+        <div class="c-name">Mission Australia</div><div class="c-cause">Homelessness</div>
+      </div>
+      <div class="charity-opt" onclick="selectCharity(this,'Rural Aid','Rural Communities')" data-name="Rural Aid" data-cause="Rural Communities">
+        <div class="c-dot" style="background:#00E5CC;box-shadow:0 0 8px rgba(0,229,204,0.4);"></div>
+        <div class="c-name">Rural Aid</div><div class="c-cause">Rural Communities</div>
+      </div>
+    </div>
+
+    <!-- AMOUNT -->
+    <div class="give-amount-wrap">
+      <div class="amount-label">Choose Amount (DBUs)</div>
+      <div class="amount-pills">
+        <div class="amt-pill" onclick="selectAmount(10,this)">10 DBU</div>
+        <div class="amt-pill" onclick="selectAmount(25,this)">25 DBU</div>
+        <div class="amt-pill" onclick="selectAmount(50,this)">50 DBU</div>
+        <div class="amt-pill" onclick="selectAmount(100,this)">100 DBU</div>
+        <div class="amt-pill" onclick="selectAmount(250,this)">250 DBU</div>
+      </div>
+      <input class="give-custom" type="number" id="customAmount" placeholder="Custom amount..." min="1" oninput="state.donateAmount=parseInt(this.value)||0"/>
+    </div>
+
+    <textarea class="give-msg" id="donateMsg" placeholder="Optional: leave a message of support (this may be shared with the organisation)..."></textarea>
+
+    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <button class="give-submit" onclick="submitDonation()">Direct My DBUs →</button>
+      <div style="font-size:11px;color:rgba(255,255,255,0.15);">Selected: <span id="selectedCharity">None</span> · <span id="selectedAmt">0</span> DBUs = <span id="selectedAud">$0.00</span></div>
+    </div>
+    <div id="donateSuccess" class="success-msg">✓ Donation submitted. Your impact has been recorded.</div>
+
+    <!-- HISTORY -->
+    <div class="donation-history">
+      <div class="dash-section-title">Donation History</div>
+      <div id="donationList">
+        <div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DONATIONS YET</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     PAGE: URBYTE INSIGHT
+═══════════════════════════════ -->
+<div class="page" id="page-insight">
+
+  <!-- HERO -->
+  <div class="insight-hero">
+    <div class="insight-bg"></div>
+    <div class="insight-grid-bg"></div>
+    <div class="insight-badge">⬡ B2B Platform · Telco Analytics · Enterprise</div>
+    <div class="insight-title">Urbyte<br/><span>Insight</span></div>
+    <p class="insight-sub">The intelligence layer for Australian telcos. Real-time retention analytics, churn prediction, and data benchmarking — powered by the Urbyte member network.</p>
+    <div class="insight-btns">
+      <button class="i-btn-primary" onclick="document.getElementById('insightCTA').scrollIntoView({behavior:'smooth'})">Request a Demo</button>
+      <button class="i-btn-ghost" onclick="document.getElementById('insightFeatures').scrollIntoView({behavior:'smooth'})">See the Platform</button>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="insight-metrics">
+    <div class="i-met">
+      <div class="i-met-num">26M+</div>
+      <div class="i-met-label">Addressable AU mobile subscribers</div>
+    </div>
+    <div class="i-met">
+      <div class="i-met-num">55GB</div>
+      <div class="i-met-label">Avg unused data per user monthly</div>
+    </div>
+    <div class="i-met">
+      <div class="i-met-num">$9.6B</div>
+      <div class="i-met-label">Annual data value left unclaimed</div>
+    </div>
+    <div class="i-met">
+      <div class="i-met-num">42%</div>
+      <div class="i-met-label">Avg telco churn attributable to perceived data waste</div>
+    </div>
+  </div>
+
+  <!-- DEMO CHART -->
+  <div class="insight-demo">
+    <div class="demo-card">
+      <div class="dash-section-title">Sample: Data Waste by Carrier (AU Market)</div>
+      <div class="chart-wrap" id="insightChart">
+        <div class="bar" style="height:72%" data-val="72%"></div>
+        <div class="bar" style="height:65%" data-val="65%"></div>
+        <div class="bar" style="height:58%" data-val="58%"></div>
+        <div class="bar" style="height:80%" data-val="80%"></div>
+        <div class="bar" style="height:45%" data-val="45%"></div>
+        <div class="bar" style="height:68%" data-val="68%"></div>
+        <div class="bar" style="height:55%" data-val="55%"></div>
+        <div class="bar" style="height:77%" data-val="77%"></div>
+        <div class="bar" style="height:62%" data-val="62%"></div>
+        <div class="bar" style="height:50%" data-val="50%"></div>
+        <div class="bar" style="height:88%" data-val="88%"></div>
+        <div class="bar" style="height:71%" data-val="71%"></div>
+      </div>
+      <div class="chart-labels">
+        <div class="chart-lbl">Jan</div><div class="chart-lbl">Feb</div>
+        <div class="chart-lbl">Mar</div><div class="chart-lbl">Apr</div>
+        <div class="chart-lbl">May</div><div class="chart-lbl">Jun</div>
+        <div class="chart-lbl">Jul</div><div class="chart-lbl">Aug</div>
+        <div class="chart-lbl">Sep</div><div class="chart-lbl">Oct</div>
+        <div class="chart-lbl">Nov</div><div class="chart-lbl">Dec</div>
+      </div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.1);margin-top:16px;letter-spacing:2px;">INDICATIVE DATA ONLY · ACTUAL METRICS AVAILABLE TO PARTNER TELCOS</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="insight-features" id="insightFeatures">
+    <div class="dash-section-title">Platform Capabilities</div>
+    <div class="if-grid">
+      <div class="if-card">
+        <div class="if-icon">◈</div>
+        <div class="if-title">Churn Prediction</div>
+        <p class="if-desc">Identify at-risk subscribers before they leave. Urbyte Insight models behavioural patterns across the network to flag churn risk 30-60 days in advance.</p>
+        <span class="if-tag">Core Feature</span>
+      </div>
+      <div class="if-card">
+        <div class="if-icon">◇</div>
+        <div class="if-title">Data Waste Analytics</div>
+        <p class="if-desc">Real-time visibility into unused data across your subscriber base. Segment by plan, region, and usage pattern to identify optimisation opportunities.</p>
+        <span class="if-tag">Core Feature</span>
+      </div>
+      <div class="if-card">
+        <div class="if-icon">△</div>
+        <div class="if-title">Retention Intelligence</div>
+        <p class="if-desc">Automated alerts and engagement triggers for subscribers showing high-waste, low-engagement patterns. Intervene before the churn decision is made.</p>
+        <span class="if-tag">Core Feature</span>
+      </div>
+      <div class="if-card">
+        <div class="if-icon">⬡</div>
+        <div class="if-title">Competitive Benchmarking</div>
+        <p class="if-desc">Anonymised, aggregated cross-carrier intelligence. Understand where your data waste metrics sit relative to the broader Australian market.</p>
+        <span class="if-tag">Coming Soon</span>
+      </div>
+      <div class="if-card">
+        <div class="if-icon">□</div>
+        <div class="if-title">CSR Impact Dashboard</div>
+        <p class="if-desc">Track and report on the social impact generated through the Givabit partnership — charity donations, community value, and ESG metrics in one view.</p>
+        <span class="if-tag">Coming Soon</span>
+      </div>
+      <div class="if-card">
+        <div class="if-icon">○</div>
+        <div class="if-title">API Integration</div>
+        <p class="if-desc">REST API and webhook support for direct integration with your existing CRM, billing platform, and data warehouse. Enterprise-grade security throughout.</p>
+        <span class="if-tag">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="insight-cta" id="insightCTA">
+    <div class="insight-cta-box">
+      <div class="dash-section-title" style="justify-content:center;">Get Early Access</div>
+      <h2 style="font-size:32px;font-weight:900;letter-spacing:-2px;margin-bottom:12px;">Request a Demo</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.3);line-height:1.8;">Urbyte Insight is currently in closed beta with select Australian telco partners. Submit your details and we'll be in touch.</p>
+      <form class="insight-form" onsubmit="submitInsightLead(event)">
+        <div class="if-row">
+          <input class="u-input" type="text" id="iCompany" placeholder="Company Name" required/>
+          <input class="u-input" type="text" id="iName" placeholder="Your Name" required/>
+        </div>
+        <div class="if-row">
+          <input class="u-input" type="email" id="iEmail" placeholder="Business Email" required/>
+          <input class="u-input" type="text" id="iRole" placeholder="Your Role"/>
+        </div>
+        <select class="u-select" id="iTelco">
+          <option value="">Which carrier are you with?</option>
+          <option>Telstra</option><option>Optus</option><option>Vodafone</option>
+          <option>TPG</option><option>Other</option>
+        </select>
+        <textarea class="give-msg" id="iMessage" placeholder="Tell us a bit about what you're looking to solve..."></textarea>
+        <button type="submit" class="give-submit" style="background:linear-gradient(135deg,#5B00FF,#8B5CF6);">Submit Demo Request →</button>
+      </form>
+      <div id="insightSuccess" class="success-msg">✓ Request received. We'll be in touch within 48 hours.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ─── STATE ───
+  const state = {
+    tier: 'silver',
+    dbuBalance: 0,
+    totalUnused: 0,
+    cyclesCompleted: 0,
+    usageLogs: [],
+    donations: [],
+    selectedCharity: null,
+    donateAmount: 0,
+  };
+
+  // ─── INIT ───
+  function init() {
+    const now = new Date();
+    document.getElementById('greeting').textContent = `Welcome back.`;
+    document.getElementById('usageMonth').value = now.toISOString().slice(0,7);
+    updateKPIs();
+    renderUsageTable();
+    renderDonations();
+  }
+
+  // ─── NAVIGATION ───
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.mob-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    const tabs = document.querySelectorAll('.nav-tab');
+    const mobTabs = document.querySelectorAll('.mob-tab');
+    const map = {dashboard:0, givabit:1, insight:2};
+    tabs[map[id]].classList.add('active');
+    mobTabs[map[id]].classList.add('active');
+    if(id==='givabit') syncGiveBalance();
+  }
+
+  // ─── KPIs ───
+  function updateKPIs() {
+    const aud = (state.dbuBalance * 0.05).toFixed(2);
+    const cyclesLeft = Math.max(0, 3 - state.cyclesCompleted);
+    document.getElementById('dbuBalance').textContent = state.dbuBalance.toLocaleString();
+    document.getElementById('totalUnused').textContent = state.totalUnused.toFixed(1) + ' GB';
+    document.getElementById('audEquiv').textContent = '$' + aud;
+    document.getElementById('cyclesCount').textContent = state.cyclesCompleted + '/3';
+    document.getElementById('cyclesRemain').textContent = cyclesLeft;
+    document.getElementById('dbuLocked').textContent = cyclesLeft > 0 ? state.dbuBalance : 0;
+    document.getElementById('dbuUnlocked').textContent = cyclesLeft === 0 ? state.dbuBalance : 0;
+    syncGiveBalance();
+  }
+
+  function syncGiveBalance() {
+    document.getElementById('giveBalance').textContent = state.dbuBalance.toLocaleString();
+    document.getElementById('giveAud').textContent = '$' + (state.dbuBalance * 0.05).toFixed(2);
+  }
+
+  // ─── USAGE LOGGING ───
+  function logUsage() {
+    const month = document.getElementById('usageMonth').value;
+    const telco = document.getElementById('usageTelco').value;
+    const plan = parseFloat(document.getElementById('planGb').value);
+    const used = parseFloat(document.getElementById('usedGb').value);
+    if (!month || !plan || isNaN(used)) return;
+    const unused = Math.max(0, plan - used);
+    const dbuEarned = Math.round(unused * 10 * tierMultiplier());
+    state.usageLogs.unshift({ month, telco, plan, used, unused, dbuEarned });
+    state.totalUnused += unused;
+    state.dbuBalance += dbuEarned;
+    state.cyclesCompleted = Math.min(3, state.cyclesCompleted + 1);
+    updateKPIs();
+    renderUsageTable();
+    const s = document.getElementById('usageSuccess');
+    s.style.display = 'block';
+    setTimeout(() => s.style.display = 'none', 3000);
+    document.getElementById('planGb').value = '';
+    document.getElementById('usedGb').value = '';
+  }
+
+  function tierMultiplier() {
+    return state.tier === 'gold' ? 3 : state.tier === 'silver' ? 2 : 1;
+  }
+
+  function renderUsageTable() {
+    const tbody = document.getElementById('usageTableBody');
+    if (!state.usageLogs.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO USAGE LOGGED YET</td></tr>';
+      return;
+    }
+    tbody.innerHTML = state.usageLogs.map(l => {
+      const pct = Math.min(100, (l.unused / l.plan) * 100);
+      return `<tr>
+        <td>${l.month}</td>
+        <td style="color:rgba(255,255,255,0.4)">${l.telco || '—'}</td>
+        <td>${l.plan} GB</td>
+        <td>${l.used} GB</td>
+        <td style="color:#00E5CC">${l.unused.toFixed(1)} GB</td>
+        <td><div class="unused-bar-wrap"><div class="unused-bar" style="width:${pct}%"></div></div></td>
+        <td><span class="dbu-pill">+${l.dbuEarned} DBU</span></td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ─── CHARITY DONATION ───
+  function selectCharity(el, name, cause) {
+    document.querySelectorAll('.charity-opt').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    state.selectedCharity = { name, cause };
+    document.getElementById('selectedCharity').textContent = name;
+    updateSelectedSummary();
+  }
+
+  function selectAmount(amt, el) {
+    document.querySelectorAll('.amt-pill').forEach(p => p.classList.remove('selected'));
+    el.classList.add('selected');
+    state.donateAmount = amt;
+    document.getElementById('customAmount').value = '';
+    document.getElementById('selectedAmt').textContent = amt;
+    document.getElementById('selectedAud').textContent = '$' + (amt * 0.05).toFixed(2);
+    updateSelectedSummary();
+  }
+
+  function updateSelectedSummary() {
+    document.getElementById('selectedAmt').textContent = state.donateAmount;
+    document.getElementById('selectedAud').textContent = '$' + (state.donateAmount * 0.05).toFixed(2);
+  }
+
+  function submitDonation() {
+    if (!state.selectedCharity || !state.donateAmount) return;
+    if (state.donateAmount > state.dbuBalance) {
+      alert('Insufficient DBU balance.');
+      return;
+    }
+    const donation = {
+      charity: state.selectedCharity.name,
+      cause: state.selectedCharity.cause,
+      dbu: state.donateAmount,
+      aud: (state.donateAmount * 0.05).toFixed(2),
+      date: new Date().toLocaleDateString('en-AU'),
+      status: 'Confirmed'
+    };
+    state.donations.unshift(donation);
+    state.dbuBalance -= state.donateAmount;
+    updateKPIs();
+    renderDonations();
+    const s = document.getElementById('donateSuccess');
+    s.style.display = 'block';
+    setTimeout(() => s.style.display = 'none', 4000);
+    document.querySelectorAll('.charity-opt').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.amt-pill').forEach(p => p.classList.remove('selected'));
+    state.selectedCharity = null;
+    state.donateAmount = 0;
+    document.getElementById('donateMsg').value = '';
+    document.getElementById('customAmount').value = '';
+    document.getElementById('selectedCharity').textContent = 'None';
+    document.getElementById('selectedAmt').textContent = '0';
+    document.getElementById('selectedAud').textContent = '$0.00';
+  }
+
+  function renderDonations() {
+    const el = document.getElementById('donationList');
+    if (!state.donations.length) {
+      el.innerHTML = '<div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DONATIONS YET</div>';
+      return;
+    }
+    el.innerHTML = state.donations.map(d => `
+      <div class="don-row">
+        <div>
+          <div class="don-org">${d.charity}</div>
+          <div class="don-date">${d.date} · ${d.cause}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div class="don-amt">${d.dbu} DBU · $${d.aud}</div>
+          <div class="don-status">${d.status}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ─── INSIGHT LEAD ───
+  function submitInsightLead(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Request Submitted';
+    btn.disabled = true;
+    document.getElementById('insightSuccess').style.display = 'block';
+  }
+
+  init();
+</script>
+</body>
+</html>
