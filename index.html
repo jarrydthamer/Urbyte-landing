@@ -29,10 +29,10 @@
     }
     .nav-logo { display:flex; align-items:center; gap:12px; }
     .nav-logo-mark {
-      width:36px; height:36px;
+      width:22px; height:22px;
       background:linear-gradient(135deg,#5B00FF,#00E5CC);
       display:flex; align-items:center; justify-content:center;
-      font-size:18px; font-weight:900; color:#fff;
+      font-size:11px; font-weight:900; color:#fff;
       clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
     }
     .nav-wordmark { font-size:20px; font-weight:900; letter-spacing:-0.5px; }
@@ -84,6 +84,26 @@
     }
     .hero-dot { width:5px; height:5px; background:#00E5CC; border-radius:50%; animation:blink 1.4s infinite; box-shadow:0 0 6px #00E5CC; }
     @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.1} }
+
+    /* SHIMMER SWEEP */
+    .hero-sweep-wrap {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      z-index:2; pointer-events:none; overflow:hidden; width:100%; text-align:center;
+    }
+    .hero-sweep-text {
+      font-size:clamp(120px,20vw,260px); font-weight:900; letter-spacing:-10px;
+      color:transparent;
+      background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%);
+      background-size:200% 100%;
+      -webkit-background-clip:text; background-clip:text;
+      animation:sweep 4s ease-in-out infinite;
+      user-select:none; line-height:1;
+    }
+    @keyframes sweep {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+
     h1 { font-size:clamp(48px,9vw,108px); font-weight:900; letter-spacing:-5px; line-height:0.9; margin-bottom:36px; }
     .h1-a { display:block; color:rgba(255,255,255,0.95); }
     .h1-b { display:block; color:rgba(255,255,255,0.9); }
@@ -443,6 +463,7 @@
     <circle cx="140" cy="550" r="300" fill="none" stroke="rgba(91,0,255,0.5)" stroke-width="0.5"/>
     <circle cx="660" cy="550" r="300" fill="none" stroke="rgba(91,0,255,0.5)" stroke-width="0.5"/>
   </svg>
+  <div class="hero-sweep-wrap"><div class="hero-sweep-text" data-text="URBYTE">URBYTE</div></div>
   <div class="hero-content">
     <div class="hero-badge"><span class="hero-dot"></span> System Online · Australia · Signal Returning</div>
     <h1>
