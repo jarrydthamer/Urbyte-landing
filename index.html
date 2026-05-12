@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Urbyte — The Australian Data Platform</title>
-  <meta name="description" content="Urbyte converts unused mobile data into real value — for you, for charity, for Australia." />
+  <title>Urbyte — Stop Losing What You've Already Paid For</title>
+  <meta name="description" content="Every month, Australians pay for more mobile data than they use — and that value quietly disappears. Urbyte is changing that." />
   <style>
-
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -377,141 +376,6 @@
       .movement-box { padding:48px 24px; }
       h1 { letter-spacing:-2px; }
     }
-  
-
-    /* ── TICKER ── */
-    .ticker-wrap{overflow:hidden;border-top:1px solid rgba(91,0,255,0.1);border-bottom:1px solid rgba(91,0,255,0.1);padding:16px 0;background:rgba(0,0,10,0.6);position:relative;z-index:1;}
-    .ticker-inner{display:flex;white-space:nowrap;animation:ticker 30s linear infinite;}
-    .ticker-item{padding:0 52px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
-    .ticker-item.accent{color:rgba(0,229,204,0.4);}
-    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    /* ── NAV EXTENDED ── */
-    .nav-links-ext{display:flex;align-items:center;gap:32px;}
-    .nav-link-ext{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);transition:color 0.3s;}
-    .nav-link-ext:hover{color:rgba(255,255,255,0.75);}
-
-    /* ── PLATFORM PILLARS ── */
-    .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;}
-    .pillar-card{padding:48px 36px;background:rgba(0,0,10,0.55);backdrop-filter:blur(12px);border:1px solid rgba(91,0,255,0.08);transition:all 0.4s;position:relative;overflow:hidden;}
-    .pillar-card:hover{background:rgba(91,0,255,0.05);}
-    .pillar-accent{width:32px;height:2px;margin-bottom:28px;}
-    .pillar-title{font-size:26px;font-weight:900;letter-spacing:-1px;margin-bottom:10px;}
-    .pillar-sub{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;}
-    .pillar-desc{font-size:13px;color:rgba(255,255,255,0.32);line-height:1.9;}
-    .pillar-tag{display:inline-block;margin-top:22px;font-size:9px;font-weight:700;letter-spacing:3px;padding:4px 14px;border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.2);text-transform:uppercase;}
-
-    /* ── GIVABIT ── */
-    .givabit-section{background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.09);padding:72px;position:relative;overflow:hidden;}
-    .givabit-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(0,229,204,0.04) 0%,transparent 70%);pointer-events:none;}
-    .givabit-logo-text{font-size:48px;font-weight:900;letter-spacing:-3px;color:#00E5CC;text-shadow:0 0 40px rgba(0,229,204,0.35);margin-bottom:12px;}
-    .givabit-tagline{font-size:13px;color:rgba(255,255,255,0.28);line-height:1.9;max-width:420px;margin-bottom:52px;}
-    .charity-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;}
-    .ch-card{padding:26px 18px;text-align:center;background:rgba(0,0,10,0.5);border:1px solid rgba(0,229,204,0.05);transition:all 0.3s;}
-    .ch-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.14);}
-    .ch-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 12px;}
-    .ch-name{font-size:11px;font-weight:700;margin-bottom:4px;}
-    .ch-cause{font-size:9px;color:rgba(255,255,255,0.22);letter-spacing:2px;text-transform:uppercase;}
-
-    /* ── FOUNDER ── */
-    .founder-ext{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
-    .founder-frame{aspect-ratio:1/1;background:rgba(91,0,255,0.07);border:1px solid rgba(91,0,255,0.14);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-    .founder-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#5B00FF,#00E5CC,#C2003A);}
-    .founder-frame-geo{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(91,0,255,0.12) 0%,transparent 70%);}
-    .founder-initials{font-size:88px;font-weight:900;letter-spacing:-8px;color:rgba(91,0,255,0.25);position:relative;z-index:2;}
-    .founder-name-ext{font-size:30px;font-weight:900;letter-spacing:-1.5px;margin-bottom:4px;}
-    .founder-role{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(0,229,204,0.6);margin-bottom:32px;}
-    .founder-quote-ext{font-size:19px;font-weight:700;line-height:1.5;color:rgba(255,255,255,0.82);margin-bottom:24px;letter-spacing:-0.3px;}
-    .founder-bio-ext{font-size:13px;color:rgba(255,255,255,0.3);line-height:2;margin-bottom:28px;}
-    .founder-acn{font-size:9px;color:rgba(255,255,255,0.12);letter-spacing:3px;text-transform:uppercase;}
-
-    /* ── TIERS EXTENDED ── */
-    .tier-grid-ext{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;}
-    .tier-ext{padding:48px 36px;background:rgba(0,0,10,0.55);border:1px solid rgba(91,0,255,0.08);position:relative;transition:all 0.4s;}
-    .tier-ext.featured{background:rgba(91,0,255,0.05);border-color:rgba(91,0,255,0.22);}
-    .tier-ext::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-    .tier-ext.t-bronze::before{background:linear-gradient(90deg,#CD7F32,transparent);}
-    .tier-ext.t-silver::before{background:linear-gradient(90deg,#C0C0C0,transparent);}
-    .tier-ext.t-gold::before{background:linear-gradient(90deg,#FFD700,transparent);}
-    .tier-ext-badge{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;}
-    .tier-ext-name{font-size:34px;font-weight:900;letter-spacing:-2px;margin-bottom:6px;}
-    .tier-ext-price{margin-bottom:32px;}
-    .tier-ext-num{font-size:48px;font-weight:900;letter-spacing:-3px;}
-    .tier-ext-mo{font-size:12px;color:rgba(255,255,255,0.28);margin-left:4px;}
-    .tier-ext-list{list-style:none;margin-bottom:36px;}
-    .tier-ext-list li{font-size:13px;color:rgba(255,255,255,0.38);padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;gap:10px;}
-    .tier-ext-list li::before{content:'';width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0;}
-    .tier-ext-btn{display:block;text-align:center;width:100%;padding:13px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(91,0,255,0.28);color:rgba(140,60,255,0.8);background:transparent;cursor:pointer;transition:all 0.3s;}
-    .tier-ext.featured .tier-ext-btn{background:linear-gradient(135deg,#5B00FF,#00E5CC);border-color:transparent;color:#fff;box-shadow:0 0 28px rgba(91,0,255,0.25);}
-    .tier-ext-btn:hover{background:rgba(91,0,255,0.08);}
-
-    /* ── STRATEGIC PARTNERS ── */
-    .strategic-wrap{background:rgba(194,0,58,0.03);border:1px solid rgba(194,0,58,0.09);padding:72px;position:relative;overflow:hidden;}
-    .strategic-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(194,0,58,0.05) 0%,transparent 70%);pointer-events:none;}
-    .strategic-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:72px;align-items:center;}
-    .strategic-nums{display:grid;grid-template-columns:1fr 1fr;gap:1px;}
-    .s-num-card{padding:28px;background:rgba(0,0,10,0.5);border:1px solid rgba(194,0,58,0.07);}
-    .s-num-val{font-size:32px;font-weight:900;letter-spacing:-2px;color:#C2003A;}
-    .s-num-label{font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:2px;text-transform:uppercase;margin-top:6px;line-height:1.6;}
-
-    /* ── PARTNERS GRID ── */
-    .telco-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:1px;margin-top:48px;}
-    .telco-pill{padding:18px 32px;font-size:12px;font-weight:700;letter-spacing:1px;background:rgba(0,0,10,0.5);border:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.25);transition:all 0.3s;}
-    .telco-pill:hover{background:rgba(91,0,255,0.04);border-color:rgba(91,0,255,0.14);color:rgba(255,255,255,0.55);}
-
-    /* ── WAITLIST EXTENDED ── */
-    .waitlist-ext{background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.14);padding:88px 72px;text-align:center;position:relative;overflow:hidden;}
-    .waitlist-ext-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(91,0,255,0.08) 0%,transparent 70%);pointer-events:none;}
-    .waitlist-ext-content{position:relative;z-index:2;max-width:560px;margin:0 auto;}
-    .waitlist-ext-title{font-size:clamp(34px,5vw,58px);font-weight:900;letter-spacing:-3px;margin-bottom:14px;}
-    .waitlist-ext-sub{font-size:14px;color:rgba(255,255,255,0.28);line-height:1.9;margin-bottom:48px;}
-    .wl-form{display:flex;flex-direction:column;gap:10px;max-width:460px;margin:0 auto;}
-    .wl-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-    .wl-field{background:rgba(0,0,10,0.65);border:1px solid rgba(91,0,255,0.18);color:#fff;padding:13px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.3s;width:100%;}
-    .wl-field:focus{border-color:rgba(0,229,204,0.35);}
-    .wl-field::placeholder{color:rgba(255,255,255,0.18);}
-    .wl-select{background:rgba(0,0,10,0.65);border:1px solid rgba(91,0,255,0.18);color:rgba(255,255,255,0.5);padding:13px 18px;font-size:13px;font-family:'Inter',sans-serif;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;width:100%;}
-    .wl-select option{background:#00000A;}
-    .wl-go{background:linear-gradient(135deg,#5B00FF,#00E5CC);color:#fff;padding:15px;font-size:10px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;width:100%;box-shadow:0 0 36px rgba(91,0,255,0.22);transition:all 0.3s;}
-    .wl-go:hover{box-shadow:0 0 56px rgba(91,0,255,0.38);transform:translateY(-1px);}
-    .wl-note{font-size:9px;color:rgba(255,255,255,0.1);letter-spacing:2px;text-transform:uppercase;margin-top:14px;}
-
-    /* ── FOOTER EXTENDED ── */
-    .footer-ext{position:relative;z-index:1;padding:72px 56px 44px;border-top:1px solid rgba(91,0,255,0.09);background:rgba(0,0,10,0.85);}
-    .footer-top-ext{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px;}
-    .footer-brand-ext{font-size:26px;font-weight:900;letter-spacing:-1px;margin-bottom:14px;}
-    .footer-brand-sub{font-size:13px;color:rgba(255,255,255,0.18);line-height:1.9;max-width:280px;margin-bottom:20px;}
-    .footer-acn-ext{font-size:9px;color:rgba(255,255,255,0.08);letter-spacing:3px;text-transform:uppercase;}
-    .footer-col-hd{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:18px;}
-    .footer-col-list{list-style:none;display:flex;flex-direction:column;gap:11px;}
-    .footer-col-list a{font-size:13px;color:rgba(255,255,255,0.18);transition:color 0.3s;}
-    .footer-col-list a:hover{color:rgba(255,255,255,0.65);}
-    .footer-bottom-ext{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,0.04);flex-wrap:wrap;gap:12px;}
-    .footer-copy-ext{font-size:11px;color:rgba(255,255,255,0.08);letter-spacing:1px;}
-    .footer-ack-ext{font-size:10px;color:rgba(255,255,255,0.07);line-height:1.8;max-width:680px;margin:18px auto 0;text-align:center;}
-
-    /* ── MOVEMENT ── */
-    .movement-ext{text-align:center;padding:72px;border:1px solid rgba(91,0,255,0.09);background:rgba(91,0,255,0.03);position:relative;overflow:hidden;}
-    .movement-ext::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#5B00FF,#00E5CC,#C2003A);}
-    .movement-ext-title{font-size:clamp(28px,4vw,50px);font-weight:900;letter-spacing:-2.5px;margin-bottom:18px;}
-    .movement-ext-body{font-size:15px;color:rgba(255,255,255,0.28);line-height:2;max-width:580px;margin:0 auto 28px;}
-    .movement-ext-quote{font-size:20px;font-weight:700;color:#00E5CC;letter-spacing:-0.5px;text-shadow:0 0 28px rgba(0,229,204,0.28);}
-
-    @media(max-width:900px){
-      .pillar-grid,.tier-grid-ext,.charity-grid{grid-template-columns:1fr;}
-      .founder-ext{grid-template-columns:1fr;}
-      .strategic-inner{grid-template-columns:1fr;gap:40px;}
-      .footer-top-ext{grid-template-columns:1fr 1fr;gap:32px;}
-      .givabit-section,.strategic-wrap,.waitlist-ext,.movement-ext{padding:44px 24px;}
-      .footer-ext{padding:48px 20px 36px;}
-    }
-    @media(max-width:600px){
-      .strategic-nums{grid-template-columns:1fr 1fr;}
-      .footer-top-ext{grid-template-columns:1fr;}
-      .wl-row{grid-template-columns:1fr;}
-      .charity-grid{grid-template-columns:repeat(2,1fr);}
-    }
-
   </style>
 </head>
 <body>
@@ -587,7 +451,6 @@
 })();
 </script>
 
-
 <!-- SVG SYMBOLS -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
   <symbol id="ico-hex" viewBox="0 0 40 40">
@@ -640,9 +503,7 @@
   </symbol>
 </svg>
 
-
-
-<!-- NAV (original, extended with page links) -->
+<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div style="position:relative;display:inline-block;width:34px;height:34px;">
@@ -661,17 +522,10 @@
     <span>Urbyte</span>
     <span class="nav-tag">// BETA</span>
   </div>
-  <div class="nav-links-ext">
-    <a href="#how" class="nav-link-ext">How It Works</a>
-    <a href="#platform" class="nav-link-ext">Platform</a>
-    <a href="#givabit" class="nav-link-ext">Givabit</a>
-    <a href="#founder" class="nav-link-ext">Founder</a>
-    <a href="#strategic" class="nav-link-ext">Partners</a>
-  </div>
-  <a href="#waitlist" class="btn-nav">Join Waitlist</a>
+  <a href="#founding" class="btn-nav">Founding Members</a>
 </nav>
 
-<!-- HERO (original — untouched) -->
+<!-- HERO -->
 <div class="hero">
   <div class="floor-wrap">
     <div class="hero-sun"></div>
@@ -711,6 +565,7 @@
       <line x1="500" y1="0" x2="625" y2="500" stroke="url(#fg)" stroke-width="0.4"/>
     </svg>
   </div>
+  <!-- HERO LIGHT SWEEP BACKDROP -->
   <div class="hero-sweep-wrap">
     <div class="hero-sweep-text" data-text="URBYTE">URBYTE</div>
   </div>
@@ -727,27 +582,10 @@
       <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
       <a href="#how" class="btn-ghost">How It Works</a>
     </div>
-    <p class="hero-micro">Limited Early Access · Australian Owned &amp; Operated</p>
+    <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
   </div>
 </div>
 
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-inner">
-    <span class="ticker-item">Unused Data</span><span class="ticker-item accent">→ Real Value</span>
-    <span class="ticker-item">Australian Built</span><span class="ticker-item accent">→ Consumer First</span>
-    <span class="ticker-item">Rewards</span><span class="ticker-item accent">→ Charity Impact</span>
-    <span class="ticker-item">Your Signal</span><span class="ticker-item accent">→ Your Control</span>
-    <span class="ticker-item">$9.6B Lost Annually</span><span class="ticker-item accent">→ We're Changing That</span>
-    <span class="ticker-item">Unused Data</span><span class="ticker-item accent">→ Real Value</span>
-    <span class="ticker-item">Australian Built</span><span class="ticker-item accent">→ Consumer First</span>
-    <span class="ticker-item">Rewards</span><span class="ticker-item accent">→ Charity Impact</span>
-    <span class="ticker-item">Your Signal</span><span class="ticker-item accent">→ Your Control</span>
-    <span class="ticker-item">$9.6B Lost Annually</span><span class="ticker-item accent">→ We're Changing That</span>
-  </div>
-</div>
-
-<!-- STATS (original) -->
 <!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
@@ -757,62 +595,73 @@
   </div>
 </div>
 
-
 <div class="geo-div"></div>
 
-<!-- HOW IT WORKS (original style) -->
+<!-- HOW IT WORKS -->
 <div class="sec" id="how">
   <div class="sec-inner">
     <div class="sec-tag">How It Works</div>
     <h2 class="sec-title">Simple. Transparent. Yours.</h2>
-    <p class="sec-sub" style="margin-bottom:32px;">When you join, Urbyte tracks your unused data each month and converts it into credits — redeemable for rewards or donated to Australian charities of your choice.</p>
+    <p class="sec-sub" style="margin-bottom:32px;">When you join, Urbyte tracks your unused data and converts it into credits — redeemable for rewards or donated to Australian charities.</p>
     <div class="grid-3">
       <div class="g-card">
         <div class="g-num">01</div>
         <svg class="g-geo"><use href="#ico-hex"/></svg>
         <div class="g-step">Step 01</div>
-        <div class="g-title">Join &amp; Connect</div>
-        <p class="g-desc">Sign up, select your telco and plan size. Urbyte begins tracking your monthly data gap from day one.</p>
+        <div class="g-title">Log Your Usage</div>
+        <p class="g-desc">Enter your monthly plan and what you actually used. The gap between the two is where Urbyte begins.</p>
       </div>
       <div class="g-card">
         <div class="g-num">02</div>
         <svg class="g-geo"><use href="#ico-diamond"/></svg>
         <div class="g-step">Step 02</div>
         <div class="g-title">Watch It Build</div>
-        <p class="g-desc">Every GB of unused data is captured and converted to DBUs — Data Backed Units — accumulating silently in your account each cycle.</p>
+        <p class="g-desc">Urbyte captures what went unclaimed and returns it to you. Your value — building in the background.</p>
       </div>
       <div class="g-card">
         <div class="g-num">03</div>
         <svg class="g-geo"><use href="#ico-star"/></svg>
         <div class="g-step">Step 03</div>
-        <div class="g-title">Direct Your Value</div>
-        <p class="g-desc">Redeem credits for rewards, gift cards, and experiences — or direct your value to Australian causes that matter to you.</p>
+        <div class="g-title">Direct It</div>
+        <p class="g-desc">Spend it on rewards and experiences, or channel it toward Australian causes that matter to you.</p>
       </div>
     </div>
   </div>
 </div>
 
 <div class="geo-div"></div>
+<!-- SIGNAL CONCEPT — no label, just sensation -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Something Is Building</div>
+    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <div class="signal-wrap">
+      <div class="signal-orb">
+        <svg class="signal-inner"><use href="#ico-signal"/></svg>
+      </div>
+      <div class="signal-text">
+        <strong>Your signal is growing.</strong>
+        It was always there. Now it has somewhere to go.
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- THE PATTERN -->
+<div class="geo-div"></div>
+<!-- PROBLEM -->
 <div class="sec">
   <div class="sec-inner">
     <div class="prob-wrap">
       <div>
         <div class="sec-tag">The Pattern</div>
         <h2 class="sec-title">The system was designed to keep it.</h2>
-        <p class="sec-sub">Every billing cycle, value accumulates and disappears — not by accident, but by design. Urbyte interrupts that pattern permanently.</p>
-        <div class="no-list" style="margin-top:32px;">
-          <div class="no-item"><span class="ck">→</span>Telcos sell you data you won't use</div>
-          <div class="no-item"><span class="ck">→</span>Unused data expires at cycle end</div>
-          <div class="no-item hl"><span class="ck">◈</span>Urbyte captures that value before it vanishes</div>
-        </div>
+        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
       </div>
       <div class="prob-lines">
-        <div class="prob-line">You paid for 100GB.</div>
-        <div class="prob-line">You used 14GB.</div>
-        <div class="prob-line">86GB vanished.</div>
-        <div class="prob-line accent">Every. Single. Month.</div>
+        <div class="prob-line">You paid for it.</div>
+        <div class="prob-line">You didn't use it.</div>
+        <div class="prob-line accent">And somehow… you still lose it.</div>
       </div>
     </div>
   </div>
@@ -820,62 +669,16 @@
 
 <div class="geo-div"></div>
 
-<!-- PLATFORM PILLARS -->
-<div class="sec" id="platform">
+<!-- BUILT DIFFERENT -->
+<div class="sec">
   <div class="sec-inner">
-    <div class="sec-tag">The Platform</div>
-    <h2 class="sec-title">Three pillars.<br/>One ecosystem.</h2>
-    <p class="sec-sub">Urbyte is an integrated platform — consumer-facing, enterprise-ready, and impact-driven from the ground up.</p>
-    <div class="pillar-grid">
-      <div class="pillar-card">
-        <div class="pillar-accent" style="background:linear-gradient(90deg,#00E5CC,transparent)"></div>
-        <div class="pillar-title">Urbyte</div>
-        <div class="pillar-sub" style="color:rgba(0,229,204,0.65);">Consumer Platform</div>
-        <p class="pillar-desc">The core product. Australians join, track their unused data, accumulate DBU credits, and redeem them for real-world rewards or charitable impact.</p>
-        <span class="pillar-tag">Live · urbyte.com.au</span>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-accent" style="background:linear-gradient(90deg,#5B00FF,transparent)"></div>
-        <div class="pillar-title">Urbyte Insight</div>
-        <div class="pillar-sub" style="color:rgba(91,0,255,0.75);">B2B SaaS · Telco Analytics</div>
-        <p class="pillar-desc">Enterprise intelligence for Australian telcos. Real-time retention analytics, churn prediction, and data waste benchmarking — powered by the Urbyte network.</p>
-        <span class="pillar-tag">Coming Soon</span>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-accent" style="background:linear-gradient(90deg,#C2003A,transparent)"></div>
-        <div class="pillar-title">Givabit</div>
-        <div class="pillar-sub" style="color:rgba(194,0,58,0.7);">Social Impact Arm</div>
-        <p class="pillar-desc">The charitable engine of Urbyte. Members direct their unused data value to vetted Australian organisations — homelessness, mental health, DV support, and more.</p>
-        <span class="pillar-tag">Active</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- GIVABIT -->
-<div class="sec" id="givabit">
-  <div class="sec-inner">
-    <div class="givabit-section">
-      <div class="givabit-glow"></div>
-      <div style="position:relative;z-index:2;">
-        <div class="sec-tag">Social Impact</div>
-        <div class="givabit-logo-text">Givabit</div>
-        <p class="givabit-tagline">The charitable arm of Urbyte. Every member has the power to direct their unused data value toward Australian organisations doing work that matters. No fees. No middlemen.</p>
-        <div class="charity-grid">
-          <div class="ch-card"><div class="ch-dot" style="background:#003F8A;box-shadow:0 0 8px rgba(0,63,138,0.5);"></div><div class="ch-name">Beyond Blue</div><div class="ch-cause">Mental Health</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#F37021;box-shadow:0 0 8px rgba(243,112,33,0.5);"></div><div class="ch-name">Orange Sky</div><div class="ch-cause">Homelessness</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#00A651;box-shadow:0 0 8px rgba(0,166,81,0.5);"></div><div class="ch-name">Homelessness Australia</div><div class="ch-cause">Housing &amp; Advocacy</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#C2003A;box-shadow:0 0 8px rgba(194,0,58,0.5);"></div><div class="ch-name">1800RESPECT</div><div class="ch-cause">Domestic Violence</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#F7941D;box-shadow:0 0 8px rgba(247,148,29,0.5);"></div><div class="ch-name">Indigenous Literacy</div><div class="ch-cause">First Nations</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#0099CC;box-shadow:0 0 8px rgba(0,153,204,0.5);"></div><div class="ch-name">Lifeline</div><div class="ch-cause">Crisis Support</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#009845;box-shadow:0 0 8px rgba(0,152,69,0.5);"></div><div class="ch-name">Kids Helpline</div><div class="ch-cause">Youth Mental Health</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#E31837;box-shadow:0 0 8px rgba(227,24,55,0.5);"></div><div class="ch-name">Salvation Army</div><div class="ch-cause">Welfare &amp; Poverty</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#5B00FF;box-shadow:0 0 8px rgba(91,0,255,0.5);"></div><div class="ch-name">Mission Australia</div><div class="ch-cause">Homelessness</div></div>
-          <div class="ch-card"><div class="ch-dot" style="background:#00E5CC;box-shadow:0 0 8px rgba(0,229,204,0.5);"></div><div class="ch-name">Rural Aid</div><div class="ch-cause">Rural Communities</div></div>
-        </div>
-      </div>
+    <div class="sec-tag">Built Different</div>
+    <h2 class="sec-title">Built for people, not systems.</h2>
+    <div class="grid-2">
+      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">What was overlooked is now returned</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Value that was wasted now flows back to you</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">You stay in control — always</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Backed by a mission to make this fairer for everyone</p></div>
     </div>
   </div>
 </div>
@@ -885,34 +688,79 @@
 <!-- MOVEMENT -->
 <div class="sec">
   <div class="sec-inner">
-    <div class="movement-ext">
-      <div class="sec-tag" style="justify-content:center;">The Shift</div>
-      <h2 class="movement-ext-title">This isn't just a product.<br/>It's a rebalancing.</h2>
-      <p class="movement-ext-body">We're not here to fight the system. We're here to recalibrate it. Where what flows out starts flowing back. Where the value you create stays in your hands — and in the hands of those who need it most.</p>
-      <p class="movement-ext-quote">"What you don't use shouldn't disappear."</p>
+    <div class="movement-box">
+      <div class="sec-tag" style="justify-content:center;margin-bottom:20px;">The Shift</div>
+      <h2>This isn't just a product.</h2>
+      <p>Urbyte is part of something larger — a rebalancing. Where what flows out starts flowing back.</p>
+      <p>We're not here to fight the system. We're here to recalibrate it.</p>
+      <p class="movement-tagline">"What you don't use shouldn't disappear."</p>
     </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CHARITIES -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Where It Goes</div>
+    <div style="display:inline-block;margin-bottom:16px;padding:6px 20px;border:1px solid rgba(0,229,204,0.25);background:rgba(0,229,204,0.04);letter-spacing:4px;font-size:11px;font-weight:900;text-transform:uppercase;color:rgba(0,229,204,0.7);">Givabit</div>
+    <h2 class="sec-title">Direct your signal.<br/>Change something real.</h2>
+    <p class="sec-sub">Choose to channel returned value toward Australian organisations doing work that matters. No middlemen. Nothing lost in transit.</p>
+    <div class="charity-grid">
+      <div class="ch-card"><div class="ch-dot" style="background:#003F8A;box-shadow:0 0 10px #003F8A;"></div><div class="ch-name">Beyond Blue</div><div class="ch-cause">Mental Health</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#F37021;box-shadow:0 0 10px #F37021;"></div><div class="ch-name">Orange Sky Australia</div><div class="ch-cause">Homelessness</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#C2003A;box-shadow:0 0 10px #C2003A;"></div><div class="ch-name">Homelessness Australia</div><div class="ch-cause">Housing Support</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#5B00FF;box-shadow:0 0 10px #5B00FF;"></div><div class="ch-name">1800RESPECT</div><div class="ch-cause">Domestic Violence</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#FF6A00;box-shadow:0 0 10px #FF6A00;"></div><div class="ch-name">Indigenous Literacy Foundation</div><div class="ch-cause">Education</div></div>
+    </div>
+    <p class="donate-note">These are organisations we aspire to partner with. Formal partnerships are in progress.<br/>These causes aren't random. They're personal.</p>
   </div>
 </div>
 
 <div class="geo-div"></div>
 
 <!-- FOUNDER -->
-<div class="sec" id="founder">
+<div class="sec">
   <div class="sec-inner">
-    <div class="founder-ext">
-      <div>
-        <div class="founder-frame">
-          <div class="founder-frame-geo"></div>
-          <div class="founder-initials">JT</div>
-        </div>
+    <div class="founder-box">
+      <div class="founder-label">Why I Built This</div>
+      <div class="founder-text">
+        <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
       </div>
-      <div>
-        <div class="sec-tag">The Founder</div>
-        <div class="founder-name-ext">Jarryd Thamer</div>
-        <div class="founder-role">Founder &amp; CEO · Urbyte Pty Ltd</div>
-        <div class="founder-label" style="font-size:9px;color:rgba(0,229,204,0.55);font-weight:700;letter-spacing:5px;text-transform:uppercase;margin-bottom:24px;">Why I Built This</div>
-        <p class="founder-bio-ext">My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
-        <p class="founder-acn" style="margin-top:28px;">— Jarryd, Founder · Northern Rivers, NSW · ACN 692 885 019</p>
+      <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- TESTIMONIALS -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Early Voices</div>
+    <h2 class="sec-title">What people are saying.</h2>
+    <div class="quote-grid">
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">To finally earn something back from the Telco company!</p><div class="q-name">Early Supporter</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Passing the value on to worthy causes rather than letting it vanish.</p><div class="q-name">Waitlist Member</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Beta User</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CTA -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="cta-block">
+      <div class="sec-tag" style="justify-content:center;">Be First</div>
+      <h2>Be there from the start.</h2>
+      <p>We're opening access in stages. Early members get the most value — and help shape what this becomes.</p>
+      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
+      <div class="cta-btns">
+        <a href="#founding" class="btn-primary">Secure Your Spot</a>
+        <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
       </div>
     </div>
   </div>
@@ -920,94 +768,137 @@
 
 <div class="geo-div"></div>
 
-<!-- TIERS -->
+<!-- FOUNDING MEMBERS -->
 <div class="sec" id="founding">
   <div class="sec-inner">
-    <div class="sec-tag">Founding Members</div>
-    <h2 class="sec-title">Your Bite Size.</h2>
-    <p class="sec-sub">Three tiers. One mission. Join as a Founding Member and lock in your place before the platform opens to the public.</p>
-    <div class="tier-grid-ext">
-      <div class="tier-ext t-bronze">
-        <div class="tier-ext-badge" style="color:rgba(205,127,50,0.8);">Bronze</div>
-        <div class="tier-ext-name">Bronze</div>
-        <div class="tier-ext-price"><span class="tier-ext-num">$5</span><span class="tier-ext-mo">/month</span></div>
-        <ul class="tier-ext-list">
-          <li>DBU credit accumulation</li>
-          <li>Charity donation stream</li>
-          <li>Monthly usage tracking</li>
-          <li>Founding Member status</li>
-          <li>5 draw entries/month</li>
-        </ul>
-        <a href="https://urbyte.com.au" class="tier-ext-btn">Get Started</a>
+    <div class="founding-header">
+      <div class="founding-badge-tag">Founding Members — Limited Spots</div>
+      <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Founding Members are the first Australians to say — not anymore.</p>
+    </div>
+
+    <div class="founding-how">
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-hex"/></svg>
+        <div class="fh-title">Signal Begins</div>
+        <p class="fh-desc">Your existing unused value starts returning immediately on signup</p>
       </div>
-      <div class="tier-ext t-silver featured">
-        <div class="tier-ext-badge" style="color:rgba(192,192,192,0.9);">Most Popular</div>
-        <div class="tier-ext-name">Silver</div>
-        <div class="tier-ext-price"><span class="tier-ext-num">$15</span><span class="tier-ext-mo">/month</span></div>
-        <ul class="tier-ext-list">
-          <li>Everything in Bronze</li>
-          <li>2× DBU earn rate</li>
-          <li>Priority rewards access</li>
-          <li>Early feature access</li>
-          <li>15 draw entries/month</li>
-        </ul>
-        <a href="https://urbyte.com.au" class="tier-ext-btn">Get Started</a>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-diamond"/></svg>
+        <div class="fh-title">It Accumulates</div>
+        <p class="fh-desc">Submit your bill each month. We track what went unclaimed over 3 cycles</p>
       </div>
-      <div class="tier-ext t-gold">
-        <div class="tier-ext-badge" style="color:rgba(255,215,0,0.8);">Gold</div>
-        <div class="tier-ext-name">Gold</div>
-        <div class="tier-ext-price"><span class="tier-ext-num">$29</span><span class="tier-ext-mo">/month</span></div>
-        <ul class="tier-ext-list">
-          <li>Everything in Silver</li>
-          <li>3× DBU earn rate</li>
-          <li>Exclusive Gold rewards</li>
-          <li>Direct impact reporting</li>
-          <li>29 draw entries/month</li>
-        </ul>
-        <a href="https://urbyte.com.au" class="tier-ext-btn">Get Started</a>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-star"/></svg>
+        <div class="fh-title">You Direct It</div>
+        <p class="fh-desc">Spend it on rewards, experiences, or the causes that need it most</p>
       </div>
     </div>
+
+    <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
+
+    <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
+      <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#00E5CC;">100%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Conversion Rate</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Every single person shown Urbyte signed up</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#8B5CF6;">$9.6B</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Lost Every Year</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">In paid-but-unused Australian mobile data</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#C2003A;">14</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Charity Partners</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Ready to receive what the system has been keeping</div>
+      </div>
+    </div>
+
+    <div class="prepaid-callout">
+      <svg class="prepaid-mark"><use href="#ico-tri"/></svg>
+      <div><strong>On a prepaid plan?</strong> If you use all your data before month-end, there's nothing left to return. Upgrading to a higher recharge creates a buffer — and Urbyte captures that residual value every cycle.</div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:20px;">Choose your position</div>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card bronze">
+        <svg class="tier-geo"><use href="#ico-tri"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
+        <div class="tier-price"><span>$5</span><small>/mo</small></div>
+        <div class="tier-signal">Signal activated on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-cta" onclick="startCheckout('bronze')">Get Your Byte <span>→</span></button>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+      </div>
+      <div class="tier-card silver">
+        <div class="tier-badge popular">Most Popular</div>
+        <svg class="tier-geo"><use href="#ico-hex"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Silver</div>
+        <div class="tier-price"><span>$15</span><small>/mo</small></div>
+        <div class="tier-signal">Amplified signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Amplified signal from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-cta" onclick="startCheckout('silver')">Get Your Byte <span>→</span></button>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+      </div>
+      <div class="tier-card gold">
+        <div class="tier-badge best">Best Value</div>
+        <svg class="tier-geo"><use href="#ico-diamond"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
+        <div class="tier-price"><span>$29</span><small>/mo</small></div>
+        <div class="tier-signal">Maximum signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Best available rate</strong> — locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Gold status — permanently on profile</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
+        </ul>
+        <button class="tier-cta" onclick="startCheckout('gold')">Get Your Byte <span>→</span></button>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+      </div>
+    </div>
+    <div class="milestone-bar" style="margin-top:40px;">
+      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
+      <div class="milestone-sub">Early members lock in the best rates — permanently</div>
+    </div>
+    <p class="founding-legal">Cancel anytime. No lock-in. Your founding rate is locked in for the life of your active subscription. Value unlocks after 3 completed billing cycles for usage verification. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
   </div>
 </div>
 
 <div class="geo-div"></div>
 
-<!-- STRATEGIC PARTNERS -->
-<div class="sec" id="strategic">
-  <div class="sec-inner">
-    <div class="strategic-wrap">
-      <div class="strategic-glow"></div>
-      <div class="strategic-inner">
-        <div>
-          <div class="sec-tag">Strategic Partners</div>
-          <h2 class="sec-title" style="font-size:clamp(30px,4vw,50px);">Category-founding.<br/>Already moving.</h2>
-          <p class="sec-sub" style="margin-bottom:32px;">Urbyte is not looking for validation — we are building the infrastructure layer for Australian data ownership. We engage with aligned operators who understand what it means to be present at the founding of a new category.</p>
-          <a href="mailto:jarryd@urbyte.com.au?subject=Strategic Partnership - Urbyte" class="btn-primary" style="display:inline-block;">Enquire About Partnership</a>
-        </div>
-        <div class="strategic-nums">
-          <div class="s-num-card"><div class="s-num-val">$9.6B</div><div class="s-num-label">Annual AU unused data value</div></div>
-          <div class="s-num-card"><div class="s-num-val">26M+</div><div class="s-num-label">Target AU consumer base</div></div>
-          <div class="s-num-card"><div class="s-num-val">3</div><div class="s-num-label">Revenue streams: subscriptions, B2B SaaS, marketplace</div></div>
-          <div class="s-num-card"><div class="s-num-val">1,000</div><div class="s-num-label">Founding member milestone — the first proof point</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- TELCO PARTNERS -->
-<div class="sec">
-  <div class="sec-inner" style="text-align:center;">
-    <div class="sec-tag" style="justify-content:center;">Infrastructure Ready</div>
-    <h2 class="sec-title">Built to operate<br/>across every carrier.</h2>
-    <p class="sec-sub" style="margin:0 auto;">Urbyte is designed as neutral, third-party infrastructure — positioned to integrate with Australia's full telco landscape.</p>
-    <div class="telco-grid">
-      <div class="telco-pill">Telstra</div><div class="telco-pill">Optus</div>
-      <div class="telco-pill">Vodafone AU</div><div class="telco-pill">TPG</div>
-      <div class="telco-pill">Aldi Mobile</div><div class="telco-pill">Woolworths Mobile</div>
-      <div class="telco-pill">Boost Mobile</div><div class="telco-pill">Amaysim</div>
+<!-- FAQ -->
+<div class="sec" id="faq">
+  <div class="sec-inner narrow">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-title">Questions answered.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What exactly does Urbyte return to me? <span class="faq-ico">+</span></button><div class="faq-a"><p>The value from your unused mobile data — the gap between what you paid for and what you actually used. Urbyte captures that and puts it back in your hands. You decide where it goes.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does it work? <span class="faq-ico">+</span></button><div class="faq-a"><p>You submit your monthly telco bill. We calculate how much data went unclaimed that cycle and begin returning that value to you. After 3 billing cycles of verification, it's ready to use.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What can I do with returned value? <span class="faq-ico">+</span></button><div class="faq-a"><p>Spend it on rewards and experiences, or direct it toward Australian charities focused on mental health, homelessness, and domestic violence support. Your call entirely.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why the 3 billing cycle wait? <span class="faq-ico">+</span></button><div class="faq-a"><p>It protects you. Three cycles lets us build an accurate picture of your real unused average — so what you receive is verified and real. Founding Members get their initial signal immediately.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which telcos are supported? <span class="faq-ico">+</span></button><div class="faq-a"><p>We're building support for all major Australian carriers — Telstra, Optus, Vodafone, TPG, Boost, and more. Tell us your telco when you join so we can prioritise accordingly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes, anytime. No lock-in contracts. If you cancel, your Founding Member status and accumulated value remain in your account — you just won't receive future monthly signal boosts.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe? <span class="faq-ico">+</span></button><div class="faq-a"><p>Absolutely. Urbyte only reads usage figures from your telco bill — never your calls, messages, or personal content. Handled under the Australian Privacy Act 1988. <a href="/privacy">Privacy Policy</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">I'm on prepaid — can I still participate? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes — but your recharge size matters. If you use all your data before month-end, there's no residual value to return. A higher recharge creates a buffer — and Urbyte captures that automatically.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When does Urbyte launch? <span class="faq-ico">+</span></button><div class="faq-a"><p>We're in the founding phase, building toward beta. Founding Members access first. <a href="https://app.urbyte.com.au" target="_blank">Preview the platform now</a>.</p></div></div>
     </div>
   </div>
 </div>
@@ -1016,85 +907,208 @@
 
 <!-- WAITLIST -->
 <div class="sec" id="waitlist">
-  <div class="sec-inner">
-    <div class="waitlist-ext">
-      <div class="waitlist-ext-glow"></div>
-      <div class="waitlist-ext-content">
-        <div class="sec-tag" style="justify-content:center;">Early Access</div>
-        <h2 class="waitlist-ext-title">Get your<br/>byte back.</h2>
-        <p class="waitlist-ext-sub">Join the Urbyte waitlist. Be first in line when we launch — and get your first month free as a Founding Member.</p>
-        <form class="wl-form" onsubmit="handleWL(event)">
-          <div class="wl-row">
-            <input class="wl-field" type="text" placeholder="First Name" required />
-            <input class="wl-field" type="email" placeholder="Email Address" required />
+  <div class="waitlist-wrap">
+    <div class="waitlist-box">
+      <div id="form-area">
+        <div class="sec-tag" style="justify-content:center;margin-bottom:16px;">Free Access</div>
+        <h2>Not ready yet?<br/>Stay in range.</h2>
+        <p class="sub">We'll reach out when your signal is ready to return.</p>
+        <form id="waitlist-form">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Email address" required />
+          <input type="text" id="telco" placeholder="Your telco provider (e.g. Telstra, Optus)" />
+          <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
+          <div id="error-msg" class="error" style="display:none;"></div>
+          <div style="display:flex;gap:12px;align-items:stretch;">
+            <button type="submit" id="submit-btn" style="flex:1;">Join the Waitlist</button>
+            <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
+              </svg>
+            </button>
           </div>
-          <input class="wl-field" type="tel" placeholder="Mobile Number (optional)" />
-          <select class="wl-select">
-            <option value="">Your Telco (optional)</option>
-            <option>Telstra</option><option>Optus</option><option>Vodafone</option>
-            <option>TPG</option><option>Aldi Mobile</option><option>Woolworths Mobile</option>
-            <option>Boost Mobile</option><option>Amaysim</option><option>Other</option>
-          </select>
-          <button type="submit" class="wl-go">Join Waitlist → First Month Free</button>
-          <p class="wl-note">No spam. No obligation. Australian Privacy Act compliant.</p>
+          <div id="support-count" style="display:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);text-align:right;margin-top:6px;">Signal added</div>
         </form>
+        <p class="privacy-note">Protected under the Australian Privacy Act 1988 · <a href="/privacy">Privacy Policy</a> · <a href="mailto:information@urbyte.com.au">Contact</a></p>
+      </div>
+      <div id="success-area" class="success" style="display:none;">
+        <svg style="width:52px;height:52px;margin:0 auto 24px;display:block;" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="28" fill="none" stroke="#00E5CC" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="30" cy="30" r="20" fill="none" stroke="#5B00FF" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#C2003A" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="30" cy="30" r="5" fill="none" stroke="#00E5CC" stroke-width="1" opacity="0.8"/>
+          <circle cx="30" cy="30" r="2" fill="#00E5CC"/>
+        </svg>
+        <h2>Signal received.</h2>
+        <p id="telco-detect-msg" style="display:none;color:#00E5CC;margin-bottom:16px;font-size:14px;"></p>
+        <p>We'll be in touch. The signal is building.</p>
       </div>
     </div>
   </div>
 </div>
 
+<div class="geo-div"></div>
+
+<!-- CONTACT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Contact</div>
+    <h2 class="sec-title">We're real people.<br/><span style="color:#00E5CC;text-shadow:0 0 20px rgba(0,229,204,0.3);">Say hello.</span></h2>
+    <div class="contact-grid">
+      <a class="ct-card" href="mailto:information@urbyte.com.au"><svg class="ct-geo"><use href="#ico-mail"/></svg><div class="ct-lbl">General</div><div class="ct-val">information@urbyte.com.au</div></a>
+      <a class="ct-card" href="mailto:jarryd@urbyte.com.au"><svg class="ct-geo"><use href="#ico-person"/></svg><div class="ct-lbl">Founder</div><div class="ct-val">jarryd@urbyte.com.au</div></a>
+      <a class="ct-card" href="https://instagram.com/UrbyteAus" target="_blank"><svg class="ct-geo"><use href="#ico-inst"/></svg><div class="ct-lbl">Instagram</div><div class="ct-val">@UrbyteAus</div></a>
+    </div>
+    <p class="ct-foot">Urbyte is founded and operated by <strong>Jarryd Thamer</strong> · Northern Rivers, NSW · ACN 692 885 019</p>
+  </div>
+</div>
+
 <!-- FOOTER -->
-<footer class="footer-ext">
-  <div class="footer-top-ext">
-    <div>
-      <div class="footer-brand-ext">Urbyte</div>
-      <p class="footer-brand-sub">Converting unused mobile data into real value — for consumers, for communities, for Australia.</p>
-      <p class="footer-acn-ext">Urbyte Pty Ltd · ACN 692 885 019</p>
+<footer>
+  <div class="footer-logo" style="position:relative;">
+    <div style="position:relative;display:inline-block;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
+        <!-- Flower of Life: central circle + 6 surrounding -->
+        <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <!-- outer boundary circle -->
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(91,0,255,0.4)" stroke-width="0.8"/>
+        <!-- inner detail rings -->
+        <circle cx="50" cy="50" r="9" fill="none" stroke="rgba(0,229,204,0.3)" stroke-width="0.6"/>
+      </svg>
     </div>
-    <div>
-      <div class="footer-col-hd">Platform</div>
-      <ul class="footer-col-list">
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#founding">Founding Members</a></li>
-        <li><a href="#platform">Urbyte Insight</a></li>
-        <li><a href="#givabit">Givabit</a></li>
-      </ul>
+    <span>Urbyte</span>
+  </div>
+  <p>© 2025 Urbyte Pty Ltd ACN 692 885 019. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms &amp; Conditions</a>
+    <a href="mailto:information@urbyte.com.au">Contact</a>
+  </div>
+  <div class="footer-flags">
+    <div class="flag-wrap">
+      <svg class="flag-svg flag-abo" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Aboriginal Flag: black top, red bottom, yellow circle -->
+        <rect width="48" height="15" fill="#000000"/>
+        <rect y="15" width="48" height="15" fill="#CC0000"/>
+        <circle cx="24" cy="15" r="7" fill="#FFDA00"/>
+        <!-- glow rings -->
+        <circle cx="24" cy="15" r="8" fill="none" stroke="rgba(255,218,0,0.35)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="9.5" fill="none" stroke="rgba(255,218,0,0.15)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="11" fill="none" stroke="rgba(255,218,0,0.07)" stroke-width="1"/>
+      </svg>
+      <span class="flag-label">Aboriginal</span>
     </div>
-    <div>
-      <div class="footer-col-hd">Company</div>
-      <ul class="footer-col-list">
-        <li><a href="#founder">About</a></li>
-        <li><a href="#strategic">Partners</a></li>
-        <li><a href="mailto:jarryd@urbyte.com.au">Contact</a></li>
-        <li><a href="/terms">Terms</a></li>
-      </ul>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Torres Strait Islander Flag: green top & bottom, blue middle, black stripes, white star & dhari -->
+        <rect width="48" height="30" fill="#009B77"/>
+        <rect y="9" width="48" height="12" fill="#0047AB"/>
+        <rect y="7.5" width="48" height="2" fill="#000"/>
+        <rect y="20.5" width="48" height="2" fill="#000"/>
+        <!-- dhari (headdress) simplified as white diamond -->
+        <polygon points="24,6 27,15 24,24 21,15" fill="white" opacity="0.9"/>
+        <!-- star -->
+        <polygon points="24,11 24.9,13.8 27.8,13.8 25.5,15.4 26.4,18.2 24,16.5 21.6,18.2 22.5,15.4 20.2,13.8 23.1,13.8" fill="#009B77"/>
+      </svg>
+      <span class="flag-label">Torres Strait</span>
     </div>
-    <div>
-      <div class="footer-col-hd">Contact</div>
-      <ul class="footer-col-list">
-        <li><a href="mailto:jarryd@urbyte.com.au">jarryd@urbyte.com.au</a></li>
-        <li><a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a></li>
-        <li><a href="https://linkedin.com/in/jarryd-urbyte" target="_blank">LinkedIn</a></li>
-        <li><a href="https://instagram.com/UrbyteAus" target="_blank">@UrbyteAus</a></li>
-      </ul>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Australian Flag simplified -->
+        <rect width="48" height="30" fill="#00008B"/>
+        <rect width="16" height="10" fill="#012169"/>
+        <!-- Union Jack simplified -->
+        <line x1="0" y1="0" x2="16" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="0" y1="0" x2="16" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="white" stroke-width="3"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="white" stroke-width="3"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="#CC0000" stroke-width="1"/>
+        <!-- Southern cross simplified dots -->
+        <circle cx="36" cy="9" r="1.2" fill="white"/>
+        <circle cx="42" cy="14" r="1.2" fill="white"/>
+        <circle cx="38" cy="20" r="1.2" fill="white"/>
+        <circle cx="32" cy="20" r="1.2" fill="white"/>
+        <circle cx="30" cy="13" r="0.9" fill="white"/>
+      </svg>
+      <span class="flag-label">Australia</span>
     </div>
   </div>
-  <div class="footer-bottom-ext">
-    <p class="footer-copy-ext">© 2026 Urbyte Pty Ltd. All rights reserved.</p>
-    <p class="footer-copy-ext" style="color:rgba(255,255,255,0.06);">Northern Rivers, NSW · Australia</p>
-  </div>
-  <p class="footer-ack-ext">Urbyte acknowledges the Widjabul Wiabul people of the Bundjalung Nation as the traditional custodians of the land on which we operate, and pays respect to their Elders past, present, and emerging.</p>
+  <p class="footer-acknowledge">We acknowledge the Widjabul Wiabul people of the Bundjalung Nation as the traditional custodians of the land on which Urbyte was conceived and built. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples across Australia. Always was, always will be, Aboriginal land.</p>
 </footer>
 
 <script>
-  function handleWL(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.wl-go');
-    btn.textContent = "✓ You're on the list";
-    btn.style.background = 'linear-gradient(135deg,#00E5CC,#00A080)';
-    btn.disabled = true;
+  function toggleFaq(btn){
+    const item=btn.closest('.faq-item'), was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
   }
-</script>
+  async function joinTier(tier,btn){
+    const orig=btn.textContent; btn.textContent='...'; btn.disabled=true;
+    try{
+      // Check if user is a waitlist member (email stored from waitlist form or URL param)
+      const waitlistEmail = localStorage.getItem('urbyte_waitlist_email') || '';
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,email:waitlistEmail,waitlist:!!waitlistEmail,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
+      const data=await res.json();
+      if(data.url){window.location.href=data.url;}else{throw new Error();}
+    }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
+  }
+  const params=new URLSearchParams(window.location.search);
+  if(params.get('founding')==='success'){
+    document.getElementById('founding').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{alert('Welcome to Urbyte. Your signal has been activated. Welcome to the founding community.');},500);
+  }
+  function toggleSupport(btn){
+    const path=document.getElementById('thumb-path');
+    const count=document.getElementById('support-count');
+    const active=btn.getAttribute('data-active')==='1';
+    if(active){
+      btn.setAttribute('data-active','0');
+      btn.style.background='rgba(91,0,255,0.08)';
+      btn.style.borderColor='rgba(91,0,255,0.25)';
+      path.setAttribute('stroke','rgba(255,255,255,0.3)');
+      path.setAttribute('fill','none');
+      count.style.display='none';
+    } else {
+      btn.setAttribute('data-active','1');
+      btn.style.background='rgba(0,229,204,0.08)';
+      btn.style.borderColor='rgba(0,229,204,0.4)';
+      path.setAttribute('stroke','#00E5CC');
+      path.setAttribute('fill','rgba(0,229,204,0.15)');
+      count.style.display='block';
+    }
+  }
 
+  document.getElementById('waitlist-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('submit-btn'), err=document.getElementById('error-msg');
+    const supported=document.getElementById('support-btn')&&document.getElementById('support-btn').getAttribute('data-active')==='1';
+    btn.textContent='...'; btn.disabled=true; err.style.display='none';
+    try{
+      const emailVal=document.getElementById('email').value;
+      if(emailVal){localStorage.setItem('urbyte_waitlist_email',emailVal);}
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:emailVal,telco:document.getElementById('telco').value,message:document.getElementById('message').value,supported:supported})});
+      if(res.ok){
+        const data=await res.json();
+        document.getElementById('form-area').style.display='none';
+        document.getElementById('success-area').style.display='block';
+        if(data.detected_telco&&data.detected_telco!=='Unknown'&&data.detected_telco!=='Other'){
+          const msg=document.getElementById('telco-detect-msg');
+          msg.textContent='Detected: '+data.detected_telco+' — your signal is already building.';
+          msg.style.display='block';
+        }
+      }else{throw new Error();}
+    }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='Join the Waitlist';btn.disabled=false;}
+  });
+</script>
 </body>
 </html>
