@@ -113,6 +113,7 @@
     .s2 { background:linear-gradient(135deg,#C2003A,#5B00FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(194,0,58,0.4)); }
     .s3 { background:linear-gradient(135deg,#FF6A00,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(255,106,0,0.4)); }
     .stat-label { color:rgba(255,255,255,0.25); font-size:11px; margin-top:8px; letter-spacing:1px; text-transform:uppercase; max-width:160px; }
+    .stat-suffix { font-size:32px; font-weight:700; letter-spacing:-1px; opacity:0.75; vertical-align:super; line-height:0; }
 
     .geo-div { position:relative; z-index:1; height:1px; background:linear-gradient(90deg,transparent,rgba(91,0,255,0.5),rgba(0,229,204,0.5),rgba(194,0,58,0.5),transparent); }
 
@@ -589,9 +590,9 @@
 <!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
-    <div><div class="stat-num s1">26M+</div><div class="stat-label">Australians paying for more than they use</div></div>
-    <div><div class="stat-num s2">$9.6B+</div><div class="stat-label">In value lost to the system every year</div></div>
-    <div><div class="stat-num s3">55GB</div><div class="stat-label">Bytes left unclaimed each month</div></div>
+    <div><div class="stat-num s1">26M<span class="stat-suffix">+</span></div><div class="stat-label">Australians paying for more than they use</div></div>
+    <div><div class="stat-num s2">$9.6B<span class="stat-suffix">+</span></div><div class="stat-label">In value lost to the system every year</div></div>
+    <div><div class="stat-num s3">55GB<span class="stat-suffix">+</span></div><div class="stat-label">Bytes left unclaimed each month</div></div>
   </div>
 </div>
 
@@ -602,7 +603,6 @@
   <div class="sec-inner">
     <div class="sec-tag">How It Works</div>
     <h2 class="sec-title">Simple. Transparent. Yours.</h2>
-    <p class="sec-sub" style="margin-bottom:32px;">When you join, Urbyte tracks your unused data and converts it into credits — redeemable for rewards or donated to Australian charities.</p>
     <div class="grid-3">
       <div class="g-card">
         <div class="g-num">01</div>
@@ -727,9 +727,6 @@
       <div class="founder-label">Why I Built This</div>
       <div class="founder-text">
         <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
-        <p>Every month, Australians are billed for data they never use. That value doesn't disappear — it stays with the telco. Urbyte changes that. We track what goes unused, convert it into credits, and put it back in your hands. You choose what happens next — redeem it for rewards, or direct it to an Australian charity doing real work in the community.</p>
-        <p>That second part matters deeply to me. Urbyte is built around <strong style="color:rgba(0,229,204,0.8);">Givabit</strong> — our social impact arm. Through Givabit, members can channel their unused data value directly to organisations working on homelessness, mental health, domestic violence support, First Nations literacy, and more. No fees. No middlemen. Just value that was already paid for, now going somewhere it can change a life.</p>
-        <p>This isn't charity for the sake of optics. It's because the people who need it most are often the same people being squeezed hardest by the system. If we can build something that serves both — giving everyday Australians their value back while funding the organisations that hold our communities together — then we've built something worth building.</p>
       </div>
       <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
     </div>
@@ -837,8 +834,7 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
-        <button class="tier-cta" onclick="joinTier('bronze', this)">Get Your Byte <span>→</span></button>
-        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+        <div style="text-align:center;margin-top:8px;padding:12px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:4px;">Subscriptions open soon</div><div style="font-size:12px;color:rgba(255,255,255,0.5);">Join the waitlist below to be first in line.</div></div>
       </div>
       <div class="tier-card silver">
         <div class="tier-badge popular">Most Popular</div>
@@ -854,8 +850,7 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
-        <button class="tier-cta" onclick="joinTier('silver', this)">Get Your Byte <span>→</span></button>
-        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+        <div style="text-align:center;margin-top:8px;padding:12px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:4px;">Subscriptions open soon</div><div style="font-size:12px;color:rgba(255,255,255,0.5);">Join the waitlist below to be first in line.</div></div>
       </div>
       <div class="tier-card gold">
         <div class="tier-badge best">Best Value</div>
@@ -873,8 +868,7 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
         </ul>
-        <button class="tier-cta" onclick="joinTier('gold', this)">Get Your Byte <span>→</span></button>
-        <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;margin-top:8px;">First month free for waitlist members</div>
+        <div style="text-align:center;margin-top:8px;padding:12px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:4px;">Subscriptions open soon</div><div style="font-size:12px;color:rgba(255,255,255,0.5);">Join the waitlist below to be first in line.</div></div>
       </div>
     </div>
     <div class="milestone-bar" style="margin-top:40px;">
@@ -919,7 +913,7 @@
         <form id="waitlist-form">
           <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
-          <input type="text" id="telco" placeholder="Your telco provider (e.g. Telstra, Optus)" />
+          <select id="telco" style="background:#111;color:#fff;border:1px solid #333;border-radius:8px;padding:12px 16px;width:100%;font-size:15px;"><option value="" disabled selected>Select your telco provider</option><option value="Telstra">Telstra</option><option value="Optus">Optus</option><option value="Vodafone">Vodafone</option><option value="TPG">TPG</option><option value="Boost">Boost Mobile</option><option value="Amaysim">Amaysim</option><option value="Woolworths Mobile">Woolworths Mobile</option><option value="Other">Other</option></select>
           <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
           <div id="error-msg" class="error" style="display:none;"></div>
           <div style="display:flex;gap:12px;align-items:stretch;">
@@ -1058,9 +1052,7 @@
   async function joinTier(tier,btn){
     const orig=btn.textContent; btn.textContent='...'; btn.disabled=true;
     try{
-      // Check if user is a waitlist member (email stored from waitlist form or URL param)
-      const waitlistEmail = localStorage.getItem('urbyte_waitlist_email') || '';
-      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,email:waitlistEmail,waitlist:!!waitlistEmail,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
       const data=await res.json();
       if(data.url){window.location.href=data.url;}else{throw new Error();}
     }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
@@ -1097,9 +1089,7 @@
     const supported=document.getElementById('support-btn')&&document.getElementById('support-btn').getAttribute('data-active')==='1';
     btn.textContent='...'; btn.disabled=true; err.style.display='none';
     try{
-      const emailVal=document.getElementById('email').value;
-      if(emailVal){localStorage.setItem('urbyte_waitlist_email',emailVal);}
-      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:emailVal,telco:document.getElementById('telco').value,message:document.getElementById('message').value,supported:supported})});
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:document.getElementById('email').value,telco:document.getElementById('telco').value,message:document.getElementById('message').value,supported:supported})});
       if(res.ok){
         const data=await res.json();
         document.getElementById('form-area').style.display='none';
