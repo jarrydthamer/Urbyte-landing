@@ -1,0 +1,1 @@
+function join(){const e=document.getElementById('email')?.value?.trim();const m=document.getElementById('msg');if(!e||!e.includes('@')){m.textContent='Enter a valid email.';return}localStorage.setItem('urbyte_waitlist_email',e);m.textContent='You are on the waitlist. Founding access will reopen when the wallet is ready.';}
