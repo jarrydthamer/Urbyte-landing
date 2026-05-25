@@ -1,5 +1,116 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Urbyte Wallet</title><link rel="stylesheet" href="/style.css"></head><body><div class="grid"></div><div class="horizon"></div>
-<nav><div class="wrap navin"><a class="logo" href="/"><span class="bolt">ϟ</span><span>Urbyte</span></a><div class="links"><a href="/">Home</a><a href="/redeem.html">Redeem</a><a class="btn primary" href="/">Waitlist</a></div></div></nav>
-<main class="wrap"><span class="badge">Member wallet preview</span><h1 class="page-title">Your <span class="grad">Urbyte Wallet</span></h1><p class="lead" style="margin-left:0">This preview shows the member experience while live access and email magic-link infrastructure are being finalised.</p>
-<div class="wallet-grid"><section class="panel"><div class="wallet-grid"><div class="stat"><small>DBU Balance</small><strong>0</strong><p>Data Backed Units</p></div><div class="stat"><small>Status</small><strong style="font-size:42px">Paused</strong><p>Founding access staged rollout</p></div><div class="stat"><small>Billing Cycles</small><strong>0/3</strong><p>Verification not active yet</p></div><div class="stat"><small>Redeem</small><strong style="font-size:42px">Locked</strong><p>Unlocks when Urbyte opens redemption.</p></div></div></section><aside class="panel"><h2>What happens next?</h2><p style="color:var(--muted);line-height:1.7">Members will receive secure email access when the wallet system is ready. No redemption or claim function is live until the backend confirms member status and unlock conditions.</p><a class="btn primary" href="/redeem.html">View locked redeem page</a></aside></div>
-<section class="panel faq" style="margin-top:22px"><h2>FAQ</h2><details open><summary>What happens after payment?</summary><p>Payments are currently paused. When reopened, payment will confirm founding member access and trigger secure wallet access by email.</p></details><details><summary>Why is redemption locked?</summary><p>Redemption is locked until Urbyte can verify balances, member status and reward availability properly.</p></details><details><summary>Will members be notified?</summary><p>Yes. Members will be notified before redemption goes live.</p></details></section></main><footer><div class="wrap">Urbyte Wallet · Preview only</div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Urbyte Wallet</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="horizon"></div>
+
+  <nav>
+    <div class="wrap navin">
+      <a class="logo" href="/"><span class="bolt">ϟ</span><span>Urbyte</span></a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/wallet.html">Wallet</a>
+        <a href="/convert.html">Convert</a>
+        <a href="/redeem.html">Redeem</a>
+        <a class="btn primary" href="/">Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <span class="badge">Member wallet preview</span>
+    <h1 class="page-title">Your <span class="grad">Urbyte Wallet</span></h1>
+    <p class="lead" style="margin-left:0">
+      This preview shows the member experience while live access and email magic-link infrastructure are being finalised.
+    </p>
+
+    <div class="wallet-grid">
+      <section class="panel">
+        <div class="wallet-grid">
+          <div class="stat">
+            <small>DBU Balance</small>
+            <strong id="walletDbu">0</strong>
+            <p>Data Backed Units</p>
+          </div>
+          <div class="stat">
+            <small>Status</small>
+            <strong style="font-size:42px">Preview</strong>
+            <p>Founding access staged rollout</p>
+          </div>
+          <div class="stat">
+            <small>Buffer Period</small>
+            <strong>3 Months</strong>
+            <p>First verification window</p>
+          </div>
+          <div class="stat">
+            <small>Redemption</small>
+            <strong style="font-size:42px">Pending</strong>
+            <p>Opens after verification systems are ready.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <h2>Next step</h2>
+        <p style="color:var(--muted);line-height:1.7">
+          Convert your first 3 months of unused data into preview DBUs. Redemption remains pending until Urbyte confirms member verification and infrastructure readiness.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn primary" href="/convert.html">Convert First 3 Months</a>
+          <a class="btn" href="/redeem.html">Redemption Status</a>
+        </div>
+      </aside>
+    </div>
+
+    <section class="panel faq" style="margin-top:22px">
+      <h2>FAQ</h2>
+
+      <details open>
+        <summary>What is the buffer period?</summary>
+        <p>
+          The first 3 months act as a verification and buffering period. This helps Urbyte avoid rushed or artificial balances while the wallet system is finalised.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I convert during the buffer period?</summary>
+        <p>
+          Yes. You can use the Convert page to preview your first 3 months of unused data as estimated DBUs.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is redemption active?</summary>
+        <p>
+          No. Redemption is pending while Urbyte finalises infrastructure, verification, and member access systems.
+        </p>
+      </details>
+
+      <details>
+        <summary>Will members be notified before redemption opens?</summary>
+        <p>
+          Yes. Members will be notified before redemption functionality becomes active.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Urbyte Wallet · Preview only · Redemption pending</div>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script>
+    const saved = localStorage.getItem('urbyte_preview_dbus');
+    if (saved) {
+      document.getElementById('walletDbu').textContent = Number(saved).toLocaleString();
+    }
+  </script>
+</body>
+</html>

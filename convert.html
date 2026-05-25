@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Urbyte Convert — First 3 Months</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="horizon"></div>
+
+  <nav>
+    <div class="wrap navin">
+      <a class="logo" href="/"><span class="bolt">ϟ</span><span>Urbyte</span></a>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/wallet.html">Wallet</a>
+        <a href="/convert.html">Convert</a>
+        <a href="/redeem.html">Redeem</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <span class="badge">First 3 month buffer period</span>
+    <h1 class="page-title">Convert unused data into <span class="grad">preview DBUs.</span></h1>
+    <p class="lead" style="margin-left:0">
+      Estimate your first 3 months of unused mobile data value. This is a preview conversion only while Urbyte’s live verification and redemption systems are being finalised.
+    </p>
+
+    <section class="panel">
+      <div class="cards">
+        <div class="card">
+          <h3>Month 1</h3>
+          <p>Enter your plan data and actual usage.</p>
+          <label>Plan GB</label>
+          <input class="calc-input" id="m1plan" type="number" value="69">
+          <label>Used GB</label>
+          <input class="calc-input" id="m1used" type="number" value="14">
+        </div>
+
+        <div class="card">
+          <h3>Month 2</h3>
+          <p>Repeat for your second billing cycle.</p>
+          <label>Plan GB</label>
+          <input class="calc-input" id="m2plan" type="number" value="69">
+          <label>Used GB</label>
+          <input class="calc-input" id="m2used" type="number" value="14">
+        </div>
+
+        <div class="card">
+          <h3>Month 3</h3>
+          <p>Complete the first buffer window.</p>
+          <label>Plan GB</label>
+          <input class="calc-input" id="m3plan" type="number" value="69">
+          <label>Used GB</label>
+          <input class="calc-input" id="m3used" type="number" value="14">
+        </div>
+      </div>
+
+      <div class="wallet-grid">
+        <div class="stat">
+          <small>Total unused data</small>
+          <strong id="unusedTotal">0GB</strong>
+          <p>Across first 3 months</p>
+        </div>
+        <div class="stat">
+          <small>Estimated preview DBUs</small>
+          <strong id="dbuTotal">0</strong>
+          <p>Preview conversion only</p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn primary" onclick="calculateConversion()">Calculate Conversion</button>
+        <a class="btn" href="/wallet.html">Return to Wallet</a>
+      </div>
+    </section>
+
+    <section class="panel faq" style="margin-top:22px">
+      <h2>Conversion FAQ</h2>
+
+      <details open>
+        <summary>Why the first 3 months?</summary>
+        <p>
+          The first 3 months are a buffer and verification period. They give Urbyte a clean window to estimate usage patterns before any redemption system becomes active.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is this real redemption?</summary>
+        <p>
+          No. This is a preview conversion tool. Redemption is pending until Urbyte’s backend, verification and partner systems are ready.
+        </p>
+      </details>
+
+      <details>
+        <summary>What conversion rate is being shown?</summary>
+        <p>
+          This preview uses 1 unused GB = 10 preview DBUs. This is not a final commercial rate and can be adjusted when Urbyte’s model is finalised.
+        </p>
+      </details>
+
+      <details>
+        <summary>What happens after I convert?</summary>
+        <p>
+          Your preview DBU estimate is saved locally in your browser and shown on the Wallet page. It is not yet a live verified balance.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I cash out or redeem after converting?</summary>
+        <p>
+          No. Cash-out, redemption and claim functions are not active during staged rollout.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Conversion preview only · 3 month buffer period · Redemption pending</div>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script>
+    function calculateConversion() {
+      const months = [1,2,3];
+      let unused = 0;
+
+      months.forEach(m => {
+        const plan = Number(document.getElementById(`m${m}plan`).value || 0);
+        const used = Number(document.getElementById(`m${m}used`).value || 0);
+        unused += Math.max(0, plan - used);
+      });
+
+      const dbus = Math.round(unused * 10);
+      document.getElementById('unusedTotal').textContent = unused.toLocaleString() + 'GB';
+      document.getElementById('dbuTotal').textContent = dbus.toLocaleString();
+
+      localStorage.setItem('urbyte_preview_unused_gb', unused);
+      localStorage.setItem('urbyte_preview_dbus', dbus);
+    }
+
+    calculateConversion();
+  </script>
+</body>
+</html>
