@@ -1,20 +1,8 @@
 {
   "rewrites": [
-    {
-      "source": "/wallet",
-      "destination": "/wallet.html"
-    },
-    {
-      "source": "/convert",
-      "destination": "/convert.html"
-    },
-    {
-      "source": "/redeem",
-      "destination": "/redeem.html"
-    },
-    {
-      "source": "/success",
-      "destination": "/success.html"
-    }
+    { "source": "/wallet", "destination": "/wallet.html" },
+    { "source": "/convert", "destination": "/convert.html" },
+    { "source": "/redeem", "destination": "/redeem.html" },
+    { "source": "/success", "destination": "/success.html" }
   ]
 }
