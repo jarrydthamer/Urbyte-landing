@@ -1,18 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DBU Wallet | Urbyte</title><link rel="stylesheet" href="/app-style.css"></head>
-<body><div class="landscape"></div><div class="mountain left"></div><div class="mountain right"></div><div class="horizon"></div><div class="floor-grid"></div><header class="topbar"><a href="/" class="brand"><span class="brand-icon">ϟ</span><span>Urbyte</span></a><nav class="nav"><a href="/">Home</a><a href="/wallet">Wallet</a><a href="/convert">Convert</a><a href="/redeem">Redeem</a><a class="waitlist" href="/">Waitlist</a></nav></header>
-<main class="page">
-<section class="hero"><div class="eyebrow">Member Wallet Preview</div><h1>DBU <span>Wallet</span></h1><p>This preview shows the member experience while live access and email magic-link infrastructure are being finalised.</p></section>
-<section class="dashboard">
-<div class="left-grid">
-<article class="card balance-card"><div class="label">DBU Balance</div><div class="split-content"><div class="coin-icon"><span>DBU</span></div><div><div class="big-number" id="walletDbu">1,650</div><p>Data Backed Units</p></div></div></article>
-<article class="card status-card"><div class="label">Status</div><div class="split-content"><div class="shield-icon"></div><div><div class="mid-number">Preview</div><p>Founding access<br>staged rollout</p></div></div></article>
-<article class="card info-card"><div class="label">Buffer Period</div><div class="mini-content"><div class="clock-icon"></div><p>A 90 day buffer protects network stability and ensures fair allocation during the staged rollout.</p></div><a href="/convert">Learn more</a></article>
-<article class="card info-card"><div class="label">Redemption</div><div class="mini-content"><div class="chart-icon"></div><p>Redemption is pending. We’ll notify you when claims open.</p></div><a href="/redeem">Learn more</a></article>
-</div>
-<aside class="card next-card"><div class="label">Next Step</div><p>Convert your first 3 months of unused data into preview DBUs. Redemption remains pending until Urbyte confirms member verification and infrastructure readiness.</p><a class="primary-action" href="/convert">Convert First 3 Months</a><a class="secondary-action" href="/redeem">Redemption Status</a></aside>
-</section>
-<section class="rollout"><div class="cube-icon"></div><div><strong>Urbyte is rolling out in stages to ensure a secure, fair and scalable launch for all members.</strong><p>Infrastructure, verification systems and compliance frameworks are being finalised.</p></div><a href="/redeem">About the rollout <span>→</span></a></section>
-<p class="disclaimer">This is a preview. Balances and features are not final and may change as infrastructure is finalised.</p>
-</main><script src="/script.js"></script></body></html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBU Wallet | Urbyte</title>
+  <link rel="stylesheet" href="/app-style.css" />
+  <style>
+    /* Wallet-specific landscape layout */
+    .wallet-page {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .wallet-hero {
+      padding: 46px 20px 32px;
+      max-width: 100%;
+    }
+
+    .wallet-dashboard {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+      padding: 0 20px 60px;
+      margin: 0 auto;
+      max-width: 1320px;
+    }
+
+    .wallet-left {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 24px;
+      align-items: stretch;
+    }
+
+    .wallet-left .card:nth-child(3),
+    .wallet-left .card:nth-child(4) {
+      grid-column: span 1;
+    }
+
+    .wallet-right {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .wallet-footer {
+      width: 100%;
+      padding: 24px 20px;
+      margin-top: auto;
+    }
+
+    .rollout {
+      margin: 0;
+      grid-column: 1 / -1;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .wallet-page {
+        padding: 0;
+      }
+
+      .wallet-hero {
+        padding: 24px 16px 20px;
+      }
+
+      .wallet-dashboard {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 16px 40px;
+      }
+
+      .wallet-left {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .wallet-left .card:nth-child(3),
+      .wallet-left .card:nth-child(4) {
+        grid-column: 1;
+      }
+
+      .wallet-right {
+        gap: 16px;
+      }
+
+      .rollout {
+        margin: 0;
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed background elements -->
+  <div class="landscape"></div>
+  <div class="mountain left"></div>
+  <div class="mountain right"></div>
+  <div class="horizon"></div>
+  <div class="floor-grid"></div>
+
+  <!-- Top navigation -->
+  <header class="topbar">
+    <a href="/" class="brand">
+      <div class="brand-icon">₿</div>
+      <span>Urbyte</span>
+    </a>
+    <nav class="nav">
+      <a href="/member" class="active">Wallet</a>
+      <a href="/convert">Convert</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+  </header>
+
+  <!-- Main wallet page container -->
+  <div class="wallet-page">
+    <!-- Hero section with title -->
+    <div class="wallet-hero">
+      <div class="eyebrow">Member Wallet</div>
+      <h1>Your <span>Signal</span></h1>
+      <p>Real-time DBU balance, conversion status, and redemption tracking. Your unused data now has value.</p>
+    </div>
+
+    <!-- Main dashboard: 2-column landscape layout -->
+    <div class="wallet-dashboard">
+      <!-- LEFT COLUMN: Balance & Status cards -->
+      <div class="wallet-left">
+        <!-- DBU Balance card -->
+        <article class="card balance-card">
+          <div class="label">DBU Balance</div>
+          <div class="split-content">
+            <div class="coin-icon"><span>DBU</span></div>
+            <div>
+              <div class="big-number" id="walletDbu">1,650</div>
+              <p>Data Backed Units</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Status card -->
+        <article class="card status-card">
+          <div class="label">Status</div>
+          <div class="split-content">
+            <div class="shield-icon"></div>
+            <div>
+              <div class="mid-number">Active</div>
+              <p>Founding member<br/>in good standing</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Buffer Period card -->
+        <article class="card info-card">
+          <div class="label">Buffer Period</div>
+          <div class="mini-content">
+            <div class="clock-icon"></div>
+            <p>90-day protection ensures fair allocation and network stability across all members.</p>
+          </div>
+        </article>
+
+        <!-- Redemption Status card -->
+        <article class="card info-card">
+          <div class="label">Redemption Path</div>
+          <div class="mini-content">
+            <div class="chart-icon"></div>
+            <p>Complete 3 billing cycles to unlock redemption. You're on track.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- RIGHT COLUMN: Actions & Next Steps -->
+      <div class="wallet-right">
+        <!-- Next Step / CTA card -->
+        <article class="card next-card">
+          <div class="label">What's Next</div>
+          <p>Your unused data is being converted to DBUs. Redemption unlocks after 3 complete billing cycles. Your balance will be verifiable and final.</p>
+          <a href="/convert" class="primary-action">Convert More Data</a>
+          <a href="/redeem" class="secondary-action">View Redemption</a>
+        </article>
+
+        <!-- Rollout info section -->
+        <section class="rollout">
+          <div class="cube-icon"></div>
+          <div>
+            <strong>Infrastructure is forming</strong>
+            <p>Urbyte is rolling out in verified stages. Verification, audit, and infrastructure finalization in progress.</p>
+          </div>
+          <a href="/how-it-works">Learn more →</a>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer note -->
+    <div class="wallet-footer">
+      <p class="disclaimer">This is a live preview. Balances and features may be updated as infrastructure is finalized.</p>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
