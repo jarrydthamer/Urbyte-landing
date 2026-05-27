@@ -3,206 +3,657 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DBU Wallet | Urbyte</title>
+  <title>Consumer Value Dashboard | Urbyte</title>
   <link rel="stylesheet" href="/app-style.css" />
   <style>
-    /* Wallet-specific landscape layout */
+    /* Enterprise consumer value dashboard */
     .wallet-page {
       min-height: 100vh;
       width: 100%;
       display: flex;
       flex-direction: column;
+      background: 
+        radial-gradient(circle at top left, rgba(60,80,120,0.12), transparent 30%),
+        linear-gradient(180deg,#090909,#121212);
       padding: 0;
     }
 
-    .wallet-hero {
-      padding: 46px 20px 32px;
-      max-width: 100%;
+    /* Professional enterprise header */
+    .wallet-header {
+      height: 72px;
+      background: rgba(10,10,12,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
-    .wallet-dashboard {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+    .wallet-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .wallet-header-left .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .wallet-header-left .brand-tagline {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+    }
+
+    .wallet-header-right {
+      display: flex;
+      align-items: center;
       gap: 24px;
-      align-items: stretch;
-      padding: 0 20px 60px;
+    }
+
+    .wallet-header-action {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .wallet-header-action:hover {
+      color: #ffffff;
+    }
+
+    /* Main dashboard content area */
+    .wallet-content {
+      flex: 1;
+      padding: 24px;
+      max-width: 1440px;
       margin: 0 auto;
-      max-width: 1320px;
-    }
-
-    .wallet-left {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px 24px;
-      align-items: stretch;
-    }
-
-    .wallet-left .card:nth-child(3),
-    .wallet-left .card:nth-child(4) {
-      grid-column: span 1;
-    }
-
-    .wallet-right {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .wallet-footer {
       width: 100%;
-      padding: 24px 20px;
-      margin-top: auto;
     }
 
-    .rollout {
+    /* Three-column desktop grid layout */
+    .wallet-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.2fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left column - Account overview */
+    .wallet-column-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Center column - Hero/main action panel */
+    .wallet-column-center {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Right column - Infrastructure notice and FAQ */
+    .wallet-column-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Card component styling */
+    .dashboard-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dashboard-card.hero-card {
+      min-height: 380px;
+      justify-content: space-between;
+    }
+
+    .dashboard-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
       margin: 0;
-      grid-column: 1 / -1;
+    }
+
+    .dashboard-card .card-value {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin: 8px 0 0 0;
+    }
+
+    .dashboard-card .card-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      margin: 4px 0 0 0;
+      line-height: 1.4;
+    }
+
+    .dashboard-card .card-detail {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin: 8px 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Card rows for structured data */
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .card-row:last-child {
+      border-bottom: none;
+    }
+
+    .card-row-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    .card-row-value {
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Hero panel specific styling */
+    .hero-panel {
+      padding: 32px;
+    }
+
+    .hero-panel h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-panel .balance-display {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .hero-panel .balance-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      font-weight: 600;
+    }
+
+    .hero-panel .balance-amount {
+      font-size: 44px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-panel .hero-description {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      margin: 16px 0 28px 0;
+      line-height: 1.5;
+    }
+
+    /* Button styling */
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .enterprise-button {
+      height: 48px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.06);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .enterprise-button:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+    }
+
+    /* Redemption options cards */
+    .redemption-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .redemption-option {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .redemption-option:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .redemption-option-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .redemption-option-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* FAQ section */
+    .faq-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-question::before {
+      content: '+ ';
+      color: rgba(255,255,255,0.4);
+      margin-right: 8px;
+      display: inline-block;
+      width: 12px;
+    }
+
+    .faq-item.active .faq-question::before {
+      content: '− ';
+    }
+
+    .faq-answer {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 8px;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* Infrastructure notice specific */
+    .notice-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .notice-point {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .notice-point::before {
+      content: '✓';
+      color: rgba(255,255,255,0.4);
+      font-weight: 700;
+      flex-shrink: 0;
     }
 
     /* Mobile responsive */
-    @media (max-width: 768px) {
-      .wallet-page {
-        padding: 0;
-      }
-
-      .wallet-hero {
-        padding: 24px 16px 20px;
-      }
-
-      .wallet-dashboard {
+    @media (max-width: 900px) {
+      .wallet-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 0 16px 40px;
       }
 
-      .wallet-left {
+      .wallet-header {
+        height: auto;
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      .wallet-header-right {
+        gap: 16px;
+      }
+
+      .wallet-content {
+        padding: 16px;
+      }
+
+      .redemption-options {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
 
-      .wallet-left .card:nth-child(3),
-      .wallet-left .card:nth-child(4) {
-        grid-column: 1;
+      .dashboard-card {
+        border-radius: 18px;
+        padding: 18px;
       }
 
-      .wallet-right {
-        gap: 16px;
+      .hero-panel h2 {
+        font-size: 24px;
       }
 
-      .rollout {
-        margin: 0;
-        grid-column: 1;
+      .hero-panel .balance-amount {
+        font-size: 36px;
+      }
+
+      .dashboard-card .card-value {
+        font-size: 32px;
       }
     }
+
+    @media (max-width: 600px) {
+      .wallet-header-right {
+        gap: 12px;
+      }
+
+      .wallet-content {
+        padding: 12px;
+      }
+
+      .dashboard-card {
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .enterprise-button {
+        height: 44px;
+        font-size: 13px;
+      }
+
+      .hero-panel {
+        padding: 20px;
+      }
+    }
+
+    /* Recovery insight visual */
+    .recovery-spark {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 40px;
+      margin: 12px 0 8px 0;
+    }
+
+    .spark-bar {
+      flex: 1;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    .spark-bar.active {
+      background: rgba(255,255,255,0.35);
+      opacity: 1;
+    }
+
+    /* Status indicator */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+    }
+
   </style>
 </head>
 <body>
-  <!-- Fixed background elements -->
-  <div class="landscape"></div>
-  <div class="mountain left"></div>
-  <div class="mountain right"></div>
-  <div class="horizon"></div>
-  <div class="floor-grid"></div>
-
-  <!-- Top navigation -->
-  <header class="topbar">
-    <a href="/" class="brand">
-      <div class="brand-icon">₿</div>
-      <span>Urbyte</span>
-    </a>
-    <nav class="nav">
-      <a href="/member" class="active">Wallet</a>
-      <a href="/convert">Convert</a>
-      <a href="/faq">FAQ</a>
-    </nav>
-  </header>
-
-  <!-- Main wallet page container -->
+  <!-- Enterprise dark background -->
   <div class="wallet-page">
-    <!-- Hero section with title -->
-    <div class="wallet-hero">
-      <div class="eyebrow">Member Wallet</div>
-      <h1>Your <span>Signal</span></h1>
-      <p>Real-time DBU balance, conversion status, and redemption tracking. Your unused data now has value.</p>
-    </div>
+    <!-- Professional enterprise header -->
+    <header class="wallet-header">
+      <div class="wallet-header-left">
+        <div class="brand-name">Urbyte</div>
+        <div class="brand-tagline">Consumer Value Infrastructure</div>
+      </div>
+      <div class="wallet-header-right">
+        <a href="#" class="wallet-header-action">Notifications</a>
+        <a href="#" class="wallet-header-action">Profile</a>
+        <a href="#" class="wallet-header-action">Settings</a>
+      </div>
+    </header>
 
-    <!-- Main dashboard: 2-column landscape layout -->
-    <div class="wallet-dashboard">
-      <!-- LEFT COLUMN: Balance & Status cards -->
-      <div class="wallet-left">
-        <!-- DBU Balance card -->
-        <article class="card balance-card">
-          <div class="label">DBU Balance</div>
-          <div class="split-content">
-            <div class="coin-icon"><span>DBU</span></div>
+    <!-- Main dashboard content -->
+    <div class="wallet-content">
+      <div class="wallet-grid">
+        <!-- LEFT COLUMN: Account Overview -->
+        <div class="wallet-column-left">
+          <!-- Card 1: Available Consumer Return -->
+          <article class="dashboard-card">
+            <h3>Available Consumer Return</h3>
+            <div class="card-value" id="walletBalance">$48.72</div>
+            <p class="card-subtitle">Estimated value recovered from current cycle.</p>
+            <p class="card-detail">Updated from usage allocation modelling</p>
+          </article>
+
+          <!-- Card 2: Carrier Status -->
+          <article class="dashboard-card">
+            <h3>Carrier Status</h3>
+            <div class="card-row">
+              <span class="card-row-label">Carrier Status</span>
+              <span class="card-row-value">Connected</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Cycle Window</span>
+              <span class="card-row-value">14 Days Remaining</span>
+            </div>
+            <div class="card-row">
+              <span class="card-row-label">Service Type</span>
+              <span class="card-row-value">Mobile Plan</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Recovery Insight -->
+          <article class="dashboard-card">
+            <h3>Recovery Insight</h3>
+            <div class="recovery-spark">
+              <div class="spark-bar"></div>
+              <div class="spark-bar"></div>
+              <div class="spark-bar active"></div>
+              <div class="spark-bar active"></div>
+              <div class="spark-bar active"></div>
+              <div class="spark-bar"></div>
+              <div class="spark-bar"></div>
+            </div>
+            <p class="card-subtitle">Unused allocation trends indicate increased recovery potential this cycle.</p>
+          </article>
+        </div>
+
+        <!-- CENTER COLUMN: Main Hero Action Panel -->
+        <div class="wallet-column-center">
+          <!-- Hero panel for consumer return application -->
+          <article class="dashboard-card hero-card hero-panel">
             <div>
-              <div class="big-number" id="walletDbu">1,650</div>
-              <p>Data Backed Units</p>
+              <h2>Apply Consumer Return</h2>
+              <div class="balance-display">
+                <span class="balance-label">Available Balance:</span>
+                <span class="balance-amount" id="heroPanelBalance">$48.72</span>
+              </div>
+              <p class="hero-description">Select how you'd like to apply your recovered infrastructure value allocation.</p>
+            </div>
+            <div class="button-group">
+              <button class="enterprise-button">Apply to Rewards</button>
+              <button class="enterprise-button">Donate Allocation</button>
+              <button class="enterprise-button">Hold Balance</button>
+            </div>
+          </article>
+
+          <!-- Redemption options -->
+          <div class="redemption-options">
+            <div class="redemption-option">
+              <div class="redemption-option-label">Option 1</div>
+              <div class="redemption-option-title">Retail Rewards</div>
+            </div>
+            <div class="redemption-option">
+              <div class="redemption-option-label">Option 2</div>
+              <div class="redemption-option-title">Community Allocation</div>
+            </div>
+            <div class="redemption-option">
+              <div class="redemption-option-label">Option 3</div>
+              <div class="redemption-option-title">Future Usage Offset</div>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Status card -->
-        <article class="card status-card">
-          <div class="label">Status</div>
-          <div class="split-content">
-            <div class="shield-icon"></div>
-            <div>
-              <div class="mid-number">Active</div>
-              <p>Founding member<br/>in good standing</p>
+        <!-- RIGHT COLUMN: Infrastructure Notice and FAQ -->
+        <div class="wallet-column-right">
+          <!-- Infrastructure Notice -->
+          <article class="dashboard-card">
+            <h3>Infrastructure Notice</h3>
+            <p class="card-subtitle">Urbyte operates as an independent consumer-value infrastructure layer.</p>
+            <div class="notice-section">
+              <div class="notice-point">No personal browsing data is sold</div>
+              <div class="notice-point">No behavioural tracking occurs</div>
+              <div class="notice-point">Privacy-first architecture remains core to platform operations</div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Buffer Period card -->
-        <article class="card info-card">
-          <div class="label">Buffer Period</div>
-          <div class="mini-content">
-            <div class="clock-icon"></div>
-            <p>90-day protection ensures fair allocation and network stability across all members.</p>
-          </div>
-        </article>
-
-        <!-- Redemption Status card -->
-        <article class="card info-card">
-          <div class="label">Redemption Path</div>
-          <div class="mini-content">
-            <div class="chart-icon"></div>
-            <p>Complete 3 billing cycles to unlock redemption. You're on track.</p>
-          </div>
-        </article>
+          <!-- FAQ Section -->
+          <article class="dashboard-card">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-section">
+              <div class="faq-item">
+                <div class="faq-question">Why does unused value exist?</div>
+                <div class="faq-answer">Your mobile plan includes data allocations that often go unused. We capture this value and return it to you as measurable recovery.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">Why do carriers participate?</div>
+                <div class="faq-answer">Carriers benefit from improved network insights and customer engagement. Consumer satisfaction improves when value is returned.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">Is my personal data sold?</div>
+                <div class="faq-answer">No. We operate on infrastructure-level data only. No personal browsing history, behavioural data, or identifying information is ever sold.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">How are balances estimated?</div>
+                <div class="faq-answer">Balances are calculated from verified carrier usage reports using predictive infrastructure modelling. All estimates are conservative and verifiable.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">Why does recovery fluctuate?</div>
+                <div class="faq-answer">Recovery values adjust based on actual usage patterns, allocation cycles, and network conditions. Fluctuation reflects real market dynamics.</div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-
-      <!-- RIGHT COLUMN: Actions & Next Steps -->
-      <div class="wallet-right">
-        <!-- Next Step / CTA card -->
-        <article class="card next-card">
-          <div class="label">What's Next</div>
-          <p>Your unused data is being converted to DBUs. Redemption unlocks after 3 complete billing cycles. Your balance will be verifiable and final.</p>
-          <a href="/convert" class="primary-action">Convert More Data</a>
-          <a href="/redeem" class="secondary-action">View Redemption</a>
-        </article>
-
-        <!-- Rollout info section -->
-        <section class="rollout">
-          <div class="cube-icon"></div>
-          <div>
-            <strong>Infrastructure is forming</strong>
-            <p>Urbyte is rolling out in verified stages. Verification, audit, and infrastructure finalization in progress.</p>
-          </div>
-          <a href="/how-it-works">Learn more →</a>
-        </section>
-      </div>
-    </div>
-
-    <!-- Footer note -->
-    <div class="wallet-footer">
-      <p class="disclaimer">This is a live preview. Balances and features may be updated as infrastructure is finalized.</p>
     </div>
   </div>
 
-  <script src="/script.js"></script>
+  <script>
+    // FAQ accordion functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('active');
+      });
+    });
+
+    // Button interactions (preserve existing backend logic)
+    document.querySelectorAll('.enterprise-button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const text = this.textContent.trim();
+        if (text === 'APPLY TO REWARDS') {
+          console.log('Apply to rewards triggered');
+          // Existing form submission logic here
+        } else if (text === 'DONATE ALLOCATION') {
+          console.log('Donate allocation triggered');
+          // Existing form submission logic here
+        } else if (text === 'HOLD BALANCE') {
+          console.log('Hold balance triggered');
+          // Existing form submission logic here
+        }
+      });
+    });
+
+    // Sync balance display across cards
+    const balanceElement = document.getElementById('walletBalance');
+    const heroPanelBalance = document.getElementById('heroPanelBalance');
+    if (balanceElement && heroPanelBalance) {
+      const balanceValue = balanceElement.textContent;
+      heroPanelBalance.textContent = balanceValue;
+    }
+  </script>
 </body>
 </html>
