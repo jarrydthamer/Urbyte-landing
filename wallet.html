@@ -6,7 +6,7 @@
   <title>DBU Wallet | Urbyte</title>
   <link rel="stylesheet" href="/app-style.css" />
   <style>
-    /* DBU Wallet page override and extension */
+    /* Wallet-specific overrides */
     .wallet-page {
       min-height: 100vh;
       width: 100%;
@@ -14,7 +14,6 @@
       flex-direction: column;
     }
 
-    /* Wallet content area */
     .wallet-content {
       flex: 1;
       padding: 46px 0 38px;
@@ -25,13 +24,260 @@
       margin: 0 auto;
     }
 
-    /* Hero section - split layout */
+    /* View management */
+    .view { display: none; }
+    .view.active { display: block; }
+
+    /* ==================== LOGIN VIEW ==================== */
+    #view-login {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 88px);
+      padding: 40px 20px;
+      background: linear-gradient(to bottom, rgba(10, 40, 95, 0.2), transparent);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(180deg, rgba(6, 13, 38, 0.76), rgba(2, 7, 20, 0.86));
+      border: 1px solid rgba(22, 132, 255, 0.48);
+      border-right-color: rgba(255, 110, 47, 0.34);
+      padding: 44px;
+      border-radius: 20px;
+      box-shadow: 0 0 28px rgba(22, 132, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+      position: relative;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(22, 132, 255, 0.5), rgba(255, 110, 47, 0.3), transparent);
+    }
+
+    .login-eyebrow {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #4aa3ff;
+      margin-bottom: 12px;
+    }
+
+    .login-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .login-sub {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(22, 132, 255, 0.38);
+      background: rgba(0, 0, 0, 0.28);
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .login-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .login-input:focus {
+      outline: none;
+      border-color: rgba(22, 132, 255, 0.7);
+      background: rgba(22, 132, 255, 0.05);
+    }
+
+    .login-msg {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      display: none;
+    }
+
+    .login-msg.success { color: #00e5cc; }
+    .login-msg.error { color: #c2003a; }
+
+    /* ==================== PROFILE SETUP VIEW ==================== */
+    #view-setup {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 88px);
+      padding: 40px 20px;
+    }
+
+    .setup-wizard {
+      width: 100%;
+      max-width: 520px;
+      background: linear-gradient(180deg, rgba(6, 13, 38, 0.76), rgba(2, 7, 20, 0.86));
+      border: 1px solid rgba(22, 132, 255, 0.48);
+      border-right-color: rgba(255, 110, 47, 0.34);
+      padding: 48px;
+      border-radius: 20px;
+      box-shadow: 0 0 28px rgba(22, 132, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+      position: relative;
+    }
+
+    .setup-wizard::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(22, 132, 255, 0.5), rgba(255, 110, 47, 0.3), transparent);
+    }
+
+    .setup-header {
+      margin-bottom: 32px;
+    }
+
+    .setup-step {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #4aa3ff;
+      margin-bottom: 12px;
+    }
+
+    .setup-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .setup-subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.55;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .field-label {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3a8cff;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(22, 132, 255, 0.38);
+      background: rgba(0, 0, 0, 0.28);
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .form-input::placeholder,
+    .form-select {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: rgba(22, 132, 255, 0.7);
+      background: rgba(22, 132, 255, 0.05);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 14px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      background: linear-gradient(105deg, #357dff, #6b4cff, #d83a9b, #ff6e2f);
+      color: white;
+      box-shadow: 0 0 25px rgba(22, 132, 255, 0.22);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 35px rgba(22, 132, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .setup-msg {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      display: none;
+    }
+
+    .setup-msg.success { color: #00e5cc; }
+    .setup-msg.error { color: #c2003a; }
+
+    /* ==================== DASHBOARD VIEW ==================== */
+    #view-dashboard {
+      display: block !important;
+      padding: 0;
+    }
+
+    /* Hero section */
     .wallet-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
       margin-bottom: 46px;
       align-items: center;
+      margin-top: 46px;
     }
 
     .hero-left {
@@ -61,7 +307,7 @@
       line-height: 1.08;
       letter-spacing: -0.075em;
       font-weight: 900;
-      color: #ffffff;
+      color: white;
     }
 
     .hero-left h1 span {
@@ -102,7 +348,6 @@
       font-weight: 900;
     }
 
-    /* Infobit panel */
     .infobit-panel {
       background: linear-gradient(180deg, rgba(6, 13, 38, 0.76), rgba(2, 7, 20, 0.86));
       border: 1px solid rgba(22, 132, 255, 0.48);
@@ -127,7 +372,7 @@
       font-size: 24px;
       font-weight: 900;
       letter-spacing: -0.045em;
-      color: #ffffff;
+      color: white;
       margin: 0;
     }
 
@@ -142,35 +387,6 @@
       font-size: 16px;
       line-height: 1.55;
       margin: 0;
-    }
-
-    .infobit-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 8px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(22, 132, 255, 0.2);
-    }
-
-    .comparison-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .comparison-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255, 255, 255, 0.55);
-      font-weight: 700;
-    }
-
-    .comparison-value {
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 600;
     }
 
     /* Main wallet grid */
@@ -220,7 +436,7 @@
       font-size: 56px;
       font-weight: 900;
       letter-spacing: -0.06em;
-      color: #ffffff;
+      color: white;
       margin: 0;
       line-height: 1;
     }
@@ -236,30 +452,6 @@
       font-size: 16px;
       line-height: 1.55;
       margin: 12px 0 0 0;
-    }
-
-    .card-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(22, 132, 255, 0.15);
-    }
-
-    .card-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .card-row-label {
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 15px;
-    }
-
-    .card-row-value {
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
     }
 
     /* Conversion card */
@@ -286,22 +478,6 @@
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-    }
-
-    .form-input,
-    .form-select {
-      width: 100%;
-      padding: 15px 16px;
-      border-radius: 10px;
-      border: 1px solid rgba(22, 132, 255, 0.38);
-      background: rgba(0, 0, 0, 0.28);
-      color: white;
-      font-size: 16px;
-    }
-
-    .form-input::placeholder,
-    .form-select {
-      color: rgba(255, 255, 255, 0.5);
     }
 
     .file-upload {
@@ -390,11 +566,11 @@
       margin-top: 20px;
     }
 
-    .btn,
-    button {
-      display: block;
-      text-align: center;
-      text-decoration: none;
+    button[type=submit] {
+      padding: 18px;
+      color: white;
+      background: linear-gradient(105deg, #357dff, #6b4cff, #d83a9b, #ff6e2f);
+      box-shadow: 0 0 25px rgba(22, 132, 255, 0.22);
       border-radius: 8px;
       font-weight: 800;
       font-size: 18px;
@@ -403,37 +579,15 @@
       transition: all 0.2s;
     }
 
-    .btn.primary,
-    button.primary {
-      padding: 18px;
-      color: white;
-      background: linear-gradient(105deg, #357dff, #6b4cff, #d83a9b, #ff6e2f);
-      box-shadow: 0 0 25px rgba(22, 132, 255, 0.22);
-    }
-
-    .btn.primary:hover,
-    button.primary:hover {
+    button[type=submit]:hover {
       box-shadow: 0 0 35px rgba(22, 132, 255, 0.35);
       transform: translateY(-2px);
-    }
-
-    .btn.secondary,
-    button.secondary {
-      padding: 16px;
-      color: white;
-      border: 1px solid rgba(255, 110, 47, 0.55);
-      background: rgba(0, 0, 0, 0.15);
-    }
-
-    .btn.secondary:hover,
-    button.secondary:hover {
-      border-color: rgba(255, 110, 47, 0.8);
-      background: rgba(255, 110, 47, 0.1);
     }
 
     /* Footer CTA */
     .wallet-footer {
       margin-top: 60px;
+      margin-bottom: 38px;
       padding: 40px 32px;
       background: linear-gradient(180deg, rgba(6, 13, 38, 0.76), rgba(2, 7, 20, 0.86));
       border: 1px solid rgba(22, 132, 255, 0.48);
@@ -447,7 +601,7 @@
       font-size: 36px;
       font-weight: 900;
       letter-spacing: -0.045em;
-      color: #ffffff;
+      color: white;
       margin: 0 0 12px;
     }
 
@@ -456,6 +610,28 @@
       color: rgba(255, 255, 255, 0.68);
       margin: 0 0 24px;
       line-height: 1.55;
+    }
+
+    .signout-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      display: block;
+      margin-top: 36px;
+      border-radius: 2px;
+    }
+
+    .signout-btn:hover {
+      border-color: rgba(194, 0, 58, 0.3);
+      color: #c2003a;
     }
 
     /* Responsive */
@@ -477,7 +653,7 @@
         width: min(100% - 32px, 720px);
       }
 
-      .infobit-comparison {
+      .progress-steps {
         grid-template-columns: 1fr;
       }
     }
@@ -499,21 +675,8 @@
         font-size: 42px;
       }
 
-      .progress-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .button-group {
-        margin-top: 16px;
-      }
-
-      .btn,
-      button {
+      button[type=submit] {
         font-size: 16px;
-      }
-
-      .btn.primary,
-      button.primary {
         padding: 16px;
       }
 
@@ -523,6 +686,18 @@
 
       .footer-headline {
         font-size: 28px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .setup-wizard {
+        padding: 36px 24px;
+      }
+
+      .login-box {
+        padding: 32px 20px;
       }
     }
   </style>
@@ -549,230 +724,402 @@
     </nav>
   </header>
 
-  <!-- Main wallet content -->
-  <main class="wallet-content">
-    <div class="wallet-container">
-      <!-- Hero Section -->
-      <section class="wallet-hero">
-        <div class="hero-left">
-          <div class="hero-eyebrow">Member Wallet Live Access</div>
-          <h1>DBU <span>Wallet</span></h1>
-          <p>Live access to your data value and Infobits layer.</p>
-          <ul>
-            <li>Understand your usage.</li>
-            <li>Convert your cycle.</li>
-            <li>Unlock redemption.</li>
-          </ul>
+  <!-- Main wallet page -->
+  <main class="wallet-page">
+    <!-- Login View -->
+    <div id="view-login" class="view">
+      <div class="login-box">
+        <div class="login-eyebrow">Member Access</div>
+        <div class="login-title">Access your<br/>wallet.</div>
+        <div class="login-sub">Enter your email and we'll send you a secure sign-in link. No password needed.</div>
+        <div class="login-form">
+          <input type="email" id="login-email" class="login-input" placeholder="you@example.com" autocomplete="email" />
+          <button class="btn-primary" id="login-btn" onclick="sendMagicLink()">Send Sign-in Link</button>
+        </div>
+        <div class="login-msg" id="login-msg"></div>
+      </div>
+    </div>
+
+    <!-- Profile Setup View -->
+    <div id="view-setup" class="view">
+      <div class="setup-wizard">
+        <div class="setup-header">
+          <div class="setup-step">Complete Setup</div>
+          <div class="setup-title">Claim your signal.</div>
+          <div class="setup-subtitle">Set up your profile to start earning. Takes 2 minutes.</div>
         </div>
 
-        <!-- Infobit Panel -->
-        <article class="infobit-panel">
-          <div class="infobit-label">Infobit</div>
-          <h2 class="infobit-title">Data isn't a product.<br />It's a flow.</h2>
-          <div class="infobit-content">
-            <p class="infobit-text">
-              Telcos sell access in MBs. You experience it in Mbps.
-              <br />Different units. Different purpose. Designed that way.
-            </p>
-            <p class="infobit-text">
-              MBs measure size. Mbps measure speed.
-              <br />They're not interchangeable.
-            </p>
-            <p class="infobit-text">
-              Real usage is continuous.
-              <br />Billing is segmented.
-              <br />Urbyte makes that visible.
-            </p>
-            <div class="infobit-comparison">
-              <div class="comparison-item">
-                <div class="comparison-label">Your Data Flow</div>
-                <div class="comparison-value">Continuous. Uninterrupted.</div>
-              </div>
-              <div class="comparison-item">
-                <div class="comparison-label">Telco Model</div>
-                <div class="comparison-value">Segmented. Limited. Priced.</div>
-              </div>
+        <form id="setup-form">
+          <div class="form-grid full">
+            <div>
+              <label class="field-label">Full Name</label>
+              <input type="text" id="setup-name" class="form-input" placeholder="Your name" required />
             </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label class="field-label">Email</label>
+              <input type="email" id="setup-email" class="form-input" placeholder="email@example.com" required />
+            </div>
+            <div>
+              <label class="field-label">Phone</label>
+              <input type="tel" id="setup-phone" class="form-input" placeholder="0400000000" required />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label class="field-label">Carrier</label>
+              <select id="setup-carrier" class="form-select" required>
+                <option value="">Select carrier</option>
+                <option value="vodafone">Vodafone</option>
+                <option value="telstra">Telstra</option>
+                <option value="optus">Optus</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Service Type</label>
+              <select id="setup-service" class="form-select" required>
+                <option value="">Select type</option>
+                <option value="postpaid">Postpaid</option>
+                <option value="prepaid">Prepaid</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label class="field-label">Cycle Start</label>
+              <input type="date" id="setup-cycle-start" class="form-input" required />
+            </div>
+            <div>
+              <label class="field-label">Cycle End</label>
+              <input type="date" id="setup-cycle-end" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="form-grid full">
+            <div>
+              <label class="field-label">Monthly Plan Data</label>
+              <input type="text" id="setup-plan-gb" class="form-input" placeholder="e.g. 50 GB" required />
+            </div>
+          </div>
+
+          <div class="form-grid full">
+            <div>
+              <label class="field-label">Email Reminders</label>
+              <select id="setup-reminders" class="form-select" required>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" id="setup-btn">Continue</button>
+          </div>
+
+          <div class="setup-msg" id="setup-msg"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="view-dashboard" class="view wallet-content">
+      <div class="wallet-container">
+        <!-- Hero Section -->
+        <section class="wallet-hero">
+          <div class="hero-left">
+            <div class="hero-eyebrow">Member Wallet Live Access</div>
+            <h1>DBU <span>Wallet</span></h1>
+            <p>Live access to your data value.</p>
+            <ul>
+              <li>Understand your usage.</li>
+              <li>Convert your cycle.</li>
+              <li>Unlock redemption.</li>
+            </ul>
+          </div>
+
+          <!-- Info Panel -->
+          <article class="infobit-panel">
+            <div class="infobit-label">Member Status</div>
+            <h2 class="infobit-title" id="member-name-display">—</h2>
+            <div class="infobit-content">
+              <p class="infobit-text">
+                <strong>Active member</strong>
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Main Wallet Grid -->
+        <section class="wallet-grid">
+          <!-- Left Column -->
+          <div class="grid-column left">
+            <!-- Card 1: DBU Balance -->
+            <article class="wallet-card">
+              <div class="card-label">DBU Balance</div>
+              <div class="card-value" id="dbu-balance">0</div>
+              <div class="card-subvalue">Data Backed Units</div>
+              <div class="card-description">Earned from verified conversions</div>
+            </article>
+
+            <!-- Card 2: Access Status -->
+            <article class="wallet-card">
+              <div class="card-label">Access Status</div>
+              <div class="card-value" style="font-size: 48px; margin-top: 16px;">Active</div>
+            </article>
+          </div>
+
+          <!-- Right Column -->
+          <div class="grid-column">
+            <!-- Card 3: Conversion Progress -->
+            <article class="wallet-card">
+              <div class="card-label">Conversion Progress</div>
+              <div class="card-value" style="font-size: 32px; margin-top: 12px;" id="progress-display">0 of 3</div>
+              <div class="card-description">verified conversions</div>
+              <div class="card-description" style="margin-top: 16px;">
+                <span id="progress-remaining">3 remaining</span> before redemption unlocks.
+              </div>
+              <div class="progress-steps" id="progress-steps">
+                <div class="progress-step" id="step-1">
+                  <div class="progress-circle">1</div>
+                  <div class="progress-label">Submit</div>
+                </div>
+                <div class="progress-step" id="step-2">
+                  <div class="progress-circle">2</div>
+                  <div class="progress-label">Verify</div>
+                </div>
+                <div class="progress-step" id="step-3">
+                  <div class="progress-circle">3</div>
+                  <div class="progress-label">Unlock</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Buffer Period -->
+            <article class="wallet-card">
+              <div class="card-label">Buffer Period</div>
+              <div class="card-description" style="margin-top: 16px;">
+                New members complete 3 billing cycles before redemption unlocks. This protects your balance and ensures data is verified.
+              </div>
+              <div class="card-description" style="margin-top: 16px; color: #ff6e2f; font-weight: 600;">
+                Redemption <span id="redemption-status">Locked</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Conversion Form (Full width) -->
+        <article class="wallet-card full-span conversion-card">
+          <div class="card-label">Submit Conversion</div>
+          <p class="card-description" style="margin-top: 16px;">
+            Submit your current billing cycle for conversion and earn DBUs.
+          </p>
+
+          <form class="conversion-form" id="conversionForm">
+            <div class="form-group">
+              <label class="form-label">Billing Month</label>
+              <input class="form-input" type="month" name="cycle_month" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Unused Data Amount</label>
+              <input class="form-input" type="text" name="unused_data" placeholder="e.g. 25 GB" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Verification Screenshot</label>
+              <div class="file-upload">
+                <input type="file" id="verificationFile" name="verification" accept="image/*" required />
+                <label for="verificationFile" class="file-upload-label">
+                  Click to upload verification screenshot
+                </label>
+              </div>
+              <p class="form-helper">
+                Upload a screenshot of your billing statement showing unused data.
+              </p>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit Conversion</button>
+          </form>
+
+          <p class="form-helper" style="margin-top: 16px;">
+            Verification required. We'll review your submission within 24 hours.
+          </p>
+        </article>
+
+        <!-- Redemption Status (Full width) -->
+        <article class="wallet-card full-span">
+          <div class="card-label">Redemption Status</div>
+          <div class="card-value" style="font-size: 48px; margin-top: 16px; color: rgba(255, 255, 255, 0.6);" id="redemption-status-value">
+            Locked
+          </div>
+          <div class="card-description">
+            Reserve-managed redemption framework.
+          </div>
+          <div class="card-description" style="margin-top: 16px;">
+            <strong style="color: white;">Current unlock requirement:</strong><br/>
+            <span id="unlock-requirement">3 verified conversions</span>
           </div>
         </article>
-      </section>
 
-      <!-- Main Wallet Grid -->
-      <section class="wallet-grid">
-        <!-- Left Column -->
-        <div class="grid-column left">
-          <!-- Card 1: DBU Balance -->
-          <article class="wallet-card">
-            <div class="card-label">Infobits Balance</div>
-            <div class="card-value">1,650</div>
-            <div class="card-subvalue">DBU</div>
-            <div class="card-description">
-              Estimated redemption value: ~$48.72 AUD
-            </div>
-          </article>
-
-          <!-- Card 2: Access Status -->
-          <article class="wallet-card">
-            <div class="card-label">Access Status</div>
-            <div class="card-value" style="font-size: 48px; margin-top: 16px;">Active</div>
-            <div class="card-row" style="border-bottom: none; padding: 20px 0 0 0;">
-              <span class="card-row-label">Member verified</span>
-            </div>
-            <div class="card-row" style="border-bottom: none; padding: 0;">
-              <span class="card-row-label">Infrastructure ready</span>
-            </div>
-            <div class="card-row" style="border-bottom: none; padding: 0;">
-              <span class="card-row-label">Cycle eligible</span>
-            </div>
-          </article>
-        </div>
-
-        <!-- Right Column -->
-        <div class="grid-column">
-          <!-- Card 3: Next Step / Action Panel -->
-          <article class="wallet-card">
-            <div class="card-label">Next Step</div>
-            <div class="card-description" style="margin-top: 16px;">
-              Convert current billing cycle.
-            </div>
-            <div class="card-description">
-              2 conversions remaining until redemption unlocks.
-            </div>
-            <div class="button-group">
-              <button class="primary" id="convertBtn">Convert Current Cycle</button>
-              <button class="secondary" id="accessStatusBtn">Access Status</button>
-            </div>
-          </article>
-
-          <!-- Card 4: Access Progress -->
-          <article class="wallet-card">
-            <div class="card-label">Access Progress</div>
-            <div class="card-value" style="font-size: 32px; margin-top: 12px;">1 of 3</div>
-            <div class="card-description">
-              conversions complete
-            </div>
-            <div class="card-description" style="margin-top: 16px;">
-              2 remaining before redemption unlocks.
-            </div>
-            <div class="progress-steps">
-              <div class="progress-step complete">
-                <div class="progress-circle">✓</div>
-                <div class="progress-label">Verified</div>
-              </div>
-              <div class="progress-step">
-                <div class="progress-circle">2</div>
-                <div class="progress-label">Pending</div>
-              </div>
-              <div class="progress-step">
-                <div class="progress-circle">3</div>
-                <div class="progress-label">Unlock</div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Card 5: Current Cycle Conversion (Full width) -->
-      <article class="wallet-card full-span conversion-card">
-        <div class="card-label">Current Cycle Conversion</div>
-        <p class="card-description" style="margin-top: 16px;">
-          Submit your current billing cycle for conversion and unlock new DBUs.
-        </p>
-
-        <form class="conversion-form" id="conversionForm">
-          <div class="form-group">
-            <label class="form-label">Carrier</label>
-            <select class="form-select" name="carrier" required>
-              <option value="">Select your carrier</option>
-              <option value="telstra">Telstra</option>
-              <option value="vodafone">Vodafone</option>
-              <option value="optus">Optus</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Service Type</label>
-            <select class="form-select" name="serviceType" required>
-              <option value="">Select service type</option>
-              <option value="mobile">Mobile Plan</option>
-              <option value="prepaid">Prepaid</option>
-              <option value="nbnco">NBN Co</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Cycle End Date</label>
-            <input
-              class="form-input"
-              type="date"
-              name="cycleEndDate"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Monthly Plan Data</label>
-            <input
-              class="form-input"
-              type="text"
-              name="planData"
-              placeholder="e.g., 100 GB"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Verification Screenshot Upload</label>
-            <div class="file-upload">
-              <input type="file" id="verificationFile" name="verification" accept="image/*" required />
-              <label for="verificationFile" class="file-upload-label">
-                Click to upload verification screenshot
-              </label>
-            </div>
-            <p class="form-helper">
-              Upload a screenshot of your billing statement or carrier app showing plan data and usage.
-            </p>
-          </div>
-
-          <button type="submit" class="primary">Submit Conversion</button>
-        </form>
-
-        <p class="form-helper" style="margin-top: 16px;">
-          Verification is required before DBUs are issued. We'll review your submission within 24 hours.
-        </p>
-      </article>
-
-      <!-- Card 6: Redemption Status (Full width) -->
-      <article class="wallet-card full-span">
-        <div class="card-label">Redemption Status</div>
-        <div class="card-value" style="font-size: 48px; margin-top: 16px; color: rgba(255, 255, 255, 0.6);">
-          Locked
-        </div>
-        <div class="card-description">
-          Reserve-managed redemption framework.
-        </div>
-        <div class="card-description" style="margin-top: 16px;">
-          <strong style="color: #ffffff;">Current unlock requirement:</strong>
-          <br />
-          3 verified conversions.
-        </div>
-      </article>
-
-      <!-- Footer CTA -->
-      <footer class="wallet-footer">
-        <h2 class="footer-headline">
-          You paid for it.<br />You didn't use it.<br />You should own it.
-        </h2>
-        <p class="footer-subtext">
-          Urbyte provides a consumer-facing infrastructure layer for recognising and converting unused mobile plan value.
-        </p>
-        <a href="/" class="btn primary">How it works</a>
-      </footer>
+        <!-- Footer -->
+        <footer class="wallet-footer">
+          <h2 class="footer-headline">
+            You paid for it.<br/>You didn't use it.<br/>You should own it.
+          </h2>
+          <p class="footer-subtext">
+            Urbyte provides a consumer-facing infrastructure layer for recognising and converting unused mobile plan value.
+          </p>
+          <button class="btn-primary" onclick="window.location='/'">How it works</button>
+          <button class="signout-btn" onclick="signOut()">Sign Out</button>
+        </footer>
+      </div>
     </div>
   </main>
 
   <script>
+    const API = 'https://sage-cb5a0228.base44.app/functions';
+
+    function show(viewId) {
+      document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active');
+    }
+
+    function signOut() {
+      sessionStorage.removeItem('urbyte_member');
+      sessionStorage.removeItem('urbyte_setup');
+      show('view-login');
+    }
+
+    async function sendMagicLink() {
+      const emailEl = document.getElementById('login-email');
+      const btn = document.getElementById('login-btn');
+      const msg = document.getElementById('login-msg');
+      const email = emailEl.value.trim();
+
+      if (!email || !email.includes('@')) {
+        msg.textContent = 'Enter a valid email address.';
+        msg.className = 'login-msg error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      msg.style.display = 'none';
+
+      try {
+        const res = await fetch(`${API}/sendMagicLink`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to send link');
+
+        msg.textContent = '✓ Check your inbox — link expires in 15 minutes.';
+        msg.className = 'login-msg success';
+        msg.style.display = 'block';
+        btn.textContent = 'Send Sign-in Link';
+      } catch (err) {
+        msg.textContent = err.message || 'Failed to send sign-in link.';
+        msg.className = 'login-msg error';
+        msg.style.display = 'block';
+        btn.textContent = 'Send Sign-in Link';
+        btn.disabled = false;
+      }
+    }
+
+    async function completeSetup() {
+      const msg = document.getElementById('setup-msg');
+      
+      const data = {
+        name: document.getElementById('setup-name').value,
+        email: document.getElementById('setup-email').value,
+        phone: document.getElementById('setup-phone').value,
+        carrier: document.getElementById('setup-carrier').value,
+        service_type: document.getElementById('setup-service').value,
+        cycle_start: document.getElementById('setup-cycle-start').value,
+        cycle_end: document.getElementById('setup-cycle-end').value,
+        plan_gb: document.getElementById('setup-plan-gb').value,
+        reminder_preference: document.getElementById('setup-reminders').value
+      };
+
+      if (!data.name || !data.email || !data.phone) {
+        msg.textContent = 'Please complete all required fields.';
+        msg.className = 'setup-msg error';
+        msg.style.display = 'block';
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/saveProfile`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ profile: data })
+        });
+
+        const result = await res.json();
+        if (!res.ok) throw new Error(result.error || 'Failed to save profile');
+
+        msg.textContent = '✓ Profile saved. Loading your wallet...';
+        msg.className = 'setup-msg success';
+        msg.style.display = 'block';
+
+        sessionStorage.setItem('urbyte_setup', JSON.stringify(data));
+
+        setTimeout(() => {
+          loadDashboard(data);
+          show('view-dashboard');
+        }, 1200);
+      } catch (err) {
+        msg.textContent = err.message || 'Failed to save profile.';
+        msg.className = 'setup-msg error';
+        msg.style.display = 'block';
+      }
+    }
+
+    function loadDashboard(profile) {
+      document.getElementById('member-name-display').textContent = profile.name;
+      document.getElementById('dbu-balance').textContent = '0';
+      document.getElementById('progress-display').textContent = '0 of 3';
+      document.getElementById('progress-remaining').textContent = '3 remaining';
+      document.getElementById('redemption-status-value').textContent = 'Locked';
+      document.getElementById('unlock-requirement').textContent = '3 verified conversions';
+      updateProgressSteps(0);
+    }
+
+    function updateProgressSteps(count) {
+      for (let i = 1; i <= 3; i++) {
+        const step = document.getElementById(`step-${i}`);
+        if (i <= count) {
+          step.classList.add('complete');
+          step.querySelector('.progress-circle').textContent = '✓';
+        } else {
+          step.classList.remove('complete');
+          step.querySelector('.progress-circle').textContent = i;
+        }
+      }
+
+      if (count >= 3) {
+        document.getElementById('redemption-status').textContent = 'Unlocked';
+        document.getElementById('redemption-status-value').textContent = 'Unlocked';
+        document.getElementById('unlock-requirement').textContent = 'Redemption marketplace pending rollout.';
+      }
+    }
+
+    document.getElementById('setup-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      completeSetup();
+    });
+
     // File upload label update
     const fileInput = document.getElementById('verificationFile');
     const fileLabel = document.querySelector('.file-upload-label');
@@ -784,51 +1131,50 @@
       });
     }
 
-    // Form submission
+    // Conversion form submission
     const conversionForm = document.getElementById('conversionForm');
     if (conversionForm) {
       conversionForm.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        // Collect form data
         const formData = new FormData(this);
-        const data = {
-          carrier: formData.get('carrier'),
-          serviceType: formData.get('serviceType'),
-          cycleEndDate: formData.get('cycleEndDate'),
-          planData: formData.get('planData'),
-          verificationFile: fileInput.files[0],
-          timestamp: new Date().toISOString(),
-        };
-
-        console.log('Conversion form submitted:', data);
-
-        // TODO: Connect to backend API endpoint
-        // Example:
-        // fetch('/api/conversion/submit', {
-        //   method: 'POST',
-        //   body: formData,
-        // })
-        //   .then(res => res.json())
-        //   .then(result => {
-        //     console.log('Conversion submitted successfully:', result);
-        //     // Redirect to success page or show confirmation
-        //   })
-        //   .catch(err => console.error('Submission error:', err));
-
+        console.log('Conversion submitted:', {
+          cycle_month: formData.get('cycle_month'),
+          unused_data: formData.get('unused_data'),
+          file: fileInput.files[0]?.name
+        });
         alert('Conversion submitted for verification. We\'ll review it within 24 hours.');
+        this.reset();
+        fileLabel.textContent = 'Click to upload verification screenshot';
       });
     }
 
-    // Button interactions
-    document.getElementById('convertBtn').addEventListener('click', function () {
-      document.querySelector('.conversion-card').scrollIntoView({ behavior: 'smooth' });
-    });
+    // Initialize
+    (async function init() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
 
-    document.getElementById('accessStatusBtn').addEventListener('click', function () {
-      console.log('Access status requested');
-      // TODO: Handle access status modal or navigation
-    });
+      if (token) {
+        try {
+          const res = await fetch(`${API}/verifyMagicLink?token=${token}`);
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Link invalid');
+
+          sessionStorage.setItem('urbyte_member', JSON.stringify(data.member));
+          
+          if (data.member.profile_complete) {
+            loadDashboard(data.member);
+            show('view-dashboard');
+          } else {
+            show('view-setup');
+          }
+        } catch (err) {
+          console.error('Auth error:', err);
+          show('view-login');
+        }
+      } else {
+        show('view-login');
+      }
+    })();
   </script>
 </body>
 </html>
