@@ -3,101 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URBYTE // INSIGHT: PARTNER INTELLIGENCE</title>
+    <title>URBYTE // INSIGHT SYSTEM</title>
     <style>
+        /* --- CRISP CYBER DESIGN SYSTEM --- */
         :root {
-            --bg-main: #050508;
-            --bg-card: #0C0D12;
+            --bg-absolute: #000000; /* Pure pitch black */
+            --bg-panel: #080A0F;
             --bg-input: #020203;
-            --border-muted: #161A24;
-            --border-active: #2A3247;
-            
-            /* Dynamic Brand Colors updated via JS */
-            --primary: #4AE54A;
-            --primary-glow: rgba(74, 229, 74, 0.1);
+            --border-grid: #1A1F2C;
+            --border-active: #3A4459;
+            --primary: #4AE54A; /* Urbyte Green */
             --text-main: #FFFFFF;
-            --text-muted: #626D85;
+            --text-muted: #52607A;
             --warning: #FF4A4A;
         }
 
+        /* Force hard, boxy, unrounded edges globally */
         * {
             box-sizing: border-box;
-            border-radius: 0px !important; /* Forces completely sharp edges across all elements */
+            border-radius: 0px !important;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-main);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            background-color: var(--bg-absolute);
             color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            letter-spacing: -0.2px;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
-        .mono {
-            font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
-        }
-
-        /* --- AUTH WALL PANEL --- */
-        #auth-wall {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: var(--bg-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            border: 4px solid var(--border-muted);
-        }
-        .auth-container {
-            width: 100%;
-            max-width: 400px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-active);
-            padding: 40px;
-            text-align: center;
-        }
-        .terminal-input {
-            width: 100%;
-            background: var(--bg-input);
-            border: 1px solid var(--border-active);
-            color: var(--text-main);
-            padding: 14px;
-            font-family: monospace;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 16px;
-            outline: none;
-        }
-        .terminal-input:focus {
-            border-color: var(--primary);
-        }
-        .btn-terminal {
-            width: 100%;
-            background: var(--primary);
-            color: #000000;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 14px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .btn-terminal:hover {
-            opacity: 0.9;
-        }
-
-        /* --- DASHBOARD LAYOUT --- */
-        #dashboard-layout {
-            display: none; /* Blocked until authed */
-        }
-
+        /* --- HEADER LAYOUT --- */
         header {
-            border-bottom: 1px solid var(--border-muted);
-            background-color: #020204;
-            padding: 16px 40px;
+            border-bottom: 2px solid var(--border-grid);
+            background-color: #020203;
+            padding: 20px 40px;
         }
         .header-container {
             max-width: 1400px;
@@ -105,43 +46,39 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
         }
         .brand-logo {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
         .brand-logo span { color: var(--primary); }
-        
-        .partner-switch-container {
+
+        .brand-selector {
             display: flex;
-            gap: 4px;
+            border: 1px solid var(--border-grid);
             background: var(--bg-input);
-            border: 1px solid var(--border-muted);
-            padding: 4px;
+            padding: 2px;
         }
-        .partner-btn {
+        .brand-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 6px 12px;
+            padding: 6px 14px;
             font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.1s ease;
         }
-        .partner-btn.active {
+        .brand-btn.active {
             background: var(--primary);
             color: #000000;
         }
 
-        /* --- TAB NAVIGATION --- */
-        .tabs-bar {
-            border-bottom: 1px solid var(--border-muted);
-            background: #07080c;
+        /* --- SUB-NAV TABS --- */
+        .tabs-row {
+            background: #040609;
+            border-bottom: 1px solid var(--border-grid);
             padding: 0 40px;
         }
         .tabs-container {
@@ -149,90 +86,316 @@
             margin: 0 auto;
             display: flex;
         }
-        .nav-tab {
+        .tab-trigger {
             background: transparent;
             border: none;
             border-bottom: 2px solid transparent;
             color: var(--text-muted);
             padding: 16px 24px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            cursor: pointer;
+            letter-spacing: 1px;
         }
-        .nav-tab.active {
+        .tab-trigger.active {
             color: var(--primary);
             border-bottom-color: var(--primary);
-            background: var(--bg-card);
+            background: var(--bg-panel);
         }
 
-        /* --- MAIN HUB AREA --- */
+        /* --- CORE CONTAINERS --- */
         main {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 48px 40px;
+            padding: 40px;
         }
-        .tab-content {
+        .tab-view {
             display: none;
         }
-        .tab-content.active {
+        .tab-view.active {
             display: block;
         }
 
-        /* --- CHURN & METRIC CARDS --- */
-        .grid-3 {
+        /* --- HERO TEXT TYPOGRAPHY --- */
+        .hero-block {
+            max-width: 1000px;
+            margin-bottom: 48px;
+            border-left: 3px solid var(--primary);
+            padding-left: 24px;
+        }
+        .hero-block h1 {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero-block p {
+            color: #A0AEC0;
+            font-size: 15px;
+            max-width: 800px;
+        }
+
+        /* --- GRID & CARD ARCHITECTURE --- */
+        .grid-three {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        .metric-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-muted);
-            padding: 32px;
-            position: relative;
+        .stat-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-grid);
+            padding: 30px;
         }
-        .metric-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-            background: var(--border-muted);
+        .stat-box .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
-        .metric-card.accented::before { background: var(--primary); }
-        
-        .metric-value {
-            font-size: 38px;
-            font-weight: 800;
-            margin: 8px 0;
+        .stat-box .val {
+            font-size: 36px;
+            font-weight: 900;
             color: var(--primary);
         }
-        .metric-label {
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        .metric-sub {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
 
-        /* --- TWO COLUMN FUNCTIONAL LAYOUT --- */
-        .split-layout {
+        .split-dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 24px;
             margin-bottom: 40px;
         }
         @media (max-width: 900px) {
-            .split-layout { grid-template-columns: 1fr; }
+            .split-dashboard { grid-template-columns: 1fr; }
         }
 
-        .panel-controls {
-            background: var(--bg-card);
-            border: 1px solid var(--border-muted);
+        .control-pane {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-grid);
             padding: 32px;
         }
-        .panel-outputs {
-            background: #08090d;
-            border: 1px solid var(--border
+        .output-pane {
+            background: #030406;
+            border: 1px solid var(--border-active);
+            padding: 32px;
+        }
+
+        .pane-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            color: #A0AEC0;
+            border-bottom: 1px solid var(--border-grid);
+            padding-bottom: 8px;
+        }
+
+        /* --- SYSTEM CONTROL SLIDERS --- */
+        .control-row {
+            margin-bottom: 24px;
+        }
+        .control-row:last-child { margin-bottom: 0; }
+        .control-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .system-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--bg-input);
+            border: 1px solid var(--border-grid);
+            height: 10px;
+            outline: none;
+            accent-color: var(--primary);
+        }
+
+        /* --- TELEMETRY DATA STRIPS --- */
+        .data-strip {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-grid);
+            font-size: 13px;
+        }
+        .data-strip:last-child { border-bottom: none; }
+        .data-label { color: var(--text-muted); text-transform: uppercase; }
+        .data-value { font-weight: 700; color: #FFFFFF; }
+
+        .master-summary {
+            background: var(--bg-input);
+            border: 1px solid var(--border-grid);
+            padding: 24px;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .master-summary .title {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .master-summary .total {
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 6px 0;
+        }
+
+        footer {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            padding: 40px;
+            border-top: 1px solid var(--border-grid);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="brand-logo">URBYTE // <span>INSIGHT</span></div>
+            <div class="brand-selector">
+                <button class="brand-btn active" onclick="setBrand('urbyte', this)">CORE</button>
+                <button class="brand-btn" onclick="setBrand('telstra', this)">TELSTRA</button>
+                <button class="brand-btn" onclick="setBrand('optus', this)">OPTUS</button>
+                <button class="brand-btn" onclick="setBrand('tpg', this)">TPG</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="tabs-row">
+        <div class="tabs-container">
+            <button class="tab-trigger active" onclick="setTab('overview', this)">[01] Overview</button>
+            <button class="tab-trigger" onclick="setTab('churn', this)">[02] Churn Matrix</button>
+            <button class="tab-trigger" onclick="setTab('revenue', this)">[03] Revenue share</button>
+            <button class="tab-trigger" onclick="setTab('simulator', this)">[04] Telemetry Sim</button>
+        </div>
+    </div>
+
+    <main>
+        <div id="view-overview" class="tab-view active">
+            <div class="hero-block">
+                <h1>849,400 TB National Mobile Data Pool.<br>39% Dissipates Unused Monthly.</h1>
+                <p>Urbyte converts systemic infrastructure over-allocation vectors into explicit operational retention locks. Subscribers dynamically transform structural waste variables into liquidity assets, optimizing provider utility margins with zero infrastructure footprint modification updates.</p>
+            </div>
+
+            <div class="grid-three">
+                <div class="stat-box">
+                    <div class="label">Total Connections Market</div>
+                    <div class="val">34.65M</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">Avg Monthly Waste Pool</div>
+                    <div class="val" style="color: #FFB400;">27 GB</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">Macro Telco Valuation</div>
+                    <div class="val" style="color: #4A90E2;">A$65.0B</div>
+                </div>
+            </div>
+
+            <div class="split-dashboard">
+                <div class="control-pane">
+                    <div class="pane-title">// Systemic Defection Indicators</div>
+                    <div class="data-strip"><span class="data-label">National Churn Baseline</span><span class="data-value">~18% Annually</span></div>
+                    <div class="data-strip"><span class="data-label">Average Consumer Plan Tier</span><span class="data-value">69 GB / Month</span></div>
+                    <div class="data-strip"><span class="data-label">Real Mean Allocation Usage</span><span class="data-value">42 GB / Month</span></div>
+                    <div class="data-strip"><span class="data-label">Leftover Yield Assetization</span><span class="data-value" style="color: var(--warning);">A$0.00 Realized</span></div>
+                </div>
+                <div class="output-pane">
+                    <div class="pane-title">// Integrated Shield Impact Vector</div>
+                    <div class="data-strip"><span class="data-label">Asset Conversion Framework</span><span class="data-value">Wasted volume mints Data Backed Units (DBUs)</span></div>
+                    <div class="data-strip"><span class="data-label">Subscriber Friction Protection</span><span class="data-value">Accumulated account yields construct user exit traps</span></div>
+                    <div class="data-strip"><span class="data-label">Infrastructure System Burden</span><span class="data-value" style="color: var(--primary);">0.00% Engineering Overlap Lift</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-churn" class="tab-view">
+            <div class="split-dashboard">
+                <div class="control-pane">
+                    <div class="pane-title">// Churn Variable Controls</div>
+                    
+                    <div class="control-row">
+                        <div class="control-meta"><span>Network Base Scale</span><span id="v-ch-subs">1,000,000</span></div>
+                        <input type="range" id="s-ch-subs" class="system-slider" min="100000" max="15000000" step="100000" value="1000000" oninput="runChurnCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Baseline Annual Defection</span><span id="v-ch-rate">18%</span></div>
+                        <input type="range" id="s-ch-rate" class="system-slider" min="5" max="35" step="1" value="18" oninput="runChurnCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Monthly ARPU Target</span><span id="v-ch-arpu">A$31</span></div>
+                        <input type="range" id="s-ch-arpu" class="system-slider" min="15" max="90" step="1" value="31" oninput="runChurnCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Urbyte Prevention Factor</span><span id="v-ch-lift">3.0%</span></div>
+                        <input type="range" id="s-ch-lift" class="system-slider" min="1" max="10" step="0.5" value="3" oninput="runChurnCalc()">
+                    </div>
+                </div>
+
+                <div class="output-pane">
+                    <div class="pane-title">// Financial Protection Output</div>
+                    <div class="data-strip"><span class="data-label">Lost Subscribers / Year</span><span class="data-value" style="color: var(--warning);" id="o-ch-lost">-</span></div>
+                    <div class="data-strip"><span class="data-label">Gross Revenue Liability Exposed</span><span class="data-value" style="color: var(--warning);" id="o-ch-risk">-</span></div>
+                    <div class="data-strip"><span class="data-label">Subscribers Deflected From Exit</span><span class="data-value" style="color: var(--primary);" id="o-ch-saved">-</span></div>
+                    
+                    <div class="master-summary">
+                        <div class="title">Net Protected Valuation (Annualized)</div>
+                        <div class="total" id="o-ch-benefit">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-revenue" class="tab-view">
+            <div class="split-dashboard">
+                <div class="control-pane">
+                    <div class="pane-title">// Ecosystem Parameter Allocators</div>
+                    
+                    <div class="control-row">
+                        <div class="control-meta"><span>Target Network Footprint</span><span id="v-rv-subs">500,000</span></div>
+                        <input type="range" id="s-rv-subs" class="system-slider" min="50000" max="10000000" step="50000" value="500000" oninput="runRevCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Platform Synchronization Rate</span><span id="v-rv-adopt">20%</span></div>
+                        <input type="range" id="s-rv-adopt" class="system-slider" min="5" max="50" step="5" value="20" oninput="runRevCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Monthly DBU Conversions / User</span><span id="v-rv-vol">50 DBU</span></div>
+                        <input type="range" id="s-rv-vol" class="system-slider" min="10" max="150" step="10" value="50" oninput="runRevCalc()">
+                    </div>
+                    <div class="control-row">
+                        <div class="control-meta"><span>Infrastructure Yield Margin</span><span id="v-rv-share">15%</span></div>
+                        <input type="range" id="s-rv-share" class="system-slider" min="5" max="30" step="5" value="15" oninput="runRevCalc()">
+                    </div>
+                </div>
+
+                <div class="output-pane">
+                    <div class="pane-title">// Sourced Ecosystem Ledger</div>
+                    <div class="data-strip"><span class="data-label">Active Synchronized Base</span><span class="data-value" id="o-rv-active">-</span></div>
+                    <div class="data-strip"><span class="data-label">Gross Monthly Marketplace Activity</span><span class="data-value" id="o-rv-gross">-</span></div>
+                    <div class="data-strip"><span class="data-label">Your Infrastructure Cut / Month</span><span class="data-value" style="color: #4A90E2;" id="o-rv-mshare">-</span></div>
+                    <div class="data-strip"><span class="data-label">Telemetry Intelligence Value / Year</span><span class="data-value" style="color: #A584FF;" id="o-rv-ival">-</span></div>
+
+                    <div class="master-summary" style="border-color: var(--primary);">
+                        <div class="title" style="color: var(--primary);">Combined Annual Partnership Worth</div>
+                        <div class="total" id="o-rv-total">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-simulator" class="tab-view">
