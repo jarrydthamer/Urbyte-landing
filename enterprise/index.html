@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbyte Insight | B2B SaaS Layer</title>
+    <style>
+        :root {
+            --bg-color: #0B0F19;
+            --card-bg: #111827;
+            --primary: #0052CC;
+            --primary-hover: #0066FF;
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --border: #1F2937;
+            --accent: #00DF89;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .tagline {
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: 0 auto 32px auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .features {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 48px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 8px;
+        }
+        .card h3 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .pilot {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .pilot-box {
+            background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 48px;
+        }
+        .pilot-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .pilot-split { grid-template-columns: 1fr; }
+            h1 { font-size: 32px; }
+        }
+        .metric-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .metric-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 16px;
+        }
+        .metric-number {
+            color: var(--accent);
+            font-size: 24px;
+            font-weight: 800;
+            margin-right: 12px;
+        }
+
+        .form-section {
+            padding: 80px 0;
+            background-color: #0e1321;
+        }
+        .form-container {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">URBYTE<span>.</span></div>
+            <a href="/" class="back-link">← Back to Consumer Ecosystem</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="tagline">Urbyte Insight // B2B SaaS Layer</div>
+            <h1>The Cross-Carrier Telemetry Engine<br>for Telecom Retention</h1>
+            <p>Intercept high-risk subscriber churn liabilities before they materialize. Urbyte Insight bridges the industry’s critical data blind spot by translating structural allocation inefficiencies into actionable predictive telemetry.</p>
+            <a href="#request-access" class="btn">Request Pilot Specifications & API Docs</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">Solving the Internal Data Scarcity Problem</div>
+            <div class="grid">
+                <div class="card">
+                    <h3>The DWFI Engine</h3>
+                    <p>Multi-billing cycle tracking that monitors consumer interaction velocity against unutilized plan allocations to flag immediate churn liabilities.</p>
+                </div>
+                <div class="card">
+                    <h3>The DBU Standard</h3>
+                    <p>A third-party ledger system that standardizes perishable network capacity into a utility metric decoupled from carrier balance sheets.</p>
+                </div>
+                <div class="card">
+                    <h3>Zero CapEx Deployment</h3>
+                    <p>Lightweight, secure REST APIs that sync directly with your existing CRM and automated billing workflows with zero infrastructure overhead.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pilot">
+        <div class="container">
+            <div class="pilot-box">
+                <div class="pilot-split">
+                    <div>
+                        <h2 style="margin-top:0; font-size: 26px;">Accelerated Risk Mitigation:<br>The 90-Day Pilot</h2>
+                        <p style="color: var(--text-muted); margin-bottom: 0;">We partner with forward-thinking operators via a structured, low-risk deployment framework designed to prove measurable fiscal impact in real time.</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 600; margin-top: 0; margin-bottom: 16px;">Commercial software licensing activation is tied directly to achieving either success metric:</p>
+                        <ul class="metric-list">
+                            <li class="metric-item"><span class="metric-number">≥ 15%</span> <span style="color: var(--text-muted);">Reduction in Subscriber Churn</span></li>
+                            <li class="metric-item"><span class="metric-number">≥ 20%</span> <span style="color: var(--text-muted);">Increase in Customer Lifetime Value (LTV)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="request-access">
+        <div class="container">
+            <div class="form-container">
+                <h2 style="margin-top: 0; font-size: 24px; text-align: center;">Access Enterprise Blueprints</h2>
+                <p style="color: var(--text-muted); font-size: 14px; text-align: center; margin-bottom: 28px;">Secure your B2B Pilot briefing and technical integration documentation.</p>
+                
+                <form action="/api/forms/enterprise-leads" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Corporate Email</label>
+                        <input type="email" id="email" name="email" required placeholder="j.doe@carrier.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company / Carrier Network</label>
+                        <input type="text" id="company" name="company" required placeholder="Telco Operator Pty Ltd">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Job Title</label>
+                        <input type="text" id="title" name="title" required placeholder="Director of Customer Retention">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Request Secure Briefing</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 Urbyte Pty Ltd. All Rights Reserved. Private & Corporate Confidential.
+        </div>
+    </footer>
+
+</body>
+</html>
