@@ -535,4 +535,258 @@
                         <div>
                             <div class="solution-icon">🛡️</div>
                             <div class="solution-headline">You keep the customer</div>
-                            <div class="solution-
+                            <div class="solution-body">Urbyte is white-label ready. Your brand, your relationship — we power the engine behind the scenes.</div>
+                        </div>
+                        <div>
+                            <div class="solution-icon">📊</div>
+                            <div class="solution-headline">Real retention data</div>
+                            <div class="solution-body">We give you back actionable insights on usage patterns, churn signals, and reward preferences.</div>
+                        </div>
+                        <div>
+                            <div class="solution-icon">💚</div>
+                            <div class="solution-headline">ESG & social impact</div>
+                            <div class="solution-body">DBU redemptions flow to verified charities — giving your brand a genuine social mission story.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; padding: 48px 0;">
+                    <h2 style="font-size: 28px; font-weight: 900; margin-bottom: 12px;">Ready to explore a partnership?</h2>
+                    <p style="color: rgba(255,255,255,0.4); font-size: 16px; margin-bottom: 32px;">Contact the Urbyte team to discuss how we can work together.</p>
+                    <a href="mailto:information@urbyte.com.au" class="contact-action-btn" id="contact-link-btn">Contact Urbyte →</a>
+                    <p style="color: rgba(255,255,255,0.2); font-size: 12px;">Founded in the Northern Rivers, NSW 🇦🇺 · ACN 692 885 019 · Confidential</p>
+                </div>
+            </div>
+
+            <div id="panel-churn" class="tab-content-panel">
+                <div class="calculator-master-frame" style="background: rgba(255,100,0,0.03); border-color: rgba(255,100,0,0.15);">
+                    <h3 class="calc-header-title" style="color: #FF6B35;">📉 Churn Cost Calculator</h3>
+                    <p class="calc-header-desc">See what churn is really costing you — and what Urbyte saves</p>
+                    
+                    <div class="calc-split-workspace">
+                        <div class="slider-control-stack">
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Subscriber base</span>
+                                    <span class="slider-val" id="lbl-ch-subs">-</span>
+                                </div>
+                                <input type="range" id="input-ch-subs" class="slider-native-input" min="100000" max="20000000" step="100000" value="1000000" oninput="calculateChurnMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Annual churn rate (%)</span>
+                                    <span class="slider-val" id="lbl-ch-rate">-</span>
+                                </div>
+                                <input type="range" id="input-ch-rate" class="slider-native-input" min="5" max="40" step="1" value="18" oninput="calculateChurnMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Monthly ARPU (AUD)</span>
+                                    <span class="slider-val" id="lbl-ch-arpu">-</span>
+                                </div>
+                                <input type="range" id="input-ch-arpu" class="slider-native-input" min="15" max="80" step="1" value="31" oninput="calculateChurnMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Urbyte churn reduction (%)</span>
+                                    <span class="slider-val" id="lbl-ch-lift">-</span>
+                                </div>
+                                <input type="range" id="input-ch-lift" class="slider-native-input" min="1" max="15" step="0.5" value="3" oninput="calculateChurnMatrix()">
+                            </div>
+                        </div>
+
+                        <div class="outputs-display-stack">
+                            <div class="output-data-node" style="background: rgba(255,100,0,0.06); border-color: rgba(255,100,0,0.15);">
+                                <div class="output-node-lbl">Customers lost per year</div>
+                                <div class="output-node-val" style="color: #FF6B35;" id="out-ch-lost">-</div>
+                            </div>
+                            <div class="output-data-node" style="background: rgba(255,100,0,0.06); border-color: rgba(255,100,0,0.15);">
+                                <div class="output-node-lbl">Annual revenue at risk</div>
+                                <div class="output-node-val" style="color: #FF6B35;" id="out-ch-risk">-</div>
+                            </div>
+                            <div class="output-data-node" style="background: rgba(74,229,74,0.05); border-color: rgba(74,229,74,0.15);">
+                                <div class="output-node-lbl">Customers saved by Urbyte/yr</div>
+                                <div class="output-node-val" style="color: #4AE54A;" id="out-ch-saved">-</div>
+                            </div>
+                            <div class="output-data-node" style="background: rgba(74,229,74,0.06); border-color: rgba(74,229,74,0.25);">
+                                <div class="output-node-lbl">Total annual benefit (AUD)</div>
+                                <div class="output-node-val" style="color: #4AE54A; font-size: 36px;" id="out-ch-benefit">-</div>
+                                <div class="output-node-sub">Revenue saved + acquisition cost avoided</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-footnote">
+                        * Churn reduction estimate based on loyalty program benchmarks (3–8% typical lift). Industry avg CAC for telco customers A$350. ARPU figures sourced from ACCC Communications Market Report 2024–25.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-revenue" class="tab-content-panel">
+                <div class="calculator-master-frame" style="background: rgba(96,165,250,0.03); border-color: rgba(96,165,250,0.15);">
+                    <h3 class="calc-header-title" style="color: #60A5FA;">💰 Revenue Share Model</h3>
+                    <p class="calc-header-desc">Model your share of the Urbyte ecosystem</p>
+                    
+                    <div class="calc-split-workspace">
+                        <div class="slider-control-stack">
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Your subscriber base</span>
+                                    <span class="slider-val" id="lbl-rv-subs">-</span>
+                                </div>
+                                <input type="range" id="input-rv-subs" class="slider-native-input" min="50000" max="20000000" step="50000" value="500000" oninput="calculateRevenueMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">DBU adoption rate</span>
+                                    <span class="slider-val" id="lbl-rv-adopt">-</span>
+                                </div>
+                                <input type="range" id="input-rv-adopt" class="slider-native-input" min="5" max="60" step="5" value="20" oninput="calculateRevenueMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Avg DBUs redeemed/user/mo</span>
+                                    <span class="slider-val" id="lbl-rv-vol">-</span>
+                                </div>
+                                <input type="range" id="input-rv-vol" class="slider-native-input" min="10" max="200" step="10" value="50" oninput="calculateRevenueMatrix()">
+                            </div>
+                            <div class="slider-item-block">
+                                <div class="slider-meta-labels">
+                                    <span class="slider-lbl">Your revenue share %</span>
+                                    <span class="slider-val" id="lbl-rv-share">-</span>
+                                </div>
+                                <input type="range" id="input-rv-share" class="slider-native-input" min="5" max="30" step="5" value="15" oninput="calculateRevenueMatrix()">
+                            </div>
+                        </div>
+
+                        <div class="outputs-display-stack">
+                            <div class="output-data-node">
+                                <div class="output-node-lbl">Active DBU users</div>
+                                <div class="output-node-val" id="out-rv-active" style="color: var(--accent-color);">-</div>
+                                <div class="output-node-sub" id="out-rv-active-sub">-</div>
+                            </div>
+                            <div class="output-data-node">
+                                <div class="output-node-lbl">Monthly redemption value</div>
+                                <div class="output-node-val" id="out-rv-gross" style="color: #FFB400;">-</div>
+                                <div class="output-node-sub">across active users</div>
+                            </div>
+                            <div class="output-data-node">
+                                <div class="output-node-lbl">Your monthly revenue share</div>
+                                <div class="output-node-val" id="out-rv-mshare" style="color: #60A5FA;">-</div>
+                                <div class="output-node-sub" id="out-rv-mshare-sub">-</div>
+                            </div>
+                            <div class="output-data-node">
+                                <div class="output-node-lbl">Data insight value (annual)</div>
+                                <div class="output-node-val" id="out-rv-ival" style="color: #A78BFA;">-</div>
+                                <div class="output-node-sub">A$2.50/active user/mo</div>
+                            </div>
+                            <div class="output-data-node" style="border-color: var(--accent-color);">
+                                <div class="output-node-lbl">Total annual partner value</div>
+                                <div class="output-node-val" id="out-rv-total" style="color: #4AE54A; font-size: 28px;">-</div>
+                                <div class="output-node-sub">Revenue share + data insights</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tier-cards-row">
+                        <div class="tier-spec-card">
+                            <div class="tier-name">Starter</div>
+                            <div class="tier-share-val">10%</div>
+                            <div class="tier-share-lbl">revenue share</div>
+                            <div class="tier-perks">API access, basic analytics</div>
+                        </div>
+                        <div class="tier-spec-card">
+                            <div class="tier-name">Growth</div>
+                            <div class="tier-share-val">15%</div>
+                            <div class="tier-share-lbl">revenue share</div>
+                            <div class="tier-perks">White-label, priority support, data dashboard</div>
+                        </div>
+                        <div class="tier-spec-card">
+                            <div class="tier-name">Enterprise</div>
+                            <div class="tier-share-val">20%+</div>
+                            <div class="tier-share-lbl">revenue share</div>
+                            <div class="tier-perks">Custom integration, joint marketing, board reporting</div>
+                        </div>
+                    </div>
+
+                    <div class="calc-footnote">
+                        * DBU value: 1 DBU = A$0.078 (USD$0.05 × 1.55 FX). Data insight value based on comparable telco loyalty data licensing benchmarks. Revenue share % subject to partnership tier and volume.
+                    </div>
+                </div>
+            </div>
+
+            <div id="panel-simulator" class="tab-content-panel">
+                <div class="calculator-master-frame" style="background: rgba(255,255,255,0.02);">
+                    <h3 class="calc-header-title">📊 Opportunity Simulator</h3>
+                    <p class="calc-header-desc">Adjust the sliders to model your network's potential</p>
+                    
+                    <div class="slider-control-stack" style="margin-bottom: 32px;">
+                        <div class="slider-item-block">
+                            <div class="slider-meta-labels">
+                                <span class="slider-lbl">Subscriber base</span>
+                                <span class="slider-val" id="lbl-sm-subs">-</span>
+                            </div>
+                            <input type="range" id="input-sm-subs" class="slider-native-input" min="100000" max="20000000" step="100000" value="1000000" oninput="calculateSimulatorMatrix()">
+                        </div>
+                        <div class="slider-item-block">
+                            <div class="slider-meta-labels">
+                                <span class="slider-lbl">Avg plan size (GB)</span>
+                                <span class="slider-val" id="lbl-sm-plan">-</span>
+                            </div>
+                            <input type="range" id="input-sm-plan" class="slider-native-input" min="10" max="200" step="5" value="50" oninput="calculateSimulatorMatrix()">
+                        </div>
+                        <div class="slider-item-block">
+                            <div class="slider-meta-labels">
+                                <span class="slider-lbl">Average data usage rate</span>
+                                <span class="slider-val" id="lbl-sm-rate">-</span>
+                            </div>
+                            <input type="range" id="input-sm-rate" class="slider-native-input" min="20" max="95" step="5" value="60" oninput="calculateSimulatorMatrix()">
+                        </div>
+                    </div>
+
+                    <div class="simulator-grid-outputs">
+                        <div class="simulator-node-box">
+                            <div class="sim-node-val" style="color: var(--accent-color);" id="out-sm-usergb">-</div>
+                            <div class="sim-node-lbl">Unused data per user/mo</div>
+                        </div>
+                        <div class="simulator-node-box">
+                            <div class="sim-node-val" style="color: var(--accent-color);" id="out-sm-totaltb">-</div>
+                            <div class="sim-node-lbl">Total unused data/mo</div>
+                        </div>
+                        <div class="simulator-node-box">
+                            <div class="sim-node-val" style="color: #FFB400;" id="out-sm-dbus">-</div>
+                            <div class="sim-node-lbl">DBUs generated/mo</div>
+                        </div>
+                        <div class="simulator-node-box">
+                            <div class="sim-node-val" style="color: #FFB400;" id="out-sm-aud">-</div>
+                            <div class="sim-node-lbl">Annual DBU value (AUD)</div>
+                        </div>
+                        <div class="simulator-node-box">
+                            <div class="sim-node-val" style="color: #60A5FA;" id="out-sm-saving">-</div>
+                            <div class="sim-node-lbl">Est. churn retention saving/yr</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            // DATA SYSTEM // URBYTE PTY LTD NORTHERN RIVERS NSW 🇦🇺 // ACN 692 885 019 // RUNTIME YEAR 2026
+        </footer>
+    </div>
+
+    <script>
+        const AUTH_PASSPHRASE = "urbyte2026";
+
+        // Global Design Branding Matrix
+        const METRIC_THEMES = {
+            urbyte: { name: "Urbyte Insight", primary: "#4AE54A", secondary: "#00C853", bg: "#050508", accent: "#4AE54A", panel: "#0C0D12", border: "#161A24" },
+            telstra: { name: "Telstra Partner View", primary: "#00A9E0", secondary: "#0078A8", bg: "#000B14", accent: "#00A9E0", panel: "#0C131A", border: "#16222F" },
+            optus: { name: "Optus Partner View", primary: "#FF6B00", secondary: "#E55A00", bg: "#0F0600", accent: "#FF6B00", panel: "#1A110C", border: "#2A1D16" },
+            tpg: { name: "TPG / Vodafone Partner View", primary: "#CC0000", secondary: "#AA0000", bg: "#0F0000", accent: "#CC0000", panel: "#1A0C0C", border: "#2A1616" }
+        };
+
+        let activeBrandKey = "urbyte";
+
+        // Number string formatter structures
+        function formatNum(n) {
+            if (n >= 1000000000) return (
