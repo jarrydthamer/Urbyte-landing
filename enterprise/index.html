@@ -14,6 +14,7 @@
             --text-muted: #9CA3AF;
             --border: #1F2937;
             --accent: #00DF89;
+            --warning: #EF4444;
         }
 
         body {
@@ -109,7 +110,13 @@
             text-align: center;
             font-size: 28px;
             font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
             margin-bottom: 48px;
+            font-size: 16px;
         }
         .grid {
             display: grid;
@@ -132,6 +139,101 @@
             color: var(--text-muted);
             font-size: 15px;
             margin: 0;
+        }
+
+        /* Interactive Simulator Styles */
+        .simulator-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(180deg, var(--bg-color) 0%, #0e1424 100%);
+        }
+        .sim-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        @media (max-width: 850px) {
+            .sim-layout { grid-template-columns: 1fr; }
+        }
+        .sim-panel {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 32px;
+        }
+        .sim-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .scenario-btn {
+            width: 100%;
+            background-color: #1F2937;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            text-align: left;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .scenario-btn:hover {
+            border-color: var(--primary);
+            background-color: #252f3f;
+        }
+        .scenario-btn.active {
+            border-color: var(--accent);
+            background-color: #132724;
+        }
+        .control-group {
+            margin-bottom: 20px;
+        }
+        .control-group label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #1F2937;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+        }
+        .display-metric {
+            text-align: center;
+            padding: 24px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+        }
+        .metric-big {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 8px 0;
+        }
+        .metric-status {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .pilot {
@@ -238,6 +340,7 @@
     <section class="features">
         <div class="container">
             <div class="section-title">Solving the Internal Data Scarcity Problem</div>
+            <div class="section-subtitle">Addressing macro blind spots via distributed network telemetry</div>
             <div class="grid">
                 <div class="card">
                     <h3>The DWFI Engine</h3>
@@ -250,6 +353,63 @@
                 <div class="card">
                     <h3>Zero CapEx Deployment</h3>
                     <p>Lightweight, secure REST APIs that sync directly with your existing CRM and automated billing workflows with zero infrastructure overhead.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="simulator-section">
+        <div class="container">
+            <div class="section-title">Urbyte Ecosystem Ecosystem Simulator</div>
+            <div class="section-subtitle">Test system mechanics against simulated macroeconomic and subscriber stress-tests live.</div>
+            
+            <div class="sim-layout">
+                <div class="sim-panel">
+                    <div class="sim-title">📊 1. Choose Churn Stress Scenario</div>
+                    <button class="scenario-btn active" onclick="runScenario('base')">
+                        <strong>Standard Market Baseline</strong><br>
+                        <span style="font-size: 13px; color: var(--text-muted);">Normal usage across Tier-1 Australian networks.</span>
+                    </button>
+                    <button class="scenario-btn" onclick="runScenario('priceWar')">
+                        <strong>Scenario A: Major Carrier Price War</strong><br>
+                        <span style="font-size: 13px; color: var(--text-muted);">Competitors drop tier prices by 20%. Alters Cost/Plan weights.</span>
+                    </button>
+                    <button class="scenario-btn" onclick="runScenario('congestion')">
+                        <strong>Scenario B: Network Congestion Spike</strong><br>
+                        <span style="font-size: 13px; color: var(--text-muted);">Surge in regional resource demand scales alpha parameter.</span>
+                    </button>
+                    <button class="scenario-btn" onclick="runScenario('dormant')">
+                        <strong>Scenario C: 'Ghost User' Dormancy</strong><br>
+                        <span style="font-size: 13px; color: var(--text-muted);">Users mint data assets but show 45 days app non-interaction.</span>
+                    </button>
+                </div>
+
+                <div class="sim-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="sim-title">⚙️ 2. Live DBU Asset Formulation</div>
+                        
+                        <div class="control-group">
+                            <label><span>Wasted Data Volume ($\Delta V$):</span> <strong id="val-dv">55 GB</strong></label>
+                            <input type="range" class="slider" id="slide-dv" min="5" max="100" value="55" oninput="calculateDBU()">
+                        </div>
+
+                        <div class="control-group">
+                            <label><span>Plan Cost ($C_{fiat}$):</span> <strong id="val-cost">$80</strong></label>
+                            <input type="range" class="slider" id="slide-cost" min="30" max="150" value="80" oninput="calculateDBU()">
+                        </div>
+
+                        <div class="control-group" style="display:none;">
+                            <input type="range" id="slide-plan" value="60">
+                            <input type="range" id="slide-alpha" min="0.5" max="2" step="0.1" value="1.0">
+                            <input type="range" id="slide-beta" min="0.5" max="2" step="0.1" value="1.0">
+                        </div>
+                    </div>
+
+                    <div class="display-metric">
+                        <span style="font-size: 12px; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Calculated DBU Yield</span>
+                        <div class="metric-big" id="dbu-output">73.33</div>
+                        <div class="metric-status" id="dwfi-status" style="color: var(--accent);">DWFI Score: Low Risk</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -310,5 +470,67 @@
         </div>
     </footer>
 
+    <script>
+        function calculateDBU() {
+            const dv = parseFloat(document.getElementById('slide-dv').value);
+            const cost = parseFloat(document.getElementById('slide-cost').value);
+            const planSize = parseFloat(document.getElementById('slide-plan').value);
+            const alpha = parseFloat(document.getElementById('slide-alpha').value);
+            const beta = parseFloat(document.getElementById('slide-beta').value);
+
+            document.getElementById('val-dv').innerText = dv + " GB";
+            document.getElementById('val-cost').innerText = "$" + cost;
+
+            // Core Formula execution: DBU = DV * (Cost / Plan) * alpha * beta
+            let dbu = dv * (cost / planSize) * alpha * beta;
+            document.getElementById('dbu-output').innerText = dbu.toFixed(2);
+        }
+
+        function runScenario(type) {
+            // Update button styles
+            const buttons = document.querySelectorAll('.scenario-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const statusText = document.getElementById('dwfi-status');
+
+            if (type === 'base') {
+                document.getElementById('slide-dv').value = 55;
+                document.getElementById('slide-cost').value = 80;
+                document.getElementById('slide-alpha').value = 1.0;
+                document.getElementById('slide-beta').value = 1.0;
+                statusText.innerText = "DWFI Score: Low Risk (23.1)";
+                statusText.style.color = "var(--accent)";
+            } else if (type === 'priceWar') {
+                document.getElementById('slide-dv').value = 65;
+                document.getElementById('slide-cost').value = 64; // 20% price drop
+                document.getElementById('slide-alpha').value = 1.0;
+                document.getElementById('slide-beta').value = 1.1;
+                statusText.innerText = "DWFI Score: Medium Risk (45.8)";
+                statusText.style.color = "orange";
+            } else if (type === 'congestion') {
+                document.getElementById('slide-dv').value = 40;
+                document.getElementById('slide-cost').value = 90;
+                document.getElementById('slide-alpha').value = 1.8; // High congestion premium
+                document.getElementById('slide-beta').value = 1.0;
+                statusText.innerText = "DWFI Score: Volatile Network Demand";
+                statusText.style.color = "var(--primary-hover)";
+            } else if (type === 'dormant') {
+                document.getElementById('slide-dv').value = 85; // High accumulation
+                document.getElementById('slide-cost').value = 80;
+                document.getElementById('slide-alpha').value = 0.8;
+                document.getElementById('slide-beta').value = 1.4;
+                statusText.innerText = "DWFI Score: CRITICAL CHURN RISK (87.4)";
+                statusText.style.color = "var(--warning)";
+            }
+
+            calculateDBU();
+        }
+
+        // Initialize calculation on page render
+        window.onload = function() {
+            calculateDBU();
+        };
+    </script>
 </body>
 </html>
