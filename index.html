@@ -3,1115 +3,1119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Urbyte | Reclaim Unused Mobile Data Value</title>
-
-  <meta
-    name="description"
-    content="Urbyte helps mobile users reclaim value from unused mobile data through DBU credits, founding member access, and consumer-first digital infrastructure."
-  />
-
+  <title>The Unused mobile data that you paid for, still has value.</title>
+  <meta name="description" content="Every month, Australians pay for more mobile data than they use — and that value quietly disappears. Urbyte is changing that." />
   <style>
-    :root {
-      --bg: #030814;
-      --bg-soft: #071329;
-      --bg-card: rgba(9, 24, 52, 0.78);
-      --blue: #2f7dff;
-      --blue-soft: rgba(47, 125, 255, 0.18);
-      --blue-border: rgba(95, 157, 255, 0.42);
-      --gold: #d4af37;
-      --gold-light: #ffe58a;
-      --text: #f4f8ff;
-      --muted: rgba(244, 248, 255, 0.76);
-      --faint: rgba(244, 248, 255, 0.66);
-      --line: rgba(255, 255, 255, 0.12);
-      --shadow: 0 26px 90px rgba(0, 0, 0, 0.38);
-      --radius: 26px;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #00000A; color: #fff; overflow-x: hidden; }
+    a { text-decoration: none; }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 12%, rgba(47, 125, 255, 0.24), transparent 34%),
-        radial-gradient(circle at 82% 20%, rgba(212, 175, 55, 0.16), transparent 30%),
-        radial-gradient(circle at 50% 92%, rgba(47, 125, 255, 0.14), transparent 36%),
-        var(--bg);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.12));
-      z-index: -2;
-    }
-
+    /* SCANLINES */
     body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
-      z-index: -1;
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
+      pointer-events: none; z-index: 9998;
     }
 
-    a {
-      color: inherit;
-    }
+    #env-canvas { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
-    .page-shell {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
+    /* NAV */
+    nav {
+      position: fixed; top:0; left:0; right:0; z-index:200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 52px;
+      background: rgba(0,0,10,0.75);
+      backdrop-filter: blur(28px);
+      border-bottom: 1px solid rgba(91,0,255,0.15);
     }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(3, 8, 20, 0.78);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; }
+    .nav-tag { font-size: 10px; color: rgba(91,0,255,0.7); font-weight: 700; letter-spacing: 3px; margin-left: 6px; }
+    .btn-nav {
+      background: transparent;
+      border: 1px solid rgba(91,0,255,0.5);
+      color: rgba(140,60,255,0.9);
+      padding: 9px 24px;
+      font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      transition: all 0.3s; cursor: pointer;
     }
+    .btn-nav:hover { background: rgba(91,0,255,0.12); box-shadow: 0 0 24px rgba(91,0,255,0.3); }
 
-    .nav {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .site-logo {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      display: block;
-      border-radius: 14px;
-    }
-
-    .brand-wordmark {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .brand-wordmark strong {
-      font-size: 1.15rem;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-wordmark span {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: #061225;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 10px 34px rgba(212, 175, 55, 0.22);
-    }
-
-    section {
-      padding: 96px 0;
-      position: relative;
-    }
-
-    .section-kicker {
-      margin: 0 0 14px;
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255, 229, 138, 0.88);
-      font-weight: 800;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .section-copy {
-      margin: 22px 0 0;
-      max-width: 720px;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      line-height: 1.72;
-      color: var(--muted);
-    }
-
-    .glass-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(180deg, rgba(10, 28, 58, 0.8), rgba(4, 13, 31, 0.82));
-      box-shadow: var(--shadow);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .button-primary,
-    .button-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      text-decoration: none;
-      border: 1px solid transparent;
-    }
-
-    .button-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: #061225;
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.045);
-    }
-
-    .button-secondary:hover {
-      border-color: var(--blue-border);
-      background: var(--blue-soft);
-    }
-
+    /* HERO */
     .hero {
-      min-height: calc(100vh - 82px);
-      display: flex;
-      align-items: center;
-      padding: 88px 0 110px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 58px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(3.2rem, 8vw, 7.6rem);
-      line-height: 0.88;
-      letter-spacing: -0.075em;
-    }
-
-    .hero h1 span {
-      display: block;
-      color: var(--gold-light);
-      text-shadow: 0 0 34px rgba(212, 175, 55, 0.18);
-    }
-
-    .hero-lead {
-      margin: 28px 0 0;
-      max-width: 680px;
-      font-size: clamp(1.08rem, 1.7vw, 1.34rem);
-      line-height: 1.72;
-      color: var(--muted);
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .trust-pill {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: var(--faint);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-    }
-
-    .flywheel {
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      position: relative;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle, rgba(255, 229, 138, 0.16), transparent 34%),
-        radial-gradient(circle at 50% 50%, rgba(47,125,255,0.18), transparent 58%);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow:
-        inset 0 0 70px rgba(47,125,255,0.16),
-        0 30px 110px rgba(0,0,0,0.42);
-    }
-
-    .flywheel-ring {
-      position: absolute;
-      inset: 10%;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .flywheel-ring:nth-child(2) {
-      inset: 23%;
-      border-color: rgba(212,175,55,0.22);
-    }
-
-    .flywheel-core {
-      width: 34%;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #061225;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      font-weight: 900;
-      box-shadow: 0 0 60px rgba(212, 175, 55, 0.26);
-      z-index: 2;
-    }
-
-    .flywheel-point {
-      position: absolute;
-      width: 168px;
-      min-height: 86px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(7,19,41,0.78);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-
-    .flywheel-point strong {
-      display: block;
-      font-size: 0.92rem;
-      margin-bottom: 6px;
-    }
-
-    .flywheel-point span {
-      display: block;
-      font-size: 0.78rem;
-      line-height: 1.45;
-      color: var(--muted);
-    }
-
-    .point-one {
-      top: 4%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .point-two {
-      right: -2%;
-      top: 45%;
-      transform: translateY(-50%);
-    }
-
-    .point-three {
-      bottom: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .point-four {
-      left: -2%;
-      top: 45%;
-      transform: translateY(-50%);
-    }
-
-    .founding-members-section {
-      background:
-        linear-gradient(180deg, rgba(4, 12, 28, 0.2), rgba(8, 20, 43, 0.55)),
-        transparent;
-    }
-
-    .founding-members-intro {
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .founding-members-intro h2 {
-      margin: 0;
-      font-size: clamp(2.5rem, 6vw, 5.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-    }
-
-    .founding-members-intro p {
-      margin: 24px auto 0;
-      max-width: 740px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.7vw, 1.24rem);
-      line-height: 1.7;
-    }
-
-    .not-anymore {
-      margin: 28px 0 0;
-      font-size: clamp(2.2rem, 6vw, 5.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      color: var(--gold-light);
-    }
-
-    .subscription-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      width: min(1080px, 100%);
-      margin: 42px auto 42px;
-    }
-
-    .subscription-card {
-      position: relative;
-      padding: 28px;
-      min-height: 330px;
-      border: 1px solid rgba(108, 166, 255, 0.28);
-      border-radius: 24px;
-      background:
-        linear-gradient(180deg, rgba(10, 28, 58, 0.9), rgba(5, 12, 28, 0.92));
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.28);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .subscription-card.featured {
-      border-color: rgba(212, 175, 55, 0.58);
-      transform: translateY(-8px);
-      box-shadow:
-        0 26px 86px rgba(0,0,0,0.34),
-        0 0 50px rgba(212,175,55,0.08);
-    }
-
-    .plan-label {
-      display: inline-flex;
-      width: fit-content;
-      margin-bottom: 16px;
-      font-size: 0.7rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--faint);
-      font-weight: 800;
-    }
-
-    .subscription-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.5rem;
-      letter-spacing: -0.025em;
-    }
-
-    .plan-price {
-      margin: 0 0 14px;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--text);
-    }
-
-    .plan-price small {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .plan-copy {
-      margin: 0 0 22px;
-      line-height: 1.58;
-      color: var(--muted);
-    }
-
-    .plan-list {
-      margin: 0 0 24px;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      color: var(--faint);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .plan-list li {
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .plan-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--blue);
-      box-shadow: 0 0 18px rgba(47,125,255,0.55);
-    }
-
-    .plan-action {
-      margin-top: auto;
-    }
-
-    .plan-link,
-    .enterprise-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      width: 100%;
-      padding: 0 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .plan-link {
-      color: #061225;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    }
-
-    .plan-link:hover,
-    .enterprise-link:hover {
-      transform: translateY(-2px);
-    }
-
-    .enterprise-card {
-      border-color: rgba(47, 125, 255, 0.34);
-    }
-
-    .enterprise-badge {
-      padding: 5px 10px;
-      border-radius: 999px;
-      color: #cfe2ff;
-      background: rgba(45, 115, 255, 0.18);
-      border: 1px solid rgba(90, 155, 255, 0.45);
-      font-size: 0.62rem;
-      letter-spacing: 0.13em;
-    }
-
-    .enterprise-link {
-      color: #d7e7ff;
-      background: rgba(45, 115, 255, 0.22);
-      border: 1px solid rgba(90, 155, 255, 0.48);
-    }
-
-    .founding-members-content {
-      width: min(880px, 100%);
-      margin: 0 auto;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 26px;
-      padding: 34px;
-      background: rgba(255,255,255,0.035);
-    }
-
-    .founding-members-content p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.04rem;
-    }
-
-    .founding-members-content p + p {
-      margin-top: 18px;
-    }
-
-    .building-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .building-panel {
-      padding: 34px;
-    }
-
-    .building-panel h2 {
-      margin: 0;
-      font-size: clamp(2.1rem, 4.5vw, 4.8rem);
-      line-height: 0.96;
-      letter-spacing: -0.055em;
-    }
-
-    .building-panel p {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 1.05rem;
-    }
-
-    .signal-stack {
-      display: grid;
-      gap: 16px;
-    }
-
-    .signal-card {
-      padding: 24px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .signal-card strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .signal-card span {
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .vault {
-      text-align: center;
-    }
-
-    .vault-card {
-      width: min(860px, 100%);
-      margin: 0 auto;
-      padding: 42px;
-      border: 1px solid rgba(212,175,55,0.24);
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,0.09), transparent 42%),
-        linear-gradient(180deg, rgba(10,28,58,0.74), rgba(4,13,31,0.84));
-    }
-
-    .vault-card h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 4.4rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
-    }
-
-    .vault-card p {
-      max-width: 680px;
-      margin: 22px auto 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .country-section {
-      padding: 76px 0;
-    }
-
-    .country-card {
-      position: relative;
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 80px;
       overflow: hidden;
-      padding: 34px;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.035);
+    }
+    .floor-wrap { position: absolute; bottom:0; left:0; right:0; height:50%; overflow:hidden; pointer-events:none; }
+    .hero-sun {
+      position: absolute; bottom:28%; left:50%; transform:translateX(-50%);
+      width:260px; height:260px; border-radius:50%;
+      background: radial-gradient(circle, #4A0080 0%, #8B0057 35%, #C2003A 60%, #1A0030 100%);
+      filter: blur(1px);
+      animation: sun-breathe 12s ease-in-out infinite alternate;
+      pointer-events:none;
+      box-shadow: 0 0 80px rgba(139,0,87,0.5), 0 0 160px rgba(74,0,128,0.3);
+    }
+    .hero-sun-stripes { position:absolute; bottom:28%; left:50%; transform:translateX(-50%); width:260px; height:130px; overflow:hidden; pointer-events:none; }
+    .sun-stripe { position:absolute; left:0; right:0; height:6px; background:rgba(0,0,10,0.85); }
+    @keyframes sun-breathe { from{opacity:0.3;transform:translateX(-50%) scale(1)} to{opacity:0.45;transform:translateX(-50%) scale(1.02)} }
+    .hero-vortex {
+      position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
+      width:700px; height:700px; border-radius:50%;
+      background: radial-gradient(ellipse, rgba(91,0,255,0.12) 0%, rgba(0,60,120,0.06) 40%, transparent 70%);
+      animation: vortex 25s linear infinite; pointer-events:none; filter:blur(2px);
+    }
+    @keyframes vortex { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+    .hero-content { position:relative; z-index:5; }
+    .sys-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(91,0,255,0.35); background: rgba(91,0,255,0.07);
+      padding: 7px 22px; margin-bottom: 36px;
+      font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(140,60,255,0.85);
+    }
+    .sys-dot { width:5px; height:5px; background:#00E5CC; border-radius:50%; animation:blink 1.4s infinite; box-shadow:0 0 6px #00E5CC; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.1} }
+
+    h1 { font-size: clamp(44px,8vw,96px); font-weight:900; line-height:0.92; letter-spacing:-4px; margin-bottom:32px; }
+    .h1-line1 { display:block; color:rgba(255,255,255,0.92); text-shadow:0 2px 40px rgba(91,0,255,0.4),0 0 80px rgba(0,0,0,0.8); }
+    .h1-line2 { display:block; color:rgba(255,255,255,0.88); text-shadow:0 2px 40px rgba(91,0,255,0.4),0 0 80px rgba(0,0,0,0.8); }
+    .h1-line3 {
+      display:block;
+      background: linear-gradient(90deg, #00E5CC, #5B00FF, #C2003A, #FF6A00, #00E5CC);
+      background-size:300% auto; -webkit-background-clip:text; background-clip:text; color:transparent;
+      animation:spectrum 6s linear infinite;
+      filter:drop-shadow(0 0 24px rgba(0,229,204,0.5)); letter-spacing:-4px;
+    }
+    @keyframes spectrum { to { background-position:300% center; } }
+
+    .hero-sub { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; max-width:500px; margin:0 auto 44px; letter-spacing:0.3px; text-shadow:0 0 20px rgba(0,0,0,0.9); }
+    .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:15px 42px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 0 40px rgba(0,229,204,0.3),0 0 80px rgba(91,0,255,0.15); transition:all 0.3s; display:inline-block; border:none; }
+    .btn-primary:hover { box-shadow:0 0 60px rgba(0,229,204,0.5),0 0 120px rgba(91,0,255,0.25); transform:translateY(-2px); }
+    .btn-ghost { background:transparent; color:rgba(255,255,255,0.45); padding:15px 42px; font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.1); display:inline-block; transition:all 0.3s; }
+    .btn-ghost:hover { border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8); }
+    .hero-micro { color:rgba(255,255,255,0.1); font-size:9px; margin-top:22px; letter-spacing:4px; text-transform:uppercase; }
+
+    /* STATS */
+    .stats { position:relative; z-index:1; padding:60px 20px; background:rgba(0,0,10,0.65); border-top:1px solid rgba(91,0,255,0.1); border-bottom:1px solid rgba(91,0,255,0.1); backdrop-filter:blur(10px); }
+    .stats-inner { display:flex; justify-content:center; gap:80px; flex-wrap:wrap; max-width:900px; margin:0 auto; text-align:center; }
+    .stat-num { font-size:48px; font-weight:900; letter-spacing:-3px; }
+    .s1 { background:linear-gradient(135deg,#00E5CC,#0066FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.4)); }
+    .s2 { background:linear-gradient(135deg,#C2003A,#5B00FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(194,0,58,0.4)); }
+    .s3 { background:linear-gradient(135deg,#FF6A00,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(255,106,0,0.4)); }
+    .stat-label { color:rgba(255,255,255,0.25); font-size:11px; margin-top:8px; letter-spacing:1px; text-transform:uppercase; max-width:160px; }
+    .stat-suffix { font-size:32px; font-weight:700; letter-spacing:-1px; opacity:0.75; vertical-align:super; line-height:0; }
+
+    .geo-div { position:relative; z-index:1; height:1px; background:linear-gradient(90deg,transparent,rgba(91,0,255,0.5),rgba(0,229,204,0.5),rgba(194,0,58,0.5),transparent); }
+
+    /* SECTIONS */
+    .sec { position:relative; z-index:1; padding:130px 20px; }
+    .sec-inner { max-width:1100px; margin:0 auto; }
+    .sec-inner.narrow { max-width:760px; }
+    .sec-tag { font-size:9px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(0,229,204,0.6); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+    .sec-tag::before { content:''; display:block; width:32px; height:1px; background:linear-gradient(90deg,rgba(0,229,204,0.6),transparent); }
+    .sec-title { font-size:clamp(34px,5.5vw,64px); font-weight:900; letter-spacing:-3px; line-height:0.95; margin-bottom:20px; text-shadow:0 4px 60px rgba(0,0,0,0.9),0 0 120px rgba(91,0,255,0.15); }
+    .sec-sub { font-size:15px; color:rgba(255,255,255,0.35); line-height:2; max-width:480px; letter-spacing:0.2px; }
+
+    /* PROBLEM */
+    .prob-wrap { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .prob-lines { display:flex; flex-direction:column; gap:8px; }
+    .prob-line { font-size:21px; font-weight:700; padding:22px 28px; background:rgba(0,0,10,0.6); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); border-left:2px solid rgba(255,255,255,0.08); text-shadow:0 0 30px rgba(0,0,0,0.8); }
+    .prob-line.accent { color:#00E5CC; border-left:2px solid #00E5CC; border-color:rgba(0,229,204,0.12); background:rgba(0,229,204,0.04); text-shadow:0 0 24px rgba(0,229,204,0.5); }
+
+    /* CARDS */
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:64px; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:48px; }
+    .g-card { padding:44px 36px; position:relative; overflow:hidden; background:rgba(0,0,10,0.6); backdrop-filter:blur(12px); border:1px solid rgba(91,0,255,0.08); transition:background 0.4s; }
+    .g-card:hover { background:rgba(91,0,255,0.06); }
+    .g-card::after { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,229,204,0.3),transparent); opacity:0; transition:opacity 0.3s; }
+    .g-card:hover::after { opacity:1; }
+    .g-num { position:absolute; top:16px; right:24px; font-size:88px; font-weight:900; color:rgba(91,0,255,0.05); line-height:1; }
+    .g-geo { width:40px; height:40px; margin-bottom:20px; opacity:0.7; }
+    .g-step { font-size:9px; color:rgba(0,229,204,0.5); font-weight:700; letter-spacing:4px; text-transform:uppercase; margin-bottom:10px; }
+    .g-title { font-size:18px; font-weight:800; margin-bottom:12px; letter-spacing:-0.5px; }
+    .g-desc { font-size:13px; color:rgba(255,255,255,0.35); line-height:1.9; }
+
+    /* NO LIST */
+    .no-list { display:flex; flex-direction:column; gap:8px; margin-top:40px; }
+    .no-item { display:flex; align-items:center; gap:16px; padding:16px 24px; background:rgba(0,0,10,0.55); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); font-size:15px; color:rgba(255,255,255,0.5); }
+    .no-item .ck { color:#00E5CC; flex-shrink:0; text-shadow:0 0 10px rgba(0,229,204,0.7); font-size:18px; line-height:1; }
+    .no-item.hl { border-color:rgba(0,229,204,0.12); background:rgba(0,229,204,0.04); color:rgba(255,255,255,0.8); }
+
+    /* SIGNAL — the accumulation concept, no label */
+    .signal-wrap { max-width:720px; margin:64px auto 0; text-align:center; }
+    .signal-orb {
+      width:180px; height:180px; border-radius:50%; margin:0 auto 32px;
+      background: radial-gradient(circle, rgba(0,229,204,0.25) 0%, rgba(91,0,255,0.15) 50%, transparent 75%);
+      border: 1px solid rgba(0,229,204,0.2);
+      animation: signal-pulse 8s ease-in-out infinite;
+      position:relative; display:flex; align-items:center; justify-content:center;
+    }
+    .signal-orb::before { content:''; position:absolute; inset:-20px; border-radius:50%; border:1px solid rgba(91,0,255,0.1); animation:signal-pulse 8s ease-in-out infinite 0.5s; }
+    .signal-orb::after { content:''; position:absolute; inset:-40px; border-radius:50%; border:1px solid rgba(194,0,58,0.07); animation:signal-pulse 8s ease-in-out infinite 1s; }
+    .signal-inner { width:60px; height:60px; }
+    @keyframes signal-pulse { 0%,100%{opacity:0.15;transform:scale(1)} 50%{opacity:0.3;transform:scale(1.02)} }
+    .signal-text { font-size:13px; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; line-height:2; }
+    .signal-text strong { display:block; font-size:22px; font-weight:900; letter-spacing:-1px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:none; }
+
+    /* MOVEMENT */
+    .movement-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(91,0,255,0.12); padding:90px 70px; text-align:center; position:relative; overflow:hidden; max-width:960px; margin:0 auto; }
+    .movement-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 120%,rgba(91,0,255,0.1) 0%,transparent 65%); pointer-events:none; }
+    .movement-box h2 { font-size:clamp(30px,4vw,50px); font-weight:900; letter-spacing:-2px; margin-bottom:24px; text-shadow:0 0 60px rgba(91,0,255,0.3); }
+    .movement-box p { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .movement-tagline { font-size:24px; font-weight:900; letter-spacing:-1px; margin-top:36px !important; background:linear-gradient(90deg,#00E5CC,#5B00FF,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.3)); }
+
+    /* CHARITIES */
+    .charity-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; margin-top:48px; }
+    .ch-card { padding:28px 16px; text-align:center; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); transition:background 0.3s; }
+    .ch-card:hover { background:rgba(91,0,255,0.06); }
+    .ch-dot { width:10px; height:10px; border-radius:50%; margin:0 auto 14px; }
+    .ch-name { font-weight:700; font-size:12px; margin-bottom:4px; }
+    .ch-cause { color:rgba(255,255,255,0.2); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+    .donate-note { color:rgba(255,255,255,0.15); font-size:11px; margin-top:28px; text-align:center; line-height:1.9; }
+
+    /* FOUNDER */
+    .founder-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(91,0,255,0.1); padding:60px; position:relative; overflow:hidden; }
+    .founder-box::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#5B00FF,#00E5CC,#C2003A,transparent); }
+    .founder-label { font-size:9px; color:rgba(0,229,204,0.55); font-weight:700; letter-spacing:5px; text-transform:uppercase; margin-bottom:28px; }
+    .founder-text p { font-size:17px; color:rgba(255,255,255,0.6); line-height:2; margin-bottom:20px; text-shadow:0 0 40px rgba(0,0,0,0.6); }
+    .founder-sig { color:rgba(255,255,255,0.2); font-size:12px; letter-spacing:1px; }
+
+    /* QUOTES */
+    .quote-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:64px; }
+    .q-card { padding:36px 28px; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); }
+    .q-mark { font-size:52px; color:rgba(91,0,255,0.35); line-height:1; margin-bottom:16px; font-family:Georgia,serif; }
+    .q-text { font-size:14px; color:rgba(255,255,255,0.65); line-height:1.9; margin-bottom:20px; }
+    .q-name { font-size:9px; color:rgba(255,255,255,0.18); letter-spacing:2px; text-transform:uppercase; }
+
+    /* FOUNDING */
+    .founding-header { text-align:center; margin-bottom:64px; }
+    .founding-badge-tag { display:inline-block; border:1px solid rgba(255,215,0,0.2); background:rgba(255,215,0,0.04); color:rgba(255,215,0,0.8); font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:7px 22px; margin-bottom:24px; }
+    .milestone-bar { max-width:480px; margin:0 auto 64px; border:1px solid rgba(0,229,204,0.12); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:22px 30px; text-align:center; }
+    .milestone-label { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:5px; }
+    .milestone-sub { font-size:9px; color:rgba(255,255,255,0.2); letter-spacing:2px; text-transform:uppercase; }
+    .founding-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; max-width:800px; margin:0 auto 40px; }
+    .fh-step { text-align:center; padding:30px 20px; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); }
+    .fh-geo { width:32px; height:32px; margin:0 auto 12px; opacity:0.6; }
+    .fh-title { font-size:13px; font-weight:800; margin-bottom:6px; letter-spacing:-0.3px; }
+    .fh-desc { font-size:11px; color:rgba(255,255,255,0.28); line-height:1.8; }
+    .founding-verify { max-width:640px; margin:0 auto 40px; text-align:center; border:1px solid rgba(0,229,204,0.1); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:14px 24px; font-size:12px; color:rgba(0,229,204,0.65); line-height:1.8; }
+    .prepaid-callout { display:flex; align-items:flex-start; gap:16px; max-width:760px; margin:0 auto 48px; border:1px solid rgba(255,106,0,0.15); background:rgba(255,106,0,0.03); backdrop-filter:blur(10px); padding:20px 26px; font-size:13px; color:rgba(255,255,255,0.4); line-height:1.9; }
+    .prepaid-callout strong { color:rgba(255,106,0,0.9); display:block; margin-bottom:4px; }
+    .prepaid-mark { width:28px; height:28px; flex-shrink:0; margin-top:2px; opacity:0.7; }
+
+    /* TIERS */
+    .tier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; }
+    .tier-card { padding:40px 30px; background:rgba(0,0,10,0.65); backdrop-filter:blur(16px); display:flex; flex-direction:column; position:relative; border:1px solid rgba(91,0,255,0.08); transition:background 0.3s; }
+    .tier-card:hover { background:rgba(91,0,255,0.06); }
+    .tier-card.gold::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,#8B6914,#FFD700,#8B6914); }
+    .tier-badge { position:absolute; top:-1px; left:50%; transform:translateX(-50%); font-size:9px; font-weight:800; padding:4px 14px; letter-spacing:1px; text-transform:uppercase; white-space:nowrap; }
+    .tier-badge.popular { background:rgba(160,160,180,0.9); color:#000; }
+    .tier-badge.best { background:linear-gradient(90deg,#8B6914,#DAA520); color:#000; }
+    .tier-geo { width:40px; height:40px; margin-bottom:14px; }
+    .tier-size-label { font-size:8px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:rgba(0,229,204,0.4); margin-bottom:4px; }
+    .tier-name { font-size:14px; font-weight:900; letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; color:rgba(255,255,255,0.7); }
+    .tier-price { margin-bottom:14px; }
+    .tier-price span { font-size:44px; font-weight:900; letter-spacing:-3px; }
+    .tier-price small { color:rgba(255,255,255,0.2); font-size:13px; }
+    .tier-signal { padding:10px 14px; text-align:center; font-weight:800; font-size:11px; color:#000; margin-bottom:20px; letter-spacing:1px; text-transform:uppercase; }
+    .bronze .tier-signal { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.8); }
+    .silver .tier-signal { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
+    .gold .tier-signal { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
+    .tier-perks { list-style:none; margin-bottom:28px; flex:1; }
+    .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.22); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
+    .tier-perks li:last-child { border-bottom:none; }
+    .tier-perks .ck { color:#00E5CC; flex-shrink:0; margin-top:1px; line-height:1; }
+    .tier-btn { width:100%; padding:15px; font-weight:900; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; transition:all 0.2s; }
+    .tier-btn:hover { opacity:0.9; transform:translateY(-1px); }
+    .bronze .tier-btn { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.85); }
+    .silver .tier-btn { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
+    .gold .tier-btn { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
+    .tier-btn{width:100%;padding:14px 20px;border:none;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:12px;}
+    .bronze-btn{background:linear-gradient(135deg,#a0522d,#cd853f);color:#fff;}
+    .silver-btn{background:linear-gradient(135deg,#808080,#c0c0c0);color:#000;}
+    .gold-btn{background:linear-gradient(135deg,#DAA520,#FFD700);color:#000;}
+    .tier-btn:hover{opacity:0.88;transform:translateY(-1px);}
+    .tier-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+    .founding-legal { text-align:center; color:rgba(255,255,255,0.1); font-size:10px; margin-top:28px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.9; letter-spacing:0.5px; }
+
+    /* FAQ */
+    .faq-list { margin-top:64px; }
+    .faq-item { border-bottom:1px solid rgba(91,0,255,0.08); }
+    .faq-q { width:100%; background:none; border:none; color:rgba(255,255,255,0.75); text-align:left; padding:22px 0; font-size:15px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:inherit; transition:color 0.2s; letter-spacing:0.2px; }
+    .faq-q:hover { color:#00E5CC; }
+    .faq-ico { font-size:16px; color:rgba(255,255,255,0.15); transition:transform 0.3s,color 0.3s; flex-shrink:0; }
+    .faq-item.open .faq-ico { transform:rotate(45deg); color:#00E5CC; }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+    .faq-item.open .faq-a { max-height:400px; }
+    .faq-a p { color:rgba(255,255,255,0.35); font-size:14px; line-height:2; padding-bottom:22px; }
+    .faq-a a { color:#00E5CC; text-decoration:underline; }
+
+
+    /* FLAGS */
+    .footer-flags { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:16px; }
+    .flag-wrap { display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .flag-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.15); }
+    .flag-svg { width:48px; height:30px; border-radius:2px; overflow:hidden; }
+    /* Aboriginal flag glow animation */
+    @keyframes abo-glow {
+      0% { filter:drop-shadow(0 0 3px rgba(255,218,0,0.2)) drop-shadow(0 0 6px rgba(204,0,0,0.2)); opacity:0.85; }
+      25% { filter:drop-shadow(0 0 8px rgba(255,218,0,0.6)) drop-shadow(0 0 16px rgba(204,0,0,0.4)); opacity:1; }
+      50% { filter:drop-shadow(0 0 14px rgba(255,218,0,0.9)) drop-shadow(0 0 28px rgba(204,0,0,0.6)) drop-shadow(0 0 50px rgba(255,218,0,0.3)); opacity:1; }
+      75% { filter:drop-shadow(0 0 8px rgba(255,218,0,0.6)) drop-shadow(0 0 16px rgba(204,0,0,0.4)); opacity:1; }
+      100% { filter:drop-shadow(0 0 3px rgba(255,218,0,0.2)) drop-shadow(0 0 6px rgba(204,0,0,0.2)); opacity:0.85; }
+    }
+    .flag-abo { animation:abo-glow 4s ease-in-out infinite; }
+    .footer-acknowledge { color:rgba(255,255,255,0.12); font-size:10px; margin-top:12px; line-height:1.9; max-width:560px; margin-left:auto; margin-right:auto; font-style:italic; letter-spacing:0.3px; }
+
+    /* HERO LIGHT SWEEP */
+    .hero-sweep-wrap { position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+    .hero-sweep-text {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      font-size:clamp(80px,18vw,240px); font-weight:900; letter-spacing:-6px;
+      color:transparent; white-space:nowrap; user-select:none;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(91,0,255,0.08) 0px, rgba(91,0,255,0.08) 1px,
+        transparent 1px, transparent 8px,
+        rgba(0,229,204,0.04) 8px, rgba(0,229,204,0.04) 9px,
+        transparent 9px, transparent 16px
+      );
+      -webkit-background-clip:text; background-clip:text;
+      -webkit-text-stroke:1px rgba(91,0,255,0.12);
+    }
+    @keyframes sweep {
+      0% { --sweep-x:-200%; }
+      100% { --sweep-x:300%; }
+    }
+    .hero-sweep-text::before {
+      content:attr(data-text);
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(194,0,58,0.05) 0px, rgba(194,0,58,0.05) 1px,
+        transparent 1px, transparent 10px
+      );
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+    }
+    .hero-sweep-text::after {
+      content:attr(data-text);
+      position:absolute; inset:0;
+      background: linear-gradient(105deg, transparent 0%, transparent 35%, rgba(255,255,255,0.65) 48%, rgba(167,139,255,0.45) 52%, rgba(0,229,204,0.2) 56%, transparent 68%, transparent 100%);
+      background-size:400% 100%;
+      -webkit-background-clip:text; background-clip:text;
+      color:transparent;
+      animation:sweepAnim 6s ease-in-out infinite;
+    }
+    @keyframes sweepAnim {
+      0% { background-position:200% center; }
+      100% { background-position:-100% center; }
     }
 
-    .country-card::before {
-      content: "";
-      position: absolute;
-      right: 28px;
-      top: 28px;
-      width: 68px;
-      height: 44px;
-      border-radius: 7px;
-      background:
-        linear-gradient(to bottom, #000 0 50%, #d10000 50% 100%);
-      opacity: 0.2;
-    }
+    /* Flower of life logo overlay */
+    .logo-fol { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:32px; height:32px; opacity:0.4; pointer-events:none; }
+    @keyframes fol-pulse { 0%,100%{opacity:0.18;} 50%{opacity:0.28;} }
+    .logo-fol-nav { animation:fol-pulse 10s ease-in-out infinite; }
 
-    .country-card::after {
-      content: "";
-      position: absolute;
-      right: 48px;
-      top: 40px;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #ffd200;
-      opacity: 0.28;
-    }
+    /* WAITLIST */
+    .waitlist-wrap { max-width:560px; margin:0 auto; }
+    .waitlist-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(24px); border:1px solid rgba(91,0,255,0.12); padding:60px 52px; text-align:center; position:relative; overflow:hidden; }
+    .waitlist-box::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#5B00FF,#00E5CC,transparent); }
+    .waitlist-box h2 { font-size:26px; font-weight:900; letter-spacing:-1px; margin-bottom:10px; }
+    .waitlist-box .sub { color:rgba(255,255,255,0.3); margin-bottom:36px; font-size:13px; line-height:1.8; }
+    form { display:flex; flex-direction:column; gap:8px; text-align:left; }
+    input, textarea { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); padding:13px 16px; color:#fff; font-size:13px; outline:none; font-family:inherit; width:100%; transition:border-color 0.2s; }
+    input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.15); }
+    input:focus, textarea:focus { border-color:rgba(0,229,204,0.3); background:rgba(0,229,204,0.02); }
+    textarea { resize:vertical; }
+    button[type=submit] { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:16px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; margin-top:8px; font-family:inherit; transition:all 0.2s; box-shadow:0 0 30px rgba(0,229,204,0.15); }
+    button[type=submit]:hover { box-shadow:0 0 50px rgba(0,229,204,0.3); transform:translateY(-1px); }
+    .privacy-note { color:rgba(255,255,255,0.12); font-size:10px; margin-top:16px; line-height:1.8; letter-spacing:0.5px; text-transform:uppercase; }
+    .privacy-note a { color:rgba(255,255,255,0.25); text-decoration:underline; }
+    .success { padding:40px 0; }
+    .success h2 { font-size:24px; font-weight:800; margin-bottom:16px; }
+    .success p { color:rgba(255,255,255,0.35); font-size:15px; line-height:1.9; }
+    .error { color:#C2003A; font-size:12px; }
 
-    .country-card h2 {
-      margin: 0 0 14px;
-      font-size: 1.4rem;
-    }
+    /* CONTACT */
+    .contact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:48px; }
+    .ct-card { padding:32px 24px; text-align:center; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); text-decoration:none; transition:background 0.2s; }
+    .ct-card:hover { background:rgba(91,0,255,0.06); }
+    .ct-geo { width:28px; height:28px; margin:0 auto 12px; opacity:0.6; }
+    .ct-lbl { font-size:9px; color:rgba(255,255,255,0.2); font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+    .ct-val { color:#00E5CC; font-size:12px; font-weight:600; word-break:break-all; text-shadow:0 0 10px rgba(0,229,204,0.3); }
+    .ct-foot { color:rgba(255,255,255,0.15); font-size:12px; margin-top:28px; text-align:center; }
+    .ct-foot strong { color:rgba(255,255,255,0.3); }
 
-    .country-card p {
-      margin: 0;
-      max-width: 900px;
-      color: var(--muted);
-      line-height: 1.72;
-    }
+    /* CTA */
+    .cta-block { text-align:center; max-width:700px; margin:0 auto; }
+    .cta-block h2 { font-size:clamp(34px,5.5vw,64px); font-weight:900; letter-spacing:-3px; margin-bottom:20px; }
+    .cta-block p { font-size:15px; color:rgba(255,255,255,0.35); line-height:2; margin-bottom:10px; }
+    .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:36px; }
 
-    .site-footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 42px 0;
-      color: var(--faint);
-    }
+    /* FOOTER */
+    footer { position:relative; z-index:1; border-top:1px solid rgba(91,0,255,0.08); padding:48px 20px; text-align:center; background:rgba(0,0,10,0.85); backdrop-filter:blur(20px); }
+    .footer-logo { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:16px; }
+    .footer-logo img { width:26px; height:26px; border-radius:6px; }
+    .footer-logo span { font-weight:900; font-size:15px; letter-spacing:-0.5px; }
+    footer p { color:rgba(255,255,255,0.15); font-size:11px; letter-spacing:0.5px; }
+    .footer-links { margin-top:10px; }
+    .footer-links a { color:rgba(255,255,255,0.2); font-size:11px; text-decoration:underline; margin:0 8px; }
+    .footer-links a:hover { color:#00E5CC; }
+    .footer-acknowledge { color:rgba(255,255,255,0.08); font-size:10px; margin-top:16px; line-height:1.9; max-width:480px; margin-left:auto; margin-right:auto; }
 
-    .footer-inner {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-links a {
-      color: var(--faint);
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .building-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flywheel {
-        max-width: 620px;
-        margin: 0 auto;
-      }
-
-      .subscription-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .subscription-card.featured {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        height: auto;
-        padding: 16px 0;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .site-logo {
-        width: 46px;
-        height: 46px;
-      }
-
-      section {
-        padding: 72px 0;
-      }
-
-      .hero {
-        padding: 64px 0 84px;
-        min-height: auto;
-      }
-
-      .flywheel {
-        border-radius: 34px;
-        aspect-ratio: auto;
-        padding: 22px;
-        display: grid;
-        gap: 14px;
-      }
-
-      .flywheel-ring,
-      .flywheel-core {
-        display: none;
-      }
-
-      .flywheel-point {
-        position: static;
-        width: auto;
-        transform: none;
-      }
-
-      .subscription-card,
-      .building-panel,
-      .vault-card,
-      .country-card,
-      .founding-members-content {
-        padding: 24px;
-      }
+    @media(max-width:768px){
+      nav { padding:16px 20px; }
+      .prob-wrap { grid-template-columns:1fr; gap:40px; }
+      .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.founding-how { grid-template-columns:1fr; }
+      .waitlist-box { padding:36px 24px; }
+      .founder-box { padding:36px 24px; }
+      .movement-box { padding:48px 24px; }
+      h1 { letter-spacing:-2px; }
     }
   </style>
 </head>
-
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#home" class="brand" aria-label="Urbyte home">
-        <img src="assets/logo.jpeg" alt="Urbyte logo" class="site-logo">
-        <span class="brand-wordmark">
-          <strong>Urbyte</strong>
-          <span>Value should not expire</span>
-        </span>
-      </a>
 
-      <div class="nav-links">
-        <a href="#founding-members">Founding Members</a>
-        <a href="#building">Platform</a>
-        <a href="#vault">Vault</a>
-        <a href="#contact">Contact</a>
-        <a href="#founding-members" class="nav-cta">Join</a>
+<canvas id="env-canvas"></canvas>
+
+<script>
+(function(){
+  const C = document.getElementById('env-canvas');
+  const ctx = C.getContext('2d');
+  let W, H, t = 0;
+  const COLS = { violet:'91,0,255', teal:'0,229,204', crimson:'194,0,58', amber:'255,106,0', ultrablue:'0,60,160', indigo:'40,0,120' };
+  const colArr = Object.values(COLS);
+  const particles = [];
+  function resize(){ W = C.width = window.innerWidth; H = C.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  for(let i=0;i<90;i++){
+    particles.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.0+0.3, dx:(Math.random()-0.5)*0.3, dy:(Math.random()-0.5)*0.3, col:colArr[Math.floor(Math.random()*colArr.length)], a:Math.random()*0.3+0.04 });
+  }
+  const geoNodes = [
+    { cx:0.5,  cy:0.25, r:0.22, sides:6, rings:7, col:COLS.violet },
+    { cx:0.12, cy:0.65, r:0.12, sides:8, rings:5, col:COLS.teal },
+    { cx:0.88, cy:0.55, r:0.14, sides:6, rings:5, col:COLS.crimson },
+    { cx:0.5,  cy:0.75, r:0.10, sides:8, rings:4, col:COLS.ultrablue },
+    { cx:0.25, cy:0.35, r:0.08, sides:6, rings:3, col:COLS.amber },
+    { cx:0.75, cy:0.85, r:0.09, sides:6, rings:3, col:COLS.indigo },
+  ];
+  function drawGeoNode(n){
+    const cx=n.cx*W, cy=n.cy*H, baseR=n.r*Math.min(W,H);
+    for(let ring=1;ring<=n.rings;ring++){
+      const rad=baseR*ring/n.rings, alpha=0.07*(1-ring/n.rings*0.6);
+      ctx.beginPath(); ctx.arc(cx,cy,rad,0,Math.PI*2);
+      ctx.strokeStyle='rgba('+n.col+','+alpha+')'; ctx.lineWidth=0.5; ctx.stroke();
+      for(let s=0;s<n.sides;s++){
+        const angle=(s/n.sides)*Math.PI*2+t*0.0003;
+        const px=cx+Math.cos(angle)*rad, py=cy+Math.sin(angle)*rad;
+        ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(px,py);
+        ctx.strokeStyle='rgba('+n.col+','+(alpha*0.4)+')'; ctx.stroke();
+        if(ring===n.rings){
+          const na=((s+1)%n.sides/n.sides)*Math.PI*2+t*0.0003;
+          ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(cx+Math.cos(na)*rad,cy+Math.sin(na)*rad);
+          ctx.strokeStyle='rgba('+n.col+','+(alpha*0.6)+')'; ctx.stroke();
+        }
+      }
+      if(ring%2===0){
+        for(let s=0;s<n.sides;s++){
+          const a1=(s/n.sides)*Math.PI*2+t*0.0003, a2=((s+Math.floor(n.sides/2))/n.sides)*Math.PI*2+t*0.0003;
+          ctx.beginPath(); ctx.moveTo(cx+Math.cos(a1)*rad,cy+Math.sin(a1)*rad); ctx.lineTo(cx+Math.cos(a2)*rad,cy+Math.sin(a2)*rad);
+          ctx.strokeStyle='rgba('+n.col+','+(alpha*0.25)+')'; ctx.stroke();
+        }
+      }
+    }
+    const pulse=0.5+0.5*Math.sin(t*0.03+n.cx*10);
+    ctx.beginPath(); ctx.arc(cx,cy,2+pulse*2,0,Math.PI*2);
+    ctx.fillStyle='rgba('+n.col+','+(0.4+pulse*0.3)+')'; ctx.fill();
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H); t++;
+    geoNodes.forEach(n=>drawGeoNode(n));
+    for(let i=0;i<particles.length;i++){
+      const p=particles[i];
+      for(let j=i+1;j<particles.length;j++){
+        const q=particles[j], dx=p.x-q.x, dy=p.y-q.y, dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<130){ ctx.beginPath(); ctx.strokeStyle='rgba('+COLS.violet+','+(0.04*(1-dist/130))+')'; ctx.lineWidth=0.4; ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke(); }
+      }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle='rgba('+p.col+','+p.a+')'; ctx.fill();
+      p.x+=p.dx; p.y+=p.dy;
+      if(p.x<0||p.x>W)p.dx*=-1; if(p.y<0||p.y>H)p.dy*=-1;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+<!-- SVG SYMBOLS -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ico-hex" viewBox="0 0 40 40">
+    <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="none" stroke="#00E5CC" stroke-width="1"/>
+    <polygon points="20,10 28,15 28,25 20,30 12,25 12,15" fill="none" stroke="#5B00FF" stroke-width="0.7" opacity="0.6"/>
+    <circle cx="20" cy="20" r="2" fill="#00E5CC" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-tri" viewBox="0 0 40 40">
+    <polygon points="20,3 37,35 3,35" fill="none" stroke="#C2003A" stroke-width="1"/>
+    <polygon points="20,12 30,30 10,30" fill="none" stroke="#5B00FF" stroke-width="0.7" opacity="0.6"/>
+    <circle cx="20" cy="22" r="2" fill="#C2003A" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-diamond" viewBox="0 0 40 40">
+    <polygon points="20,2 38,20 20,38 2,20" fill="none" stroke="#FF6A00" stroke-width="1"/>
+    <polygon points="20,10 30,20 20,30 10,20" fill="none" stroke="#00E5CC" stroke-width="0.7" opacity="0.6"/>
+    <circle cx="20" cy="20" r="2" fill="#FF6A00" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-star" viewBox="0 0 40 40">
+    <polygon points="20,2 24,15 38,15 27,23 31,37 20,29 9,37 13,23 2,15 16,15" fill="none" stroke="#00E5CC" stroke-width="1"/>
+    <circle cx="20" cy="20" r="2" fill="#00E5CC" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-shield" viewBox="0 0 40 40">
+    <path d="M20,4 L34,10 L34,22 C34,30 20,37 20,37 C20,37 6,30 6,22 L6,10 Z" fill="none" stroke="#00E5CC" stroke-width="1"/>
+    <circle cx="20" cy="20" r="2" fill="#00E5CC" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-circle" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="17" fill="none" stroke="#5B00FF" stroke-width="1"/>
+    <circle cx="20" cy="20" r="10" fill="none" stroke="#00E5CC" stroke-width="0.7" opacity="0.6"/>
+    <circle cx="20" cy="20" r="2" fill="#5B00FF" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-mail" viewBox="0 0 40 40">
+    <rect x="4" y="10" width="32" height="22" fill="none" stroke="#00E5CC" stroke-width="1"/>
+    <polyline points="4,10 20,24 36,10" fill="none" stroke="#5B00FF" stroke-width="0.8"/>
+  </symbol>
+  <symbol id="ico-person" viewBox="0 0 40 40">
+    <circle cx="20" cy="12" r="7" fill="none" stroke="#00E5CC" stroke-width="1"/>
+    <path d="M6,36 C6,26 34,26 34,36" fill="none" stroke="#5B00FF" stroke-width="1"/>
+  </symbol>
+  <symbol id="ico-inst" viewBox="0 0 40 40">
+    <rect x="6" y="6" width="28" height="28" rx="7" fill="none" stroke="#C2003A" stroke-width="1"/>
+    <circle cx="20" cy="20" r="7" fill="none" stroke="#00E5CC" stroke-width="0.9"/>
+    <circle cx="29" cy="11" r="2" fill="#C2003A" opacity="0.8"/>
+  </symbol>
+  <symbol id="ico-signal" viewBox="0 0 60 60">
+    <circle cx="30" cy="30" r="28" fill="none" stroke="#00E5CC" stroke-width="0.6" opacity="0.3"/>
+    <circle cx="30" cy="30" r="20" fill="none" stroke="#5B00FF" stroke-width="0.6" opacity="0.4"/>
+    <circle cx="30" cy="30" r="12" fill="none" stroke="#C2003A" stroke-width="0.6" opacity="0.5"/>
+    <circle cx="30" cy="30" r="5" fill="none" stroke="#00E5CC" stroke-width="1" opacity="0.8"/>
+    <circle cx="30" cy="30" r="2" fill="#00E5CC"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div style="position:relative;display:inline-block;width:34px;height:34px;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;" />
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 10s ease-in-out infinite;">
+        <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="34.4" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="65.6" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="34.4" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="65.6" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(91,0,255,0.2)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <span>Urbyte</span>
+    <span class="nav-tag">// BETA</span>
+  </div>
+  <a href="#founding" class="btn-nav">Founding Members</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="floor-wrap">
+    <div class="hero-sun"></div>
+    <div class="hero-sun-stripes">
+      <div class="sun-stripe" style="top:15%"></div>
+      <div class="sun-stripe" style="top:30%"></div>
+      <div class="sun-stripe" style="top:43%"></div>
+      <div class="sun-stripe" style="top:55%"></div>
+      <div class="sun-stripe" style="top:66%"></div>
+      <div class="sun-stripe" style="top:76%"></div>
+      <div class="sun-stripe" style="top:85%"></div>
+      <div class="sun-stripe" style="top:93%"></div>
+    </div>
+    <svg style="position:absolute;bottom:0;left:50%;transform:translateX(-50%) rotateX(58deg);transform-origin:bottom center;width:200%;min-width:1400px;opacity:0.2;" viewBox="0 0 1000 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="fg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C2003A" stop-opacity="0.9"/>
+          <stop offset="60%" stop-color="#5B00FF" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#5B00FF" stop-opacity="0.05"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="60" x2="1000" y2="60" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="120" x2="1000" y2="120" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="180" x2="1000" y2="180" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="240" x2="1000" y2="240" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="300" x2="1000" y2="300" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="360" x2="1000" y2="360" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="420" x2="1000" y2="420" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="0" y1="480" x2="1000" y2="480" stroke="url(#fg)" stroke-width="1"/>
+      <line x1="500" y1="0" x2="0" y2="500" stroke="url(#fg)" stroke-width="0.8"/>
+      <line x1="500" y1="0" x2="1000" y2="500" stroke="url(#fg)" stroke-width="0.8"/>
+      <line x1="500" y1="0" x2="125" y2="500" stroke="url(#fg)" stroke-width="0.6"/>
+      <line x1="500" y1="0" x2="875" y2="500" stroke="url(#fg)" stroke-width="0.6"/>
+      <line x1="500" y1="0" x2="250" y2="500" stroke="url(#fg)" stroke-width="0.5"/>
+      <line x1="500" y1="0" x2="750" y2="500" stroke="url(#fg)" stroke-width="0.5"/>
+      <line x1="500" y1="0" x2="375" y2="500" stroke="url(#fg)" stroke-width="0.4"/>
+      <line x1="500" y1="0" x2="625" y2="500" stroke="url(#fg)" stroke-width="0.4"/>
+    </svg>
+  </div>
+  <!-- HERO LIGHT SWEEP BACKDROP -->
+  <div class="hero-sweep-wrap">
+    <div class="hero-sweep-text" data-text="URBYTE">URBYTE</div>
+  </div>
+  <div class="hero-vortex"></div>
+  <div class="hero-content">
+    <div class="sys-badge"><span class="sys-dot"></span> SYSTEM ONLINE · AUSTRALIA · SIGNAL RETURNING</div>
+    <h1>
+      <span class="h1-line1">Your unused mobile data </span>
+      <span class="h1-line2">holds value.</span>
+      <span class="h1-line3">Claim it.</span>
+    </h1>
+    <p class="hero-sub">Get rewarded for your unused mobile data. Australians lose billions every year in unused mobile data. Urbyte helps turn some of that wasted value into rewards, perks and charitable impact.</p>
+    <div class="hero-btns">
+      <a href="#founding" class="btn-primary">start earning</a>
+      <a href="#how" class="btn-ghost">How It Works</a>
+    </div>
+    <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div><div class="stat-num s1">26M<span class="stat-suffix">+</span></div><div class="stat-label">Australians paying for more than they use</div></div>
+    <div><div class="stat-num s2">$9.9B<span class="stat-suffix">+</span></div><div class="stat-label">In value lost to the system every year</div></div>
+    <div><div class="stat-num s3">660GB<span class="stat-suffix">+</span></div><div class="stat-label">Wasted per Australian every year</div></div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- HOW IT WORKS -->
+<div class="sec" id="how">
+  <div class="sec-inner">
+    <div class="sec-tag">How It Works</div>
+    <h2 class="sec-title">Simple. Transparent. Yours.</h2>
+    <div class="grid-3">
+      <div class="g-card">
+        <div class="g-num">01</div>
+        <svg class="g-geo"><use href="#ico-hex"/></svg>
+        <div class="g-step">Step 01</div>
+        <div class="g-title">Log Your Usage</div>
+        <p class="g-desc">Enter your monthly plan and what you actually used. The gap between the two is where Urbyte begins. *Pre-paid services are tracked over a 3 month period.  </p>
       </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="page-shell hero-grid">
-        <div>
-          <p class="section-kicker">Consumer-first digital infrastructure</p>
-
-          <h1>
-            Reclaim your data.
-            <span>Reclaim your power.</span>
-          </h1>
-
-          <p class="hero-lead">
-            Urbyte is building a fairer layer for mobile users: helping people convert unused mobile data allowance value into DBU credits, while giving partners a cleaner way to support retention, trust, and community value.
-          </p>
-
-          <div class="button-row">
-            <a href="#founding-members" class="button-primary">Become a Founding Member</a>
-            <a href="#building" class="button-secondary">See how it works</a>
-          </div>
-
-          <div class="trust-row">
-            <span class="trust-pill">DBU Wallet</span>
-            <span class="trust-pill">Consumer value recovery</span>
-            <span class="trust-pill">Telco-adjacent infrastructure</span>
-            <span class="trust-pill">No resale of unused data</span>
-          </div>
-        </div>
-
-        <div class="flywheel" aria-label="Urbyte platform flywheel">
-          <div class="flywheel-ring"></div>
-          <div class="flywheel-ring"></div>
-
-          <div class="flywheel-core">
-            Urbyte<br>Flywheel
-          </div>
-
-          <div class="flywheel-point point-one">
-            <strong>User joins</strong>
-            <span>Members activate access and begin tracking unused allowance value.</span>
-          </div>
-
-          <div class="flywheel-point point-two">
-            <strong>DBUs accrue</strong>
-            <span>Credits reflect structured value recognition, not carriage services.</span>
-          </div>
-
-          <div class="flywheel-point point-three">
-            <strong>Partners gain insight</strong>
-            <span>Aggregated behavioural intelligence supports retention and engagement.</span>
-          </div>
-
-          <div class="flywheel-point point-four">
-            <strong>Value circulates</strong>
-            <span>Consumer trust, partner goodwill, and community outcomes compound.</span>
-          </div>
-        </div>
+      <div class="g-card">
+        <div class="g-num">02</div>
+        <svg class="g-geo"><use href="#ico-diamond"/></svg>
+        <div class="g-step">Step 02</div>
+        <div class="g-title">Watch It Build</div>
+        <p class="g-desc">Urbyte captures what went unclaimed and returns it to you. Your value — building in the background.</p>
       </div>
-    </section>
-
-    <section class="founding-members-section" id="founding-members">
-      <div class="page-shell">
-        <div class="founding-members-intro">
-          <p class="section-kicker">Founding Members</p>
-
-          <h2>
-            For too long, unused mobile data value has disappeared quietly.
-          </h2>
-
-          <p>
-            You paid for it. You didn’t use it. It expired.
-          </p>
-
-          <h3 class="not-anymore">Not anymore.</h3>
-        </div>
-
-        <div class="subscription-grid">
-          <article class="subscription-card">
-            <span class="plan-label">Foundation</span>
-
-            <h3>Foundation Member</h3>
-
-            <p class="plan-price">$3.99 <small>/ month</small></p>
-
-            <p class="plan-copy">
-              Early Urbyte access for members who want to activate the DBU Wallet and support the platform from the beginning.
-            </p>
-
-            <ul class="plan-list">
-              <li>DBU Wallet access</li>
-              <li>Founding member position</li>
-              <li>Platform rollout updates</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="https://buy.stripe.com/" class="plan-link">Join Foundation</a>
-            </div>
-          </article>
-
-          <article class="subscription-card featured">
-            <span class="plan-label">Most aligned</span>
-
-            <h3>Builder Member</h3>
-
-            <p class="plan-price">$6.99 <small>/ month</small></p>
-
-            <p class="plan-copy">
-              For members backing Urbyte’s consumer-first infrastructure and helping prove that unused allowance value deserves recognition.
-            </p>
-
-            <ul class="plan-list">
-              <li>DBU Wallet access</li>
-              <li>Priority founding member status</li>
-              <li>Early feature visibility</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="https://buy.stripe.com/" class="plan-link">Join Builder</a>
-            </div>
-          </article>
-
-          <article class="subscription-card enterprise-card">
-            <span class="plan-label enterprise-badge">Enterprise</span>
-
-            <h3>Enterprise</h3>
-
-            <p class="plan-price">Partner access</p>
-
-            <p class="plan-copy">
-              For MVNOs, telcos, community partners, institutions, and aligned organisations wanting to explore Urbyte’s infrastructure layer.
-            </p>
-
-            <ul class="plan-list">
-              <li>Partner discussions</li>
-              <li>Vault access by request</li>
-              <li>Retention and impact alignment</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="#contact" class="enterprise-link">Enterprise enquiry</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="founding-members-content">
-          <p>
-            Founding Members help establish Urbyte before broader rollout. This is not a loyalty gimmick and it is not a telco replacement. Urbyte is a consumer-first value recovery layer designed to make unused mobile allowance value visible, structured, and useful.
-          </p>
-
-          <p>
-            DBUs are internal Urbyte credits. They do not represent the resale of mobile data, carriage services, or ownership of carrier network resources. Urbyte recognises unused allowance value through member-side participation, verification, and structured platform rules.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="building">
-      <div class="page-shell building-grid">
-        <div class="building-panel glass-card">
-          <p class="section-kicker">Something is building</p>
-
-          <h2>
-            A cleaner bridge between mobile users, partners, and unused value.
-          </h2>
-
-          <p>
-            Urbyte sits beside the existing telecommunications environment. It does not need to touch carrier billing systems, resell unused data, or pretend data is a physical bucket. It focuses on the value gap created when customers pay for allowance they do not fully use.
-          </p>
-
-          <div class="button-row">
-            <a href="#founding-members" class="button-primary">Join the rollout</a>
-            <a href="#vault" class="button-secondary">View the vault</a>
-          </div>
-        </div>
-
-        <div class="signal-stack">
-          <div class="signal-card">
-            <strong>DBU Wallet</strong>
-            <span>
-              Members track eligible unused allowance value and build DBU credits under clear platform rules.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Conversion pathway</strong>
-            <span>
-              Members convert each bill cycle, with verification and controlled unlock timing to protect the system.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Partner intelligence</strong>
-            <span>
-              Aggregated behavioural insight can help partners improve retention, engagement, and customer outcomes.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Community value</strong>
-            <span>
-              Urbyte’s wider roadmap includes pathways for community benefit, digital inclusion, and aligned partner impact.
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="vault" id="vault">
-      <div class="page-shell">
-        <div class="vault-card glass-card">
-          <p class="section-kicker">The Vault</p>
-
-          <h2>
-            Deeper infrastructure details are protected.
-          </h2>
-
-          <p>
-            Urbyte’s formulas, operating logic, verification model, partner mechanics, and key commercial components are held inside the Vault. Access is opened by direct request for MVNOs, telcos, investors, and qualified partners.
-          </p>
-
-          <div class="button-row" style="justify-content: center;">
-            <a href="#contact" class="button-primary">Request access</a>
-            <a href="#founding-members" class="button-secondary">Back founding access</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="page-shell building-grid">
-        <div>
-          <p class="section-kicker">Contact</p>
-
-          <h2 class="section-title">
-            Speak with Urbyte.
-          </h2>
-
-          <p class="section-copy">
-            For partner discussions, media, investor enquiries, MVNO conversations, and community alignment, contact Urbyte directly.
-          </p>
-
-          <div class="button-row">
-            <a href="mailto:founder@urbyte.com.au" class="button-primary">founder@urbyte.com.au</a>
-            <a href="mailto:media@urbyte.com.au" class="button-secondary">media@urbyte.com.au</a>
-          </div>
-        </div>
-
-        <div class="building-panel glass-card">
-          <p class="section-kicker">Enterprise link active</p>
-
-          <p>
-            The Enterprise pathway is for organisations that want to understand how Urbyte can support retention, social impact, customer trust, and value recovery without needing to become a carrier or interfere with network operations.
-          </p>
-
-          <p>
-            The public site keeps the story clear. The detailed commercial logic stays protected until a serious conversation begins.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="country-section">
-      <div class="page-shell">
-        <div class="country-card">
-          <h2>Recognition of Country</h2>
-
-          <p>
-            Urbyte acknowledges Aboriginal and Torres Strait Islander peoples as the First Peoples of this land. We pay respect to Elders past and present, and recognise the continuing connection to Country, culture, community, and knowledge systems.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        © 2026 Urbyte Pty Ltd. All rights reserved.
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#founding-members">Founding Members</a>
-        <a href="#vault">Vault</a>
-        <a href="mailto:founder@urbyte.com.au">Contact</a>
+      <div class="g-card">
+        <div class="g-num">03</div>
+        <svg class="g-geo"><use href="#ico-star"/></svg>
+        <div class="g-step">Step 03</div>
+        <div class="g-title">Direct It</div>
+        <p class="g-desc">Spend it on rewards and experiences, or channel it toward Australian causes that matter to you.</p>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+<!-- SIGNAL CONCEPT — no label, just sensation -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Something Is Building</div>
+    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <div class="signal-wrap">
+      <div class="signal-orb">
+        <svg class="signal-inner"><use href="#ico-signal"/></svg>
+      </div>
+      <div class="signal-text">
+        <strong>Your signal is growing.</strong>
+        It was always there. Now it has somewhere to go.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+<!-- PROBLEM -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="prob-wrap">
+      <div>
+        <div class="sec-tag">The Pattern</div>
+        <h2 class="sec-title">The system was designed to keep it.</h2>
+        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
+      </div>
+      <div class="prob-lines">
+        <div class="prob-line">You paid for it.</div>
+        <div class="prob-line">You didn't use it.</div>
+        <div class="prob-line accent">And somehow… you still lose it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- BUILT DIFFERENT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Built Different</div>
+    <h2 class="sec-title">Built for people, not systems.</h2>
+    <div class="grid-2">
+      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">What was overlooked is now returned</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Value that was wasted now flows back to you</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">You stay in control, always-all ways.</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Backed by a mission to make this fairer for everyone</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- MOVEMENT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="movement-box">
+      <div class="sec-tag" style="justify-content:center;margin-bottom:20px;">The Shift</div>
+      <h2>This isn't just a product.</h2>
+      <p>Urbyte is part of something larger — a rebalancing. Where what flows out starts flowing back.</p>
+      <p>We're not here to fight the system. We're here to recalibrate it.</p>
+      <p class="movement-tagline">"What you don't use shouldn't disappear."</p>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CHARITIES -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Where It Goes</div>
+    <div style="display:inline-block;margin-bottom:16px;padding:6px 20px;border:1px solid rgba(0,229,204,0.25);background:rgba(0,229,204,0.04);letter-spacing:4px;font-size:11px;font-weight:900;text-transform:uppercase;color:rgba(0,229,204,0.7);">Givabit</div>
+    <h2 class="sec-title">Direct your signal.<br/>Change something real.</h2>
+    <p class="sec-sub">Choose to channel returned value toward Australian organisations doing work that matters. No middlemen. Nothing lost in transit.</p>
+    <div class="charity-grid">
+      <div class="ch-card"><div class="ch-dot" style="background:#003F8A;box-shadow:0 0 10px #003F8A;"></div><div class="ch-name">Beyond Blue</div><div class="ch-cause">Mental Health</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#F37021;box-shadow:0 0 10px #F37021;"></div><div class="ch-name">Orange Sky Australia</div><div class="ch-cause">Homelessness</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#C2003A;box-shadow:0 0 10px #C2003A;"></div><div class="ch-name">Homelessness Australia</div><div class="ch-cause">Housing Support</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#5B00FF;box-shadow:0 0 10px #5B00FF;"></div><div class="ch-name">1800RESPECT</div><div class="ch-cause">Domestic Violence</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#FF6A00;box-shadow:0 0 10px #FF6A00;"></div><div class="ch-name">Indigenous Literacy Foundation</div><div class="ch-cause">Education</div></div>
+    </div>
+    <p class="donate-note">These are organisations we aspire to partner with. Formal partnerships are in progress.<br/>These causes aren't random. They're personal.</p>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- FOUNDER -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="founder-box">
+      <div class="founder-label">Why I Built This</div>
+      <div class="founder-text">
+        <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
+      </div>
+      <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- TESTIMONIALS -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Early Voices</div>
+    <h2 class="sec-title">What people are saying.</h2>
+    <div class="quote-grid">
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">To finally earn something back from the Telco company!</p><div class="q-name">Early Supporter</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Passing the value on to worthy causes rather than letting it vanish.</p><div class="q-name">Waitlist Member</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">At last a real solution, Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Beta User</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CTA -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="cta-block">
+      <div class="sec-tag" style="justify-content:center;">Be First</div>
+      <h2>Be there from the start.</h2>
+      <p>We're opening access in stages. Early members get the most value — and help shape what this becomes. Refer Urbyte to your peers and unlock higher return rates. </p>
+      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
+      <div class="cta-btns">
+        <a href="#founding" class="btn-primary">Secure Your Spot</a>
+        <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- FOUNDING MEMBERS -->
+<div class="sec" id="founding">
+  <div class="sec-inner">
+    <div class="founding-header">
+      <div class="founding-badge-tag">Founding Members — Limited Spots</div>
+      <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Founding Members are the first Australians to say — not anymore.</p>
+    </div>
+
+    <div class="founding-how">
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-hex"/></svg>
+        <div class="fh-title">Signal Begins</div>
+        <p class="fh-desc">Your existing unused value starts returning immediately on signup</p>
+      </div>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-diamond"/></svg>
+        <div class="fh-title">It Accumulates</div>
+        <p class="fh-desc">Submit your bill each month. We track what went unused over 3 cycles / Expired pre-paid amounts over a 3 month period. </p>
+      </div>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-star"/></svg>
+        <div class="fh-title">You Direct It</div>
+        <p class="fh-desc">Spend it on rewards, experiences, or the causes that need it most</p>
+      </div>
+    </div>
+
+    <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
+
+    <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
+      <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#00E5CC;">100%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Conversion Rate</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Every single person shown Urbyte signed up</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#8B5CF6;">$9.6B</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Lost Every Year</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">In paid-but-unused Australian mobile data</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#C2003A;">14</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Charity Partners</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Ready to receive what the system has been keeping</div>
+      </div>
+    </div>
+
+    <div class="prepaid-callout">
+      <svg class="prepaid-mark"><use href="#ico-tri"/></svg>
+      <div><strong>On a prepaid plan?</strong> If you use all your data before month-end, there's nothing left to return. Upgrading to a higher recharge creates a buffer — and Urbyte captures that residual value every cycle.</div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:20px;">Choose your position</div>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card bronze">
+        <svg class="tier-geo"><use href="#ico-tri"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
+        <div class="tier-price"><span>$3.99</span><small>/mo</small></div>
+        <div class="tier-signal">Signal activated on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-btn bronze-btn" onclick="joinTier('bronze',this)">Join as Bronze Member →</button>
+      </div>
+      <div class="tier-card silver">
+        <div class="tier-badge popular">Most Popular</div>
+        <svg class="tier-geo"><use href="#ico-hex"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Silver</div>
+        <div class="tier-price"><span>$6.99</span><small>/mo</small></div>
+        <div class="tier-signal">Amplified signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Amplified signal from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-btn silver-btn" onclick="joinTier('silver',this)">Join as Silver Member →</button>
+      </div>
+      <div class="tier-card gold">
+        <div class="tier-badge best">Best Value</div>
+        <svg class="tier-geo"><use href="#ico-diamond"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
+        <div class="tier-price"><span>$9.99</span><small>/mo</small></div>
+        <div class="tier-signal">Maximum signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Best available rate</strong> — locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Gold status — permanently on profile</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
+        </ul>
+        <button class="tier-btn gold-btn" onclick="joinTier('gold',this)">join as Gold Member →</button>
+      </div>
+    </div>
+    <div class="milestone-bar" style="margin-top:40px;">
+      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
+      <div class="milestone-sub">Early members lock in the best rates — permanently</div>
+    </div>
+    <p class="founding-legal">Cancel anytime. No lock-in. Your founding rate is locked in for the life of your active subscription. Value unlocks after 3 completed billing cycles for usage verification. Refer your peers for higher return rates. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- FAQ -->
+<div class="sec" id="faq">
+  <div class="sec-inner narrow">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-title">Questions answered.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What exactly does Urbyte return to me? <span class="faq-ico">+</span></button><div class="faq-a"><p>The value from your unused mobile data — the gap between what you paid for and what you actually used. Urbyte captures that and puts it back in your hands. You decide where it goes.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does it work? <span class="faq-ico">+</span></button><div class="faq-a"><p>You submit your monthly telco bill. We calculate how much data went unclaimed that cycle and begin returning that value to you. After 3 billing cycles of verification, it's ready to use.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What can I do with returned value? <span class="faq-ico">+</span></button><div class="faq-a"><p>Spend it on rewards and experiences, or direct it toward Australian charities focused on mental health, homelessness, and domestic violence support. Your call entirely.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why the 3 billing cycle wait? <span class="faq-ico">+</span></button><div class="faq-a"><p>It protects you. Three cycles lets us build an accurate picture of your real unused average — so what you receive is verified and real. Founding Members get their initial signal immediately.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which telcos are supported? <span class="faq-ico">+</span></button><div class="faq-a"><p>We're building support for all major Australian carriers — Telstra, Optus, Vodafone, TPG, Boost, and more. Tell us your telco when you join so we can prioritise accordingly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes, anytime. No lock-in contracts. If you cancel, your Founding Member status and accumulated value remain in your account — you just won't receive future monthly signal boosts.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe? <span class="faq-ico">+</span></button><div class="faq-a"><p>Absolutely. Urbyte only reads usage figures from your telco bill — never your calls, messages, or personal content. Handled under the Australian Privacy Act 1988. <a href="/privacy">Privacy Policy</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">I'm on prepaid — can I still participate? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes — but your recharge size matters. If you use all your data before month-end, there's no residual value to return. A higher recharge creates a buffer — and Urbyte captures that automatically.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When does Urbyte launch? <span class="faq-ico">+</span></button><div class="faq-a"><p>We are live now in open Beta. Founding Members access "first in perks". <a href="https://app.urbyte.com.au" target="_blank">Preview the platform now</a>.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- WAITLIST -->
+<div class="sec" id="waitlist">
+  <div class="waitlist-wrap">
+    <div class="waitlist-box">
+      <div id="form-area">
+        <div class="sec-tag" style="justify-content:center;margin-bottom:16px;">Free Access</div>
+        <h2>Not ready yet?<br/>Stay in range.</h2>
+        <p class="sub">We'll reach out when your signal is ready to return.</p>
+        <form id="waitlist-form">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Email address" required />
+          <select id="telco" style="background:#111;color:#fff;border:1px solid #333;border-radius:8px;padding:12px 16px;width:100%;font-size:15px;"><option value="" disabled selected>Select your telco provider</option><option value="Telstra">Telstra</option><option value="Optus">Optus</option><option value="Vodafone">Vodafone</option><option value="TPG">TPG</option><option value="Boost">Boost Mobile</option><option value="Amaysim">Amaysim</option><option value="Woolworths Mobile">Woolworths Mobile</option><option value="Other">Other</option></select>
+          <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
+          <div id="error-msg" class="error" style="display:none;"></div>
+          <div style="display:flex;gap:12px;align-items:stretch;">
+            <button type="submit" id="submit-btn" style="flex:1;">Join the Waitlist</button>
+            <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
+              </svg>
+            </button>
+          </div>
+          <div id="support-count" style="display:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);text-align:right;margin-top:6px;">Signal added</div>
+        </form>
+        <p class="privacy-note">Protected under the Australian Privacy Act 1988 · <a href="/privacy">Privacy Policy</a> · <a href="mailto:information@urbyte.com.au">Contact</a></p>
+      </div>
+      <div id="success-area" class="success" style="display:none;">
+        <svg style="width:52px;height:52px;margin:0 auto 24px;display:block;" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="28" fill="none" stroke="#00E5CC" stroke-width="0.6" opacity="0.3"/>
+          <circle cx="30" cy="30" r="20" fill="none" stroke="#5B00FF" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#C2003A" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="30" cy="30" r="5" fill="none" stroke="#00E5CC" stroke-width="1" opacity="0.8"/>
+          <circle cx="30" cy="30" r="2" fill="#00E5CC"/>
+        </svg>
+        <h2>Signal received.</h2>
+        <p id="telco-detect-msg" style="display:none;color:#00E5CC;margin-bottom:16px;font-size:14px;"></p>
+        <p>We'll be in touch. The signal is building.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CONTACT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Contact</div>
+    <h2 class="sec-title">We're real people.<br/><span style="color:#00E5CC;text-shadow:0 0 20px rgba(0,229,204,0.3);">Say hello.</span></h2>
+    <div class="contact-grid">
+      <a class="ct-card" href="mailto:information@urbyte.com.au"><svg class="ct-geo"><use href="#ico-mail"/></svg><div class="ct-lbl">General</div><div class="ct-val">information@urbyte.com.au</div></a>
+      <a class="ct-card" href="mailto:jarryd@urbyte.com.au"><svg class="ct-geo"><use href="#ico-person"/></svg><div class="ct-lbl">Founder</div><div class="ct-val">jarryd@urbyte.com.au</div></a>
+      <a class="ct-card" href="https://instagram.com/UrbyteAus" target="_blank"><svg class="ct-geo"><use href="#ico-inst"/></svg><div class="ct-lbl">Instagram</div><div class="ct-val">@UrbyteAus</div></a>
+    </div>
+    <p class="ct-foot">Urbyte is founded and operated by <strong>Jarryd Thamer</strong> · Northern Rivers, NSW · ACN 692 885 019</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" style="position:relative;">
+    <div style="position:relative;display:inline-block;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
+        <!-- Flower of Life: central circle + 6 surrounding -->
+        <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="50" cy="68" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="41" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="34.4" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <circle cx="65.6" cy="59" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
+        <!-- outer boundary circle -->
+        <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(91,0,255,0.4)" stroke-width="0.8"/>
+        <!-- inner detail rings -->
+        <circle cx="50" cy="50" r="9" fill="none" stroke="rgba(0,229,204,0.3)" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <span>Urbyte</span>
+  </div>
+  <p>© 2025 Urbyte Pty Ltd ACN 692 885 019. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms &amp; Conditions</a>
+    <a href="mailto:information@urbyte.com.au">Contact</a>
+  </div>
+  <div class="footer-flags">
+    <div class="flag-wrap">
+      <svg class="flag-svg flag-abo" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Aboriginal Flag: black top, red bottom, yellow circle -->
+        <rect width="48" height="15" fill="#000000"/>
+        <rect y="15" width="48" height="15" fill="#CC0000"/>
+        <circle cx="24" cy="15" r="7" fill="#FFDA00"/>
+        <!-- glow rings -->
+        <circle cx="24" cy="15" r="8" fill="none" stroke="rgba(255,218,0,0.35)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="9.5" fill="none" stroke="rgba(255,218,0,0.15)" stroke-width="1"/>
+        <circle cx="24" cy="15" r="11" fill="none" stroke="rgba(255,218,0,0.07)" stroke-width="1"/>
+      </svg>
+      <span class="flag-label">Aboriginal</span>
+    </div>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Torres Strait Islander Flag: green top & bottom, blue middle, black stripes, white star & dhari -->
+        <rect width="48" height="30" fill="#009B77"/>
+        <rect y="9" width="48" height="12" fill="#0047AB"/>
+        <rect y="7.5" width="48" height="2" fill="#000"/>
+        <rect y="20.5" width="48" height="2" fill="#000"/>
+        <!-- dhari (headdress) simplified as white diamond -->
+        <polygon points="24,6 27,15 24,24 21,15" fill="white" opacity="0.9"/>
+        <!-- star -->
+        <polygon points="24,11 24.9,13.8 27.8,13.8 25.5,15.4 26.4,18.2 24,16.5 21.6,18.2 22.5,15.4 20.2,13.8 23.1,13.8" fill="#009B77"/>
+      </svg>
+      <span class="flag-label">Torres Strait</span>
+    </div>
+    <div class="flag-wrap">
+      <svg class="flag-svg" viewBox="0 0 48 30" xmlns="http://www.w3.org/2000/svg">
+        <!-- Australian Flag simplified -->
+        <rect width="48" height="30" fill="#00008B"/>
+        <rect width="16" height="10" fill="#012169"/>
+        <!-- Union Jack simplified -->
+        <line x1="0" y1="0" x2="16" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="white" stroke-width="2.5"/>
+        <line x1="0" y1="0" x2="16" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="16" y1="0" x2="0" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="white" stroke-width="3"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="white" stroke-width="3"/>
+        <line x1="8" y1="0" x2="8" y2="10" stroke="#CC0000" stroke-width="1"/>
+        <line x1="0" y1="5" x2="16" y2="5" stroke="#CC0000" stroke-width="1"/>
+        <!-- Southern cross simplified dots -->
+        <circle cx="36" cy="9" r="1.2" fill="white"/>
+        <circle cx="42" cy="14" r="1.2" fill="white"/>
+        <circle cx="38" cy="20" r="1.2" fill="white"/>
+        <circle cx="32" cy="20" r="1.2" fill="white"/>
+        <circle cx="30" cy="13" r="0.9" fill="white"/>
+      </svg>
+      <span class="flag-label">Australia</span>
+    </div>
+  </div>
+  <p class="footer-acknowledge">We acknowledge the Widjabul Wiabul people of the Bundjalung Nation as the traditional custodians of the land on which Urbyte was conceived and built. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples across Australia. Always was, always will be, Aboriginal land.</p>
+</footer>
+
+<script>
+  function toggleFaq(btn){
+    const item=btn.closest('.faq-item'), was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  }
+  const STRIPE_PRICES = {
+    bronze: 'price_1TYRSHEU7MnbcOa9DcXkegyb',
+    silver: 'price_1TYRSHEU7MnbcOa9Yl5ebN3a',
+    gold:   'price_1TYRSHEU7MnbcOa9c8l24m6z'
+  };
+
+  async function joinTier(tier,btn){
+    const orig=btn.textContent; btn.textContent='...'; btn.disabled=true;
+    try{
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
+      const data=await res.json();
+      if(data.url){window.location.href=data.url;}else{throw new Error();}
+    }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
+  }
+  const params=new URLSearchParams(window.location.search);
+  if(params.get('founding')==='success'){
+    document.getElementById('founding').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{alert('Welcome to Urbyte. Your signal has been activated. Welcome to the founding community.');},500);
+  }
+  function toggleSupport(btn){
+    const path=document.getElementById('thumb-path');
+    const count=document.getElementById('support-count');
+    const active=btn.getAttribute('data-active')==='1';
+    if(active){
+      btn.setAttribute('data-active','0');
+      btn.style.background='rgba(91,0,255,0.08)';
+      btn.style.borderColor='rgba(91,0,255,0.25)';
+      path.setAttribute('stroke','rgba(255,255,255,0.3)');
+      path.setAttribute('fill','none');
+      count.style.display='none';
+    } else {
+      btn.setAttribute('data-active','1');
+      btn.style.background='rgba(0,229,204,0.08)';
+      btn.style.borderColor='rgba(0,229,204,0.4)';
+      path.setAttribute('stroke','#00E5CC');
+      path.setAttribute('fill','rgba(0,229,204,0.15)');
+      count.style.display='block';
+    }
+  }
+
+  document.getElementById('waitlist-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    const btn=document.getElementById('submit-btn'), err=document.getElementById('error-msg');
+    const supported=document.getElementById('support-btn')&&document.getElementById('support-btn').getAttribute('data-active')==='1';
+    btn.textContent='...'; btn.disabled=true; err.style.display='none';
+    try{
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/joinWaitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('name').value,email:document.getElementById('email').value,telco:document.getElementById('telco').value,message:document.getElementById('message').value,supported:supported})});
+      if(res.ok){
+        const data=await res.json();
+        document.getElementById('form-area').style.display='none';
+        document.getElementById('success-area').style.display='block';
+        if(data.detected_telco&&data.detected_telco!=='Unknown'&&data.detected_telco!=='Other'){
+          const msg=document.getElementById('telco-detect-msg');
+          msg.textContent='Detected: '+data.detected_telco+' — your signal is already building.';
+          msg.style.display='block';
+        }
+      }else{throw new Error();}
+    }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='Join the Waitlist';btn.disabled=false;}
+  });
+</script>
 </body>
 </html>
+
+
