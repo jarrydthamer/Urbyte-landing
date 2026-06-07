@@ -1,194 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urbyte | Infrastructure Value Orchestration Layer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        techBlack: '#02050A',
-                        techObsidian: '#060B14',
-                        techBlueDark: '#0A1424',
-                        techSteelBlue: '#1E2D4A',
-                        techElectricBlue: '#38BDF8'
-                    },
-                    backgroundImage: {
-                        'deep-space': 'radial-gradient(circle at 50% 25%, #0B1528 0%, #02050A 90%)',
-                        'metallic-blue-gradient': 'linear-gradient(135deg, #1E2D4A 0%, #0A1424 50%, #060B14 100%)',
-                        'text-steel-shine': 'linear-gradient(135deg, #FFFFFF 0%, #94A3B8 50%, #334155 100%)'
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Urbyte Corporate — Convert Enterprise Data Waste into a Capital Shield</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- Google Fonts for professional tech typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .glow-steel { box-shadow: 0 0 35px rgba(30, 45, 74, 0.25); border: 1px solid rgba(30, 45, 74, 0.4); }
-        .glow-subtle { box-shadow: 0 0 20px rgba(10, 20, 36, 0.5); border: 1px solid rgba(10, 20, 36, 0.3); }
-        .text-gradient-steel { background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #64748B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .text-gradient-deep { background: linear-gradient(135deg, #E2E8F0 0%, #64748B 60%, #1E2D4A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+        }
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(20, 184, 166, 0.15);
+        }
     </style>
 </head>
-<body class="bg-deep-space text-slate-400 font-sans min-h-screen flex flex-col justify-between selection:bg-techSteelBlue selection:text-white">
+<body class="text-slate-100 overflow-x-hidden antialiased">
 
-    <header class="border-b border-slate-900 bg-techBlack/90 backdrop-blur-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <img src="logo.png" alt="Urbyte Logo" class="h-10 w-auto object-contain brightness-90 contrast-125 saturate-50" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'">
-                <div id="fallback-logo" class="hidden w-10 h-10 rounded bg-techBlueDark items-center justify-center font-bold text-slate-300 shadow-md border border-slate-800">U</div>
-                <span class="text-xl font-bold tracking-widest text-white">URBYTE</span>
-            </div>
-            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold text-slate-500">
-                <a href="#overview" class="hover:text-white transition-colors">System Overview</a>
-                <a href="#technical" class="hover:text-white transition-colors">Technical Engine</a>
-                <a href="#founder" class="hover:text-white transition-colors">The Founder</a>
-            </nav>
-            <div>
-                <a href="#connect" class="px-5 py-2.5 rounded bg-techBlueDark border border-techSteelBlue text-slate-200 text-xs font-bold uppercase tracking-wider hover:bg-techSteelBlue hover:text-white transition-all duration-300">
-                    Connect
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- 1. BACK-TO-CARRIER NAVIGATION BANNER -->
+    <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-slate-300 text-xs sm:text-sm py-2.5 px-4 text-center border-b border-teal-500/20 sticky top-0 z-50 backdrop-blur-md">
+        <p class="tracking-wide">
+            Are you a Telecom Carrier or MVNO? 
+            <a href="/telecom" class="underline text-cyan-400 hover:text-cyan-300 font-medium transition mx-2">View our Network Integration and Compliance Framework</a> [1].
+        </p>
+    </div>
 
-    <main class="flex-grow">
+    <!-- 2. HERO CONTAINER WITH VEILED MOCKUP BACKGROUND -->
+    <!-- Replace 'your-uploaded-image-path.jpg' with the actual hosted path/URL of your image -->
+    <div class="relative min-h-screen flex flex-col justify-between bg-cover bg-right md:bg-center bg-no-repeat" 
+         style="background-image: linear-gradient(to right, #030712 40%, rgba(3, 7, 18, 0.75) 75%, rgba(3, 7, 18, 0.4) 100%), url('your-uploaded-image-path.jpg');">
         
-        <section id="overview" class="max-w-6xl mx-auto px-4 pt-16 pb-12">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center space-x-2 bg-techObsidian px-4 py-1.5 rounded border border-slate-900 mb-6">
-                    <span class="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse"></span>
-                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold font-mono">Protocol Staging v2.026</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6">
-                    Inverting Asymmetric <br />
-                    <span class="text-gradient-steel">Infrastructure Waste</span>
-                </h1>
-                <p class="text-base text-slate-500 max-w-3xl mx-auto leading-relaxed">
-                    Urbyte converts perishable, unutilized corporate and consumer mobile data allocations into AASB 138 compliant digital utility tracking assets—generating structural liquidity from data waste.
-                </p>
+        <!-- Corporate Header -->
+        <header class="w-full max-w-7xl mx-auto px-6 pt-6 flex justify-between items-center relative z-10">
+            <div class="flex items-center gap-3">
+                <svg class="w-8 h-8 text-teal-400" viewBox="0 0 100 100" fill="currentColor">
+                    <polygon points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30" fill="none" stroke="currentColor" stroke-width="12"/>
+                    <path d="M35,30 H45 V60 Q45,70 50,70 Q55,70 55,60 V30 H65 V60 Q65,82 50,82 Q35,82 35,60 Z" />
+                </svg>
+                <span class="heading-font text-2xl font-bold tracking-tight text-white">urbyte<span class="text-xs font-light tracking-normal align-super text-teal-400">CORPORATE</span></span>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                <div class="bg-techObsidian p-6 rounded border border-slate-900 hover:border-techSteelBlue transition-all group duration-300">
-                    <div class="text-slate-500 font-mono text-[10px] mb-3">01 // TELEMETRY ENGINE</div>
-                    <h3 class="text-base font-bold text-slate-200 mb-2 group-hover:text-white transition-colors">Urbyte Insight</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Reads raw network volume bandwidth feeds out-of-band via encrypted, isolated mTLS pipelines to calculate dynamic multi-point capacity allocation deltas in real time.</p>
-                </div>
-                <div class="bg-techObsidian p-6 rounded border border-slate-900 hover:border-techSteelBlue transition-all group duration-300">
-                    <div class="text-slate-500 font-mono text-[10px] mb-3">02 // TRANSLATION ROUTER</div>
-                    <h3 class="text-base font-bold text-slate-200 mb-2 group-hover:text-white transition-colors">Givabit Clearinghouse</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Systematically channels verified utility units out of standard carrier networks into registered DGR-status non-profit entities to establish corporate tax compliance paths.</p>
-                </div>
-                <div class="bg-techObsidian p-6 rounded border border-slate-900 hover:border-techSteelBlue transition-all group duration-300">
-                    <div class="text-slate-500 font-mono text-[10px] mb-3">03 // INTANGIBLE ASSET CLASS</div>
-                    <h3 class="text-base font-bold text-slate-200 mb-2 group-hover:text-white transition-colors">Data-Backed Unit (DBU)</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">A strictly closed-loop ledger tracking asset created upon validated proof-of-waste metrics. Fully compliant under Australian corporate non-monetary provisions.</p>
-                </div>
+            <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+                <a href="#problem" class="hover:text-white transition">The Sunk Cost</a>
+                <a href="#reclaim" class="hover:text-white transition">Reclaim Protocol</a>
+                <a href="#cfo-value" class="hover:text-white transition">Financial Impact</a>
             </div>
-        </section>
+        </header>
 
-        <section id="technical" class="bg-techBlack border-y border-slate-950 py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5 space-y-6">
-                        <div class="text-xs font-bold tracking-widest text-slate-500 uppercase font-mono">// System Architecture Rules</div>
-                        <h2 class="text-3xl font-extrabold text-white tracking-tight">Cryptographic Verification Parameters</h2>
-                        <p class="text-sm text-slate-500 leading-relaxed">
-                            To ensure non-inflationary asset validation, ledger entries require mutual verification from the carrier-node private framework paired with the central validation script.
-                        </p>
-                        <div class="bg-techObsidian p-5 rounded border border-slate-900 font-mono text-xs text-slate-500 space-y-3">
-                            <div class="flex justify-between border-b border-slate-900/60 pb-2"><span class="text-slate-300">Validation Function:</span> <span class="text-slate-400">Proof-of-Waste (PoWst)</span></div>
-                            <div class="flex justify-between border-b border-slate-900/60 pb-2"><span class="text-slate-300">Accounting Compliance:</span> <span class="text-slate-400">AASB 138 (Intangible Asset)</span></div>
-                            <div class="flex justify-between"><span class="text-slate-300">Tax Exemption Basis:</span> <span class="text-slate-400">TR 2011/4 (DGR Route)</span></div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-7 bg-techObsidian p-6 rounded border border-slate-900 glow-steel">
-                        <div class="text-xs font-mono text-slate-500 mb-4 flex justify-between items-center">
-                            <span>METRIC ARCHIVE PIPELINE</span>
-                            <span class="text-slate-300">STATUS: REFINED</span>
-                        </div>
-                        <div class="overflow-x-auto text-xs font-mono">
-                            <table class="w-full text-left border-collapse">
-                                <thead>
-                                    <tr class="border-b border-slate-900 text-slate-500 font-bold">
-                                        <th class="pb-3">Sector Engine</th>
-                                        <th class="pb-3">Data Baseline</th>
-                                        <th class="pb-3 text-right">Target Yield Recovery</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-900 text-slate-400">
-                                    <tr>
-                                        <td class="py-3 font-semibold text-slate-200">Urbyte Corporate</td>
-                                        <td class="py-3 text-slate-500">Shared Enterprise Mobile Fleets</td>
-                                        <td class="py-3 text-right text-slate-300">Up to 30% Sunk Cost Recovery</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 font-semibold text-slate-200">Urbyte Telemetry</td>
-                                        <td class="py-3 text-slate-500">Isolated IoT Pipeline Waste</td>
-                                        <td class="py-3 text-right text-slate-300">Automated Yield Routing</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-3 font-semibold text-slate-200">Urbyte Consumer</td>
-                                        <td class="py-3 text-slate-500">Retail Plan Multi-Tier Balances</td>
-                                        <td class="py-3 text-right text-gradient-steel font-bold">Philanthropic Value Minting</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <!-- Main CFO-Targeted Hero Content -->
+        <main class="w-full max-w-7xl mx-auto px-6 py-12 md:py-24 flex-grow flex items-center relative z-10">
+            <div class="max-w-2xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-medium tracking-wide text-cyan-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                    Enterprise Value Optimization
                 </div>
-            </div>
-        </section>
-
-        <section id="founder" class="max-w-5xl mx-auto px-4 py-16">
-            <div class="bg-techObsidian p-8 rounded border border-slate-900 flex flex-col md:flex-row gap-8 items-center glow-subtle">
-                <div class="w-40 h-40 md:w-48 md:h-48 rounded bg-techBlack border border-techSteelBlue shrink-0 overflow-hidden shadow-2xl">
-                    <img src="founder.jpg" alt="Founder Profile" class="w-full h-full object-cover brightness-90 grayscale" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden w-full h-full bg-techBlueDark items-center justify-center font-mono text-[10px] text-slate-500 text-center p-4">Founder Profile Frame</div>
-                </div>
-                <div class="space-y-4 text-center md:text-left">
-                    <div class="text-[10px] uppercase tracking-widest text-slate-500 font-mono font-bold">// Strategic Vision</div>
-                    <h2 class="text-2xl font-bold text-white">About the Founder</h2>
-                    <p class="text-sm text-slate-500 leading-relaxed">
-                        Architect of the Urbyte infrastructure value orchestration framework. Driven by the mission to eliminate asymmetrical waste structures within the global telecommunications matrix, engineering direct data asset recovery systems that align corporate efficiency with systemic social impact.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="connect" class="max-w-3xl mx-auto px-4 py-12 text-center">
-            <div class="bg-techObsidian p-8 rounded border border-slate-900 max-w-xl mx-auto glow-steel">
-                <h3 class="text-xl font-bold text-white mb-2">Initiate System Inquiry</h3>
-                <p class="text-xs text-slate-500 mb-6">Have questions regarding the architecture or implementation details? Send a quick query message below.</p>
                 
-                <form action="https://formspree.io/f/mailto:founder@urbyte.com.au" method="POST" class="space-y-3">
-                    <input type="email" name="email" required placeholder="Secure Return Email Address" class="w-full bg-techBlack border border-slate-900 rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-techSteelBlue transition-colors">
-                    <textarea name="message" rows="3" required placeholder="Your Inquiry Summary..." class="w-full bg-techBlack border border-slate-900 rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-techSteelBlue transition-colors resize-none"></textarea>
-                    <button type="submit" class="w-full py-2.5 rounded bg-techSteelBlue text-white font-bold text-xs uppercase tracking-wider hover:bg-slate-800 transition-colors">
-                        Transmit Inquiry
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
+                <h1 class="heading-font text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+                    Turn Enterprise Data Waste Into a High-Yield <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">Capital Shield</span> [1].
+                </h1>
+                
+                <p class="text-base sm:text-lg text-slate-400 font-light leading-relaxed max-w-xl">
+                    Every month, your company pays for over-provisioned mobile fleets and pipelines that go unused [1, 2]. Urbyte Insight intercepts this systemic waste, converting deadweight operational losses into audited corporate tax relief and verified ESG assets [1, 2].
+                </p>
 
-    <footer class="border-t border-slate-950 bg-techBlack py-8 text-[11px] text-slate-600">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-                &copy; 2026 Urbyte Pty Ltd. All rights reserved.
+                <!-- Focus Areas Grid for Quick Scanning -->
+                <div id="problem" class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 max-w-xl">
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-900">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">The Sunk Cost</p>
+                        <p class="text-sm text-slate-300 mt-1">30% to 50% of corporate data fleets expire completely unused every cycle [1, 2].</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-900">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">The Reclaim</p>
+                        <p class="text-sm text-slate-300 mt-1">Urbyte Insight mints verified waste into hard Data-Backed Units (DBUs) [1, 2].</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-900">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">The Routing</p>
+                        <p class="text-sm text-slate-300 mt-1">Givabit redirects DBUs to DGR charities, generating audited tax certificates [1, 2].</p>
+                    </div>
+                </div>
+
+                <!-- CTA Action Hub -->
+                <div id="reclaim" class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#audit-request" class="bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 shadow-lg shadow-teal-500/10 hover:shadow-teal-500/20 transition duration-300 text-center">
+                        Request Enterprise Audit Pilot
+                    </a>
+                    <a href="#cfo-value" class="glass-panel text-slate-200 font-medium px-8 py-3.5 rounded-xl hover:bg-slate-800/60 hover:text-white transition duration-300 text-center">
+                        Review Financial Yield
+                    </a>
+                </div>
             </div>
-            <div class="flex gap-6 text-slate-500 font-medium">
-                <a href="#overview" class="hover:text-white transition-colors">Home</a>
-                <a href="#technical" class="hover:text-white transition-colors">Architecture</a>
-                <a href="mailto:founder@urbyte.com.au" class="hover:text-white transition-colors">Contact</a>
+        </main>
+
+        <!-- CFO Financial Value Section (Bottom Fold Analytics) -->
+        <footer id="cfo-value" class="w-full border-t border-slate-900/80 bg-slate-950/70 backdrop-blur-md relative z-10">
+            <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex gap-4 items-start">
+                    <div class="p-2.5 rounded-lg bg-red-500/10 text-red-400 mt-1">📉</div>
+                    <div>
+                        <p class="heading-font text-base font-semibold text-white">Immediate P&L Improvement</p>
+                        <p class="text-xs text-slate-400 mt-1">Convert an unoptimizable sinking operational expense into a tangible, tax-deductible property asset under ATO guidelines [1, 2].</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">💰</div>
+                    <div>
+                        <p class="heading-font text-base font-semibold text-white">Direct Cash Relief (30%)</p>
+                        <p class="text-xs text-slate-400 mt-1">Every $100,000 of data waste routed through Givabit yields up to $30,000 in cash tax reduction under current Australian corporate rates [1, 2].</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 mt-1">🌱</div>
+                    <div>
+                        <p class="heading-font text-base font-semibold text-white">Audited ESG Compliance</p>
+                        <p class="text-xs text-slate-400 mt-1">Instantly export clean data-waste reduction and verified social impact metrics, structured ready for your annual ASX sustainability disclosure [1, 2].</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+
+    </div>
 
 </body>
 </html>
