@@ -374,30 +374,6 @@
     .footer-links a:hover { color:#00E5CC; }
     .footer-acknowledge { color:rgba(255,255,255,0.08); font-size:10px; margin-top:16px; line-height:1.9; max-width:480px; margin-left:auto; margin-right:auto; }
 
-
-    /* READABILITY + TOP-RIGHT ENTERPRISE LINK UPDATE */
-    .hero-sub { color: rgba(255,255,255,0.34); }
-    .sec-sub { color: rgba(255,255,255,0.46); }
-    .g-desc { color: rgba(255,255,255,0.46); }
-    .stat-label { color: rgba(255,255,255,0.36); }
-    .signal-text { color: rgba(255,255,255,0.36); }
-    .fh-desc { color: rgba(255,255,255,0.42); }
-    .tier-perks li { color: rgba(255,255,255,0.34); }
-    .founding-legal { color: rgba(255,255,255,0.20); }
-    .donate-note { color: rgba(255,255,255,0.24); }
-    .privacy-note { color: rgba(255,255,255,0.22); }
-    .ct-foot { color: rgba(255,255,255,0.24); }
-    .footer-acknowledge { color: rgba(255,255,255,0.18); }
-    .enterprise-nav {
-      border-color: rgba(0,229,204,0.45);
-      color: rgba(0,229,204,0.9);
-    }
-    .enterprise-nav:hover {
-      background: rgba(0,229,204,0.10);
-      box-shadow: 0 0 24px rgba(0,229,204,0.26);
-    }
-    .founding-badge-tag { display: none !important; }
-
     @media(max-width:768px){
       nav { padding:16px 20px; }
       .prob-wrap { grid-template-columns:1fr; gap:40px; }
@@ -407,6 +383,24 @@
       .movement-box { padding:48px 24px; }
       h1 { letter-spacing:-2px; }
     }
+
+    /* URBYTE READABILITY + NAV FIXES */
+    .hero-sub { color: rgba(255,255,255,0.50) !important; }
+    .sec-sub { color: rgba(255,255,255,0.56) !important; }
+    .g-desc { color: rgba(255,255,255,0.52) !important; }
+    .fh-desc { color: rgba(255,255,255,0.48) !important; }
+    .tier-perks li { color: rgba(255,255,255,0.50) !important; }
+    .stat-label { color: rgba(255,255,255,0.40) !important; }
+    .signal-text { color: rgba(255,255,255,0.44) !important; }
+    .signal-text strong { color: rgba(255,255,255,0.86) !important; }
+    .movement-box p { color: rgba(255,255,255,0.62) !important; }
+    .founding-legal, .donate-note, .footer-acknowledge, .ct-foot, .privacy-note { color: rgba(255,255,255,0.42) !important; }
+    .tier-price small { color: rgba(255,255,255,0.50) !important; }
+    .faq-a p { color: rgba(255,255,255,0.54) !important; }
+    .no-item { color: rgba(255,255,255,0.60) !important; }
+    .btn-nav { color:#00E5CC !important; border-color:rgba(0,229,204,0.55) !important; }
+    .btn-nav:hover { background:rgba(0,229,204,0.08) !important; box-shadow:0 0 24px rgba(0,229,204,0.26) !important; }
+
   </style>
 </head>
 <body>
@@ -538,7 +532,7 @@
 <nav>
   <div class="nav-logo">
     <div style="position:relative;display:inline-block;width:34px;height:34px;">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;" />
+      <img src="assets/logo.jpeg" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;object-fit:cover;" />
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 10s ease-in-out infinite;">
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
         <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
@@ -553,7 +547,7 @@
     <span>Urbyte</span>
     <span class="nav-tag">// BETA</span>
   </div>
-  <a href="#enterprise" class="btn-nav enterprise-nav">Enterprise</a>
+  <a href="mailto:founder@urbyte.com.au?subject=Enterprise%20Enquiry" class="btn-nav">Enterprise</a>
 </nav>
 
 <!-- HERO -->
@@ -975,8 +969,8 @@
 
 <div class="geo-div"></div>
 
-<!-- CONTACT / ENTERPRISE -->
-<div class="sec" id="enterprise">
+<!-- CONTACT -->
+<div class="sec">
   <div class="sec-inner">
     <div class="sec-tag">Contact</div>
     <h2 class="sec-title">We're real people.<br/><span style="color:#00E5CC;text-shadow:0 0 20px rgba(0,229,204,0.3);">Say hello.</span></h2>
@@ -993,7 +987,7 @@
 <footer>
   <div class="footer-logo" style="position:relative;">
     <div style="position:relative;display:inline-block;">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <img src="assets/logo.jpeg" alt="Urbyte" />
       <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
         <!-- Flower of Life: central circle + 6 surrounding -->
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
