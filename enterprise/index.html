@@ -1,1118 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Urbyte | Reclaim Unused Mobile Data Value</title>
-
-  <meta
-    name="description"
-    content="Urbyte helps mobile users reclaim value from unused mobile data through DBU credits, founding member access, and consumer-first digital infrastructure."
-  />
-
-  <style>
-    :root {
-      --bg: #030814;
-      --bg-soft: #071329;
-      --bg-card: rgba(9, 24, 52, 0.78);
-      --blue: #2f7dff;
-      --blue-soft: rgba(47, 125, 255, 0.18);
-      --blue-border: rgba(95, 157, 255, 0.42);
-      --gold: #d4af37;
-      --gold-light: #ffe58a;
-      --text: #f4f8ff;
-      --muted: rgba(244, 248, 255, 0.76);
-      --faint: rgba(244, 248, 255, 0.66);
-      --line: rgba(255, 255, 255, 0.12);
-      --shadow: 0 26px 90px rgba(0, 0, 0, 0.38);
-      --radius: 26px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 18% 12%, rgba(47, 125, 255, 0.24), transparent 34%),
-        radial-gradient(circle at 82% 20%, rgba(212, 175, 55, 0.16), transparent 30%),
-        radial-gradient(circle at 50% 92%, rgba(47, 125, 255, 0.14), transparent 36%),
-        var(--bg);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.12));
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.4));
-      z-index: -1;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .page-shell {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(3, 8, 20, 0.78);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .site-logo {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      display: block;
-      border-radius: 14px;
-    }
-
-    .brand-wordmark {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .brand-wordmark strong {
-      font-size: 1.15rem;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-wordmark span {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: #061225;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 10px 34px rgba(212, 175, 55, 0.22);
-    }
-
-    section {
-      padding: 96px 0;
-      position: relative;
-    }
-
-    .section-kicker {
-      margin: 0 0 14px;
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255, 229, 138, 0.88);
-      font-weight: 800;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .section-copy {
-      margin: 22px 0 0;
-      max-width: 720px;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      line-height: 1.72;
-      color: var(--muted);
-    }
-
-    .glass-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(180deg, rgba(10, 28, 58, 0.8), rgba(4, 13, 31, 0.82));
-      box-shadow: var(--shadow);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 34px;
-    }
-
-    .button-primary,
-    .button-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      text-decoration: none;
-      border: 1px solid transparent;
-    }
-
-    .button-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: #061225;
-    }
-
-    .button-secondary {
-      color: var(--text);
-      border-color: rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.045);
-    }
-
-    .button-secondary:hover {
-      border-color: var(--blue-border);
-      background: var(--blue-soft);
-    }
-
-    .hero {
-      min-height: calc(100vh - 82px);
-      display: flex;
-      align-items: center;
-      padding: 88px 0 110px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 58px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(3.2rem, 8vw, 7.6rem);
-      line-height: 0.88;
-      letter-spacing: -0.075em;
-    }
-
-    .hero h1 span {
-      display: block;
-      color: var(--gold-light);
-      text-shadow: 0 0 34px rgba(212, 175, 55, 0.18);
-    }
-
-    .hero-lead {
-      margin: 28px 0 0;
-      max-width: 680px;
-      font-size: clamp(1.08rem, 1.7vw, 1.34rem);
-      line-height: 1.72;
-      color: var(--muted);
-    }
-
-    .trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .trust-pill {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: var(--faint);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-    }
-
-    .flywheel {
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      position: relative;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle, rgba(255, 229, 138, 0.16), transparent 34%),
-        radial-gradient(circle at 50% 50%, rgba(47,125,255,0.18), transparent 58%);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow:
-        inset 0 0 70px rgba(47,125,255,0.16),
-        0 30px 110px rgba(0,0,0,0.42);
-    }
-
-    .flywheel-ring {
-      position: absolute;
-      inset: 10%;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .flywheel-ring:nth-child(2) {
-      inset: 23%;
-      border-color: rgba(212,175,55,0.22);
-    }
-
-    .flywheel-core {
-      width: 34%;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #061225;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      font-weight: 900;
-      box-shadow: 0 0 60px rgba(212, 175, 55, 0.26);
-      z-index: 2;
-    }
-
-    .flywheel-point {
-      position: absolute;
-      width: 168px;
-      min-height: 86px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(7,19,41,0.78);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    }
-
-    .flywheel-point strong {
-      display: block;
-      font-size: 0.92rem;
-      margin-bottom: 6px;
-    }
-
-    .flywheel-point span {
-      display: block;
-      font-size: 0.78rem;
-      line-height: 1.45;
-      color: var(--muted);
-    }
-
-    .point-one {
-      top: 4%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .point-two {
-      right: -2%;
-      top: 45%;
-      transform: translateY(-50%);
-    }
-
-    .point-three {
-      bottom: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .point-four {
-      left: -2%;
-      top: 45%;
-      transform: translateY(-50%);
-    }
-
-    .founding-members-section {
-      background:
-        linear-gradient(180deg, rgba(4, 12, 28, 0.2), rgba(8, 20, 43, 0.55)),
-        transparent;
-    }
-
-    .founding-members-intro {
-      max-width: 920px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .founding-members-intro h2 {
-      margin: 0;
-      font-size: clamp(2.5rem, 6vw, 5.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-    }
-
-    .founding-members-intro p {
-      margin: 24px auto 0;
-      max-width: 740px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.7vw, 1.24rem);
-      line-height: 1.7;
-    }
-
-    .not-anymore {
-      margin: 28px 0 0;
-      font-size: clamp(2.2rem, 6vw, 5.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      color: var(--gold-light);
-    }
-
-    .subscription-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      width: min(1080px, 100%);
-      margin: 42px auto 42px;
-    }
-
-    .subscription-card {
-      position: relative;
-      padding: 28px;
-      min-height: 330px;
-      border: 1px solid rgba(108, 166, 255, 0.28);
-      border-radius: 24px;
-      background:
-        linear-gradient(180deg, rgba(10, 28, 58, 0.9), rgba(5, 12, 28, 0.92));
-      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.28);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .subscription-card.featured {
-      border-color: rgba(212, 175, 55, 0.58);
-      transform: translateY(-8px);
-      box-shadow:
-        0 26px 86px rgba(0,0,0,0.34),
-        0 0 50px rgba(212,175,55,0.08);
-    }
-
-    .plan-label {
-      display: inline-flex;
-      width: fit-content;
-      margin-bottom: 16px;
-      font-size: 0.7rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--faint);
-      font-weight: 800;
-    }
-
-    .subscription-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.5rem;
-      letter-spacing: -0.025em;
-    }
-
-    .plan-price {
-      margin: 0 0 14px;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--text);
-    }
-
-    .plan-price small {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .plan-copy {
-      margin: 0 0 22px;
-      line-height: 1.58;
-      color: var(--muted);
-    }
-
-    .plan-list {
-      margin: 0 0 24px;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      color: var(--faint);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .plan-list li {
-      position: relative;
-      padding-left: 18px;
-    }
-
-    .plan-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--blue);
-      box-shadow: 0 0 18px rgba(47,125,255,0.55);
-    }
-
-    .plan-action {
-      margin-top: auto;
-    }
-
-    .plan-link,
-    .enterprise-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      width: 100%;
-      padding: 0 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .plan-link {
-      color: #061225;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    }
-
-    .plan-link:hover,
-    .enterprise-link:hover {
-      transform: translateY(-2px);
-    }
-
-    .enterprise-card {
-      border-color: rgba(47, 125, 255, 0.34);
-    }
-
-    .enterprise-badge {
-      padding: 5px 10px;
-      border-radius: 999px;
-      color: #cfe2ff;
-      background: rgba(45, 115, 255, 0.18);
-      border: 1px solid rgba(90, 155, 255, 0.45);
-      font-size: 0.62rem;
-      letter-spacing: 0.13em;
-    }
-
-    .enterprise-link {
-      color: #d7e7ff;
-      background: rgba(45, 115, 255, 0.22);
-      border: 1px solid rgba(90, 155, 255, 0.48);
-    }
-
-    .founding-members-content {
-      width: min(880px, 100%);
-      margin: 0 auto;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 26px;
-      padding: 34px;
-      background: rgba(255,255,255,0.035);
-    }
-
-    .founding-members-content p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.04rem;
-    }
-
-    .founding-members-content p + p {
-      margin-top: 18px;
-    }
-
-    .building-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .building-panel {
-      padding: 34px;
-    }
-
-    .building-panel h2 {
-      margin: 0;
-      font-size: clamp(2.1rem, 4.5vw, 4.8rem);
-      line-height: 0.96;
-      letter-spacing: -0.055em;
-    }
-
-    .building-panel p {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: 1.05rem;
-    }
-
-    .signal-stack {
-      display: grid;
-      gap: 16px;
-    }
-
-    .signal-card {
-      padding: 24px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .signal-card strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .signal-card span {
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .vault {
-      text-align: center;
-    }
-
-    .vault-card {
-      width: min(860px, 100%);
-      margin: 0 auto;
-      padding: 42px;
-      border: 1px solid rgba(212,175,55,0.24);
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,0.09), transparent 42%),
-        linear-gradient(180deg, rgba(10,28,58,0.74), rgba(4,13,31,0.84));
-    }
-
-    .vault-card h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 4.4rem);
-      line-height: 1;
-      letter-spacing: -0.055em;
-    }
-
-    .vault-card p {
-      max-width: 680px;
-      margin: 22px auto 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .country-section {
-      padding: 76px 0;
-    }
-
-    .country-card {
-      position: relative;
-      overflow: hidden;
-      padding: 34px;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.035);
-    }
-
-    .country-card::before {
-      content: "";
-      position: absolute;
-      right: 28px;
-      top: 28px;
-      width: 68px;
-      height: 44px;
-      border-radius: 7px;
-      background:
-        linear-gradient(to bottom, #000 0 50%, #d10000 50% 100%);
-      opacity: 0.2;
-    }
-
-    .country-card::after {
-      content: "";
-      position: absolute;
-      right: 48px;
-      top: 40px;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #ffd200;
-      opacity: 0.28;
-    }
-
-    .country-card h2 {
-      margin: 0 0 14px;
-      font-size: 1.4rem;
-    }
-
-    .country-card p {
-      margin: 0;
-      max-width: 900px;
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .site-footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 42px 0;
-      color: var(--faint);
-    }
-
-    .footer-inner {
-      width: min(1180px, calc(100% - 40px));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-links a {
-      color: var(--faint);
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .building-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flywheel {
-        max-width: 620px;
-        margin: 0 auto;
-      }
-
-      .subscription-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .subscription-card.featured {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        height: auto;
-        padding: 16px 0;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .site-logo {
-        width: 46px;
-        height: 46px;
-      }
-
-      section {
-        padding: 72px 0;
-      }
-
-      .hero {
-        padding: 64px 0 84px;
-        min-height: auto;
-      }
-
-      .flywheel {
-        border-radius: 34px;
-        aspect-ratio: auto;
-        padding: 22px;
-        display: grid;
-        gap: 14px;
-      }
-
-      .flywheel-ring,
-      .flywheel-core {
-        display: none;
-      }
-
-      .flywheel-point {
-        position: static;
-        width: auto;
-        transform: none;
-      }
-
-      .subscription-card,
-      .building-panel,
-      .vault-card,
-      .country-card,
-      .founding-members-content {
-        padding: 24px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urbyte | Reclaim Unused Mobile Data Value</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        metalBlue: {
+                            900: '#0B1528',
+                            800: '#112240',
+                            700: '#1B315B',
+                            600: '#234175',
+                        },
+                        urbyteGold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA7C11',
+                        }
+                    },
+                    backgroundImage: {
+                        'radial-metallic': 'radial-gradient(circle at 50% 50%, #1B315B 0%, #0B1528 100%)',
+                        'gold-shine': 'linear-gradient(135deg, #AA7C11 0%, #D4AF37 50%, #F3E5AB 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
+<body class="bg-radial-metallic text-slate-200 font-sans min-h-screen flex flex-col justify-between selection:bg-urbyteGold selection:text-metalBlue-900">
 
-<body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#home" class="brand" aria-label="Urbyte home">
-        <img src="assets/logo.jpeg" alt="Urbyte logo" class="site-logo">
-        <span class="brand-wordmark">
-          <strong>Urbyte</strong>
-          <span>Value should not expire</span>
-        </span>
-      </a>
-
-      <div class="nav-links">
-        <a href="#founding-members">Founding Members</a>
-        <a href="#building">Platform</a>
-        <a href="#vault">Vault</a>
-        <a href="#contact">Contact</a>
-        <a href="#founding-members" class="nav-cta">Join</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="page-shell hero-grid">
-        <div>
-          <p class="section-kicker">Consumer-first digital infrastructure</p>
-
-          <h1>
-            Reclaim your data.
-            <span>Reclaim your power.</span>
-          </h1>
-
-          <p class="hero-lead">
-            Urbyte is building a fairer layer for mobile users: helping people convert unused mobile data allowance value into DBU credits, while giving partners a cleaner way to support retention, trust, and community value.
-          </p>
-
-          <div class="button-row">
-            <a href="#founding-members" class="button-primary">Become a Founding Member</a>
-            <a href="#building" class="button-secondary">See how it works</a>
-          </div>
-
-          <div class="trust-row">
-            <span class="trust-pill">DBU Wallet</span>
-            <span class="trust-pill">Consumer value recovery</span>
-            <span class="trust-pill">Telco-adjacent infrastructure</span>
-            <span class="trust-pill">No resale of unused data</span>
-          </div>
-        </div>
-
-        <div class="flywheel" aria-label="Urbyte platform flywheel">
-          <div class="flywheel-ring"></div>
-          <div class="flywheel-ring"></div>
-
-          <div class="flywheel-core">
-            Urbyte<br>Flywheel
-          </div>
-
-          <div class="flywheel-point point-one">
-            <strong>User joins</strong>
-            <span>Members activate access and begin tracking unused allowance value.</span>
-          </div>
-
-          <div class="flywheel-point point-two">
-            <strong>DBUs accrue</strong>
-            <span>Credits reflect structured value recognition, not carriage services.</span>
-          </div>
-
-          <div class="flywheel-point point-three">
-            <strong>Partners gain insight</strong>
-            <span>Aggregated behavioural intelligence supports retention and engagement.</span>
-          </div>
-
-          <div class="flywheel-point point-four">
-            <strong>Value circulates</strong>
-            <span>Consumer trust, partner goodwill, and community outcomes compound.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="founding-members-section" id="founding-members">
-      <div class="page-shell">
-        <div class="founding-members-intro">
-          <p class="section-kicker">Founding Members</p>
-
-          <h2>
-            For too long, unused mobile data value has disappeared quietly.
-          </h2>
-
-          <p>
-            You paid for it. You didn’t use it. It expired.
-          </p>
-
-          <h3 class="not-anymore">Not anymore.</h3>
-        </div>
-
-        <div class="subscription-grid">
-          <article class="subscription-card">
-            <span class="plan-label">Foundation</span>
-
-            <h3>Foundation Member</h3>
-
-            <p class="plan-price">$3.99 <small>/ month</small></p>
-
-            <p class="plan-copy">
-              Early Urbyte access for members who want to activate the DBU Wallet and support the platform from the beginning.
-            </p>
-
-            <ul class="plan-list">
-              <li>DBU Wallet access</li>
-              <li>Founding member position</li>
-              <li>Platform rollout updates</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="https://buy.stripe.com/" class="plan-link">Join Foundation</a>
+    <header class="border-b border-slate-800/80 bg-metalBlue-900/60 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-gold-shine flex items-center justify-center shadow-md shadow-urbyteGold/20">
+                    <span class="text-metalBlue-900 font-black text-xl tracking-tighter">U</span>
+                </div>
+                <span class="text-2xl font-bold tracking-wider text-white">URBYTE</span>
             </div>
-          </article>
-
-          <article class="subscription-card featured">
-            <span class="plan-label">Most aligned</span>
-
-            <h3>Builder Member</h3>
-
-            <p class="plan-price">$6.99 <small>/ month</small></p>
-
-            <p class="plan-copy">
-              For members backing Urbyte’s consumer-first infrastructure and helping prove that unused allowance value deserves recognition.
-            </p>
-
-            <ul class="plan-list">
-              <li>DBU Wallet access</li>
-              <li>Priority founding member status</li>
-              <li>Early feature visibility</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="https://buy.stripe.com/" class="plan-link">Join Builder</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-slate-400">
+                <a href="#home" class="hover:text-urbyteGold transition-colors duration-200">Home</a>
+                <a href="#architecture" class="hover:text-urbyteGold transition-colors duration-200">Architecture</a>
+                <a href="#vault" class="hover:text-urbyteGold text-urbyteGold-light transition-colors duration-200">Vault Portal</a>
+            </nav>
+            <div>
+                <a href="#vault" class="px-5 py-2.5 rounded-md bg-transparent border border-urbyteGold text-urbyteGold text-sm font-semibold hover:bg-urbyteGold hover:text-metalBlue-900 transition-all duration-300">
+                    Access System
+                </a>
             </div>
-          </article>
+        </div>
+    </header>
 
-          <article class="subscription-card enterprise-card">
-            <span class="plan-label enterprise-badge">Enterprise</span>
-
-            <h3>Enterprise</h3>
-
-            <p class="plan-price">Partner access</p>
-
-            <p class="plan-copy">
-              For MVNOs, telcos, community partners, institutions, and aligned organisations wanting to explore Urbyte’s infrastructure layer.
-            </p>
-
-            <ul class="plan-list">
-              <li>Partner discussions</li>
-              <li>Vault access by request</li>
-              <li>Retention and impact alignment</li>
-            </ul>
-
-            <div class="plan-action">
-              <a href="#contact" class="enterprise-link">Enterprise enquiry</a>
+    <main class="flex-grow">
+        
+        <section id="home" class="max-w-5xl mx-auto px-4 pt-16 pb-12 text-center">
+            <div class="inline-flex items-center space-x-2 bg-metalBlue-800/90 px-4 py-1.5 rounded-full border border-slate-700/50 mb-6">
+                <span class="w-2 h-2 rounded-full bg-urbyteGold animate-pulse"></span>
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Infrastructure Optimization Layer</span>
             </div>
-          </article>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Reclaiming Unused <br class="hidden sm:inline" />
+                <span class="gold-text-gradient">Mobile Data Value</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Inverting the asymmetric telecommunications model. Urbyte systematically converts perishable, unutilized corporate and consumer data allocations into secure economic utility.
+            </p>
+        </section>
+
+        <section id="vault" class="max-w-4xl mx-auto px-4 py-12">
+            <div class="bg-gradient-to-b from-metalBlue-800 to-metalBlue-900 rounded-2xl gold-border-glow p-8 md:p-12 relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-urbyteGold/50 to-transparent"></div>
+                
+                <div class="max-w-2xl mx-auto text-center relative z-10">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-metalBlue-700/50 rounded-full border border-urbyteGold/30 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-urbyteGold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+                        Urbyte Asset Vault
+                    </h2>
+                    <p class="text-sm text-slate-400 mb-8 max-w-md mx-auto">
+                        Securely pipeline data waste validation metrics. Initiate authentication routing protocols directly to system gatekeepers.
+                    </p>
+
+                    <button onclick="toggleVaultModal(true)" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gold-shine text-metalBlue-900 font-bold tracking-wide text-base shadow-xl shadow-urbyteGold/10 hover:shadow-urbyteGold/25 hover:scale-[1.02] transition-all duration-300 transform">
+                        Initialize Vault Request
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="vaultModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 hidden">
+        <div onclick="toggleVaultModal(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        
+        <div class="bg-metalBlue-800 border border-slate-700 rounded-xl w-full max-w-lg p-6 md:p-8 relative z-10 shadow-2xl transform transition-all">
+            <div class="flex items-center justify-between mb-6 border-b border-slate-700/60 pb-4">
+                <h3 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-urbyteGold"></span>
+                    System Allocation Request
+                </h3>
+                <button onclick="toggleVaultModal(false)" class="text-slate-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <form action="https://formspree.io/f/mailto:founder@urbyte.com.au" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Entity Name</label>
+                    <input type="text" name="name" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors" placeholder="Enterprise or Individual Name">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Secure Contact Email</label>
+                    <input type="email" name="email" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors" placeholder="name@domain.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Allocation Scope / Notes</label>
+                    <textarea name="message" rows="4" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors resize-none" placeholder="Provide raw baseline metrics, fleet parameters, or inquiries..."></textarea>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 rounded-lg bg-gold-shine text-metalBlue-900 font-bold tracking-wide hover:opacity-95 transition-opacity shadow-lg shadow-urbyteGold/10">
+                        Transmit Request Payload
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <div class="founding-members-content">
-          <p>
-            Founding Members help establish Urbyte before broader rollout. This is not a loyalty gimmick and it is not a telco replacement. Urbyte is a consumer-first value recovery layer designed to make unused mobile allowance value visible, structured, and useful.
-          </p>
-
-          <p>
-            DBUs are internal Urbyte credits. They do not represent the resale of mobile data, carriage services, or ownership of carrier network resources. Urbyte recognises unused allowance value through member-side participation, verification, and structured platform rules.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="building">
-      <div class="page-shell building-grid">
-        <div class="building-panel glass-card">
-          <p class="section-kicker">Something is building</p>
-
-          <h2>
-            A cleaner bridge between mobile users, partners, and unused value.
-          </h2>
-
-          <p>
-            Urbyte sits beside the existing telecommunications environment. It does not need to touch carrier billing systems, resell unused data, or pretend data is a physical bucket. It focuses on the value gap created when customers pay for allowance they do not fully use.
-          </p>
-
-          <div class="button-row">
-            <a href="#founding-members" class="button-primary">Join the rollout</a>
-            <a href="#vault" class="button-secondary">View the vault</a>
-          </div>
-        </div>
-
-        <div class="signal-stack">
-          <div class="signal-card">
-            <strong>DBU Wallet</strong>
-            <span>
-              Members track eligible unused allowance value and build DBU credits under clear platform rules.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Conversion pathway</strong>
-            <span>
-              Members convert each bill cycle, with verification and controlled unlock timing to protect the system.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Partner intelligence</strong>
-            <span>
-              Aggregated behavioural insight can help partners improve retention, engagement, and customer outcomes.
-            </span>
-          </div>
-
-          <div class="signal-card">
-            <strong>Community value</strong>
-            <span>
-              Urbyte’s wider roadmap includes pathways for community benefit, digital inclusion, and aligned partner impact.
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="vault" id="vault">
-      <div class="page-shell">
-        <div class="vault-card glass-card">
-          <p class="section-kicker">The Vault</p>
-
-          <h2>
-            Deeper infrastructure details are protected.
-          </h2>
-
-          <p>
-            Urbyte’s formulas, operating logic, verification model, partner mechanics, and key commercial components are held inside the Vault. Access is opened by direct request for MVNOs, telcos, investors, and qualified partners.
-          </p>
-
-          <div class="button-row" style="justify-content: center;">
-            <a href="#contact" class="button-primary">Request access</a>
-            <a href="#founding-members" class="button-secondary">Back founding access</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="page-shell building-grid">
-        <div>
-          <p class="section-kicker">Contact</p>
-
-          <h2 class="section-title">
-            Speak with Urbyte.
-          </h2>
-
-          <p class="section-copy">
-            For partner discussions, media, investor enquiries, MVNO conversations, and community alignment, contact Urbyte directly.
-          </p>
-
-          <div class="button-row">
-            <a href="mailto:founder@urbyte.com.au" class="button-primary">founder@urbyte.com.au</a>
-            <a href="mailto:media@urbyte.com.au" class="button-secondary">media@urbyte.com.au</a>
-          </div>
-        </div>
-
-        <div class="building-panel glass-card">
-          <p class="section-kicker">Enterprise link active</p>
-
-          <p>
-            The Enterprise pathway is for organisations that want to understand how Urbyte can support retention, social impact, customer trust, and value recovery without needing to become a carrier or interfere with network operations.
-          </p>
-
-          <p>
-            The public site keeps the story clear. The detailed commercial logic stays protected until a serious conversation begins.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="country-section">
-      <div class="page-shell">
-        <div class="country-card">
-          <h2>Recognition of Country</h2>
-
-          <p>
-            Urbyte acknowledges Aboriginal and Torres Strait Islander peoples as the First Peoples of this land. We pay respect to Elders past and present, and recognise the continuing connection to Country, culture, community, and knowledge systems.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        © 2026 Urbyte Pty Ltd. All rights reserved.
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#founding-members">Founding Members</a>
-        <a href="#vault">Vault</a>
-        <a href="mailto:founder@urbyte.com.au">Contact</a>
-      </div>
     </div>
-  </footer>
+
+    <footer class="border-t border-slate-800/80 bg-metalBlue-900/40 py-8 text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="order-2 md:order-1 text-center md:text-left">
+                &copy; 2026 Urbyte Pty Ltd. All rights reserved.
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 text-slate-400 order-1 md:order-2 tracking-wide">
+                <a href="#home" class="hover:text-urbyteGold transition-colors">Home</a>
+                <a href="#founding-members" class="hover:text-urbyteGold transition-colors">Founding Members</a>
+                <a href="#vault" class="hover:text-urbyteGold transition-colors">Vault</a>
+                <a href="mailto:founder@urbyte.com.au" class="hover:text-urbyteGold transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleVaultModal(show) {
+            const modal = document.getElementById('vaultModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+    </script>
 </body>
 </html>
-
