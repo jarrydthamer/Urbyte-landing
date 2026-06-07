@@ -3,63 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urbyte | Reclaim Unused Mobile Data Value</title>
+    <title>Urbyte | Infrastructure Value Orchestration Layer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        metalBlue: {
-                            900: '#0B1528',
-                            800: '#112240',
-                            700: '#1B315B',
-                            600: '#234175',
-                        },
-                        urbyteGold: {
-                            DEFAULT: '#D4AF37',
-                            light: '#F3E5AB',
-                            dark: '#AA7C11',
-                        }
+                        brandDark: '#070D19',
+                        brandMetal: '#0F1B35',
+                        brandCyan: '#00E5FF',
+                        brandGold: '#D4AF37'
                     },
                     backgroundImage: {
-                        'radial-metallic': 'radial-gradient(circle at 50% 50%, #1B315B 0%, #0B1528 100%)',
-                        'gold-shine': 'linear-gradient(135deg, #AA7C11 0%, #D4AF37 50%, #F3E5AB 100%)',
+                        'cyber-radial': 'radial-gradient(circle at 50% 30%, #132448 0%, #070D19 80%)',
+                        'gold-linear': 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 60%, #AA7C11 100%)',
+                        'cyan-glow': 'linear-gradient(90deg, #00E5FF 0%, #0086FF 100%)'
                     }
                 }
             }
         }
     </script>
     <style>
-        .gold-border-glow {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-        }
-        .gold-text-gradient {
-            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .glow-cyan { box-shadow: 0 0 25px rgba(0, 229, 255, 0.15); border: 1px solid rgba(0, 229, 255, 0.3); }
+        .glow-gold { box-shadow: 0 0 25px rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); }
+        .text-gradient-gold { background: linear-gradient(135deg, #FFF3C4 0%, #D4AF37 50%, #A37604 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-cyan { background: linear-gradient(135deg, #E0FFFF 0%, #00E5FF 70%, #0086FF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-radial-metallic text-slate-200 font-sans min-h-screen flex flex-col justify-between selection:bg-urbyteGold selection:text-metalBlue-900">
+<body class="bg-cyber-radial text-slate-300 font-sans min-h-screen flex flex-col justify-between selection:bg-brandCyan selection:text-brandDark">
 
-    <header class="border-b border-slate-800/80 bg-metalBlue-900/60 backdrop-blur-md sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+    <header class="border-b border-slate-800/60 bg-brandDark/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-lg bg-gold-shine flex items-center justify-center shadow-md shadow-urbyteGold/20">
-                    <span class="text-metalBlue-900 font-black text-xl tracking-tighter">U</span>
-                </div>
-                <span class="text-2xl font-bold tracking-wider text-white">URBYTE</span>
+                <img src="logo.png" alt="Urbyte Logo" class="h-10 w-auto object-contain rounded" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'">
+                <div id="fallback-logo" class="hidden w-10 h-10 rounded bg-cyan-glow items-center justify-center font-bold text-brandDark">U</div>
+                <span class="text-xl font-bold tracking-widest text-white">URBYTE</span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-slate-400">
-                <a href="#home" class="hover:text-urbyteGold transition-colors duration-200">Home</a>
-                <a href="#architecture" class="hover:text-urbyteGold transition-colors duration-200">Architecture</a>
-                <a href="#vault" class="hover:text-urbyteGold text-urbyteGold-light transition-colors duration-200">Vault Portal</a>
+            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-semibold text-slate-400">
+                <a href="#overview" class="hover:text-brandCyan transition-colors">System Overview</a>
+                <a href="#technical" class="hover:text-brandCyan transition-colors">Technical Engine</a>
+                <a href="#founder" class="hover:text-brandGold transition-colors">The Founder</a>
             </nav>
             <div>
-                <a href="#vault" class="px-5 py-2.5 rounded-md bg-transparent border border-urbyteGold text-urbyteGold text-sm font-semibold hover:bg-urbyteGold hover:text-metalBlue-900 transition-all duration-300">
-                    Access System
+                <a href="#connect" class="px-5 py-2.5 rounded border border-brandCyan text-brandCyan text-xs font-bold uppercase tracking-wider hover:bg-brandCyan hover:text-brandDark transition-all duration-300 shadow-lg shadow-brandCyan/10">
+                    Connect
                 </a>
             </div>
         </div>
@@ -67,107 +56,138 @@
 
     <main class="flex-grow">
         
-        <section id="home" class="max-w-5xl mx-auto px-4 pt-16 pb-12 text-center">
-            <div class="inline-flex items-center space-x-2 bg-metalBlue-800/90 px-4 py-1.5 rounded-full border border-slate-700/50 mb-6">
-                <span class="w-2 h-2 rounded-full bg-urbyteGold animate-pulse"></span>
-                <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Infrastructure Optimization Layer</span>
+        <section id="overview" class="max-w-6xl mx-auto px-4 pt-16 pb-12">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-brandMetal/80 px-4 py-1.5 rounded-full border border-slate-700/50 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brandCyan animate-ping"></span>
+                    <span class="text-[10px] uppercase tracking-widest text-brandCyan font-bold">Protocol Staging v2.026</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6">
+                    Inverting Asymmetric <br />
+                    <span class="text-gradient-gold">Infrastructure Waste</span>
+                </h1>
+                <p class="text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    Urbyte converts perishable, unutilized corporate and consumer mobile data allocations into AASB 138 compliant digital utility tracking assets—generating structural liquidity from data waste.
+                </p>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Reclaiming Unused <br class="hidden sm:inline" />
-                <span class="gold-text-gradient">Mobile Data Value</span>
-            </h1>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Inverting the asymmetric telecommunications model. Urbyte systematically converts perishable, unutilized corporate and consumer data allocations into secure economic utility.
-            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-brandMetal/40 p-6 rounded-xl border border-slate-800 hover:border-brandCyan/40 transition-all group duration-300">
+                    <div class="text-brandCyan font-mono text-xs mb-3">01 // TELEMETRY ENGINE</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brandCyan transition-colors">Urbyte Insight</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Reads raw network volume bandwidth feeds out-of-band via encrypted, isolated mTLS pipelines to calculate dynamic multi-point capacity allocation deltas in real time.</p>
+                </div>
+                <div class="bg-brandMetal/40 p-6 rounded-xl border border-slate-800 hover:border-brandCyan/40 transition-all group duration-300">
+                    <div class="text-brandCyan font-mono text-xs mb-3">02 // TRANSLATION ROUTER</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brandCyan transition-colors">Givabit Clearinghouse</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Systematically channels verified utility units out of standard carrier networks into registered DGR-status non-profit entities to establish corporate tax compliance paths.</p>
+                </div>
+                <div class="bg-brandMetal/40 p-6 rounded-xl border border-slate-800 hover:border-brandGold/40 transition-all group duration-300">
+                    <div class="text-brandGold font-mono text-xs mb-3">03 // INTANGIBLE ASSET CLASS</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brandGold transition-colors">Data-Backed Unit (DBU)</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">A strictly closed-loop ledger tracking asset created upon validated proof-of-waste metrics. Fully compliant under Australian corporate non-monetary provisions.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="vault" class="max-w-4xl mx-auto px-4 py-12">
-            <div class="bg-gradient-to-b from-metalBlue-800 to-metalBlue-900 rounded-2xl gold-border-glow p-8 md:p-12 relative overflow-hidden shadow-2xl">
-                <div class="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-urbyteGold/50 to-transparent"></div>
-                
-                <div class="max-w-2xl mx-auto text-center relative z-10">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-metalBlue-700/50 rounded-full border border-urbyteGold/30 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-urbyteGold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                        </svg>
+        <section id="technical" class="bg-brandDark/50 border-y border-slate-900 py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="text-xs font-bold tracking-widest text-brandCyan uppercase font-mono">// System Architecture Rules</div>
+                        <h2 class="text-3xl font-extrabold text-white tracking-tight">Cryptographic Verification Parameters</h2>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            To ensure non-inflationary asset validation, ledger entries require mutual verification from the carrier-node private framework paired with the central validation script.
+                        </p>
+                        <div class="bg-brandMetal/80 p-5 rounded-lg border border-slate-800 font-mono text-xs text-slate-400 space-y-3">
+                            <div class="flex justify-between border-b border-slate-800 pb-2"><span class="text-white">Validation Function:</span> <span class="text-brandCyan">Proof-of-Waste (PoWst)</span></div>
+                            <div class="flex justify-between border-b border-slate-800 pb-2"><span class="text-white">Accounting Compliance:</span> <span class="text-brandGold">AASB 138 (Intangible Asset)</span></div>
+                            <div class="flex justify-between"><span class="text-white">Tax Exemption Basis:</span> <span class="text-slate-200">TR 2011/4 (DGR Route)</span></div>
+                        </div>
                     </div>
-                    
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
-                        Urbyte Asset Vault
-                    </h2>
-                    <p class="text-sm text-slate-400 mb-8 max-w-md mx-auto">
-                        Securely pipeline data waste validation metrics. Initiate authentication routing protocols directly to system gatekeepers.
-                    </p>
 
-                    <button onclick="toggleVaultModal(true)" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gold-shine text-metalBlue-900 font-bold tracking-wide text-base shadow-xl shadow-urbyteGold/10 hover:shadow-urbyteGold/25 hover:scale-[1.02] transition-all duration-300 transform">
-                        Initialize Vault Request
-                    </button>
+                    <div class="lg:col-span-7 bg-brandMetal/40 p-6 rounded-xl border border-slate-800 glow-cyan">
+                        <div class="text-xs font-mono text-slate-400 mb-4 flex justify-between items-center">
+                            <span>METRIC ARCHIVE PIPELINE</span>
+                            <span class="text-brandCyan">STATUS: ACTIVE</span>
+                        </div>
+                        <div class="overflow-x-auto text-xs font-mono">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-800 text-slate-400 font-bold">
+                                        <th class="pb-3">Sector Engine</th>
+                                        <th class="pb-3">Data Baseline</th>
+                                        <th class="pb-3 text-right">Target Yield Recovery</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                                    <tr>
+                                        <td class="py-3 font-semibold text-white">Urbyte Corporate</td>
+                                        <td class="py-3">Shared Enterprise Mobile Fleets</td>
+                                        <td class="py-3 text-right text-brandCyan">Up to 30% Sunk Cost Recovery</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-white">Urbyte Telemetry</td>
+                                        <td class="py-3">Isolated IoT Pipeline Waste</td>
+                                        <td class="py-3 text-right text-brandCyan">Automated Yield Routing</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-white">Urbyte Consumer</td>
+                                        <td class="py-3">Retail Plan Multi-Tier Balances</td>
+                                        <td class="py-3 text-right text-brandGold">Philanthropic Value Minting</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="founder" class="max-w-5xl mx-auto px-4 py-16">
+            <div class="bg-gradient-to-r from-brandMetal to-brandDark p-8 rounded-2xl border border-slate-800 flex flex-col md:flex-row gap-8 items-center glow-gold">
+                <div class="w-40 h-40 md:w-48 md:h-48 rounded-xl overflow-hidden bg-brandDark border border-brandGold/40 shrink-0 shadow-xl">
+                    <img src="founder.jpg" alt="Founder Profile" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="hidden w-full h-full bg-brandMetal items-center justify-center font-mono text-xs text-brandGold text-center p-4">Founder Image Placeholder</div>
+                </div>
+                <div class="space-y-4 text-center md:text-left">
+                    <div class="text-[10px] uppercase tracking-widest text-brandGold font-mono font-bold">// Strategic Vision</div>
+                    <h2 class="text-2xl font-bold text-white">About the Founder</h2>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Architect of the Urbyte infrastructure value orchestration framework. Driven by the mission to eliminate asymmetrical waste structures within the global telecommunications matrix, engineering direct data asset recovery systems that align corporate efficiency with systemic social impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="connect" class="max-w-3xl mx-auto px-4 py-12 text-center">
+            <div class="bg-brandMetal/60 p-8 rounded-xl border border-slate-800 max-w-xl mx-auto">
+                <h3 class="text-xl font-bold text-white mb-2">Initiate System Inquiry</h3>
+                <p class="text-xs text-slate-400 mb-6">Have questions regarding the architecture or implementation details? Send a quick query message below.</p>
+                
+                <form action="https://formspree.io/f/mailto:founder@urbyte.com.au" method="POST" class="space-y-3">
+                    <input type="email" name="email" required placeholder="Secure Return Email Address" class="w-full bg-brandDark border border-slate-800 rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brandCyan transition-colors">
+                    <textarea name="message" rows="3" required placeholder="Your Inquiry Summary..." class="w-full bg-brandDark border border-slate-800 rounded px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brandCyan transition-colors resize-none"></textarea>
+                    <button type="submit" class="w-full py-2.5 rounded bg-cyan-glow text-brandDark font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity">
+                        Transmit Inquiry
+                    </button>
+                </form>
             </div>
         </section>
     </main>
 
-    <div id="vaultModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 hidden">
-        <div onclick="toggleVaultModal(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-        
-        <div class="bg-metalBlue-800 border border-slate-700 rounded-xl w-full max-w-lg p-6 md:p-8 relative z-10 shadow-2xl transform transition-all">
-            <div class="flex items-center justify-between mb-6 border-b border-slate-700/60 pb-4">
-                <h3 class="text-lg font-bold text-white tracking-wide flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-urbyteGold"></span>
-                    System Allocation Request
-                </h3>
-                <button onclick="toggleVaultModal(false)" class="text-slate-400 hover:text-white transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-
-            <form action="https://formspree.io/f/mailto:founder@urbyte.com.au" method="POST" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Entity Name</label>
-                    <input type="text" name="name" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors" placeholder="Enterprise or Individual Name">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Secure Contact Email</label>
-                    <input type="email" name="email" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors" placeholder="name@domain.com">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">Allocation Scope / Notes</label>
-                    <textarea name="message" rows="4" required class="w-full bg-metalBlue-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-urbyteGold transition-colors resize-none" placeholder="Provide raw baseline metrics, fleet parameters, or inquiries..."></textarea>
-                </div>
-                <div class="pt-2">
-                    <button type="submit" class="w-full py-3.5 rounded-lg bg-gold-shine text-metalBlue-900 font-bold tracking-wide hover:opacity-95 transition-opacity shadow-lg shadow-urbyteGold/10">
-                        Transmit Request Payload
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <footer class="border-t border-slate-800/80 bg-metalBlue-900/40 py-8 text-xs text-slate-500">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="order-2 md:order-1 text-center md:text-left">
+    <footer class="border-t border-slate-900 bg-brandDark/80 py-8 text-[11px] text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
                 &copy; 2026 Urbyte Pty Ltd. All rights reserved.
             </div>
-            <div class="flex flex-wrap justify-center gap-6 text-slate-400 order-1 md:order-2 tracking-wide">
-                <a href="#home" class="hover:text-urbyteGold transition-colors">Home</a>
-                <a href="#founding-members" class="hover:text-urbyteGold transition-colors">Founding Members</a>
-                <a href="#vault" class="hover:text-urbyteGold transition-colors">Vault</a>
-                <a href="mailto:founder@urbyte.com.au" class="hover:text-urbyteGold transition-colors">Contact</a>
+            <div class="flex gap-6 text-slate-400 font-medium">
+                <a href="#overview" class="hover:text-brandCyan transition-colors">Home</a>
+                <a href="#technical" class="hover:text-brandCyan transition-colors">Architecture</a>
+                <a href="mailto:founder@urbyte.com.au" class="hover:text-brandGold transition-colors">Contact</a>
             </div>
         </div>
     </footer>
 
-    <script>
-        function toggleVaultModal(show) {
-            const modal = document.getElementById('vaultModal');
-            if (show) {
-                modal.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-            } else {
-                modal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
-        }
-    </script>
 </body>
 </html>
