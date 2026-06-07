@@ -45,6 +45,18 @@
     }
     .btn-nav:hover { background: rgba(91,0,255,0.12); box-shadow: 0 0 24px rgba(91,0,255,0.3); }
 
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .nav-actions .btn-nav { display:inline-flex; align-items:center; justify-content:center; }
+    .btn-nav.enterprise-link {
+      border-color: rgba(0,229,204,0.35);
+      color: rgba(0,229,204,0.82);
+    }
+    .btn-nav.enterprise-link:hover {
+      background: rgba(0,229,204,0.08);
+      box-shadow: 0 0 24px rgba(0,229,204,0.20);
+    }
+
+
     /* HERO */
     .hero {
       position: relative; z-index: 1;
@@ -97,13 +109,13 @@
     }
     @keyframes spectrum { to { background-position:300% center; } }
 
-    .hero-sub { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; max-width:500px; margin:0 auto 44px; letter-spacing:0.3px; text-shadow:0 0 20px rgba(0,0,0,0.9); }
+    .hero-sub { font-size:16px; color:rgba(255,255,255,0.40); line-height:2; max-width:500px; margin:0 auto 44px; letter-spacing:0.3px; text-shadow:0 0 20px rgba(0,0,0,0.9); }
     .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
     .btn-primary { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:15px 42px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 0 40px rgba(0,229,204,0.3),0 0 80px rgba(91,0,255,0.15); transition:all 0.3s; display:inline-block; border:none; }
     .btn-primary:hover { box-shadow:0 0 60px rgba(0,229,204,0.5),0 0 120px rgba(91,0,255,0.25); transform:translateY(-2px); }
-    .btn-ghost { background:transparent; color:rgba(255,255,255,0.45); padding:15px 42px; font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.1); display:inline-block; transition:all 0.3s; }
-    .btn-ghost:hover { border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8); }
-    .hero-micro { color:rgba(255,255,255,0.1); font-size:9px; margin-top:22px; letter-spacing:4px; text-transform:uppercase; }
+    .btn-ghost { background:transparent; color:rgba(255,255,255,0.36); padding:15px 42px; font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.36); display:inline-block; transition:all 0.3s; }
+    .btn-ghost:hover { border-color:rgba(255,255,255,0.44); color:rgba(255,255,255,0.8); }
+    .hero-micro { color:rgba(255,255,255,0.36); font-size:9px; margin-top:22px; letter-spacing:4px; text-transform:uppercase; }
 
     /* STATS */
     .stats { position:relative; z-index:1; padding:60px 20px; background:rgba(0,0,10,0.65); border-top:1px solid rgba(91,0,255,0.1); border-bottom:1px solid rgba(91,0,255,0.1); backdrop-filter:blur(10px); }
@@ -112,7 +124,7 @@
     .s1 { background:linear-gradient(135deg,#00E5CC,#0066FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.4)); }
     .s2 { background:linear-gradient(135deg,#C2003A,#5B00FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(194,0,58,0.4)); }
     .s3 { background:linear-gradient(135deg,#FF6A00,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(255,106,0,0.4)); }
-    .stat-label { color:rgba(255,255,255,0.25); font-size:11px; margin-top:8px; letter-spacing:1px; text-transform:uppercase; max-width:160px; }
+    .stat-label { color:rgba(255,255,255,0.36); font-size:11px; margin-top:8px; letter-spacing:1px; text-transform:uppercase; max-width:160px; }
     .stat-suffix { font-size:32px; font-weight:700; letter-spacing:-1px; opacity:0.75; vertical-align:super; line-height:0; }
 
     .geo-div { position:relative; z-index:1; height:1px; background:linear-gradient(90deg,transparent,rgba(91,0,255,0.5),rgba(0,229,204,0.5),rgba(194,0,58,0.5),transparent); }
@@ -124,12 +136,12 @@
     .sec-tag { font-size:9px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(0,229,204,0.6); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
     .sec-tag::before { content:''; display:block; width:32px; height:1px; background:linear-gradient(90deg,rgba(0,229,204,0.6),transparent); }
     .sec-title { font-size:clamp(34px,5.5vw,64px); font-weight:900; letter-spacing:-3px; line-height:0.95; margin-bottom:20px; text-shadow:0 4px 60px rgba(0,0,0,0.9),0 0 120px rgba(91,0,255,0.15); }
-    .sec-sub { font-size:15px; color:rgba(255,255,255,0.35); line-height:2; max-width:480px; letter-spacing:0.2px; }
+    .sec-sub { font-size:15px; color:rgba(255,255,255,0.44); line-height:2; max-width:480px; letter-spacing:0.2px; }
 
     /* PROBLEM */
     .prob-wrap { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .prob-lines { display:flex; flex-direction:column; gap:8px; }
-    .prob-line { font-size:21px; font-weight:700; padding:22px 28px; background:rgba(0,0,10,0.6); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); border-left:2px solid rgba(255,255,255,0.08); text-shadow:0 0 30px rgba(0,0,0,0.8); }
+    .prob-line { font-size:21px; font-weight:700; padding:22px 28px; background:rgba(0,0,10,0.6); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); border-left:2px solid rgba(255,255,255,0.34); text-shadow:0 0 30px rgba(0,0,0,0.8); }
     .prob-line.accent { color:#00E5CC; border-left:2px solid #00E5CC; border-color:rgba(0,229,204,0.12); background:rgba(0,229,204,0.04); text-shadow:0 0 24px rgba(0,229,204,0.5); }
 
     /* CARDS */
@@ -143,11 +155,11 @@
     .g-geo { width:40px; height:40px; margin-bottom:20px; opacity:0.7; }
     .g-step { font-size:9px; color:rgba(0,229,204,0.5); font-weight:700; letter-spacing:4px; text-transform:uppercase; margin-bottom:10px; }
     .g-title { font-size:18px; font-weight:800; margin-bottom:12px; letter-spacing:-0.5px; }
-    .g-desc { font-size:13px; color:rgba(255,255,255,0.35); line-height:1.9; }
+    .g-desc { font-size:13px; color:rgba(255,255,255,0.44); line-height:1.9; }
 
     /* NO LIST */
     .no-list { display:flex; flex-direction:column; gap:8px; margin-top:40px; }
-    .no-item { display:flex; align-items:center; gap:16px; padding:16px 24px; background:rgba(0,0,10,0.55); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); font-size:15px; color:rgba(255,255,255,0.5); }
+    .no-item { display:flex; align-items:center; gap:16px; padding:16px 24px; background:rgba(0,0,10,0.55); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.04); font-size:15px; color:rgba(255,255,255,0.44); }
     .no-item .ck { color:#00E5CC; flex-shrink:0; text-shadow:0 0 10px rgba(0,229,204,0.7); font-size:18px; line-height:1; }
     .no-item.hl { border-color:rgba(0,229,204,0.12); background:rgba(0,229,204,0.04); color:rgba(255,255,255,0.8); }
 
@@ -164,14 +176,14 @@
     .signal-orb::after { content:''; position:absolute; inset:-40px; border-radius:50%; border:1px solid rgba(194,0,58,0.07); animation:signal-pulse 8s ease-in-out infinite 1s; }
     .signal-inner { width:60px; height:60px; }
     @keyframes signal-pulse { 0%,100%{opacity:0.15;transform:scale(1)} 50%{opacity:0.3;transform:scale(1.02)} }
-    .signal-text { font-size:13px; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; line-height:2; }
+    .signal-text { font-size:13px; color:rgba(255,255,255,0.36); letter-spacing:3px; text-transform:uppercase; line-height:2; }
     .signal-text strong { display:block; font-size:22px; font-weight:900; letter-spacing:-1px; color:rgba(255,255,255,0.7); margin-bottom:8px; text-transform:none; }
 
     /* MOVEMENT */
     .movement-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(91,0,255,0.12); padding:90px 70px; text-align:center; position:relative; overflow:hidden; max-width:960px; margin:0 auto; }
     .movement-box::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 120%,rgba(91,0,255,0.1) 0%,transparent 65%); pointer-events:none; }
     .movement-box h2 { font-size:clamp(30px,4vw,50px); font-weight:900; letter-spacing:-2px; margin-bottom:24px; text-shadow:0 0 60px rgba(91,0,255,0.3); }
-    .movement-box p { font-size:16px; color:rgba(255,255,255,0.22); line-height:2; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .movement-box p { font-size:16px; color:rgba(255,255,255,0.40); line-height:2; margin-bottom:16px; max-width:520px; margin-left:auto; margin-right:auto; }
     .movement-tagline { font-size:24px; font-weight:900; letter-spacing:-1px; margin-top:36px !important; background:linear-gradient(90deg,#00E5CC,#5B00FF,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.3)); }
 
     /* CHARITIES */
@@ -180,36 +192,36 @@
     .ch-card:hover { background:rgba(91,0,255,0.06); }
     .ch-dot { width:10px; height:10px; border-radius:50%; margin:0 auto 14px; }
     .ch-name { font-weight:700; font-size:12px; margin-bottom:4px; }
-    .ch-cause { color:rgba(255,255,255,0.2); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
-    .donate-note { color:rgba(255,255,255,0.15); font-size:11px; margin-top:28px; text-align:center; line-height:1.9; }
+    .ch-cause { color:rgba(255,255,255,0.44); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+    .donate-note { color:rgba(255,255,255,0.40); font-size:11px; margin-top:28px; text-align:center; line-height:1.9; }
 
     /* FOUNDER */
     .founder-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(20px); border:1px solid rgba(91,0,255,0.1); padding:60px; position:relative; overflow:hidden; }
     .founder-box::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#5B00FF,#00E5CC,#C2003A,transparent); }
     .founder-label { font-size:9px; color:rgba(0,229,204,0.55); font-weight:700; letter-spacing:5px; text-transform:uppercase; margin-bottom:28px; }
     .founder-text p { font-size:17px; color:rgba(255,255,255,0.6); line-height:2; margin-bottom:20px; text-shadow:0 0 40px rgba(0,0,0,0.6); }
-    .founder-sig { color:rgba(255,255,255,0.2); font-size:12px; letter-spacing:1px; }
+    .founder-sig { color:rgba(255,255,255,0.44); font-size:12px; letter-spacing:1px; }
 
     /* QUOTES */
     .quote-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:64px; }
     .q-card { padding:36px 28px; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); }
     .q-mark { font-size:52px; color:rgba(91,0,255,0.35); line-height:1; margin-bottom:16px; font-family:Georgia,serif; }
     .q-text { font-size:14px; color:rgba(255,255,255,0.65); line-height:1.9; margin-bottom:20px; }
-    .q-name { font-size:9px; color:rgba(255,255,255,0.18); letter-spacing:2px; text-transform:uppercase; }
+    .q-name { font-size:9px; color:rgba(255,255,255,0.36); letter-spacing:2px; text-transform:uppercase; }
 
     /* FOUNDING */
-    .founding-header { text-align:center; margin-bottom:64px; }
+    .founding-header { text-align:center; margin-bottom:28px; }
     .founding-badge-tag { display:inline-block; border:1px solid rgba(255,215,0,0.2); background:rgba(255,215,0,0.04); color:rgba(255,215,0,0.8); font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:7px 22px; margin-bottom:24px; }
     .milestone-bar { max-width:480px; margin:0 auto 64px; border:1px solid rgba(0,229,204,0.12); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:22px 30px; text-align:center; }
     .milestone-label { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:5px; }
-    .milestone-sub { font-size:9px; color:rgba(255,255,255,0.2); letter-spacing:2px; text-transform:uppercase; }
+    .milestone-sub { font-size:9px; color:rgba(255,255,255,0.44); letter-spacing:2px; text-transform:uppercase; }
     .founding-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; max-width:800px; margin:0 auto 40px; }
     .fh-step { text-align:center; padding:30px 20px; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); }
     .fh-geo { width:32px; height:32px; margin:0 auto 12px; opacity:0.6; }
     .fh-title { font-size:13px; font-weight:800; margin-bottom:6px; letter-spacing:-0.3px; }
-    .fh-desc { font-size:11px; color:rgba(255,255,255,0.28); line-height:1.8; }
+    .fh-desc { font-size:11px; color:rgba(255,255,255,0.50); line-height:1.8; }
     .founding-verify { max-width:640px; margin:0 auto 40px; text-align:center; border:1px solid rgba(0,229,204,0.1); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:14px 24px; font-size:12px; color:rgba(0,229,204,0.65); line-height:1.8; }
-    .prepaid-callout { display:flex; align-items:flex-start; gap:16px; max-width:760px; margin:0 auto 48px; border:1px solid rgba(255,106,0,0.15); background:rgba(255,106,0,0.03); backdrop-filter:blur(10px); padding:20px 26px; font-size:13px; color:rgba(255,255,255,0.4); line-height:1.9; }
+    .prepaid-callout { display:flex; align-items:flex-start; gap:16px; max-width:760px; margin:0 auto 48px; border:1px solid rgba(255,106,0,0.15); background:rgba(255,106,0,0.03); backdrop-filter:blur(10px); padding:20px 26px; font-size:13px; color:rgba(255,255,255,0.40); line-height:1.9; }
     .prepaid-callout strong { color:rgba(255,106,0,0.9); display:block; margin-bottom:4px; }
     .prepaid-mark { width:28px; height:28px; flex-shrink:0; margin-top:2px; opacity:0.7; }
 
@@ -226,13 +238,13 @@
     .tier-name { font-size:14px; font-weight:900; letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; color:rgba(255,255,255,0.7); }
     .tier-price { margin-bottom:14px; }
     .tier-price span { font-size:44px; font-weight:900; letter-spacing:-3px; }
-    .tier-price small { color:rgba(255,255,255,0.2); font-size:13px; }
+    .tier-price small { color:rgba(255,255,255,0.44); font-size:13px; }
     .tier-signal { padding:10px 14px; text-align:center; font-weight:800; font-size:11px; color:#000; margin-bottom:20px; letter-spacing:1px; text-transform:uppercase; }
     .bronze .tier-signal { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.8); }
     .silver .tier-signal { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
     .gold .tier-signal { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
     .tier-perks { list-style:none; margin-bottom:28px; flex:1; }
-    .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.22); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
+    .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.40); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
     .tier-perks li:last-child { border-bottom:none; }
     .tier-perks .ck { color:#00E5CC; flex-shrink:0; margin-top:1px; line-height:1; }
     .tier-btn { width:100%; padding:15px; font-weight:900; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; transition:all 0.2s; }
@@ -246,25 +258,25 @@
     .gold-btn{background:linear-gradient(135deg,#DAA520,#FFD700);color:#000;}
     .tier-btn:hover{opacity:0.88;transform:translateY(-1px);}
     .tier-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
-    .founding-legal { text-align:center; color:rgba(255,255,255,0.1); font-size:10px; margin-top:28px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.9; letter-spacing:0.5px; }
+    .founding-legal { text-align:center; color:rgba(255,255,255,0.36); font-size:10px; margin-top:28px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.9; letter-spacing:0.5px; }
 
     /* FAQ */
     .faq-list { margin-top:64px; }
     .faq-item { border-bottom:1px solid rgba(91,0,255,0.08); }
     .faq-q { width:100%; background:none; border:none; color:rgba(255,255,255,0.75); text-align:left; padding:22px 0; font-size:15px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:16px; font-family:inherit; transition:color 0.2s; letter-spacing:0.2px; }
     .faq-q:hover { color:#00E5CC; }
-    .faq-ico { font-size:16px; color:rgba(255,255,255,0.15); transition:transform 0.3s,color 0.3s; flex-shrink:0; }
+    .faq-ico { font-size:16px; color:rgba(255,255,255,0.40); transition:transform 0.3s,color 0.3s; flex-shrink:0; }
     .faq-item.open .faq-ico { transform:rotate(45deg); color:#00E5CC; }
     .faq-a { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
     .faq-item.open .faq-a { max-height:400px; }
-    .faq-a p { color:rgba(255,255,255,0.35); font-size:14px; line-height:2; padding-bottom:22px; }
+    .faq-a p { color:rgba(255,255,255,0.44); font-size:14px; line-height:2; padding-bottom:22px; }
     .faq-a a { color:#00E5CC; text-decoration:underline; }
 
 
     /* FLAGS */
     .footer-flags { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:16px; }
     .flag-wrap { display:flex; flex-direction:column; align-items:center; gap:6px; }
-    .flag-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.15); }
+    .flag-label { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.40); }
     .flag-svg { width:48px; height:30px; border-radius:2px; overflow:hidden; }
     /* Aboriginal flag glow animation */
     @keyframes abo-glow {
@@ -275,7 +287,7 @@
       100% { filter:drop-shadow(0 0 3px rgba(255,218,0,0.2)) drop-shadow(0 0 6px rgba(204,0,0,0.2)); opacity:0.85; }
     }
     .flag-abo { animation:abo-glow 4s ease-in-out infinite; }
-    .footer-acknowledge { color:rgba(255,255,255,0.12); font-size:10px; margin-top:12px; line-height:1.9; max-width:560px; margin-left:auto; margin-right:auto; font-style:italic; letter-spacing:0.3px; }
+    .footer-acknowledge { color:rgba(255,255,255,0.36); font-size:10px; margin-top:12px; line-height:1.9; max-width:560px; margin-left:auto; margin-right:auto; font-style:italic; letter-spacing:0.3px; }
 
     /* HERO LIGHT SWEEP */
     .hero-sweep-wrap { position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
@@ -332,19 +344,19 @@
     .waitlist-box { background:rgba(91,0,255,0.04); backdrop-filter:blur(24px); border:1px solid rgba(91,0,255,0.12); padding:60px 52px; text-align:center; position:relative; overflow:hidden; }
     .waitlist-box::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,#5B00FF,#00E5CC,transparent); }
     .waitlist-box h2 { font-size:26px; font-weight:900; letter-spacing:-1px; margin-bottom:10px; }
-    .waitlist-box .sub { color:rgba(255,255,255,0.3); margin-bottom:36px; font-size:13px; line-height:1.8; }
+    .waitlist-box .sub { color:rgba(255,255,255,0.44); margin-bottom:36px; font-size:13px; line-height:1.8; }
     form { display:flex; flex-direction:column; gap:8px; text-align:left; }
     input, textarea { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); padding:13px 16px; color:#fff; font-size:13px; outline:none; font-family:inherit; width:100%; transition:border-color 0.2s; }
-    input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.15); }
+    input::placeholder, textarea::placeholder { color:rgba(255,255,255,0.40); }
     input:focus, textarea:focus { border-color:rgba(0,229,204,0.3); background:rgba(0,229,204,0.02); }
     textarea { resize:vertical; }
     button[type=submit] { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:16px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; margin-top:8px; font-family:inherit; transition:all 0.2s; box-shadow:0 0 30px rgba(0,229,204,0.15); }
     button[type=submit]:hover { box-shadow:0 0 50px rgba(0,229,204,0.3); transform:translateY(-1px); }
-    .privacy-note { color:rgba(255,255,255,0.12); font-size:10px; margin-top:16px; line-height:1.8; letter-spacing:0.5px; text-transform:uppercase; }
-    .privacy-note a { color:rgba(255,255,255,0.25); text-decoration:underline; }
+    .privacy-note { color:rgba(255,255,255,0.36); font-size:10px; margin-top:16px; line-height:1.8; letter-spacing:0.5px; text-transform:uppercase; }
+    .privacy-note a { color:rgba(255,255,255,0.36); text-decoration:underline; }
     .success { padding:40px 0; }
     .success h2 { font-size:24px; font-weight:800; margin-bottom:16px; }
-    .success p { color:rgba(255,255,255,0.35); font-size:15px; line-height:1.9; }
+    .success p { color:rgba(255,255,255,0.44); font-size:15px; line-height:1.9; }
     .error { color:#C2003A; font-size:12px; }
 
     /* CONTACT */
@@ -352,15 +364,15 @@
     .ct-card { padding:32px 24px; text-align:center; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); text-decoration:none; transition:background 0.2s; }
     .ct-card:hover { background:rgba(91,0,255,0.06); }
     .ct-geo { width:28px; height:28px; margin:0 auto 12px; opacity:0.6; }
-    .ct-lbl { font-size:9px; color:rgba(255,255,255,0.2); font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+    .ct-lbl { font-size:9px; color:rgba(255,255,255,0.44); font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
     .ct-val { color:#00E5CC; font-size:12px; font-weight:600; word-break:break-all; text-shadow:0 0 10px rgba(0,229,204,0.3); }
-    .ct-foot { color:rgba(255,255,255,0.15); font-size:12px; margin-top:28px; text-align:center; }
-    .ct-foot strong { color:rgba(255,255,255,0.3); }
+    .ct-foot { color:rgba(255,255,255,0.40); font-size:12px; margin-top:28px; text-align:center; }
+    .ct-foot strong { color:rgba(255,255,255,0.44); }
 
     /* CTA */
     .cta-block { text-align:center; max-width:700px; margin:0 auto; }
     .cta-block h2 { font-size:clamp(34px,5.5vw,64px); font-weight:900; letter-spacing:-3px; margin-bottom:20px; }
-    .cta-block p { font-size:15px; color:rgba(255,255,255,0.35); line-height:2; margin-bottom:10px; }
+    .cta-block p { font-size:15px; color:rgba(255,255,255,0.44); line-height:2; margin-bottom:10px; }
     .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:36px; }
 
     /* FOOTER */
@@ -368,11 +380,11 @@
     .footer-logo { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:16px; }
     .footer-logo img { width:26px; height:26px; border-radius:6px; }
     .footer-logo span { font-weight:900; font-size:15px; letter-spacing:-0.5px; }
-    footer p { color:rgba(255,255,255,0.15); font-size:11px; letter-spacing:0.5px; }
+    footer p { color:rgba(255,255,255,0.40); font-size:11px; letter-spacing:0.5px; }
     .footer-links { margin-top:10px; }
-    .footer-links a { color:rgba(255,255,255,0.2); font-size:11px; text-decoration:underline; margin:0 8px; }
+    .footer-links a { color:rgba(255,255,255,0.44); font-size:11px; text-decoration:underline; margin:0 8px; }
     .footer-links a:hover { color:#00E5CC; }
-    .footer-acknowledge { color:rgba(255,255,255,0.08); font-size:10px; margin-top:16px; line-height:1.9; max-width:480px; margin-left:auto; margin-right:auto; }
+    .footer-acknowledge { color:rgba(255,255,255,0.34); font-size:10px; margin-top:16px; line-height:1.9; max-width:480px; margin-left:auto; margin-right:auto; }
 
     @media(max-width:768px){
       nav { padding:16px 20px; }
@@ -383,6 +395,75 @@
       .movement-box { padding:48px 24px; }
       h1 { letter-spacing:-2px; }
     }
+  
+
+
+/* === NAV BUTTON ADJUSTMENT === */
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.btn-nav.enterprise-link {
+  padding: 7px 16px !important;
+  font-size: 9px !important;
+  letter-spacing: 2.4px !important;
+  border-color: rgba(0,102,255,0.55) !important;
+  color: rgba(70,150,255,0.92) !important;
+  background: rgba(0,102,255,0.045) !important;
+  box-shadow: none !important;
+}
+
+.btn-nav.enterprise-link:hover {
+  background: rgba(0,102,255,0.10) !important;
+  border-color: rgba(70,150,255,0.85) !important;
+  box-shadow: 0 0 18px rgba(0,102,255,0.20) !important;
+}
+
+
+/* === URBYTE SOFTER FADE PATCH === */
+.hero-sub,
+.sec-sub,
+.g-desc,
+.no-item,
+.signal-text,
+.movement-box p,
+.donate-note,
+.founder-text p,
+.q-text,
+.faq-a p,
+.founding-legal,
+.prepaid-callout,
+.privacy-note,
+.ct-foot,
+footer p,
+.footer-acknowledge,
+.tier-perks li,
+.fh-desc,
+.ch-cause,
+.stat-label {
+  color: rgba(255,255,255,0.44) !important;
+}
+
+.hero-micro,
+.milestone-sub,
+.q-name,
+.flag-label,
+.footer-links a,
+.ch-name,
+.ct-lbl,
+.founder-sig {
+  color: rgba(255,255,255,0.34) !important;
+}
+
+.tier-perks .ck,
+.no-item .ck,
+.faq-q:hover,
+.ct-val {
+  opacity: 1 !important;
+}
+
   </style>
 </head>
 <body>
@@ -514,7 +595,7 @@
 <nav>
   <div class="nav-logo">
     <div style="position:relative;display:inline-block;width:34px;height:34px;">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;" />
+      <img src="assets/urbyte-logo.jpeg" alt="Urbyte" style="width:34px;height:34px;border-radius:8px;object-fit:contain;" />
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:8px;animation:fol-pulse 10s ease-in-out infinite;">
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
         <circle cx="50" cy="32" r="18" fill="none" stroke="rgba(167,139,255,0.5)" stroke-width="1"/>
@@ -529,7 +610,9 @@
     <span>Urbyte</span>
     <span class="nav-tag">// BETA</span>
   </div>
-  <a href="#founding" class="btn-nav">Founding Members</a>
+  <div class="nav-actions">
+    <a href="/enterprise/" class="btn-nav enterprise-link">Enterprise</a>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -636,25 +719,120 @@
 </div>
 
 <div class="geo-div"></div>
-<!-- SIGNAL CONCEPT — no label, just sensation -->
-<div class="sec">
+<!-- FOUNDING MEMBERS -->
+<div class="sec" id="founding">
   <div class="sec-inner">
-    <div class="sec-tag">Something Is Building</div>
-    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
-    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
-    <div class="signal-wrap">
-      <div class="signal-orb">
-        <svg class="signal-inner"><use href="#ico-signal"/></svg>
+    <div class="founding-header">
+      <div class="founding-badge-tag">Founding Members — Limited Spots</div>
+      <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Founding Members are the first Australians to say — not anymore.</p>
+    </div>
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.44);margin-bottom:20px;">Choose your position</div>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card bronze">
+        <svg class="tier-geo"><use href="#ico-tri"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
+        <div class="tier-price"><span>$3.99</span><small>/mo</small></div>
+        <div class="tier-signal">Signal activated on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-btn bronze-btn" onclick="joinTier('bronze',this)">Join as Bronze Member →</button>
       </div>
-      <div class="signal-text">
-        <strong>Your signal is growing.</strong>
-        It was always there. Now it has somewhere to go.
+      <div class="tier-card silver">
+        <div class="tier-badge popular">Most Popular</div>
+        <svg class="tier-geo"><use href="#ico-hex"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Silver</div>
+        <div class="tier-price"><span>$6.99</span><small>/mo</small></div>
+        <div class="tier-signal">Amplified signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Amplified signal from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
+        </ul>
+        <button class="tier-btn silver-btn" onclick="joinTier('silver',this)">Join as Silver Member →</button>
+      </div>
+      <div class="tier-card gold">
+        <div class="tier-badge best">Best Value</div>
+        <svg class="tier-geo"><use href="#ico-diamond"/></svg>
+        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
+        <div class="tier-price"><span>$9.99</span><small>/mo</small></div>
+        <div class="tier-signal">Maximum signal on signup</div>
+        <ul class="tier-perks">
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Best available rate</strong> — locked in for life</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Gold status — permanently on profile</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
+        </ul>
+        <button class="tier-btn gold-btn" onclick="joinTier('gold',this)">join as Gold Member →</button>
       </div>
     </div>
+    <div class="milestone-bar" style="margin-top:40px;">
+      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
+      <div class="milestone-sub">Early members lock in the best rates — permanently</div>
+    </div>
+    <p class="founding-legal">Cancel anytime. No lock-in. Your founding rate is locked in for the life of your active subscription. Value unlocks after 3 completed billing cycles for usage verification. Refer your peers for higher return rates. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
+    <div class="founding-how">
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-hex"/></svg>
+        <div class="fh-title">Signal Begins</div>
+        <p class="fh-desc">Your existing unused value starts returning immediately on signup</p>
+      </div>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-diamond"/></svg>
+        <div class="fh-title">It Accumulates</div>
+        <p class="fh-desc">Submit your bill each month. We track what went unused over 3 cycles / Expired pre-paid amounts over a 3 month period. </p>
+      </div>
+      <div class="fh-step">
+        <svg class="fh-geo"><use href="#ico-star"/></svg>
+        <div class="fh-title">You Direct It</div>
+        <p class="fh-desc">Spend it on rewards, experiences, or the causes that need it most</p>
+      </div>
+    </div>
+
+    <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
+
+    <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
+      <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#00E5CC;">100%</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.36);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Conversion Rate</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.44);margin-top:8px;">Every single person shown Urbyte signed up</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#8B5CF6;">$9.6B</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.36);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Lost Every Year</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.44);margin-top:8px;">In paid-but-unused Australian mobile data</div>
+      </div>
+      <div style="padding:28px 24px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.1);text-align:center;">
+        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#C2003A;">14</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.36);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Charity Partners</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.44);margin-top:8px;">Ready to receive what the system has been keeping</div>
+      </div>
+    </div>
+
+    <div class="prepaid-callout">
+      <svg class="prepaid-mark"><use href="#ico-tri"/></svg>
+      <div><strong>On a prepaid plan?</strong> If you use all your data before month-end, there's nothing left to return. Upgrading to a higher recharge creates a buffer — and Urbyte captures that residual value every cycle.</div>
+    </div>
+
+
   </div>
 </div>
 
 <div class="geo-div"></div>
+
 <!-- PROBLEM -->
 <div class="sec">
   <div class="sec-inner">
@@ -681,10 +859,10 @@
     <div class="sec-tag">Built Different</div>
     <h2 class="sec-title">Built for people, not systems.</h2>
     <div class="grid-2">
-      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">What was overlooked is now returned</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Value that was wasted now flows back to you</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">You stay in control, always-all ways.</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.5);">Backed by a mission to make this fairer for everyone</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.44);">What was overlooked is now returned</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.44);">Value that was wasted now flows back to you</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.44);">You stay in control, always-all ways.</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.44);">Backed by a mission to make this fairer for everyone</p></div>
     </div>
   </div>
 </div>
@@ -763,7 +941,7 @@
       <div class="sec-tag" style="justify-content:center;">Be First</div>
       <h2>Be there from the start.</h2>
       <p>We're opening access in stages. Early members get the most value — and help shape what this becomes. Refer Urbyte to your peers and unlock higher return rates. </p>
-      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
+      <p style="font-size:10px;color:rgba(255,255,255,0.36);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
       <div class="cta-btns">
         <a href="#founding" class="btn-primary">Secure Your Spot</a>
         <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
@@ -774,119 +952,25 @@
 
 <div class="geo-div"></div>
 
-<!-- FOUNDING MEMBERS -->
-<div class="sec" id="founding">
+<!-- SIGNAL CONCEPT — no label, just sensation -->
+<div class="sec">
   <div class="sec-inner">
-    <div class="founding-header">
-      <div class="founding-badge-tag">Founding Members — Limited Spots</div>
-      <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Founding Members are the first Australians to say — not anymore.</p>
-    </div>
-
-    <div class="founding-how">
-      <div class="fh-step">
-        <svg class="fh-geo"><use href="#ico-hex"/></svg>
-        <div class="fh-title">Signal Begins</div>
-        <p class="fh-desc">Your existing unused value starts returning immediately on signup</p>
+    <div class="sec-tag">Something Is Building</div>
+    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <div class="signal-wrap">
+      <div class="signal-orb">
+        <svg class="signal-inner"><use href="#ico-signal"/></svg>
       </div>
-      <div class="fh-step">
-        <svg class="fh-geo"><use href="#ico-diamond"/></svg>
-        <div class="fh-title">It Accumulates</div>
-        <p class="fh-desc">Submit your bill each month. We track what went unused over 3 cycles / Expired pre-paid amounts over a 3 month period. </p>
-      </div>
-      <div class="fh-step">
-        <svg class="fh-geo"><use href="#ico-star"/></svg>
-        <div class="fh-title">You Direct It</div>
-        <p class="fh-desc">Spend it on rewards, experiences, or the causes that need it most</p>
+      <div class="signal-text">
+        <strong>Your signal is growing.</strong>
+        It was always there. Now it has somewhere to go.
       </div>
     </div>
-
-    <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
-
-    <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
-      <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
-        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#00E5CC;">100%</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Conversion Rate</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Every single person shown Urbyte signed up</div>
-      </div>
-      <div style="padding:28px 24px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.1);text-align:center;">
-        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#8B5CF6;">$9.6B</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Lost Every Year</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">In paid-but-unused Australian mobile data</div>
-      </div>
-      <div style="padding:28px 24px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.1);text-align:center;">
-        <div style="font-size:36px;font-weight:900;letter-spacing:-2px;color:#C2003A;">14</div>
-        <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">Charity Partners</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:8px;">Ready to receive what the system has been keeping</div>
-      </div>
-    </div>
-
-    <div class="prepaid-callout">
-      <svg class="prepaid-mark"><use href="#ico-tri"/></svg>
-      <div><strong>On a prepaid plan?</strong> If you use all your data before month-end, there's nothing left to return. Upgrading to a higher recharge creates a buffer — and Urbyte captures that residual value every cycle.</div>
-    </div>
-
-    <div style="text-align:center;margin-bottom:48px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:20px;">Choose your position</div>
-    </div>
-    <div class="tier-grid">
-      <div class="tier-card bronze">
-        <svg class="tier-geo"><use href="#ico-tri"/></svg>
-        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
-        <div class="tier-price"><span>$3.99</span><small>/mo</small></div>
-        <div class="tier-signal">Signal activated on signup</div>
-        <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
-        </ul>
-        <button class="tier-btn bronze-btn" onclick="joinTier('bronze',this)">Join as Bronze Member →</button>
-      </div>
-      <div class="tier-card silver">
-        <div class="tier-badge popular">Most Popular</div>
-        <svg class="tier-geo"><use href="#ico-hex"/></svg>
-        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Silver</div>
-        <div class="tier-price"><span>$6.99</span><small>/mo</small></div>
-        <div class="tier-signal">Amplified signal on signup</div>
-        <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Amplified signal from day one</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
-        </ul>
-        <button class="tier-btn silver-btn" onclick="joinTier('silver',this)">Join as Silver Member →</button>
-      </div>
-      <div class="tier-card gold">
-        <div class="tier-badge best">Best Value</div>
-        <svg class="tier-geo"><use href="#ico-diamond"/></svg>
-        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
-        <div class="tier-price"><span>$9.99</span><small>/mo</small></div>
-        <div class="tier-signal">Maximum signal on signup</div>
-        <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Best available rate</strong> — locked in for life</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Gold status — permanently on profile</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support &amp; feature voting</li>
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Input on product direction</li>
-        </ul>
-        <button class="tier-btn gold-btn" onclick="joinTier('gold',this)">join as Gold Member →</button>
-      </div>
-    </div>
-    <div class="milestone-bar" style="margin-top:40px;">
-      <div class="milestone-label">Milestone: 10,000 Founding Members</div>
-      <div class="milestone-sub">Early members lock in the best rates — permanently</div>
-    </div>
-    <p class="founding-legal">Cancel anytime. No lock-in. Your founding rate is locked in for the life of your active subscription. Value unlocks after 3 completed billing cycles for usage verification. Refer your peers for higher return rates. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
   </div>
 </div>
 
 <div class="geo-div"></div>
-
 <!-- FAQ -->
 <div class="sec" id="faq">
   <div class="sec-inner narrow">
@@ -926,7 +1010,7 @@
             <button type="submit" id="submit-btn" style="flex:1;">Join the Waitlist</button>
             <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
+                <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.44)" stroke-width="1.2" fill="none"/>
               </svg>
             </button>
           </div>
@@ -970,7 +1054,7 @@
 <footer>
   <div class="footer-logo" style="position:relative;">
     <div style="position:relative;display:inline-block;">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <img src="assets/urbyte-logo.jpeg" alt="Urbyte" />
       <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
         <!-- Flower of Life: central circle + 6 surrounding -->
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
@@ -1082,7 +1166,7 @@
       btn.setAttribute('data-active','0');
       btn.style.background='rgba(91,0,255,0.08)';
       btn.style.borderColor='rgba(91,0,255,0.25)';
-      path.setAttribute('stroke','rgba(255,255,255,0.3)');
+      path.setAttribute('stroke','rgba(255,255,255,0.44)');
       path.setAttribute('fill','none');
       count.style.display='none';
     } else {
