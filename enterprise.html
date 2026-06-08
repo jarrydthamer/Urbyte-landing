@@ -150,6 +150,25 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   .terminal-wrap{padding:0 24px}
   footer{padding:28px 24px;flex-direction:column;align-items:flex-start}
 }
+
+/* REVENUE ASSURANCE MATRIX */
+.ram-wrap{position:relative;max-width:960px;margin:60px auto;border:1px solid rgba(0,229,204,0.15);background:rgba(0,0,10,0.95);overflow:hidden;}
+.ram-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#00E5CC,transparent);}
+.ram-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.ram-title{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#00E5CC;}
+.ram-reg{font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,0.2);font-family:monospace;}
+.ram-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);}
+.ram-cell{padding:28px 24px;background:#00000A;position:relative;}
+.ram-cell.highlight{border:1px solid rgba(0,229,204,0.12);background:rgba(0,229,204,0.02);}
+.ram-tag{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:10px;}
+.ram-tag.cyan{color:#00E5CC;}
+.ram-tag.teal{color:#007888;}
+.ram-tag.emerald{color:#00C48C;}
+.ram-val{font-size:24px;font-weight:900;letter-spacing:-1px;color:#fff;font-family:monospace;margin-bottom:10px;}
+.ram-cell.highlight .ram-val{color:#00C48C;}
+.ram-desc{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;}
+@media(max-width:640px){.ram-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
@@ -248,6 +267,34 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 </div>
 
 <hr class="divider"/>
+
+
+<!-- REVENUE ASSURANCE MATRIX -->
+<div style="padding:0 24px;">
+<div class="ram-wrap">
+  <div class="ram-header">
+    <span class="ram-title">// Financial Assurance Protection Model</span>
+    <span class="ram-reg">REG_COMPLIANT // AU_2026</span>
+  </div>
+  <div class="ram-grid">
+    <div class="ram-cell">
+      <span class="ram-tag cyan">Churn Escape Plug</span>
+      <div class="ram-val">AU $600K+</div>
+      <p class="ram-desc">Plugs leakage by turning expiring data into an immediate consumer retention reward anchor.</p>
+    </div>
+    <div class="ram-cell">
+      <span class="ram-tag teal">Capacity Monetisation</span>
+      <div class="ram-val">AU $1.26M</div>
+      <p class="ram-desc">Generates a net routing yield on completely unallocated off-peak network baseline capacity.</p>
+    </div>
+    <div class="ram-cell highlight">
+      <span class="ram-tag emerald">Retained Wholesale ARPU</span>
+      <div class="ram-val">+4.2% Stability</div>
+      <p class="ram-desc">Protects core-side account longevity across competitive prepaid and MVNO carrier ecosystems.</p>
+    </div>
+  </div>
+</div>
+</div>
 
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
