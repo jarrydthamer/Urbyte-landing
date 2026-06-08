@@ -137,12 +137,12 @@
       background:rgba(0,229,204,0.05);
       border-top:1px solid rgba(0,229,204,0.12);
       border-bottom:1px solid rgba(0,229,204,0.12);
-      padding:28px 40px;
-      display:flex; justify-content:center; gap:80px; flex-wrap:wrap;
+      padding:32px 40px;
+      display:flex; justify-content:center; gap:48px; flex-wrap:wrap;
     }
-    .stat-item { text-align:center; }
+    .stat-item { text-align:center; min-width:140px; }
     .stat-num { font-size:28px; font-weight:900; color:#00E5CC; letter-spacing:-1px; }
-    .stat-label { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
+    .stat-label { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:6px; line-height:1.5; }
 
     /* SECTIONS */
     section { max-width:1200px; margin:0 auto; padding:100px 40px; }
@@ -287,20 +287,24 @@
 <!-- STAT STRIP -->
 <div class="stat-strip">
   <div class="stat-item">
-    <div class="stat-num">$9.9B</div>
-    <div class="stat-label">Annual Data Waste — Australia</div>
+    <div class="stat-num">&gt;50%</div>
+    <div class="stat-label">Enterprise Mobile Budget Wasted<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Telgea Research 2025</span></div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">55GB</div>
-    <div class="stat-label">Avg Monthly Waste Per User</div>
+    <div class="stat-num">&lt;7%</div>
+    <div class="stat-label">Avg Data Consumed Per Corporate Line<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Samsung / Oxford Economics 2025</span></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">$866K</div>
+    <div class="stat-label">Annual Waste — 1,000-Employee Fleet<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Oxford Economics / Telgea 2025</span></div>
   </div>
   <div class="stat-item">
     <div class="stat-num">30%</div>
-    <div class="stat-label">Immediate Tax Benefit</div>
+    <div class="stat-label">Immediate Tax Benefit<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">ATO TR 2011/4</span></div>
   </div>
   <div class="stat-item">
     <div class="stat-num">AASB 138</div>
-    <div class="stat-label">Intangible Asset Classification</div>
+    <div class="stat-label">Intangible Asset Classification<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Aust. Accounting Standard</span></div>
   </div>
 </div>
 
