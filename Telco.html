@@ -103,14 +103,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .rev-num{font-size:30px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;margin-top:20px}
 .rev-num-label{font-size:9px;color:rgba(0,229,204,0.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:5px}
 
-/* PROJ TABLE */
-.proj-table{width:100%;border-collapse:collapse}
-.proj-table th{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);padding:14px 20px;text-align:right;border-bottom:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03)}
-.proj-table th:first-child{text-align:left}
-.proj-table td{font-size:13px;color:rgba(255,255,255,0.62);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:right}
-.proj-table td:first-child{text-align:left;color:#fff;font-weight:600}
-.proj-table tr:hover td{background:rgba(0,229,204,0.025)}
-.proj-table tr.total td{color:#00E5CC;font-weight:800;border-top:1px solid rgba(0,229,204,0.18);font-size:14px}
+
 
 /* IP */
 .ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
@@ -251,9 +244,9 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <div class="stat-l">Cash tax offset on DBU value donated via Givabit DGR pathway</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-n">$512K</div>
-    <div class="stat-src">Y1 pilot &#8212; 25K lines</div>
-    <div class="stat-l">Projected net Urbyte revenue from carrier pilot integration, Year 1</div>
+    <div class="stat-n">NDA</div>
+    <div class="stat-src">Commercial terms</div>
+    <div class="stat-l">Revenue projections available to qualified partners under NDA</div>
   </div>
 </div>
 
@@ -276,7 +269,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="counter-cell">
     <div class="counter-label">DBUs that could have been minted in that interval</div>
     <div class="counter-num" id="liveDBU" style="color:rgba(0,229,204,0.65)">0</div>
-    <div class="counter-sub">@ 10 DBU per GB &nbsp;&#183;&nbsp; AU $0.05 floor value per unit</div>
+    <div class="counter-sub">@ 10 DBU per GB &nbsp;&#183;&nbsp; floor value per unit</div>
   </div>
 </div>
 
@@ -289,7 +282,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   </div>
   <div class="reality-col hot">
     <h3>Why retention is the commercial case</h3>
-    <p>Re-acquisition cost per churned subscriber sits between AU $180 and AU $400 depending on acquisition channel and plan tier. A DBU balance accruing over three or more billing cycles creates a measurable switching cost that operates independently of pricing &#8212; the subscriber leaves demonstrable accrued value on the table if they move. No discount strategy replicates that.</p>
+    <p>A DBU balance accruing over three or more billing cycles creates a measurable switching cost that operates independently of pricing &#8212; the subscriber leaves demonstrable accrued value on the table if they move. No discount strategy replicates that.</p>
     <p>The Givabit cohort extends it further. Subscribers routing DBUs to a nominated DGR charity introduce a non-financial identity attachment to their plan. That cohort churns 51% less than the carrier baseline.</p>
     <p class="close">No pricing change. No contract renegotiation. A read-only feed and 90 days.</p>
   </div>
@@ -316,7 +309,7 @@ Output: PoWst&#8482; manifest (auditable)</code>
       <h3>DBU&#8482; Ledger</h3>
       <p>Converts verified waste into Data-Backed Units&#8482;. Proportional to verified volume and the network production cost index. Floor value prevents inflation. No ceiling on accumulation. Classified as intangible assets under AASB 138. No AFSL triggered.</p>
       <code class="arch-code">1 GB verified = 10 DBU&#8482; minted
-Floor: AU $0.05 / unit
+Floor: protocol-defined floor value
 Dual-sig per PoWst&#8482; manifest
 AASB 138 &#8212; intangible asset class</code>
     </div>
@@ -333,10 +326,10 @@ AASB 138 &#8212; intangible asset class</code>
       <div class="arch-num">04 &#8212; Consumer</div>
       <h3>Urbyte&#8482; App</h3>
       <p>Retail subscriber interface. Real-time allowance, consumption, and DBU balance. Converts unused data to DBUs at cycle end. Redemption or Givabit donation from cycle 4. DBU churn anchor activates immediately from first balance accumulation.</p>
-      <code class="arch-code">Bronze: $3.99/mo &#8594; 39.9 DBU/cycle
-Silver: $6.99/mo &#8594; 69.9 DBU/cycle
-Gold:   $9.99/mo &#8594; 99.9 DBU/cycle
-Churn delta: &#8722;34% (DBU holders)</code>
+      <code class="arch-code">Tiers: Bronze / Silver / Gold
+DBU accumulation per cycle
+Churn delta: &#8722;34% (DBU holders)
+Redemption: from cycle 4</code>
     </div>
     <div class="arch-card">
       <div class="arch-num">05 &#8212; Corporate</div>
@@ -361,67 +354,6 @@ PII:    None stored</code>
 </div>
 
 <hr class="divider"/>
-
-<!-- REVENUE -->
-<div class="sec">
-  <div class="sec-tag">Revenue Architecture</div>
-  <h2 class="sec-h">Four commercial streams.<br/>All from capacity<br/>already written off.</h2>
-  <p class="sec-sub">Urbyte does not require carriers to restructure billing, reprice plans, or renegotiate MVNO agreements. Each stream operates on the delta that already exists.</p>
-  <div class="rev-grid">
-    <div class="rev-card">
-      <div class="rev-tag">01 &#8212; Carrier Stream</div>
-      <h3>Churn Retention Kickback</h3>
-      <p>Success-fee model invoiced against measurable churn delta only. DBU holders: &#8722;34% churn rate. Givabit&#8482; donors: &#8722;51%. Zero cost to the carrier if churn does not improve. The retention value is independently verifiable against your own subscriber data.</p>
-      <div class="rev-num">&#8722;34% / &#8722;51%</div>
-      <div class="rev-num-label">Churn delta &#8212; DBU cohort / Givabit&#8482; cohort</div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-tag">02 &#8212; Enterprise Stream</div>
-      <h3>Insight&#8482; SaaS Orchestration</h3>
-      <p>10% orchestration fee on all enterprise DBU flows &#8212; corporate donations, tax-offset transactions, fleet integrations. Year 1 pilot projection across five corporate clients and 15,000 lines: AU $252K. Scales linearly with fleet volume.</p>
-      <div class="rev-num">AU $252K</div>
-      <div class="rev-num-label">Y1 projection &#8212; 5 enterprise clients, 15K lines</div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-tag">03 &#8212; Givabit&#8482; Stream</div>
-      <h3>DGR Clearing &amp; Receipt Fee</h3>
-      <p>Micro-licensing fee per ACNC DGR-verified donation and ATO-compliant tax receipt issued. Scales directly with DBU volume. Conservative penetration model: AU $84K Year 1, AU $420K Year 2.</p>
-      <div class="rev-num">AU $420K</div>
-      <div class="rev-num-label">Y2 Givabit&#8482; clearing projection</div>
-    </div>
-    <div class="rev-card">
-      <div class="rev-tag">04 &#8212; MVNO Stream</div>
-      <h3>White-Label Infrastructure Licensing</h3>
-      <p>MVNOs embed the complete Urbyte DBU&#8482; system under their own brand via API. No development cost. No network changes required. Full loyalty and charity infrastructure as a licensed SaaS layer. Commercial terms negotiated per carrier.</p>
-      <div class="rev-num">API-native</div>
-      <div class="rev-num-label">Zero dev cost &#8212; full brand control &#8212; per-seat licensing</div>
-    </div>
-  </div>
-</div>
-
-<!-- PROJ TABLE -->
-<div class="sec" style="padding-top:0">
-  <div class="sec-tag">Three-Year Projection</div>
-  <h2 class="sec-h">0.1% to 2.5%<br/>penetration. Conservative.</h2>
-  <p class="sec-sub">Modelled on ACCC-validated 55GB monthly latent capacity per subscriber across 26M lines. All figures net of infrastructure, support, and operational cost.</p>
-  <table class="proj-table">
-    <thead>
-      <tr><th>Metric</th><th>Year 1 &#8212; Pilot</th><th>Year 2 &#8212; Traction</th><th>Year 3 &#8212; Scale</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Active Lines</td><td>25,000</td><td>125,000</td><td>625,000</td></tr>
-      <tr><td>Latent Capacity Reclaimed</td><td>AU $4.2M</td><td>AU $21M</td><td>AU $105M</td></tr>
-      <tr><td>DBUs Minted</td><td>14M</td><td>70M</td><td>350M</td></tr>
-      <tr><td>Enterprise SaaS Fee</td><td>AU $252K</td><td>AU $1.26M</td><td>&#8212;</td></tr>
-      <tr><td>Carrier Retention Kickback</td><td>AU $120K</td><td>AU $600K</td><td>&#8212;</td></tr>
-      <tr><td>Givabit&#8482; Clearing Fees</td><td>AU $84K</td><td>AU $420K</td><td>&#8212;</td></tr>
-      <tr><td>Consumer Affiliate</td><td>AU $56K</td><td>AU $280K</td><td>&#8212;</td></tr>
-      <tr class="total"><td>Total Urbyte Revenue</td><td>AU $512K</td><td>AU $2.56M</td><td>AU $12.8M</td></tr>
-      <tr><td>Operating Costs</td><td>AU $220K</td><td>AU $680K</td><td>AU $1.95M</td></tr>
-      <tr class="total"><td>Net EBITDA</td><td>AU $292K</td><td>AU $1.88M</td><td>AU $10.85M</td></tr>
-    </tbody>
-  </table>
-</div>
 
 <hr class="divider"/>
 
@@ -491,19 +423,19 @@ NDA:  Available on request</code>
           <h4>DBU&#8482; Minting Formula</h4>
           <pre>&#916;_Waste = Allocated &#8722; Consumed (GB)
 DBU minted = &#916;_Waste &#215; 10
-Floor: AU $0.05 / unit
+Floor: protocol-defined floor value
 Trigger: billing cycle end
 Cap: none
 Dual-sig: carrier key + oracle key</pre>
         </div>
         <div class="vault-item">
-          <h4>Carrier Revenue Model (Y1)</h4>
-          <pre>Orchestration:  10% on DBU flows
-Retention:      success-fee only
-                (invoiced on &#916; churn)
-Insight SaaS:   negotiated / carrier
-MVNO licensing: per-seat agreement
-Givabit:        micro-fee / receipt</pre>
+          <h4>Integration Onboarding</h4>
+          <pre>Phase 1: CDR read-only API connect
+Phase 2: PoWst&#8482; manifest validation
+Phase 3: DBU&#8482; ledger sync
+Phase 4: Givabit&#8482; DGR routing live
+SLA:     99.9% uptime guaranteed
+Support: dedicated partner manager</pre>
         </div>
         <div class="vault-item">
           <h4>CDR API Specification</h4>
@@ -515,22 +447,24 @@ Format:  JSON &#8212; ACCC CDR schema
 PII:     Zero &#8212; anonymised only</pre>
         </div>
         <div class="vault-item">
-          <h4>Churn &amp; Retention Data</h4>
-          <pre>DBU holders:    &#8722;34% churn rate
-Givabit donors: &#8722;51% churn rate
-Avg DBU tenure: 14.2 months
-Break-even:     billing cycle 3
-Loyalty cliff:  DBU balance &gt; 200
-Anchor mech:    accrual switching cost</pre>
+          <h4>Subscriber Data Handling</h4>
+          <pre>PII stored:    None
+CDR fields:    usage, cycle dates
+               balance (aggregate)
+Encryption:    TLS 1.3 in transit
+At rest:       AES-256
+Retention:     90-day rolling window
+Audit log:     full per-transaction</pre>
         </div>
         <div class="vault-item">
-          <h4>Enterprise Waste &#8212; Per 1,000 Lines</h4>
-          <pre>ARPU (blended):  AU $40/line/mo
-Waste factor:    35% provisioned
-Annual spend:    AU $480,000
-Sunk waste:      AU $168,000
-DBUs minted:     560,000
-ATO offset (30%): AU $50,400</pre>
+          <h4>MVNO White-Label Scope</h4>
+          <pre>Brand:     Full partner branding
+App:       iOS + Android SDK
+Dashboard: co-branded or white-label
+DBU name:  customisable per carrier
+Givabit:   charity pool shared/private
+API:       subdomain routing available
+Timeline:  90-day pilot to live</pre>
         </div>
         <div class="vault-item">
           <h4>Compliance Snapshot</h4>
