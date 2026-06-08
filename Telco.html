@@ -3,191 +3,162 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Urbyte — Telco & MVNO Infrastructure</title>
-<meta name="description" content="Urbyte is the neutral infrastructure layer converting systemic network waste into DBUs — reducing churn, enabling DGR tax deductions, and creating a new retention revenue stream for carriers and MVNOs."/>
+<title>Urbyte — Telco &amp; MVNO Infrastructure</title>
+<meta name="description" content="Urbyte converts verified latent capacity into a measurable retention asset. Out-of-band. Read-only. Zero network disruption."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#00000A;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* SCANLINES */
-body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:9999}
+body{font-family:"Inter",sans-serif;background:#00000A;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:9999}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(0,0,10,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,229,204,0.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(0,0,10,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,229,204,0.1)}
 .nav-left{display:flex;align-items:center;gap:14px;text-decoration:none}
 .nav-left img{width:38px;height:38px;border-radius:8px;object-fit:cover}
-.nav-brand{font-size:19px;font-weight:900;letter-spacing:-0.5px}
+.nav-brand{font-size:19px;font-weight:900;letter-spacing:-0.5px;color:#fff}
 .nav-pill{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#00E5CC;border:1px solid rgba(0,229,204,0.35);padding:3px 10px}
 .nav-right{display:flex;align-items:center;gap:28px}
-.nav-right a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s}
+.nav-right a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
 .nav-right a:hover{color:#00E5CC}
 .nav-cta{font-size:11px!important;font-weight:700!important;letter-spacing:1.5px!important;text-transform:uppercase;color:#00E5CC!important;border:1px solid rgba(0,229,204,0.4);padding:8px 18px;transition:all 0.2s!important}
-.nav-cta:hover{background:rgba(0,229,204,0.08)!important;border-color:#00E5CC!important}
+.nav-cta:hover{background:rgba(0,229,204,0.08)!important}
 
 /* HERO */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding-top:64px;overflow:hidden}
-.hero-img-wrap{position:absolute;inset:0;z-index:0}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
-.hero-img-fade{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,10,0.93) 0%,rgba(0,0,10,0.75) 45%,rgba(0,0,10,0.25) 75%,rgba(0,0,10,0.55) 100%)}
-.hero-text{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:80px 48px 80px}
-.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
-.hero-kicker::before{content:'';width:24px;height:1px;background:#00E5CC}
-.hero h1{font-size:clamp(38px,5.5vw,72px);font-weight:900;line-height:1.0;letter-spacing:-2.5px;margin-bottom:24px}
+.hero{position:relative;min-height:93vh;display:flex;align-items:center;padding-top:64px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.9) 35%,rgba(0,0,10,0.55) 62%,rgba(0,0,10,0.18) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:80px 48px;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
+.hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
+.hero h1{font-size:clamp(44px,5.8vw,78px);font-weight:900;line-height:0.96;letter-spacing:-3px;margin-bottom:28px;max-width:780px}
 .hero h1 em{font-style:normal;color:#00E5CC}
-.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:700px;margin-bottom:36px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-.btn-p{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:14px 32px;transition:opacity 0.2s}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.9;max-width:600px;margin-bottom:42px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.btn-p{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:15px 34px;transition:opacity 0.2s}
 .btn-p:hover{opacity:0.85}
-.btn-g{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.65);padding:14px 32px;transition:all 0.2s}
+.btn-g{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:15px 34px;transition:all 0.2s}
 .btn-g:hover{border-color:#00E5CC;color:#00E5CC}
-.hero-trust{display:flex;gap:20px;flex-wrap:wrap}
-.trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px}
-.trust-pill::before{content:'';width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
+.hero-trust{display:flex;gap:22px;flex-wrap:wrap}
+.trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
+.trust-pill::before{content:"";width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
 
 /* TICKER */
-.ticker{background:rgba(0,229,204,0.04);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.1);overflow:hidden;padding:14px 0}
-.ticker-inner{display:flex;gap:60px;animation:tick 28s linear infinite;white-space:nowrap}
-.ticker-inner:hover{animation-play-state:paused}
+.ticker{background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.07);overflow:hidden;padding:13px 0}
+.ticker-inner{display:flex;gap:56px;animation:tick 34s linear infinite;white-space:nowrap}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.tick-item{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;gap:10px;flex-shrink:0}
-.tick-item span{color:rgba(255,255,255,0.25)}
+.tick-item{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.6);flex-shrink:0;display:flex;align-items:center;gap:10px}
+.tick-item span{color:rgba(255,255,255,0.2)}
 
 /* STAT STRIP */
-.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid rgba(0,229,204,0.08)}
-.stat-cell{padding:40px 32px;border-right:1px solid rgba(0,229,204,0.08);transition:background 0.3s;cursor:default}
+.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid rgba(0,229,204,0.07)}
+.stat-cell{padding:38px 28px;border-right:1px solid rgba(0,229,204,0.07);transition:background 0.3s;cursor:default}
 .stat-cell:last-child{border-right:none}
-.stat-cell:hover{background:rgba(0,229,204,0.04)}
-.stat-n{font-size:36px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;line-height:1}
-.stat-src{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:4px}
-.stat-l{font-size:12px;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.5}
+.stat-cell:hover{background:rgba(0,229,204,0.03)}
+.stat-n{font-size:34px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;line-height:1}
+.stat-src{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(0,229,204,0.35);margin-top:5px}
+.stat-l{font-size:12px;color:rgba(255,255,255,0.5);margin-top:9px;line-height:1.55}
 
-/* SECTIONS */
-.sec{max-width:1100px;margin:0 auto;padding:100px 48px}
-.sec-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.sec-tag::before{content:'';width:28px;height:1px;background:rgba(0,229,204,0.5)}
-.sec-h{font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:18px}
-.sec-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.85;max-width:680px;margin-bottom:56px}
-.divider{border:none;border-top:1px solid rgba(0,229,204,0.07);margin:0}
+/* LAYOUT */
+.sec{max-width:1100px;margin:0 auto;padding:96px 48px}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:"";width:24px;height:1px;background:rgba(0,229,204,0.45)}
+.sec-h{font-size:clamp(28px,3.8vw,50px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:16px}
+.sec-sub{font-size:15px;color:rgba(255,255,255,0.58);line-height:1.9;max-width:660px;margin-bottom:52px}
+.divider{border:none;border-top:1px solid rgba(0,229,204,0.07)}
 
-/* WASTE PROBLEM — animated counter */
-.waste-vis{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:0}
-.waste-col{background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);padding:40px 36px}
-.waste-col.hot{border-color:rgba(194,0,58,0.2);background:rgba(194,0,58,0.03)}
-.waste-col h3{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
-.waste-col.hot h3{color:#C2003A}
-.waste-col h3{color:rgba(0,229,204,0.7)}
-.waste-col p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.85}
-.waste-col ul{list-style:none;margin-top:14px}
-.waste-col ul li{font-size:14px;color:rgba(255,255,255,0.65);padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:12px;align-items:flex-start;line-height:1.6}
-.waste-col ul li::before{content:'→';color:#00E5CC;flex-shrink:0;font-size:12px;margin-top:2px}
+/* COUNTER BAR */
+.counter-bar{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:0 48px}
+.counter-cell{background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.12);padding:36px 44px}
+.counter-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:12px}
+.counter-num{font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:#00E5CC}
+.counter-sub{font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:1px;text-transform:uppercase;margin-top:8px}
 
-/* LIVE WASTE COUNTER */
-.waste-counter-wrap{background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.15);padding:40px 48px;margin-bottom:2px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
-.counter-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.6)}
-.counter-num{font-size:52px;font-weight:900;color:#00E5CC;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1}
-.counter-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:6px;letter-spacing:1px;text-transform:uppercase}
-.counter-source{font-size:11px;color:rgba(255,255,255,0.3);margin-top:20px}
+/* REALITY GRID */
+.reality-grid{max-width:1100px;margin:2px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.reality-col{padding:44px 40px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07)}
+.reality-col.hot{border-color:rgba(194,0,58,0.14);background:rgba(194,0,58,0.02)}
+.reality-col h3{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;color:rgba(0,229,204,0.65)}
+.reality-col.hot h3{color:rgba(194,0,58,0.65)}
+.reality-col p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:14px}
+.reality-col .close{font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:0}
 
-/* ARCH GRID */
+/* ARCHITECTURE */
 .arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.arch-card{padding:36px 30px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);position:relative;transition:all 0.3s}
-.arch-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.2);transform:translateY(-2px)}
-.arch-num{font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(0,229,204,0.35);margin-bottom:16px;text-transform:uppercase}
-.arch-card h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:14px;letter-spacing:-0.3px}
-.arch-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8}
-.arch-code{display:block;margin-top:18px;padding:14px;background:rgba(0,229,204,0.05);border-left:2px solid rgba(0,229,204,0.25);font-family:monospace;font-size:11px;color:rgba(0,229,204,0.75);line-height:1.8;white-space:pre}
+.arch-card{padding:34px 28px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.arch-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18);transform:translateY(-2px)}
+.arch-num{font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(0,229,204,0.3);margin-bottom:14px;text-transform:uppercase}
+.arch-card h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.3px}
+.arch-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.85}
+.arch-code{display:block;margin-top:18px;padding:14px 16px;background:rgba(0,229,204,0.04);border-left:2px solid rgba(0,229,204,0.2);font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.75);line-height:1.85;white-space:pre}
 
-/* REVENUE STREAM */
+/* REVENUE */
 .rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.rev-card{padding:36px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s;cursor:default}
-.rev-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.2)}
-.rev-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.5);margin-bottom:16px}
-.rev-card h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.5px}
-.rev-card p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8}
-.rev-num{font-size:32px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;margin-top:20px}
-.rev-num-label{font-size:10px;color:rgba(0,229,204,0.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.rev-card{padding:36px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.rev-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18)}
+.rev-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.45);margin-bottom:14px}
+.rev-card h3{font-size:17px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.4px}
+.rev-card p{font-size:14px;color:rgba(255,255,255,0.58);line-height:1.85}
+.rev-num{font-size:30px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;margin-top:20px}
+.rev-num-label{font-size:9px;color:rgba(0,229,204,0.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:5px}
 
-/* PROJECTION TABLE */
+/* PROJ TABLE */
 .proj-table{width:100%;border-collapse:collapse}
 .proj-table th{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);padding:14px 20px;text-align:right;border-bottom:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03)}
 .proj-table th:first-child{text-align:left}
-.proj-table td{font-size:13px;color:rgba(255,255,255,0.65);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:right;transition:background 0.2s}
+.proj-table td{font-size:13px;color:rgba(255,255,255,0.62);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:right}
 .proj-table td:first-child{text-align:left;color:#fff;font-weight:600}
-.proj-table tr:hover td{background:rgba(0,229,204,0.03)}
-.proj-table tr.total td{color:#00E5CC;font-weight:800;border-top:1px solid rgba(0,229,204,0.2);font-size:14px}
-.proj-table tr.spacer td{padding:4px;background:rgba(0,229,204,0.03)}
+.proj-table tr:hover td{background:rgba(0,229,204,0.025)}
+.proj-table tr.total td{color:#00E5CC;font-weight:800;border-top:1px solid rgba(0,229,204,0.18);font-size:14px}
 
-/* PARTNER PROP */
-.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.partner-card{padding:40px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07)}
-.partner-card.accent{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18)}
-.partner-card h3{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:22px}
-.partner-card ul{list-style:none}
-.partner-card ul li{font-size:14px;color:rgba(255,255,255,0.65);padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:12px;line-height:1.6}
-.partner-card ul li::before{content:'→';color:#00E5CC;flex-shrink:0;font-size:12px;margin-top:2px}
-.partner-card p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.85;margin-bottom:16px}
-.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.badge{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(0,229,204,0.3);color:rgba(0,229,204,0.75);padding:6px 12px}
+/* IP */
+.ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ip-card{padding:34px 28px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.ip-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18)}
+.ip-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.45);margin-bottom:14px}
+.ip-card h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.3px}
+.ip-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.85}
+.ip-code{display:block;margin-top:16px;padding:12px 14px;background:rgba(0,229,204,0.04);border-left:2px solid rgba(0,229,204,0.2);font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.7);line-height:1.85;white-space:pre}
 
 /* VAULT */
-.vault-wrap{background:rgba(0,229,204,0.02);border:1px solid rgba(0,229,204,0.1);padding:56px 48px;margin:0 auto;max-width:1100px}
+.vault-outer{max-width:1100px;margin:0 auto;padding:0 48px 96px}
+.vault-wrap{background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.15);padding:52px 48px}
 .vault-hdr{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px}
-.vault-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,204,0.08);border:1px solid rgba(0,229,204,0.25);font-size:22px;flex-shrink:0}
-.vault-hdr h2{font-size:22px;font-weight:800;letter-spacing:-0.5px}
-.vault-hdr p{font-size:13px;color:rgba(255,255,255,0.4);margin-top:5px;line-height:1.6}
-.vault-input-row{display:flex;gap:12px;margin-bottom:12px}
-.vault-input{flex:1;background:transparent;border:1px solid rgba(0,229,204,0.2);color:#00E5CC;padding:12px 20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:3px;outline:none;transition:border-color 0.2s}
-.vault-input:focus{border-color:rgba(0,229,204,0.5)}
-.vault-input::placeholder{color:rgba(0,229,204,0.25);letter-spacing:2px}
-.vault-btn{background:#00E5CC;color:#00000A;border:none;padding:12px 28px;font-size:11px;font-weight:800;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:opacity 0.2s}
+.vault-icon{width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,204,0.07);border:1px solid rgba(0,229,204,0.22);font-size:20px;flex-shrink:0}
+.vault-hdr-text h2{font-size:20px;font-weight:800;letter-spacing:-0.5px}
+.vault-hdr-text p{font-size:13px;color:rgba(255,255,255,0.38);margin-top:6px;line-height:1.65}
+.vault-row{display:flex;gap:12px;margin-bottom:10px}
+.vault-input{flex:1;background:transparent;border:1px solid rgba(0,229,204,0.2);color:#00E5CC;padding:13px 20px;font-family:"Courier New",monospace;font-size:14px;letter-spacing:4px;outline:none;transition:border-color 0.25s}
+.vault-input:focus{border-color:rgba(0,229,204,0.55)}
+.vault-input::placeholder{color:rgba(0,229,204,0.22);letter-spacing:3px;font-size:12px}
+.vault-btn{background:#00E5CC;color:#00000A;border:none;padding:13px 30px;font-family:"Inter",sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;flex-shrink:0}
 .vault-btn:hover{opacity:0.85}
-.vault-err{display:none;font-size:11px;color:#C2003A;letter-spacing:1px;margin-bottom:12px}
-.vault-content{display:none}
-.vault-content.open{display:block}
-.vault-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:24px}
-.vault-item{background:rgba(0,0,10,0.5);border:1px solid rgba(0,229,204,0.1);padding:24px}
-.vault-item h4{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.6);margin-bottom:14px}
-.vault-item pre{font-family:monospace;font-size:11px;color:rgba(0,229,204,0.8);line-height:1.9;white-space:pre-wrap}
-
-/* GTM TIMELINE */
-.timeline{position:relative;padding-left:32px;margin-top:0}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#00E5CC,rgba(0,229,204,0.1))}
-.tl-item{position:relative;padding:0 0 48px 40px}
-.tl-item:last-child{padding-bottom:0}
-.tl-dot{position:absolute;left:-40px;top:4px;width:10px;height:10px;background:#00E5CC;border:2px solid #00000A;outline:1px solid #00E5CC}
-.tl-phase{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.5);margin-bottom:8px}
-.tl-item h3{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-bottom:12px}
-.tl-item p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:640px}
-.tl-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.tl-tag{font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(0,229,204,0.6);border:1px solid rgba(0,229,204,0.2);padding:4px 10px}
+.vault-err{display:none;font-size:11px;color:#C2003A;letter-spacing:1px;padding:8px 0;margin-bottom:4px}
+.vault-content{display:none;margin-top:28px}
+.vault-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.vault-item{background:rgba(0,0,10,0.7);border:1px solid rgba(0,229,204,0.1);padding:26px}
+.vault-item h4{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:14px}
+.vault-item pre{font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.8);line-height:1.95;white-space:pre-wrap}
 
 /* CONTACT */
-.contact-block{text-align:center;padding:80px 40px;border:1px solid rgba(0,229,204,0.07);background:rgba(0,229,204,0.02);max-width:1100px;margin:0 auto}
-.contact-block h2{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-1.5px;margin-bottom:14px}
-.contact-block p{font-size:16px;color:rgba(255,255,255,0.55);max-width:560px;margin:0 auto 32px;line-height:1.8}
+.contact-outer{max-width:1100px;margin:0 auto;padding:0 48px 80px}
+.contact-block{text-align:center;padding:80px 40px;border:1px solid rgba(0,229,204,0.08);background:rgba(0,229,204,0.02)}
+.contact-block h2{font-size:clamp(26px,3.8vw,46px);font-weight:900;letter-spacing:-1.5px;margin-bottom:14px}
+.contact-block p{font-size:15px;color:rgba(255,255,255,0.52);max-width:520px;margin:0 auto 32px;line-height:1.85}
 
-/* FOOTER */
-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:36px 48px;border-top:1px solid rgba(0,229,204,0.07)}
-.foot-logo{font-size:16px;font-weight:900;color:#fff}
-.foot-meta{font-size:11px;color:rgba(255,255,255,0.25)}
+footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:34px 48px;border-top:1px solid rgba(0,229,204,0.07)}
+.foot-logo{font-size:15px;font-weight:900;color:#fff}
+.foot-meta{font-size:11px;color:rgba(255,255,255,0.22)}
 .foot-links{display:flex;gap:24px}
-.foot-links a{font-size:11px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s}
+.foot-links a{font-size:11px;color:rgba(255,255,255,0.32);text-decoration:none;transition:color 0.2s}
 .foot-links a:hover{color:#00E5CC}
 
-/* ANIMATED NUMBER */
-.count-up{display:inline-block}
-
 @media(max-width:900px){
-  nav{padding:0 20px}
-  .nav-right{display:none}
-  .hero-text,.sec{padding:48px 24px}
-  .stat-strip{grid-template-columns:repeat(2,1fr)}
-  .arch-grid,.rev-grid,.partner-grid,.vault-grid,.waste-vis{grid-template-columns:1fr}
-  .waste-counter-wrap{flex-direction:column;align-items:flex-start}
-  .vault-wrap{padding:36px 24px}
-  footer{padding:28px 24px;flex-direction:column;align-items:flex-start}
+  nav{padding:0 20px}.nav-right{display:none}
+  .hero-inner,.sec,.vault-outer,.contact-outer,.counter-bar,.reality-grid{padding-left:24px;padding-right:24px}
+  .stat-strip,.reality-grid,.arch-grid,.rev-grid,.ip-grid,.vault-grid,.counter-bar{grid-template-columns:1fr}
+  footer{padding:24px;flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -198,138 +169,129 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <a class="nav-left" href="/">
     <img src="https://raw.githubusercontent.com/jarrydthamer/Urbyte-landing/main/assets/IMG_6919.jpeg" alt="Urbyte"/>
     <span class="nav-brand">Urbyte</span>
-    <span class="nav-pill">Telco & MVNO</span>
+    <span class="nav-pill">Telco &amp; MVNO</span>
   </a>
   <div class="nav-right">
     <a href="/">Consumer</a>
     <a href="/enterprise">Enterprise</a>
+    <a href="#model">The Model</a>
     <a href="#architecture">Architecture</a>
-    <a href="#revenue">Revenue</a>
-    <a href="#vault">Vault</a>
-    <a href="#contact" class="nav-cta">Partner Enquiry</a>
+    <a href="#vault">MVNO Partners</a>
+    <a href="#contact" class="nav-cta">Partnership Enquiry</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-img-wrap">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte — Australian network infrastructure"/>
-    <div class="hero-img-fade"></div>
+  <div class="hero-bg">
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte network infrastructure — Australia"/>
   </div>
-  <div class="hero-text">
-    <div class="hero-kicker">Telco & MVNO Infrastructure — ACN 692 885 019</div>
-    <h1>The data you sold<br/>them is still<br/><em>leaving.</em></h1>
-    <p class="hero-sub">Every billing cycle, unused capacity expires across 26 million Australian plans. Carriers already know this. The industry has studied it, measured it, and absorbed the cost as a structural given. Urbyte is the infrastructure layer that stops treating that as given — converting verified unused capacity into Data-Backed Units that reduce churn, create retention anchors, and generate a new revenue stream from capacity you were already writing off. Out-of-band. Read-only. Zero disruption to your network or pricing model.</p>
+  <div class="hero-inner">
+    <div class="hero-kicker">Telco &amp; MVNO Infrastructure — ACN 692 885 019</div>
+    <h1>Latent capacity<br/>has always been<br/><em>the write-off.</em></h1>
+    <p class="hero-sub">Carriers have priced, provisioned, and absorbed unused capacity as structural deadweight for thirty years. The billing model produces it. The network expects it. Nobody has monetised it — until now. Urbyte is the out-of-band infrastructure layer that converts that verified delta into a measurable retention asset. Without touching your network. Without touching your pricing. Without a single contract renegotiation.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-p">Request Pilot Integration</a>
-      <a href="#architecture" class="btn-g">See The Architecture</a>
+      <a href="#model" class="btn-g">See The Model</a>
     </div>
     <div class="hero-trust">
-      <span class="trust-pill">ACCC Validated</span>
-      <span class="trust-pill">mTLS Secured</span>
+      <span class="trust-pill">Out-of-band · Read-only</span>
+      <span class="trust-pill">mTLS + OAuth 2.0</span>
+      <span class="trust-pill">ACCC CDR Aligned</span>
+      <span class="trust-pill">AASB 138 · ATO TR 2011/4</span>
       <span class="trust-pill">Privacy Act 1988</span>
-      <span class="trust-pill">AASB 138 Compliant</span>
-      <span class="trust-pill">CDR Ready</span>
     </div>
   </div>
 </div>
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-inner" id="ticker">
-    <span class="tick-item">$9.9B ANNUAL WASTE <span>·</span></span>
-    <span class="tick-item">26M+ SUBSCRIBERS <span>·</span></span>
-    <span class="tick-item">660GB WASTED PER PERSON PER YEAR <span>·</span></span>
-    <span class="tick-item">−34% CHURN (DBU HOLDERS) <span>·</span></span>
-    <span class="tick-item">−51% CHURN (GIVABIT DONORS) <span>·</span></span>
-    <span class="tick-item">ATO TR 2011/4 COMPLIANT <span>·</span></span>
-    <span class="tick-item">AASB 138 ASSET CLASSIFICATION <span>·</span></span>
-    <span class="tick-item">mTLS + OAUTH 2.0 API <span>·</span></span>
-    <span class="tick-item">ACCC CDR SCHEMA ALIGNED <span>·</span></span>
+  <div class="ticker-inner" id="tickerInner">
+    <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY LATENT CAPACITY PER LINE <span>·</span></span>
+    <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
+    <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
+    <span class="tick-item">ATO TR 2011/4 · AASB 138 · ACCC CDR <span>·</span></span>
     <span class="tick-item">ZERO PII STORED <span>·</span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="tick-item">$9.9B ANNUAL WASTE <span>·</span></span>
-    <span class="tick-item">26M+ SUBSCRIBERS <span>·</span></span>
-    <span class="tick-item">660GB WASTED PER PERSON PER YEAR <span>·</span></span>
-    <span class="tick-item">−34% CHURN (DBU HOLDERS) <span>·</span></span>
-    <span class="tick-item">−51% CHURN (GIVABIT DONORS) <span>·</span></span>
-    <span class="tick-item">ATO TR 2011/4 COMPLIANT <span>·</span></span>
-    <span class="tick-item">AASB 138 ASSET CLASSIFICATION <span>·</span></span>
-    <span class="tick-item">mTLS + OAUTH 2.0 API <span>·</span></span>
-    <span class="tick-item">ACCC CDR SCHEMA ALIGNED <span>·</span></span>
+    <span class="tick-item">ZERO WRITE ACCESS · READ-ONLY API <span>·</span></span>
+    <span class="tick-item">mTLS SECURED · OAUTH 2.0 <span>·</span></span>
+    <span class="tick-item">ACN 692 885 019 &#8212; URBYTE PTY LTD <span>·</span></span>
+    <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY LATENT CAPACITY PER LINE <span>·</span></span>
+    <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
+    <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
+    <span class="tick-item">ATO TR 2011/4 · AASB 138 · ACCC CDR <span>·</span></span>
     <span class="tick-item">ZERO PII STORED <span>·</span></span>
+    <span class="tick-item">ZERO WRITE ACCESS · READ-ONLY API <span>·</span></span>
+    <span class="tick-item">mTLS SECURED · OAUTH 2.0 <span>·</span></span>
+    <span class="tick-item">ACN 692 885 019 &#8212; URBYTE PTY LTD <span>·</span></span>
   </div>
 </div>
 
 <!-- STAT STRIP -->
 <div class="stat-strip">
   <div class="stat-cell">
-    <div class="stat-n">$9.9B</div>
-    <div class="stat-src">ACCC 2024–25</div>
-    <div class="stat-l">Annual Australian data value written off</div>
+    <div class="stat-n">55GB</div>
+    <div class="stat-src">ACCC 2024&#8211;25</div>
+    <div class="stat-l">Average monthly latent capacity per Australian subscriber</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-n">−34%</div>
-    <div class="stat-src">Urbyte DBU model</div>
-    <div class="stat-l">Churn reduction — DBU balance holders</div>
+    <div class="stat-n">&#8722;34%</div>
+    <div class="stat-src">Urbyte DBU cohort</div>
+    <div class="stat-l">Churn rate delta &#8212; active DBU balance holders vs baseline</div>
   </div>
   <div class="stat-cell">
-    <div class="stat-n">−51%</div>
-    <div class="stat-src">Urbyte Givabit data</div>
-    <div class="stat-l">Churn reduction — active Givabit donors</div>
+    <div class="stat-n">&#8722;51%</div>
+    <div class="stat-src">Urbyte Givabit cohort</div>
+    <div class="stat-l">Churn rate delta &#8212; active Givabit donors vs carrier baseline</div>
   </div>
   <div class="stat-cell">
     <div class="stat-n">30%</div>
     <div class="stat-src">ATO TR 2011/4</div>
-    <div class="stat-l">Corporate tax offset on donated DBU value</div>
+    <div class="stat-l">Cash tax offset on DBU value donated via Givabit DGR pathway</div>
   </div>
   <div class="stat-cell">
     <div class="stat-n">$512K</div>
-    <div class="stat-src">Y1 pilot — 25K lines</div>
-    <div class="stat-l">Projected Urbyte net revenue, pilot year</div>
+    <div class="stat-src">Y1 pilot &#8212; 25K lines</div>
+    <div class="stat-l">Projected net Urbyte revenue from carrier pilot integration, Year 1</div>
   </div>
 </div>
 
 <hr class="divider"/>
 
-<!-- LIVE WASTE COUNTER -->
-<div class="sec" style="padding-bottom:0">
-  <div class="sec-tag">The Scale Of The Problem</div>
-  <h2 class="sec-h">The meter is running.<br/>Right now.</h2>
-  <p class="sec-sub">The ACCC confirmed 660GB wasted per subscriber per year — 55GB per month. At 26 million subscribers, the waste is continuous and compounding. This is the problem Urbyte was built to intercept.</p>
+<!-- THE MODEL -->
+<div class="sec" id="model">
+  <div class="sec-tag">The Structural Reality</div>
+  <h2 class="sec-h">The industry absorbed it.<br/>Urbyte intercepts it.</h2>
+  <p class="sec-sub">This addresses no carrier failure. It is infrastructure built on a structural given that the billing model itself produces &#8212; and that no carrier has had commercial reason to eliminate until churn became the primary margin threat.</p>
 </div>
-<div class="waste-counter-wrap" style="max-width:1100px;margin:0 auto 2px;margin-left:auto;margin-right:auto;padding:40px 48px">
-  <div>
-    <div class="counter-label">GB Wasted Across Australia — Since You Opened This Page</div>
-    <div class="counter-num" id="liveCounter">0</div>
-    <div class="counter-sub">Gigabytes · Real-time estimate · ACCC 2024–25 baseline</div>
+
+<!-- LIVE COUNTER -->
+<div class="counter-bar">
+  <div class="counter-cell">
+    <div class="counter-label">GB of latent capacity expired nationally &#8212; since this page loaded</div>
+    <div class="counter-num" id="liveGB">0.0</div>
+    <div class="counter-sub">Real-time estimate &nbsp;&#183;&nbsp; ACCC 2024&#8211;25 &nbsp;&#183;&nbsp; 26M subscribers &nbsp;&#183;&nbsp; 55GB/mo avg</div>
   </div>
-  <div style="text-align:right">
-    <div class="counter-label">Equivalent value lost</div>
-    <div class="counter-num" style="color:#C2003A" id="liveValue">$0</div>
-    <div class="counter-sub">@ $0.015 per GB blended wholesale rate</div>
+  <div class="counter-cell">
+    <div class="counter-label">DBUs that could have been minted in that interval</div>
+    <div class="counter-num" id="liveDBU" style="color:rgba(0,229,204,0.65)">0</div>
+    <div class="counter-sub">@ 10 DBU per GB &nbsp;&#183;&nbsp; AU $0.05 floor value per unit</div>
   </div>
 </div>
-<div class="waste-vis" style="max-width:1100px;margin:0 auto">
-  <div class="waste-col">
-    <h3>Why It Happens</h3>
-    <p>Telecoms sell data allowances — not actual data. Bandwidth is a continuously flowing resource. Artificial billing cycle caps create structural expiry: what isn't consumed by midnight on the last day of your cycle is gone forever. Carriers cannot store it. It evaporates as unrecoverable deadweight loss across every plan, every carrier, every month.</p>
-    <ul>
-      <li>26 million Australian plans expire unused data every single billing cycle</li>
-      <li>Average subscriber uses 14GB of a 69GB allocation — 55GB wasted monthly</li>
-      <li>"Rollover" plans defer the loss — they don't eliminate it</li>
-      <li>Carriers provision for peak demand — off-peak capacity is structurally unmonetised</li>
-    </ul>
+
+<div class="reality-grid" style="margin-top:2px">
+  <div class="reality-col">
+    <h3>Why the waste is structural</h3>
+    <p>Carriers provision for peak demand and sell plans against an average-use assumption that underestimates consumption variance. The gap between allocation and consumption is not accidental &#8212; it is the mechanism that prevents overage charges and maintains margin. Artificial billing cycle boundaries ensure unused capacity cannot be deferred indefinitely. What is not consumed by cycle end evaporates.</p>
+    <p>Rollover plans slow the expiry. They do not eliminate it. The structural delta persists across every plan type, every carrier, every cycle.</p>
+    <p class="close">26 million plans. 55GB average monthly delta. Expiring continuously.</p>
   </div>
-  <div class="waste-col hot">
-    <h3>Why Carriers Haven't Solved It</h3>
-    <p>The waste is by design — not neglect. Overselling capacity against underuse is how telco margin works. But subscriber awareness is changing. Price sensitivity is rising. Churn is up. The model that generated margin for 20 years is now the primary driver of retention failure. Urbyte doesn't attack the model. It sits beside it — and converts the waste into loyalty.</p>
-    <ul>
-      <li>Churn re-acquisition costs carriers $180–$400 per subscriber</li>
-      <li>DBU loyalty anchoring reduces that cost to near zero on retained accounts</li>
-      <li>Givabit donors — the stickiest cohort — churn 51% less than the industry baseline</li>
-      <li>No pricing changes, no network changes, no contract renegotiations required</li>
-    </ul>
+  <div class="reality-col hot">
+    <h3>Why retention is the commercial case</h3>
+    <p>Re-acquisition cost per churned subscriber sits between AU $180 and AU $400 depending on acquisition channel and plan tier. A DBU balance accruing over three or more billing cycles creates a measurable switching cost that operates independently of pricing &#8212; the subscriber leaves demonstrable accrued value on the table if they move. No discount strategy replicates that.</p>
+    <p>The Givabit cohort extends it further. Subscribers routing DBUs to a nominated DGR charity introduce a non-financial identity attachment to their plan. That cohort churns 51% less than the carrier baseline.</p>
+    <p class="close">No pricing change. No contract renegotiation. A read-only feed and 90 days.</p>
   </div>
 </div>
 
@@ -338,67 +300,62 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <!-- ARCHITECTURE -->
 <div class="sec" id="architecture">
   <div class="sec-tag">System Architecture</div>
-  <h2 class="sec-h">Six components.<br/>One infrastructure layer.</h2>
-  <p class="sec-sub">Urbyte operates entirely outside the core network. Read-only, out-of-band, mTLS-secured. No latency impact. No pricing disruption. No operational risk to the carrier. Every minting event is dual-signed and independently auditable.</p>
+  <h2 class="sec-h">Six components.<br/>One out-of-band layer.</h2>
+  <p class="sec-sub">The entire Urbyte stack sits outside the core network. No write access. No latency impact. No operational risk surface for the carrier. Every minting event is dual-signed and independently auditable.</p>
   <div class="arch-grid">
     <div class="arch-card">
-      <div class="arch-num">01 — Ingestion</div>
-      <h3>Urbyte Insight</h3>
-      <p>Securely ingests anonymised CDR usage logs. Calculates the Systemic Waste Delta (Δ) — the verified gap between allocated and consumed capacity. Co-signs every event with carrier node key + Urbyte oracle key. Issues Proof of Waste (PoWst) manifest.</p>
-      <code class="arch-code">Δ_Waste = Allocated − Consumed (GB)
-Each event: carrier node key
-            + Urbyte oracle key
-Output: PoWst manifest (auditable)</code>
+      <div class="arch-num">01 &#8212; Ingestion</div>
+      <h3>Urbyte Insight&#8482;</h3>
+      <p>Ingests anonymised CDR logs via read-only mTLS-secured API. Calculates the Systemic Waste Delta (&#916;) &#8212; the verified gap between allocated and consumed capacity per billing cycle. Co-signs each event with carrier node key and Urbyte oracle key. Issues Proof of Waste (PoWst&#8482;) manifest.</p>
+      <code class="arch-code">&#916;_Waste = Allocated &#8722; Consumed (GB)
+Carrier node key + Urbyte oracle key
+Output: PoWst&#8482; manifest (auditable)</code>
     </div>
     <div class="arch-card">
-      <div class="arch-num">02 — Minting</div>
-      <h3>DBU Ledger</h3>
-      <p>Converts verified waste into Data-Backed Units. Proportional to verified volume and the network's production cost index. Floor value prevents inflation. No ceiling on accumulation. Classified as intangible assets under AASB 138 — no AFSL triggered.</p>
-      <code class="arch-code">1 GB verified waste = 10 DBU minted
-Floor value: AU $0.05 per unit
-Dual-signature required per manifest
-AASB 138: intangible asset class
-AFSL: not triggered</code>
+      <div class="arch-num">02 &#8212; Minting</div>
+      <h3>DBU&#8482; Ledger</h3>
+      <p>Converts verified waste into Data-Backed Units&#8482;. Proportional to verified volume and the network production cost index. Floor value prevents inflation. No ceiling on accumulation. Classified as intangible assets under AASB 138. No AFSL triggered.</p>
+      <code class="arch-code">1 GB verified = 10 DBU&#8482; minted
+Floor: AU $0.05 / unit
+Dual-sig per PoWst&#8482; manifest
+AASB 138 &#8212; intangible asset class</code>
     </div>
     <div class="arch-card">
-      <div class="arch-num">03 — Clearinghouse</div>
-      <h3>Givabit</h3>
-      <p>Routes minted DBUs to ACNC-registered DGR charities or reward partners. Enterprise donations classified as non-cash property gifts under ATO TR 2011/4 — triggering a full tax deduction at market value. Auditable DGR receipt issued per transaction.</p>
-      <code class="arch-code">DBU → ACNC DGR register verified
-→ ATO TR 2011/4 (property gift)
-→ AASB 138 classification maintained
-→ No AFSL requirement
-→ Auditable DGR receipt issued</code>
+      <div class="arch-num">03 &#8212; Clearinghouse</div>
+      <h3>Givabit&#8482;</h3>
+      <p>Routes minted DBUs to ACNC-registered DGR charities or reward partners. Enterprise donations classified as non-cash property gifts under ATO TR 2011/4 &#8212; triggering a full tax deduction at market value. Auditable DGR receipt issued per transaction.</p>
+      <code class="arch-code">DBU &#8594; ACNC DGR register verified
+&#8594; ATO TR 2011/4 property gift
+&#8594; AASB 138 classification held
+&#8594; Auditable DGR receipt issued</code>
     </div>
     <div class="arch-card">
-      <div class="arch-num">04 — Consumer</div>
-      <h3>Urbyte App</h3>
-      <p>Mobile platform for retail subscribers. Displays real-time allowance, consumption, and DBU balance. Unused data converts to DBUs at cycle end. Redeemable for rewards or donated via Givabit. Churn anchor effect activates from DBU balance cycle 1.</p>
-      <code class="arch-code">Bronze: $3.99/mo → 39.9 DBU/cycle
-Silver: $6.99/mo → 69.9 DBU/cycle
-Gold:   $9.99/mo → 99.9 DBU/cycle
-Redemption: unlocks cycle 4
-Churn reduction: −34% (DBU holders)</code>
+      <div class="arch-num">04 &#8212; Consumer</div>
+      <h3>Urbyte&#8482; App</h3>
+      <p>Retail subscriber interface. Real-time allowance, consumption, and DBU balance. Converts unused data to DBUs at cycle end. Redemption or Givabit donation from cycle 4. DBU churn anchor activates immediately from first balance accumulation.</p>
+      <code class="arch-code">Bronze: $3.99/mo &#8594; 39.9 DBU/cycle
+Silver: $6.99/mo &#8594; 69.9 DBU/cycle
+Gold:   $9.99/mo &#8594; 99.9 DBU/cycle
+Churn delta: &#8722;34% (DBU holders)</code>
     </div>
     <div class="arch-card">
-      <div class="arch-num">05 — Corporate</div>
-      <h3>Urbyte Enterprise</h3>
-      <p>Dashboard for fleet operators. Real-time waste streams, DBU minting volume, ESG impact metrics, and charitable contribution ledger. Produces auditable ESG reports and DGR receipts for ATO tax filings. Full fleet telecom audit capability.</p>
-      <code class="arch-code">Fleet waste stream: live ingestion
-DBU minting: real-time display
+      <div class="arch-num">05 &#8212; Corporate</div>
+      <h3>Urbyte Corporate&#8482;</h3>
+      <p>Fleet operator dashboard. Live waste streams, DBU minting volume, ESG impact metrics, charitable contribution ledger. Produces auditable ESG reports and DGR receipts for ATO tax filings. Full fleet telecom waste audit on demand.</p>
+      <code class="arch-code">Fleet waste: live CDR ingestion
 ESG receipt: per donation, auditable
 ATO offset: 30% on DBU market value
-Churn defence score: monthly update</code>
+Churn defence: monthly score update</code>
     </div>
     <div class="arch-card">
-      <div class="arch-num">06 — Integration</div>
+      <div class="arch-num">06 &#8212; Integration</div>
       <h3>API Layer</h3>
-      <p>Out-of-band, read-only connection. Zero impact on network latency or performance. Carrier retains full control at all times. ACCC CDR schema compliant. MVNO white-label capability — full DBU infrastructure under your brand, zero dev cost.</p>
-      <code class="arch-code">Auth:      mTLS + OAuth 2.0
-Endpoint:  api.urbyte.com.au/v1/cdr
-Limit:     1,000 req/min per carrier
-Format:    JSON — ACCC CDR schema
-PII:       None stored — anon logs only</code>
+      <p>Out-of-band, read-only connection to carrier CDR pipeline. Zero write access. Zero latency impact. Zero network operational risk. ACCC CDR schema compliant from day one. MVNO white-label capability &#8212; full DBU infrastructure under your brand, zero development cost.</p>
+      <code class="arch-code">Auth:   mTLS + OAuth 2.0
+Host:   api.urbyte.com.au/v1/cdr
+Rate:   1,000 req/min per carrier
+Format: JSON &#8212; ACCC CDR schema
+PII:    None stored</code>
     </div>
   </div>
 </div>
@@ -406,65 +363,59 @@ PII:       None stored — anon logs only</code>
 <hr class="divider"/>
 
 <!-- REVENUE -->
-<div class="sec" id="revenue">
+<div class="sec">
   <div class="sec-tag">Revenue Architecture</div>
-  <h2 class="sec-h">Four streams.<br/>All from what you're<br/>already losing.</h2>
-  <p class="sec-sub">Urbyte doesn't ask carriers to restructure. We monetise the structural loss that's already occurring — converting deadweight into four distinct, scalable revenue streams that run in parallel with your existing model.</p>
+  <h2 class="sec-h">Four commercial streams.<br/>All from capacity<br/>already written off.</h2>
+  <p class="sec-sub">Urbyte does not require carriers to restructure billing, reprice plans, or renegotiate MVNO agreements. Each stream operates on the delta that already exists.</p>
   <div class="rev-grid">
     <div class="rev-card">
-      <div class="rev-tag">01 — Carrier Revenue</div>
+      <div class="rev-tag">01 &#8212; Carrier Stream</div>
       <h3>Churn Retention Kickback</h3>
-      <p>Success-fee model. Urbyte invoices on measurable churn delta only. DBU holders churn 34% less. Givabit donors churn 51% less. Zero cost if churn doesn't improve — pure performance upside.</p>
-      <div class="rev-num">−34%</div>
-      <div class="rev-num-label">Average churn reduction — DBU cohort</div>
+      <p>Success-fee model invoiced against measurable churn delta only. DBU holders: &#8722;34% churn rate. Givabit&#8482; donors: &#8722;51%. Zero cost to the carrier if churn does not improve. The retention value is independently verifiable against your own subscriber data.</p>
+      <div class="rev-num">&#8722;34% / &#8722;51%</div>
+      <div class="rev-num-label">Churn delta &#8212; DBU cohort / Givabit&#8482; cohort</div>
     </div>
     <div class="rev-card">
-      <div class="rev-tag">02 — Enterprise Revenue</div>
-      <h3>SaaS Orchestration Fee</h3>
-      <p>10% orchestration fee on all corporate DBU flows — donations, tax-offset transactions, fleet integrations. Y1 pilot projection (5 companies, 15,000 lines) targets AU $252K from this stream alone.</p>
-      <div class="rev-num">$252K</div>
-      <div class="rev-num-label">Y1 projection — 5 enterprise clients</div>
+      <div class="rev-tag">02 &#8212; Enterprise Stream</div>
+      <h3>Insight&#8482; SaaS Orchestration</h3>
+      <p>10% orchestration fee on all enterprise DBU flows &#8212; corporate donations, tax-offset transactions, fleet integrations. Year 1 pilot projection across five corporate clients and 15,000 lines: AU $252K. Scales linearly with fleet volume.</p>
+      <div class="rev-num">AU $252K</div>
+      <div class="rev-num-label">Y1 projection &#8212; 5 enterprise clients, 15K lines</div>
     </div>
     <div class="rev-card">
-      <div class="rev-tag">03 — Givabit Revenue</div>
-      <h3>Clearing & Receipt Fees</h3>
-      <p>Micro-licensing fee per DGR-verified donation and ATO-compliant tax receipt. Scales directly with DBU volume. AU $84K Year 1, AU $420K Year 2 at conservative penetration projections.</p>
-      <div class="rev-num">$420K</div>
-      <div class="rev-num-label">Y2 Givabit clearing projection</div>
+      <div class="rev-tag">03 &#8212; Givabit&#8482; Stream</div>
+      <h3>DGR Clearing &amp; Receipt Fee</h3>
+      <p>Micro-licensing fee per ACNC DGR-verified donation and ATO-compliant tax receipt issued. Scales directly with DBU volume. Conservative penetration model: AU $84K Year 1, AU $420K Year 2.</p>
+      <div class="rev-num">AU $420K</div>
+      <div class="rev-num-label">Y2 Givabit&#8482; clearing projection</div>
     </div>
     <div class="rev-card">
-      <div class="rev-tag">04 — MVNO Revenue</div>
-      <h3>White-Label Licensing</h3>
-      <p>MVNOs embed the full Urbyte DBU rewards system under their own brand via API. Zero development cost. Zero network disruption. Full rewards infrastructure delivered as SaaS. Commercially negotiated per-carrier agreement.</p>
-      <div class="rev-num">API</div>
-      <div class="rev-num-label">Zero dev cost — full brand control</div>
+      <div class="rev-tag">04 &#8212; MVNO Stream</div>
+      <h3>White-Label Infrastructure Licensing</h3>
+      <p>MVNOs embed the complete Urbyte DBU&#8482; system under their own brand via API. No development cost. No network changes required. Full loyalty and charity infrastructure as a licensed SaaS layer. Commercial terms negotiated per carrier.</p>
+      <div class="rev-num">API-native</div>
+      <div class="rev-num-label">Zero dev cost &#8212; full brand control &#8212; per-seat licensing</div>
     </div>
   </div>
 </div>
 
-<!-- PROJECTION TABLE -->
+<!-- PROJ TABLE -->
 <div class="sec" style="padding-top:0">
   <div class="sec-tag">Three-Year Projection</div>
-  <h2 class="sec-h">Conservative at 2.5%<br/>market penetration.</h2>
-  <p class="sec-sub">Modelled on 0.1% initial penetration scaling to 2.5% by Year 3 across 26M Australian subscribers. All figures net of infrastructure, support, and operational costs.</p>
+  <h2 class="sec-h">0.1% to 2.5%<br/>penetration. Conservative.</h2>
+  <p class="sec-sub">Modelled on ACCC-validated 55GB monthly latent capacity per subscriber across 26M lines. All figures net of infrastructure, support, and operational cost.</p>
   <table class="proj-table">
     <thead>
-      <tr>
-        <th>Category</th>
-        <th>Year 1 — Pilot</th>
-        <th>Year 2 — Traction</th>
-        <th>Year 3 — Scale</th>
-      </tr>
+      <tr><th>Metric</th><th>Year 1 &#8212; Pilot</th><th>Year 2 &#8212; Traction</th><th>Year 3 &#8212; Scale</th></tr>
     </thead>
     <tbody>
       <tr><td>Active Lines</td><td>25,000</td><td>125,000</td><td>625,000</td></tr>
-      <tr><td>Sunk Waste Reclaimed</td><td>AU $4.2M</td><td>AU $21M</td><td>AU $105M</td></tr>
+      <tr><td>Latent Capacity Reclaimed</td><td>AU $4.2M</td><td>AU $21M</td><td>AU $105M</td></tr>
       <tr><td>DBUs Minted</td><td>14M</td><td>70M</td><td>350M</td></tr>
-      <tr class="spacer"><td colspan="4"></td></tr>
-      <tr><td>Enterprise SaaS Fee</td><td>AU $252K</td><td>AU $1.26M</td><td>—</td></tr>
-      <tr><td>Carrier Retention Kickback</td><td>AU $120K</td><td>AU $600K</td><td>—</td></tr>
-      <tr><td>Givabit Clearing Fees</td><td>AU $84K</td><td>AU $420K</td><td>—</td></tr>
-      <tr><td>Consumer Rewards Affiliate</td><td>AU $56K</td><td>AU $280K</td><td>—</td></tr>
+      <tr><td>Enterprise SaaS Fee</td><td>AU $252K</td><td>AU $1.26M</td><td>&#8212;</td></tr>
+      <tr><td>Carrier Retention Kickback</td><td>AU $120K</td><td>AU $600K</td><td>&#8212;</td></tr>
+      <tr><td>Givabit&#8482; Clearing Fees</td><td>AU $84K</td><td>AU $420K</td><td>&#8212;</td></tr>
+      <tr><td>Consumer Affiliate</td><td>AU $56K</td><td>AU $280K</td><td>&#8212;</td></tr>
       <tr class="total"><td>Total Urbyte Revenue</td><td>AU $512K</td><td>AU $2.56M</td><td>AU $12.8M</td></tr>
       <tr><td>Operating Costs</td><td>AU $220K</td><td>AU $680K</td><td>AU $1.95M</td></tr>
       <tr class="total"><td>Net EBITDA</td><td>AU $292K</td><td>AU $1.88M</td><td>AU $10.85M</td></tr>
@@ -474,69 +425,45 @@ PII:       None stored — anon logs only</code>
 
 <hr class="divider"/>
 
-<!-- PARTNER PROPOSITION -->
+<!-- IP -->
 <div class="sec">
-  <div class="sec-tag">Why Partner With Urbyte</div>
-  <h2 class="sec-h">We don't compete<br/>with your network.<br/>We make it stickier.</h2>
-  <p class="sec-sub">Initial discussions are NDA-protected by default. Pilot integration is read-only, out-of-band, and requires zero changes to your core network.</p>
-  <div class="partner-grid">
-    <div class="partner-card accent">
-      <h3>What Carriers & MVNOs Receive</h3>
-      <ul>
-        <li>Measurable churn reduction via DBU loyalty anchoring — 34% average, 51% for Givabit donors</li>
-        <li>New recurring revenue: retention kickback + Insight SaaS licensing</li>
-        <li>ESG reporting value — auditable Givabit charitable contribution receipts</li>
-        <li>ATO TR 2011/4 tax offset for enterprise fleet clients — 30% cash deduction</li>
-        <li>ACCC CDR-ready API — zero disruption to existing network or pricing</li>
-        <li>White-label MVNO capability — full DBU rewards under your brand via API</li>
-        <li>Privacy Act 1988 compliant — zero PII stored, anonymised sessions only</li>
-      </ul>
+  <div class="sec-tag">Intellectual Property</div>
+  <h2 class="sec-h">Proprietary architecture.<br/>100% Urbyte-owned.</h2>
+  <p class="sec-sub">Every component was designed and built entirely by Urbyte Pty Ltd. No agency, contractor, or third party holds any claim on any element of the platform, protocol, or brand.</p>
+  <div class="ip-grid">
+    <div class="ip-card">
+      <div class="ip-tag">Trademark</div>
+      <h3>Urbyte&#8482; &nbsp;&#183;&nbsp; Givabit&#8482; &nbsp;&#183;&nbsp; DBU&#8482;</h3>
+      <p>The names Urbyte, Givabit, and DBU (Data-Backed Unit) are proprietary trademarks of Urbyte Pty Ltd. Unauthorised use in connection with telecommunications, data services, or loyalty programs is prohibited. All rights reserved.</p>
     </div>
-    <div class="partner-card">
-      <h3>What Urbyte Brings</h3>
-      <p>A live platform with paying Founding Members. ACCC-validated market data. A dual-signature cryptographic proof system that makes every DBU minting event independently auditable. Architecture that sits under any carrier brand — invisible or co-branded.</p>
-      <p>We're not asking for network access, pricing changes, or contractual renegotiation. We're asking for a read-only CDR feed and 90 days to demonstrate churn delta.</p>
-      <div class="badge-row">
-        <span class="badge">CDR Compatible</span>
-        <span class="badge">mTLS Auth</span>
-        <span class="badge">Privacy Act 1988</span>
-        <span class="badge">AASB 138</span>
-        <span class="badge">ATO TR 2011/4</span>
-        <span class="badge">ACNC DGR</span>
-        <span class="badge">ACN 692 885 019</span>
-      </div>
+    <div class="ip-card">
+      <div class="ip-tag">Protocol IP</div>
+      <h3>Proof of Waste &#8212; PoWst&#8482;</h3>
+      <p>The dual-signature Proof of Waste minting protocol &#8212; including the &#916;_Waste calculation, carrier + oracle co-signing architecture, and DBU issuance ledger &#8212; is original proprietary technology owned exclusively by Urbyte Pty Ltd. All rights reserved.</p>
     </div>
-  </div>
-</div>
-
-<hr class="divider"/>
-
-<!-- GO-TO-MARKET -->
-<div class="sec">
-  <div class="sec-tag">Go-To-Market Roadmap</div>
-  <h2 class="sec-h">Pilot to scale<br/>in twelve months.</h2>
-  <p class="sec-sub">Each phase delivers standalone value before the next begins. Live data pipeline first. DBU minting second. Consumer and enterprise scale third. No phase requires the success of the next to generate ROI.</p>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-phase">Phase 1 — Months 1–3</div>
-      <h3>Media Profile & Pilot Agreements</h3>
-      <p>CommsDay industry profile live. Inbound carrier and enterprise interest captured. Tailored landing pages active for consumer, enterprise, and telco audiences. NDAs signed with two pilot carriers. Secure read-only CDR pipeline established.</p>
-      <div class="tl-tags"><span class="tl-tag">CommsDay Coverage</span><span class="tl-tag">NDAs</span><span class="tl-tag">CDR Pipeline</span></div>
+    <div class="ip-card">
+      <div class="ip-tag">Platform IP</div>
+      <h3>Full-Stack Ownership</h3>
+      <p>Urbyte Insight&#8482;, the DBU&#8482; Ledger, Givabit&#8482; clearinghouse, consumer app, enterprise dashboard, and API layer were built entirely by Urbyte Pty Ltd. Zero third-party IP exposure. Due diligence is clean.</p>
+      <code class="ip-code">ACN:  692 885 019
+ABN:  54 692 885 019
+IP:   100% Urbyte Pty Ltd
+NDA:  Available on request</code>
     </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-phase">Phase 2 — Months 4–7</div>
-      <h3>Live DBU Minting & Givabit Launch</h3>
-      <p>Private DBU ledger deployed. Dual-signature minting protocol verified. ACNC/DGR database integrated — first live Givabit donation executed. Corporate dashboard live with ESG receipts and ATO offset reporting.</p>
-      <div class="tl-tags"><span class="tl-tag">DBU Ledger</span><span class="tl-tag">Givabit Live</span><span class="tl-tag">ESG Receipts</span></div>
+    <div class="ip-card">
+      <div class="ip-tag">Data Rights</div>
+      <h3>No PII. By Architecture.</h3>
+      <p>Urbyte holds zero personally identifiable information. All CDR logs are ingested as anonymised usage sessions. Consumers retain full data sovereignty. The operational model uses structural capacity delta &#8212; not personal data &#8212; as its primary input.</p>
     </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-phase">Phase 3 — Months 8–12</div>
-      <h3>Consumer Scale & MVNO White-Label</h3>
-      <p>Urbyte Consumer app launched publicly. B2C acquisition at scale begins. Additional enterprise onboarding. First MVNO white-label agreements signed. Churn delta reporting delivered to pilot carriers — kickback invoicing begins.</p>
-      <div class="tl-tags"><span class="tl-tag">Consumer Launch</span><span class="tl-tag">MVNO Licensing</span><span class="tl-tag">Churn Reporting</span></div>
+    <div class="ip-card">
+      <div class="ip-tag">Confidentiality</div>
+      <h3>NDA By Default</h3>
+      <p>All partnership discussions &#8212; pilot integration, MVNO white-label, carrier data-sharing assessments &#8212; are protected under mutual NDA from first contact. No commercial sensitivity is required before a technical conversation begins.</p>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Regulatory Posture</div>
+      <h3>Compliance Architecture</h3>
+      <p>DBU classification: AASB 138 intangible asset. Donation pathway: ATO TR 2011/4 non-cash property gift. DGR routing: ACNC register verified. AFSL: not required. Privacy Act 1988 compliant by design. ACCC CDR schema aligned.</p>
     </div>
   </div>
 </div>
@@ -544,198 +471,137 @@ PII:       None stored — anon logs only</code>
 <hr class="divider"/>
 
 <!-- VAULT -->
-<div style="padding:80px 0" id="vault">
+<div class="vault-outer" id="vault">
   <div class="vault-wrap">
     <div class="vault-hdr">
-      <div class="vault-icon">🔒</div>
-      <div>
+      <div class="vault-icon">&#128274;</div>
+      <div class="vault-hdr-text">
         <h2>Partner Technical Vault</h2>
-        <p>Restricted access — authorised telco and MVNO partners only.<br/>Contact <a href="mailto:jarryd@urbyte.com.au" style="color:#00E5CC;text-decoration:none">jarryd@urbyte.com.au</a> to request credentials.</p>
+        <p>Restricted access &#8212; authorised telco and MVNO partners only.<br/>Contact <a href="mailto:jarryd@urbyte.com.au" style="color:#00E5CC;text-decoration:none">jarryd@urbyte.com.au</a> to request credentials before your first technical discussion.</p>
       </div>
     </div>
-    <div class="vault-input-row">
-      <input class="vault-input" type="password" id="vCode" placeholder="ENTER ACCESS CODE"/>
-      <button class="vault-btn" onclick="unlockVault()">UNLOCK</button>
+    <div class="vault-row">
+      <input class="vault-input" type="password" id="vaultCode" placeholder="ENTER ACCESS CODE" autocomplete="off"/>
+      <button class="vault-btn" id="vaultBtn">UNLOCK</button>
     </div>
-    <div class="vault-err" id="vErr">Invalid code. Contact jarryd@urbyte.com.au</div>
-    <div class="vault-content" id="vContent">
+    <div class="vault-err" id="vaultErr">Invalid access code. Contact jarryd@urbyte.com.au to request credentials.</div>
+    <div class="vault-content" id="vaultContent">
       <div class="vault-grid">
         <div class="vault-item">
-          <h4>DBU Minting Formula</h4>
-          <pre>Δ_Waste = Allocated − Consumed (GB)
-DBU minted = Δ_Waste × 10
-Floor value = AU $0.05/unit
+          <h4>DBU&#8482; Minting Formula</h4>
+          <pre>&#916;_Waste = Allocated &#8722; Consumed (GB)
+DBU minted = &#916;_Waste &#215; 10
+Floor: AU $0.05 / unit
 Trigger: billing cycle end
 Cap: none
-Dual-sig: carrier + Urbyte oracle</pre>
+Dual-sig: carrier key + oracle key</pre>
         </div>
         <div class="vault-item">
-          <h4>Revenue Per Carrier (Y1)</h4>
-          <pre>Orchestration fee:  10% on DBU flows
-Retention kickback: success-fee only
-                    (charged on Δ churn)
-Insight SaaS:       negotiated/carrier
-MVNO white-label:   per-seat licensing
-Givabit clearing:   micro-fee/receipt</pre>
+          <h4>Carrier Revenue Model (Y1)</h4>
+          <pre>Orchestration:  10% on DBU flows
+Retention:      success-fee only
+                (invoiced on &#916; churn)
+Insight SaaS:   negotiated / carrier
+MVNO licensing: per-seat agreement
+Givabit:        micro-fee / receipt</pre>
         </div>
         <div class="vault-item">
           <h4>CDR API Specification</h4>
-          <pre>Auth:     mTLS + OAuth 2.0
-Endpoint: api.urbyte.com.au/v1/cdr
-Limit:    1,000 req/min per carrier
-Fields:   usage, balance, cycle dates
-Format:   JSON — ACCC CDR schema
-PII:      None stored</pre>
+          <pre>Auth:    mTLS + OAuth 2.0
+Host:    api.urbyte.com.au/v1/cdr
+Rate:    1,000 req/min per carrier
+Fields:  usage, balance, cycle dates
+Format:  JSON &#8212; ACCC CDR schema
+PII:     Zero &#8212; anonymised only</pre>
         </div>
         <div class="vault-item">
-          <h4>Churn & Retention Model</h4>
-          <pre>DBU holders:     −34% churn rate
-Givabit donors:  −51% churn rate
-Avg DBU tenure:  14.2 months
-Break-even:      billing cycle 3
-Loyalty cliff:   DBU balance > 200
-Lock mechanism:  DBU accrual anchor</pre>
+          <h4>Churn &amp; Retention Data</h4>
+          <pre>DBU holders:    &#8722;34% churn rate
+Givabit donors: &#8722;51% churn rate
+Avg DBU tenure: 14.2 months
+Break-even:     billing cycle 3
+Loyalty cliff:  DBU balance &gt; 200
+Anchor mech:    accrual switching cost</pre>
         </div>
         <div class="vault-item">
-          <h4>Enterprise Waste Per 1,000 Lines</h4>
+          <h4>Enterprise Waste &#8212; Per 1,000 Lines</h4>
           <pre>ARPU (blended):  AU $40/line/mo
-Waste factor:    35% of provisioned
-DBU floor:       AU $0.30 (corporate)
+Waste factor:    35% provisioned
 Annual spend:    AU $480,000
 Sunk waste:      AU $168,000
 DBUs minted:     560,000
-ATO shield (30%):AU $50,400</pre>
+ATO offset (30%): AU $50,400</pre>
         </div>
         <div class="vault-item">
-          <h4>Legal & Compliance Snapshot</h4>
-          <pre>DBU class:     AASB 138 intangible
-Donation:      ATO TR 2011/4
-               (non-cash property gift)
-DGR routing:   ACNC register verified
-AFSL:          Not required
-Privacy:       Act 1988 compliant
-CDR:           ACCC schema aligned
-ACN:           692 885 019</pre>
+          <h4>Compliance Snapshot</h4>
+          <pre>DBU:      AASB 138 intangible asset
+Donation: ATO TR 2011/4
+          non-cash property gift
+DGR:      ACNC register verified
+AFSL:     Not required
+Privacy:  Act 1988 &#8212; by design
+CDR:      ACCC schema aligned
+ACN:      692 885 019</pre>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<hr class="divider"/>
-
-<!-- IP & TRADEMARK -->
-<div class="sec">
-  <div class="sec-tag">Intellectual Property</div>
-  <h2 class="sec-h">Proprietary by design.<br/>Protected by law.</h2>
-  <p class="sec-sub">Every component of the Urbyte system — from the dual-signature Proof of Waste protocol to the DBU minting architecture — is original intellectual property created independently by Urbyte Pty Ltd.</p>
-  <div class="arch-grid">
-    <div class="arch-card">
-      <div class="arch-num">Trademark</div>
-      <h3>Urbyte™ · Givabit™ · DBU™</h3>
-      <p>The names Urbyte, Givabit, and DBU (Data-Backed Unit) are proprietary trademarks of Urbyte Pty Ltd. Unauthorised use in connection with telecommunications, data services, or loyalty programs is prohibited. All rights reserved.</p>
-    </div>
-    <div class="arch-card">
-      <div class="arch-num">Architecture IP</div>
-      <h3>Proof of Waste Protocol (PoWst™)</h3>
-      <p>The dual-signature Proof of Waste minting protocol — including the Systemic Waste Delta (Δ_Waste) calculation, carrier + oracle co-signing architecture, and DBU issuance ledger — is original proprietary technology of Urbyte Pty Ltd. All rights reserved.</p>
-    </div>
-    <div class="arch-card">
-      <div class="arch-num">Platform IP</div>
-      <h3>Urbyte System Architecture</h3>
-      <p>The full platform — including Urbyte Insight, the DBU Ledger, Givabit clearinghouse, consumer app, enterprise dashboard, and API integration layer — was designed and built entirely by Urbyte Pty Ltd. No third-party claim on any component. Zero external IP exposure.</p>
-    </div>
-    <div class="arch-card">
-      <div class="arch-num">Data Rights</div>
-      <h3>Consumer Data Sovereignty</h3>
-      <p>Urbyte holds no PII. All CDR logs are ingested as anonymised sessions. Consumers retain full ownership of their data at all times. Urbyte's operational model is built on structural waste data — not personal data — as its primary resource.</p>
-    </div>
-    <div class="arch-card">
-      <div class="arch-num">Legal Entity</div>
-      <h3>Urbyte Pty Ltd</h3>
-      <p>ACN 692 885 019 · ABN 54 692 885 019. Incorporated in Australia. All intellectual property, platform code, brand assets, and architectural designs are owned exclusively by Urbyte Pty Ltd. No co-founder, agency, or contractor holds any IP claim.</p>
-      <code class="arch-code">ACN:  692 885 019
-ABN:  54 692 885 019
-Type: Pty Ltd — Australia
-IP:   100% Urbyte-owned
-NDA:  Available on request</code>
-    </div>
-    <div class="arch-card">
-      <div class="arch-num">Confidentiality</div>
-      <h3>Partner NDA Protocol</h3>
-      <p>All partnership discussions — including pilot integration conversations, MVNO white-label enquiries, and carrier data-sharing assessments — are protected under mutual NDA by default. Contact to initiate a confidential discussion.</p>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div style="padding:0 48px 80px">
-  <div class="contact-block" id="contact">
-    <div class="sec-tag" style="justify-content:center;margin-bottom:16px">Get In Touch</div>
-    <h2>Ready to stop writing off<br/>what you already own?</h2>
-    <p>Initial discussions are NDA-protected by default. We'll run a no-cost waste exposure analysis on your subscriber base before any commercial conversation begins.</p>
+<div class="contact-outer" id="contact">
+  <div class="contact-block">
+    <div class="sec-tag" style="justify-content:center;margin-bottom:14px">Partnership Enquiry</div>
+    <h2>A read-only CDR feed.<br/>90 days. Measurable delta.</h2>
+    <p>Initial discussions are NDA-protected by default. We will run a no-cost latent capacity analysis against your subscriber base before any commercial terms are discussed.</p>
     <a href="mailto:jarryd@urbyte.com.au" class="btn-p">jarryd@urbyte.com.au</a>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="foot-logo">Urbyte <span style="color:rgba(0,229,204,0.35);font-weight:400;font-size:11px;letter-spacing:2px;margin-left:8px">ACN 692 885 019</span></div>
+  <div class="foot-logo">Urbyte&#8482; <span style="color:rgba(0,229,204,0.32);font-weight:400;font-size:11px;letter-spacing:2px;margin-left:8px">ACN 692 885 019</span></div>
   <div class="foot-links">
     <a href="/">Consumer</a>
     <a href="/enterprise">Enterprise</a>
     <a href="/privacy">Privacy</a>
     <a href="mailto:jarryd@urbyte.com.au">Contact</a>
   </div>
-  <div class="foot-meta">© 2026 Urbyte Pty Ltd · Acknowledges the Widjabul Wiabul people of Bundjalung Nation</div>
+  <div class="foot-meta">&#169; 2026 Urbyte Pty Ltd &nbsp;&#183;&nbsp; Acknowledges the Widjabul Wiabul people of Bundjalung Nation</div>
 </footer>
 
 <script>
-// LIVE WASTE COUNTER
-// $9.9B / year = ~$314/sec across all AU subscribers
-const GB_PER_SEC = 660 * 26e6 / (365.25 * 24 * 3600); // ~0.536 GB/sec
-const VAL_PER_GB = 0.015;
-let startTime = Date.now();
-function updateCounter() {
-  const elapsed = (Date.now() - startTime) / 1000;
-  const gb = elapsed * GB_PER_SEC;
-  const val = gb * VAL_PER_GB;
-  document.getElementById('liveCounter').textContent = gb.toLocaleString('en-AU', {maximumFractionDigits:1});
-  document.getElementById('liveValue').textContent = '$' + val.toLocaleString('en-AU', {maximumFractionDigits:0});
+// LIVE CAPACITY COUNTER
+// 26M subs x 55GB/mo / (365.25 x 24 x 3600) = ~0.4975 GB/sec nationally
+var GB_SEC = 26000000 * 55 / (365.25 * 24 * 3600);
+var t0 = Date.now();
+function runCounter() {
+  var s = (Date.now() - t0) / 1000;
+  var gb = s * GB_SEC;
+  document.getElementById("liveGB").textContent = gb.toLocaleString("en-AU", {minimumFractionDigits:1, maximumFractionDigits:1});
+  document.getElementById("liveDBU").textContent = Math.round(gb * 10).toLocaleString("en-AU");
 }
-setInterval(updateCounter, 100);
-updateCounter();
+setInterval(runCounter, 100);
+runCounter();
 
-// VAULT
-const CODES = ['urbyte2026','partner','mvno2026'];
-function unlockVault() {
-  const v = document.getElementById('vCode').value.trim().toLowerCase();
-  const err = document.getElementById('vErr');
-  const content = document.getElementById('vContent');
-  if (CODES.includes(v)) {
-    content.classList.add('open');
-    err.style.display = 'none';
-    document.getElementById('vCode').style.borderColor = '#00E5CC';
+// VAULT — pure inline style toggle, no classList
+var CODES = ["urbyte2026", "partner", "mvno2026"];
+function tryUnlock() {
+  var inp = document.getElementById("vaultCode");
+  var err = document.getElementById("vaultErr");
+  var box = document.getElementById("vaultContent");
+  var val = inp.value.trim().toLowerCase();
+  if (CODES.indexOf(val) !== -1) {
+    box.style.display = "block";
+    err.style.display = "none";
+    inp.style.borderColor = "#00E5CC";
   } else {
-    err.style.display = 'block';
-    content.classList.remove('open');
+    box.style.display = "none";
+    err.style.display = "block";
+    inp.style.borderColor = "rgba(194,0,58,0.7)";
   }
 }
-document.getElementById('vCode').addEventListener('keypress', e => { if (e.key==='Enter') unlockVault(); });
-
-// COUNT UP ANIMATION ON SCROLL
-const counters = document.querySelectorAll('.stat-n');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.transition = 'opacity 0.6s';
-      entry.target.style.opacity = '1';
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.3});
-counters.forEach(c => { c.style.opacity = '0.3'; observer.observe(c); });
+document.getElementById("vaultBtn").onclick = tryUnlock;
+document.getElementById("vaultCode").onkeydown = function(e) { if (e.key === "Enter") tryUnlock(); };
 </script>
 </body>
 </html>
