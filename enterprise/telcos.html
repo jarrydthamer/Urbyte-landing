@@ -1,1 +1,675 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Urbyte | Telcos</title><link rel="stylesheet" href="styles.css"/></head><body><div class="shell"><nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><div class="brand-mark"></div><div class="brand-name">Urbyte</div></a><div class="nav-links"><a href="consumers.html">Consumers</a><a href="dbu.html">DBU</a><a href="telcos.html">Telcos</a><a href="insight.html">Insight</a><a href="givabit.html">Givabit</a><a href="media.html">Media</a><a href="about.html">About</a><a href="contact.html">Contact</a></div><a class="nav-cta" href="vault.html">Partner Vault</a></div></nav><main><section class="page-hero"><div class="page-hero-inner"><div class="kicker">For MVNOs, MNVOs and telco partners</div><h1 class="page-title">A retention layer with <span>consumer goodwill built in.</span></h1><p class="lead">Urbyte is positioned as telco-adjacent infrastructure: a value-recognition layer supporting engagement, loyalty, insight and community impact.</p></div></section><section class="container"><div class="grid-3"><div class="card"><div class="card-number">Partner benefit</div><h3>Retention leverage</h3><p>Users who receive recognised value from unused allowance have a reason to stay engaged across billing cycles.</p></div><div class="card"><div class="card-number">Operational posture</div><h3>Low-integration pathway</h3><p>The first partner model can operate through structured evidence, controlled exports and limited technical lift.</p></div><div class="card"><div class="card-number">Brand outcome</div><h3>Fairness story</h3><p>Partners can participate in a visible fairness and impact layer while retaining their customer relationship.</p></div></div><section class="vault"><div class="vault-inner"><div class="vault-top"><div><div class="kicker gold">Restricted partner vault</div><h2>Formulae, weightings and key components are released only after direct partner contact.</h2><p>The public page explains the capability. The vault protects the mechanics: DBU conversion logic, DWFI weightings, redemption controls, partner implementation assumptions and commercial defensibility.</p></div><div class="vault-badge">Access controlled</div></div><div class="vault-locked"><div class="lock-text">Vault contents are intended for MNVOs, MVNOs, telcos, institutional partners and serious technical reviewers.</div><a class="btn" href="mailto:information@urbyte.com.au?subject=Urbyte%20Partner%20Vault%20Access%20Request">Request vault access →</a></div><div class="code-box formula-preview">DBU = ΔV × (Plan Cost / Plan Allowance) × α × β<br>DWFI = weighted(data waste frustration + billing dispute frequency + payment friction + tenure decay)<br>Retention Action = risk score × partner rules × reward threshold × user segment</div></div></section></section></main><section class="recognition" aria-label="Recognition of Country"><div class="aboriginal-flag-small" aria-hidden="true"><span class="aboriginal-flag-sun"></span></div><p>Urbyte recognises Aboriginal and Torres Strait Islander peoples as the First Peoples of Australia and acknowledges the Traditional Custodians of the lands and waters on which we live and work. We pay respect to Elders past and present.</p></section><footer class="footer"><div><strong>Urbyte Pty Ltd</strong> · Data · Value · Impact</div><div>ACN 692 885 019 · Northern Rivers NSW, Australia</div><div><a href="media.html">Media</a> · <a href="vault.html">Partner Vault</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></div></footer></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urbyte — For Telcos & MVNOs | Turn Churn Into Retention</title>
+  <meta name="description" content="Urbyte is the retention infrastructure MVNOs cannot build themselves. No technical integration required. Your subscribers stay longer — and you have a story that no competitor can match." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:#00000A; color:#fff; overflow-x:hidden; }
+    a { text-decoration:none; }
+    body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.05) 3px,rgba(0,0,0,0.05) 4px); pointer-events:none; z-index:9998; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; justify-content:space-between; align-items:center; padding:18px 52px; background:rgba(0,0,10,0.75); backdrop-filter:blur(28px); border-bottom:1px solid rgba(91,0,255,0.15); }
+    .nav-logo { display:flex; align-items:center; gap:12px; }
+    .nav-logo span { font-size:20px; font-weight:900; letter-spacing:-0.5px; }
+    .nav-tag { font-size:10px; color:rgba(91,0,255,0.7); font-weight:700; letter-spacing:3px; margin-left:6px; }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); transition:color 0.3s; }
+    .nav-links a:hover { color:#00E5CC; }
+    .btn-nav { background:transparent; border:1px solid rgba(91,0,255,0.5); color:rgba(140,60,255,0.9); padding:9px 24px; font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase; transition:all 0.3s; cursor:pointer; }
+    .btn-nav:hover { background:rgba(91,0,255,0.12); box-shadow:0 0 24px rgba(91,0,255,0.3); }
+
+    .hero { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:140px 20px 100px; overflow:hidden; }
+    .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(91,0,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(91,0,255,0.04) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
+    .hero-glow { position:absolute; top:40%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; border-radius:50%; background:radial-gradient(ellipse,rgba(91,0,255,0.1) 0%,rgba(194,0,58,0.04) 40%,transparent 70%); pointer-events:none; animation:pulse 10s ease-in-out infinite alternate; }
+    @keyframes pulse { from{opacity:0.4} to{opacity:0.9} }
+    .hero-content { position:relative; z-index:5; }
+    .sys-badge { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(91,0,255,0.35); background:rgba(91,0,255,0.07); padding:8px 20px; margin-bottom:40px; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(140,60,255,0.85); }
+    .sys-dot { width:5px; height:5px; background:#00E5CC; border-radius:50%; animation:blink 1.4s infinite; box-shadow:0 0 6px #00E5CC; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    h1 { font-size:clamp(40px,7vw,88px); font-weight:900; line-height:0.92; letter-spacing:-4px; margin-bottom:32px; }
+    .h1-line { display:block; color:rgba(255,255,255,0.92); }
+    .grad { background:linear-gradient(90deg,#00E5CC,#5B00FF,#C2003A); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .grad2 { background:linear-gradient(90deg,#C2003A,#5B00FF); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-sub { font-size:16px; color:rgba(255,255,255,0.3); line-height:2; max-width:600px; margin:0 auto 48px; }
+    .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:linear-gradient(135deg,#00E5CC,#5B00FF); color:#fff; padding:15px 42px; font-weight:900; font-size:11px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 0 40px rgba(0,229,204,0.3); transition:all 0.3s; display:inline-block; border:none; cursor:pointer; }
+    .btn-primary:hover { box-shadow:0 0 60px rgba(0,229,204,0.5); transform:translateY(-2px); }
+    .btn-ghost { background:transparent; color:rgba(255,255,255,0.45); padding:15px 42px; font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.1); display:inline-block; transition:all 0.3s; }
+    .btn-ghost:hover { border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.8); }
+    .hero-micro { color:rgba(255,255,255,0.1); font-size:9px; margin-top:22px; letter-spacing:4px; text-transform:uppercase; }
+
+    .stats { position:relative; z-index:1; padding:60px 20px; background:rgba(0,0,10,0.65); border-top:1px solid rgba(91,0,255,0.1); border-bottom:1px solid rgba(91,0,255,0.1); backdrop-filter:blur(10px); }
+    .stats-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:40px; text-align:center; }
+    .stat-num { font-size:48px; font-weight:900; letter-spacing:-3px; }
+    .s1 { background:linear-gradient(135deg,#00E5CC,#0066FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(0,229,204,0.4)); }
+    .s2 { background:linear-gradient(135deg,#C2003A,#5B00FF); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 0 20px rgba(194,0,58,0.4)); }
+    .s3 { background:linear-gradient(135deg,#5B00FF,#00E5CC); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .s4 { background:linear-gradient(135deg,#C2003A,#FF6A00); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .stat-suffix { font-size:28px; font-weight:700; opacity:0.75; vertical-align:super; line-height:0; }
+    .stat-label { color:rgba(255,255,255,0.25); font-size:11px; margin-top:8px; letter-spacing:1px; text-transform:uppercase; max-width:180px; margin-left:auto; margin-right:auto; }
+
+    .geo-div { height:1px; background:linear-gradient(90deg,transparent,rgba(91,0,255,0.5),rgba(0,229,204,0.5),rgba(194,0,58,0.5),transparent); position:relative; z-index:1; }
+    section { position:relative; z-index:1; padding:120px 20px; }
+    .inner { max-width:1100px; margin:0 auto; }
+    .sec-tag { font-size:9px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(0,229,204,0.6); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+    .sec-tag::before { content:''; display:block; width:32px; height:1px; background:linear-gradient(90deg,rgba(0,229,204,0.6),transparent); }
+    .sec-title { font-size:clamp(32px,5vw,60px); font-weight:900; letter-spacing:-3px; line-height:0.95; margin-bottom:20px; }
+    .sec-sub { font-size:15px; color:rgba(255,255,255,0.35); line-height:2; max-width:520px; }
+
+    /* PROBLEM LINES */
+    .prob-list { display:flex; flex-direction:column; gap:2px; margin-top:60px; }
+    .prob-item { display:flex; gap:0; }
+    .prob-num { width:60px; flex-shrink:0; background:rgba(91,0,255,0.07); border:1px solid rgba(91,0,255,0.1); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:rgba(91,0,255,0.4); letter-spacing:-1px; }
+    .prob-body { flex:1; padding:24px 28px; background:rgba(0,0,10,0.55); border:1px solid rgba(255,255,255,0.04); }
+    .prob-body h4 { font-size:16px; font-weight:800; margin-bottom:6px; }
+    .prob-body p { font-size:13px; color:rgba(255,255,255,0.35); line-height:1.8; }
+    .prob-body.accent { border-left:2px solid #00E5CC; background:rgba(0,229,204,0.03); }
+    .prob-body.accent h4 { color:#00E5CC; }
+
+    /* CARDS */
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2px; margin-top:60px; }
+    .card { padding:44px 36px; position:relative; overflow:hidden; background:rgba(0,0,10,0.6); backdrop-filter:blur(12px); border:1px solid rgba(91,0,255,0.08); transition:background 0.4s; }
+    .card:hover { background:rgba(91,0,255,0.06); }
+    .card::after { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,229,204,0.3),transparent); opacity:0; transition:opacity 0.3s; }
+    .card:hover::after { opacity:1; }
+    .card-num { position:absolute; top:16px; right:24px; font-size:88px; font-weight:900; color:rgba(91,0,255,0.05); line-height:1; }
+    .card-step { font-size:9px; color:rgba(0,229,204,0.5); font-weight:700; letter-spacing:4px; text-transform:uppercase; margin-bottom:10px; }
+    .card-title { font-size:18px; font-weight:800; margin-bottom:12px; letter-spacing:-0.5px; }
+    .card-desc { font-size:13px; color:rgba(255,255,255,0.35); line-height:1.9; }
+    .t1 { border-top:2px solid #00E5CC; }
+    .t2 { border-top:2px solid #5B00FF; }
+    .t3 { border-top:2px solid #C2003A; }
+
+    /* TARGETS */
+    .target-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2px; margin-top:60px; }
+    .target-card { padding:36px 32px; background:rgba(0,0,10,0.6); border:1px solid rgba(255,255,255,0.04); position:relative; }
+    .target-name { font-size:20px; font-weight:900; letter-spacing:-0.5px; margin-bottom:4px; }
+    .target-sub { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:20px; font-weight:700; }
+    .target-subs { font-size:32px; font-weight:900; letter-spacing:-2px; margin-bottom:4px; }
+    .target-subs-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.2); margin-bottom:20px; }
+    .target-why { font-size:13px; color:rgba(255,255,255,0.35); line-height:1.8; }
+    .target-badge { position:absolute; top:16px; right:16px; font-size:8px; letter-spacing:2px; text-transform:uppercase; font-weight:700; padding:4px 10px; }
+    .tb-ideal { background:rgba(0,229,204,0.1); color:#00E5CC; border:1px solid rgba(0,229,204,0.2); }
+    .tb-strong { background:rgba(91,0,255,0.1); color:rgba(140,60,255,0.9); border:1px solid rgba(91,0,255,0.2); }
+
+    /* PIPELINE */
+    .pipeline { margin-top:60px; display:flex; flex-direction:column; gap:2px; }
+    .pipe-row { display:flex; align-items:stretch; gap:2px; }
+    @media(max-width:700px){ .pipe-row{flex-direction:column;} }
+    .pipe-label { width:200px; flex-shrink:0; padding:22px 24px; background:rgba(91,0,255,0.07); border:1px solid rgba(91,0,255,0.1); font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(91,0,255,0.7); display:flex; align-items:center; }
+    .pipe-content { flex:1; padding:22px 28px; background:rgba(0,0,10,0.5); border:1px solid rgba(255,255,255,0.04); font-size:14px; color:rgba(255,255,255,0.55); line-height:1.7; display:flex; align-items:center; }
+    .pipe-content strong { color:#fff; font-weight:700; }
+
+    /* REVENUE */
+    .rev-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; margin-top:60px; }
+    .rev-item { padding:36px 28px; background:rgba(0,0,10,0.6); border:1px solid rgba(255,255,255,0.04); border-top:2px solid rgba(91,0,255,0.3); }
+    .rev-label { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:rgba(91,0,255,0.5); margin-bottom:12px; font-weight:700; }
+    .rev-val { font-size:28px; font-weight:900; letter-spacing:-1px; margin-bottom:8px; }
+    .rev-desc { font-size:13px; color:rgba(255,255,255,0.3); line-height:1.8; }
+
+    /* CTA */
+    .cta-section { padding:120px 20px; text-align:center; position:relative; z-index:1; }
+    .cta-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 50%,rgba(91,0,255,0.08) 0%,transparent 70%); pointer-events:none; }
+    .cta-inner { position:relative; max-width:700px; margin:0 auto; }
+    .cta-inner h2 { font-size:clamp(32px,5vw,56px); font-weight:900; letter-spacing:-3px; line-height:0.95; margin-bottom:20px; }
+    .cta-inner p { font-size:15px; color:rgba(255,255,255,0.3); line-height:2; margin-bottom:44px; }
+    .cta-contact { margin-top:40px; font-size:13px; color:rgba(255,255,255,0.2); letter-spacing:2px; }
+    .cta-contact a { color:rgba(0,229,204,0.6); }
+    .cta-contact a:hover { color:#00E5CC; }
+
+    footer { padding:40px 52px; border-top:1px solid rgba(91,0,255,0.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+    .footer-logo { font-size:16px; font-weight:900; letter-spacing:-0.5px; }
+    .footer-links { display:flex; gap:28px; }
+    .footer-links a { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.2); font-weight:700; transition:color 0.3s; }
+    .footer-links a:hover { color:#00E5CC; }
+    .footer-copy { font-size:10px; color:rgba(255,255,255,0.1); letter-spacing:1px; }
+
+    @media(max-width:768px){
+      nav { padding:16px 24px; }
+      .nav-links { display:none; }
+      section { padding:80px 20px; }
+    }
+
+    /* VAULT */
+    .vault-section { padding:120px 20px; position:relative; z-index:1; }
+    .vault-wrap { max-width:1100px; margin:0 auto; }
+    .vault-door { border:1px solid rgba(194,0,58,0.3); background:rgba(0,0,10,0.85); position:relative; overflow:hidden; }
+    .vault-door::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(194,0,58,0.03) 28px,rgba(194,0,58,0.03) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(194,0,58,0.03) 28px,rgba(194,0,58,0.03) 29px); pointer-events:none; }
+    .vault-header { display:flex; align-items:center; justify-content:space-between; padding:28px 40px; border-bottom:1px solid rgba(194,0,58,0.2); background:rgba(194,0,58,0.04); cursor:pointer; user-select:none; }
+    .vault-header:hover { background:rgba(194,0,58,0.07); }
+    .vault-title-row { display:flex; align-items:center; gap:20px; }
+    .vault-icon { width:48px; height:48px; border:1px solid rgba(194,0,58,0.4); display:flex; align-items:center; justify-content:center; position:relative; flex-shrink:0; }
+    .vault-icon svg { width:24px; height:24px; }
+    .vault-icon::after { content:''; position:absolute; inset:-4px; border:1px solid rgba(194,0,58,0.15); }
+    .vault-label { font-size:9px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:rgba(194,0,58,0.7); margin-bottom:4px; }
+    .vault-title { font-size:20px; font-weight:900; letter-spacing:-0.5px; color:#fff; }
+    .vault-status { display:flex; align-items:center; gap:10px; }
+    .vault-lock-badge { display:flex; align-items:center; gap:8px; border:1px solid rgba(194,0,58,0.3); padding:8px 18px; font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(194,0,58,0.7); background:rgba(194,0,58,0.05); }
+    .vault-lock-dot { width:6px; height:6px; background:#C2003A; border-radius:50%; box-shadow:0 0 8px #C2003A; animation:blink 1.4s infinite; }
+    .vault-lock-badge.unlocked { border-color:rgba(0,229,204,0.3); color:rgba(0,229,204,0.7); background:rgba(0,229,204,0.05); }
+    .vault-lock-badge.unlocked .vault-lock-dot { background:#00E5CC; box-shadow:0 0 8px #00E5CC; animation:none; }
+
+    .vault-gate { padding:48px 40px; text-align:center; border-bottom:1px solid rgba(194,0,58,0.1); }
+    .vault-gate p { font-size:13px; color:rgba(255,255,255,0.25); letter-spacing:2px; text-transform:uppercase; font-weight:700; margin-bottom:28px; }
+    .vault-input-row { display:flex; gap:12px; justify-content:center; max-width:480px; margin:0 auto; }
+    .vault-input { flex:1; background:rgba(0,0,10,0.8); border:1px solid rgba(194,0,58,0.3); color:#fff; padding:14px 20px; font-size:14px; font-family:monospace; letter-spacing:4px; outline:none; transition:border-color 0.3s; }
+    .vault-input:focus { border-color:rgba(194,0,58,0.7); box-shadow:0 0 20px rgba(194,0,58,0.15); }
+    .vault-input::placeholder { color:rgba(255,255,255,0.15); letter-spacing:2px; }
+    .vault-btn { background:rgba(194,0,58,0.15); border:1px solid rgba(194,0,58,0.4); color:rgba(194,0,58,0.9); padding:14px 28px; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; cursor:pointer; transition:all 0.3s; white-space:nowrap; font-family:inherit; }
+    .vault-btn:hover { background:rgba(194,0,58,0.25); box-shadow:0 0 20px rgba(194,0,58,0.2); }
+    .vault-err { color:rgba(194,0,58,0.7); font-size:11px; letter-spacing:2px; margin-top:12px; display:none; font-family:monospace; }
+
+    .vault-contents { display:none; padding:48px 40px; }
+    .vault-contents.open { display:block; }
+    .vault-redacted-bar { background:rgba(0,229,204,0.05); border-left:2px solid #00E5CC; padding:10px 20px; margin-bottom:40px; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(0,229,204,0.5); }
+    .vault-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2px; margin-bottom:2px; }
+    .vault-card { background:rgba(0,0,10,0.7); border:1px solid rgba(255,255,255,0.04); padding:32px 28px; position:relative; }
+    .vault-card-label { font-size:8px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:rgba(91,0,255,0.5); margin-bottom:10px; font-family:monospace; }
+    .vault-card-title { font-size:15px; font-weight:800; margin-bottom:16px; color:#fff; }
+    .vault-formula { background:rgba(0,0,0,0.5); border:1px solid rgba(91,0,255,0.15); padding:16px 20px; font-family:monospace; font-size:13px; color:#00E5CC; line-height:2; margin-bottom:12px; white-space:pre-wrap; }
+    .vault-note { font-size:12px; color:rgba(255,255,255,0.25); line-height:1.8; font-family:monospace; }
+    .vault-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(91,0,255,0.3),rgba(0,229,204,0.3),transparent); margin:32px 0; }
+    .vault-spec-row { display:flex; gap:0; margin-bottom:2px; }
+    .vault-spec-key { width:200px; flex-shrink:0; padding:14px 20px; background:rgba(91,0,255,0.05); border:1px solid rgba(91,0,255,0.08); font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(91,0,255,0.5); font-family:monospace; display:flex; align-items:center; }
+    .vault-spec-val { flex:1; padding:14px 20px; background:rgba(0,0,10,0.5); border:1px solid rgba(255,255,255,0.04); font-size:12px; color:rgba(255,255,255,0.55); font-family:monospace; line-height:1.6; display:flex; align-items:center; }
+    .vault-spec-val strong { color:#00E5CC; }
+    .vault-stamp { position:absolute; top:16px; right:16px; border:2px solid rgba(194,0,58,0.3); padding:4px 10px; font-size:8px; font-weight:700; letter-spacing:3px; color:rgba(194,0,58,0.4); text-transform:uppercase; transform:rotate(2deg); }
+    .vault-watermark { position:absolute; bottom:16px; right:20px; font-size:48px; font-weight:900; color:rgba(91,0,255,0.03); font-family:monospace; line-height:1; pointer-events:none; }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/a876b2051_generated_image.png" alt="Urbyte" style="width:38px;height:38px;object-fit:cover;" />
+    <span>Urbyte</span>
+    <span class="nav-tag">TELCO & MVNO</span>
+  </div>
+  <div class="nav-links">
+    <a href="/">Consumer</a>
+    <a href="/enterprise">Enterprise</a>
+    <a href="#model">The Model</a>
+    <a href="#partners">MVNO Partners</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="mailto:jarryd@urbyte.com.au" class="btn-nav">Partnership Enquiry</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="sys-badge"><span class="sys-dot"></span> Carrier-Neutral Infrastructure — ACN 692 885 019</div>
+    <h1>
+      <span class="h1-line">Your subscribers are</span>
+      <span class="grad">leaving for price.</span>
+      <span class="h1-line">Give them a reason</span>
+      <span class="grad2">to stay for value.</span>
+    </h1>
+    <p class="hero-sub">Urbyte is the retention infrastructure MVNOs cannot build themselves. No technical integration required at launch. Your subscribers stay longer — and you have a differentiation story no competitor can match.</p>
+    <div class="hero-btns">
+      <a href="mailto:jarryd@urbyte.com.au" class="btn-primary">Request Partnership Briefing</a>
+      <a href="#model" class="btn-ghost">See the Model</a>
+    </div>
+    <p class="hero-micro">No Carrier Integration Required · Zero Build Cost · Live in 48 Hours</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num s1">$2.85<span class="stat-suffix">B</span></div>
+      <div class="stat-label">Australian MVNO market value — 2026</div>
+    </div>
+    <div>
+      <div class="stat-num s2">15–25<span class="stat-suffix">%</span></div>
+      <div class="stat-label">Projected churn reduction for MVNO partners</div>
+    </div>
+    <div>
+      <div class="stat-num s3">$24<span class="stat-suffix">k</span></div>
+      <div class="stat-label">Annual partnership fee — full co-branding and subscriber access rights</div>
+    </div>
+    <div>
+      <div class="stat-num s4">$0</div>
+      <div class="stat-label">Technical integration cost at launch — referral code model</div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- THE REAL PROBLEM -->
+<section>
+  <div class="inner">
+    <div class="sec-tag">The Real Problem</div>
+    <h2 class="sec-title">You are competing<br/>on price. You will lose.</h2>
+    <p class="sec-sub">The Australian MVNO market is a race to the bottom. Every carrier resells the same bandwidth. Every MVNO faces the same churn. The only sustainable exit is value differentiation — and nobody has built it. Until now.</p>
+    <div class="prob-list">
+      <div class="prob-item">
+        <div class="prob-num">01</div>
+        <div class="prob-body">
+          <h4>Price-based differentiation is a dead end</h4>
+          <p>When your cheapest competitor undercuts by $2/month, you lose the subscriber. No loyalty, no switching cost, no stickiness. The churn cycle never ends.</p>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">02</div>
+        <div class="prob-body">
+          <h4>You cannot build value recovery yourself</h4>
+          <p>MVNOs lease bandwidth — they do not own the infrastructure. Building a data value return product would require carrier cooperation that the carriers will never grant.</p>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">03</div>
+        <div class="prob-body">
+          <h4>The carriers are structurally prevented from solving this</h4>
+          <p>Optus proved the mechanism works with "Donate Your Data." But authentic value return would expose 30 years of billing asymmetry to class action risk. They cannot move.</p>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">04</div>
+        <div class="prob-body accent">
+          <h4>Urbyte solves this — and you didn't have to build it</h4>
+          <p>Carrier-independent. Out-of-band. No conflict of interest with your wholesale agreement. Your subscribers get real value from their unused data. You get retention and a story.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- THE MODEL -->
+<section id="model">
+  <div class="inner">
+    <div class="sec-tag">The Partnership Model</div>
+    <h2 class="sec-title">No integration.<br/>Immediate differentiation.</h2>
+    <p class="sec-sub">Urbyte requires zero technical integration at launch. The MVNO partnership is commercial, not technical — designed to be operational within 48 hours of agreement.</p>
+    <div class="cards">
+      <div class="card t1">
+        <div class="card-num">01</div>
+        <div class="card-step">Step 1</div>
+        <div class="card-title">Partnership Agreement</div>
+        <div class="card-desc">A straightforward commercial agreement. $24,000 per year. You receive full co-branding rights, referral code allocation, and access to Urbyte's subscriber-facing marketing assets. No technical dependency.</div>
+      </div>
+      <div class="card t2">
+        <div class="card-num">02</div>
+        <div class="card-step">Step 2</div>
+        <div class="card-title">Subscriber Activation</div>
+        <div class="card-desc">You promote Urbyte to your subscriber base via your existing channels — billing inserts, app notifications, EDM. Your subscribers sign up independently via your unique referral code at urbyte.com.au.</div>
+      </div>
+      <div class="card t3">
+        <div class="card-num">03</div>
+        <div class="card-step">Step 3</div>
+        <div class="card-title">Value Return Begins</div>
+        <div class="card-desc">Subscribers log their plan and usage each month. Urbyte calculates the unused gap and converts it to DBUs — redeemable for retail rewards or routed to a charity of the subscriber's choice through Givabit.</div>
+      </div>
+    </div>
+    <div class="pipeline" style="margin-top:32px;">
+      <div class="pipe-row">
+        <div class="pipe-label">Your Cost</div>
+        <div class="pipe-content"><strong>$24,000 per year</strong> — flat partnership fee. No per-subscriber cost. No revenue share. No technical build.</div>
+      </div>
+      <div class="pipe-row">
+        <div class="pipe-label">Your Gain</div>
+        <div class="pipe-content"><strong>15–25% projected churn reduction</strong> on Urbyte-enrolled subscribers. Full co-branding rights. A differentiation story no price-based competitor can replicate.</div>
+      </div>
+      <div class="pipe-row">
+        <div class="pipe-label">Your Risk</div>
+        <div class="pipe-content"><strong>None structurally.</strong> Urbyte operates independently of your carrier contract. No wholesale agreement is affected. No carrier visibility. No PII shared.</div>
+      </div>
+      <div class="pipe-row">
+        <div class="pipe-label">Timeline</div>
+        <div class="pipe-content"><strong>Operational within 48 hours</strong> of agreement. Referral codes are issued immediately. No IT project. No carrier negotiation. No delay.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- MVNO TARGETS -->
+<section id="partners">
+  <div class="inner">
+    <div class="sec-tag">MVNO Partnership Pipeline</div>
+    <h2 class="sec-title">The operators<br/>Urbyte is built for.</h2>
+    <p class="sec-sub">These are the MVNOs that face the highest structural churn pressure and stand to gain the most from a genuine value differentiation story.</p>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="target-badge tb-ideal">Ideal Fit</div>
+        <div class="target-name">Woolworths Mobile</div>
+        <div class="target-sub">MVNO — Telstra Network</div>
+        <div class="target-subs" style="color:#00E5CC;">500k<span style="font-size:18px;font-weight:700;">+</span></div>
+        <div class="target-subs-label">Estimated Subscribers</div>
+        <div class="target-why">Australia's largest MVNO. Grocery loyalty crossover audience. Everyday Rewards integration creates a natural DBU redemption pathway. The "give back" narrative aligns directly with Woolworths' community positioning.</div>
+      </div>
+      <div class="target-card">
+        <div class="target-badge tb-strong">Strong Fit</div>
+        <div class="target-name">Kogan Mobile</div>
+        <div class="target-sub">MVNO — Vodafone Network</div>
+        <div class="target-subs" style="color:#5B00FF;">250k<span style="font-size:18px;font-weight:700;">+</span></div>
+        <div class="target-subs-label">Estimated Subscribers</div>
+        <div class="target-why">Price-motivated subscriber base — exactly who responds to DBU cashback framing. Kogan's brand is built on consumer value. Urbyte extends that story beyond price into genuine data equity.</div>
+      </div>
+      <div class="target-card">
+        <div class="target-badge tb-ideal">Ideal Fit</div>
+        <div class="target-name">Belong</div>
+        <div class="target-sub">MVNO — Telstra Network</div>
+        <div class="target-subs" style="color:#00E5CC;">300k<span style="font-size:18px;font-weight:700;">+</span></div>
+        <div class="target-subs-label">Estimated Subscribers</div>
+        <div class="target-why">Sustainability-positioned brand. Givabit charity routing is a natural extension of Belong's existing social values framing. The strongest narrative alignment of any MVNO in the market.</div>
+      </div>
+      <div class="target-card">
+        <div class="target-badge tb-strong">Strong Fit</div>
+        <div class="target-name">Amaysim</div>
+        <div class="target-sub">MVNO — Optus Network</div>
+        <div class="target-subs" style="color:#5B00FF;">200k<span style="font-size:18px;font-weight:700;">+</span></div>
+        <div class="target-subs-label">Estimated Subscribers</div>
+        <div class="target-why">Tech-literate, values-conscious subscriber base. High digital engagement. DBU wallet and marketplace mechanics resonate with this audience. Strong community-giving precedent.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- REVENUE FOR MVNO -->
+<section>
+  <div class="inner">
+    <div class="sec-tag">The Commercial Case</div>
+    <h2 class="sec-title">What a single MVNO<br/>partnership delivers.</h2>
+    <p class="sec-sub">Based on a 200,000-subscriber MVNO at a conservative 5% Urbyte enrollment rate. Churn reduction at the industry average monthly cost of $45 per churned subscriber.</p>
+    <div class="rev-grid">
+      <div class="rev-item">
+        <div class="rev-label">Enrolled Subscribers</div>
+        <div class="rev-val">10,000</div>
+        <div class="rev-desc">5% enrollment of 200k subscriber base. Conservative estimate based on passive promotion only.</div>
+      </div>
+      <div class="rev-item">
+        <div class="rev-label">Churn Reduction</div>
+        <div class="rev-val">1,500–2,500</div>
+        <div class="rev-desc">Subscribers retained annually at 15–25% projected churn reduction on enrolled cohort.</div>
+      </div>
+      <div class="rev-item">
+        <div class="rev-label">Revenue Retained</div>
+        <div class="rev-val">$810k–$1.35M</div>
+        <div class="rev-desc">At $45/month average ARPU × retained subscribers × 12 months.</div>
+      </div>
+      <div class="rev-item">
+        <div class="rev-label">Partnership Cost</div>
+        <div class="rev-val">$24,000</div>
+        <div class="rev-desc">Annual flat fee. No per-subscriber cost. No revenue share. No technical build.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- CDR TAILWIND -->
+<section>
+  <div class="inner">
+    <div class="sec-tag">The Regulatory Tailwind</div>
+    <h2 class="sec-title">CDR is coming<br/>to telco. Be ready.</h2>
+    <p class="sec-sub">Australia's Consumer Data Right — already live in banking and energy — has telecommunications as its next expansion. CDR gives consumers the legal right to share their usage data with accredited third parties.</p>
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+      <div class="card t1">
+        <div class="card-step">Now</div>
+        <div class="card-title">Urbyte operates on self-reported data</div>
+        <div class="card-desc">Subscribers log their plan and usage manually. The platform works today without any regulatory requirement. Traction is being built ahead of the regulatory wave.</div>
+      </div>
+      <div class="card t2">
+        <div class="card-step">CDR Expansion</div>
+        <div class="card-title">Automated data feeds replace manual entry</div>
+        <div class="card-desc">When CDR reaches telco, subscribers will be able to share their usage data directly with Urbyte via accredited API. The calculation becomes automated and instantaneous.</div>
+      </div>
+      <div class="card t3">
+        <div class="card-step">MVNO Advantage</div>
+        <div class="card-title">MVNOs have no conflict — carriers do</div>
+        <div class="card-desc">MVNOs lease bandwidth. They have no structural reason to resist CDR integration. MVNO partners who are already aligned with Urbyte will have a 12–24 month head start on CDR-enabled data value recovery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- VAULT -->
+<section class="vault-section">
+  <div class="vault-wrap">
+    <div class="sec-tag" style="margin-bottom:24px;">Integration Intelligence</div>
+    <h2 class="sec-title" style="margin-bottom:8px;">Partner Vault.</h2>
+    <p class="sec-sub" style="margin-bottom:48px;">Technical integration specifications, DBU calculation architecture, and revenue formulas. Restricted to authorised MVNO partners and accredited integration teams.</p>
+
+    <div class="vault-door">
+      <!-- VAULT HEADER -->
+      <div class="vault-header" onclick="toggleVaultGate()">
+        <div class="vault-title-row">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(194,0,58,0.7)" stroke-width="1.5">
+              <rect x="3" y="11" width="18" height="11" rx="0"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              <circle cx="12" cy="16" r="1.5" fill="rgba(194,0,58,0.7)" stroke="none"/>
+              <line x1="12" y1="17.5" x2="12" y2="20" stroke="rgba(194,0,58,0.7)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="vault-label">Restricted Access — ACN 692 885 019</div>
+            <div class="vault-title">Urbyte Partner Integration Vault</div>
+          </div>
+        </div>
+        <div class="vault-status">
+          <div class="vault-lock-badge" id="vaultBadge">
+            <span class="vault-lock-dot" id="vaultDot"></span>
+            <span id="vaultBadgeText">LOCKED</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATE -->
+      <div class="vault-gate" id="vaultGate">
+        <p>Enter partner access code to proceed</p>
+        <div class="vault-input-row">
+          <input type="password" class="vault-input" id="vaultPass" placeholder="ACCESS CODE" onkeydown="if(event.key==='Enter')unlockVault()" />
+          <button class="vault-btn" onclick="unlockVault()">Unlock</button>
+        </div>
+        <div class="vault-err" id="vaultErr">⚠ INVALID CREDENTIALS — CONTACT jarryd@urbyte.com.au</div>
+        <p style="margin-top:24px;font-size:11px;color:rgba(255,255,255,0.1);letter-spacing:1px;">Authorised partners only. Unauthorised access is logged.</p>
+      </div>
+
+      <!-- VAULT CONTENTS -->
+      <div class="vault-contents" id="vaultContents">
+        <div class="vault-redacted-bar">⬛ CLASSIFIED — AUTHORISED PARTNER ACCESS ONLY · SESSION LOGGED · DO NOT DISTRIBUTE</div>
+
+        <!-- DBU FORMULA BLOCK -->
+        <div class="vault-grid">
+          <div class="vault-card">
+            <div class="vault-stamp">FORMULA</div>
+            <div class="vault-watermark">DBU</div>
+            <div class="vault-card-label">// DBU_CALCULATION_ENGINE_V2</div>
+            <div class="vault-card-title">Data Backed Unit — Core Formula</div>
+            <div class="vault-formula">unused_gb  = plan_gb − used_gb
+dbu_earned = unused_gb × 10
+aud_value  = dbu_earned × 0.05
+
+Example:
+  Plan:   100GB
+  Used:    18GB
+  Unused:  82GB
+  DBUs:   820 DBU
+  Value: $41.00 AUD</div>
+            <div class="vault-note">// 1 DBU = $0.05 AUD · Non-monetary rewards credit<br>// AASB 138 compliant · ATO TR 2011/4 eligible<br>// Conversion floor: 100 DBU minimum redemption</div>
+          </div>
+
+          <div class="vault-card">
+            <div class="vault-stamp">REVENUE</div>
+            <div class="vault-watermark">REV</div>
+            <div class="vault-card-label">// REVENUE_MODEL_WEIGHTED_AVG</div>
+            <div class="vault-card-title">Subscription Revenue Architecture</div>
+            <div class="vault-formula">Tier     Price    DBU Bonus  Weight
+Bronze   $3.99    +50 DBU    30%
+Silver   $6.99    +150 DBU   45%
+Gold     $9.99    +350 DBU   25%
+
+Weighted ARPU = $6.97/member/month
+DBU margin    = 15% on redemption value
+Givabit alloc = 8% of subscription rev</div>
+            <div class="vault-note">// Founding rate is locked for life per member<br>// DBU redemption opens at billing cycle 4<br>// Charity payout threshold: $250 or 3-month cycle</div>
+          </div>
+        </div>
+
+        <div class="vault-divider"></div>
+
+        <!-- CDR API SPEC -->
+        <div class="vault-card-label" style="margin-bottom:16px;">// CDR_API_INTEGRATION_SPEC · CONSUMER_DATA_RIGHT_PHASE_3</div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Protocol</div>
+          <div class="vault-spec-val"><strong>OAuth 2.0 + PKCE</strong> — CDR Accredited Data Recipient (ADR) flow. Consent-based. Subscriber-initiated.</div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Endpoint</div>
+          <div class="vault-spec-val"><strong>GET /cdr/telco/accounts/{accountId}/usage</strong> — monthly data consumption per service ID</div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Data Fields</div>
+          <div class="vault-spec-val"><strong>planAllowance_gb · dataUsed_gb · billingCycleStart · billingCycleEnd · serviceId</strong></div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Auth Layer</div>
+          <div class="vault-spec-val"><strong>mTLS</strong> — mutual TLS certificate pinning. Out-of-band. No carrier system write access. Read-only consent scope.</div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Refresh Cycle</div>
+          <div class="vault-spec-val"><strong>Monthly</strong> — triggered at billing cycle completion. Delta calculated server-side. DBUs minted and logged immutably.</div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">Privacy Layer</div>
+          <div class="vault-spec-val"><strong>Zero PII to carrier.</strong> Urbyte holds usage deltas only. No call records, no content, no location. Privacy Act 1988 compliant.</div>
+        </div>
+        <div class="vault-spec-row">
+          <div class="vault-spec-key">MVNO Dependency</div>
+          <div class="vault-spec-val"><strong>None at launch.</strong> Self-reported model active now. CDR auto-feed activates when telco CDR phase is live (est. 2026–27).</div>
+        </div>
+
+        <div class="vault-divider"></div>
+
+        <!-- CHURN MODEL -->
+        <div class="vault-grid">
+          <div class="vault-card">
+            <div class="vault-stamp">MODEL</div>
+            <div class="vault-watermark">CHN</div>
+            <div class="vault-card-label">// CHURN_RETENTION_MODEL_V1</div>
+            <div class="vault-card-title">Churn Reduction Formula</div>
+            <div class="vault-formula">retained = enrolled × churn_reduction_rate
+
+Conservative (15%):
+  10,000 enrolled → 1,500 retained/yr
+
+Aggressive (25%):
+  10,000 enrolled → 2,500 retained/yr
+
+Revenue impact @ $45/mo ARPU:
+  Conservative: $810,000/yr
+  Aggressive:  $1,350,000/yr
+
+Partnership cost: $24,000/yr flat
+ROI (conservative): 33.75×</div>
+            <div class="vault-note">// Churn rate sourced from ACCC telco market data<br>// ARPU estimated at industry average $45/month<br>// Enrolled cohort assumes 5% passive signup rate</div>
+          </div>
+
+          <div class="vault-card">
+            <div class="vault-stamp">PIPELINE</div>
+            <div class="vault-watermark">INT</div>
+            <div class="vault-card-label">// PARTNER_ONBOARDING_PIPELINE</div>
+            <div class="vault-card-title">Technical Onboarding Sequence</div>
+            <div class="vault-formula">T+0h   Agreement signed
+T+2h   Referral codes issued (batch)
+T+4h   Co-branded assets delivered
+T+24h  Subscriber comms approved
+T+48h  LIVE — subscribers activating
+
+CDR Phase (post-regulatory):
+T+0    Consent flow deployed
+T+14d  mTLS cert exchange complete
+T+30d  Automated DBU minting live</div>
+            <div class="vault-note">// No carrier API dependency at launch<br>// Zero IT project required from MVNO<br>// All integration managed Urbyte-side</div>
+          </div>
+        </div>
+
+        <div class="vault-divider"></div>
+        <div style="text-align:center;padding:20px 0;">
+          <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.1);font-family:monospace;">END OF RESTRICTED DOCUMENT · URBYTE PTY LTD ACN 692 885 019 · SESSION LOGGED</p>
+          <p style="font-size:11px;color:rgba(0,229,204,0.3);margin-top:12px;font-family:monospace;">Integration enquiries: <a href="mailto:jarryd@urbyte.com.au" style="color:#00E5CC;">jarryd@urbyte.com.au</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="geo-div"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="sys-badge" style="margin:0 auto 32px;"><span class="sys-dot"></span> Partnership Enquiries — Direct to Founder</div>
+    <h2>Ready to give your<br/><span class="grad">subscribers a reason to stay?</span></h2>
+    <p>Request a partnership briefing. We'll walk through the commercial model, the referral code setup, and exactly what the churn reduction case looks like for your subscriber base. Operational within 48 hours of agreement.</p>
+    <a href="mailto:jarryd@urbyte.com.au" class="btn-primary">Request Partnership Briefing</a>
+    <p class="cta-contact">Direct line — <a href="mailto:jarryd@urbyte.com.au">jarryd@urbyte.com.au</a> · <a href="tel:0431553493">0431 553 493</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Urbyte <span style="color:rgba(91,0,255,0.5);font-weight:400;font-size:12px;letter-spacing:2px;">ACN 692 885 019</span></div>
+  <div class="footer-links">
+    <a href="/">Consumer</a>
+    <a href="/enterprise">Enterprise</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <div class="footer-copy">© 2026 Urbyte Pty Ltd · Widjabul Wiabul Country · Bundjalung Nation</div>
+</footer>
+
+
+<script>
+function unlockVault() {
+  const pass = document.getElementById('vaultPass').value.trim().toLowerCase();
+  const validCodes = ['urbyte2026', 'partner', 'mvno2026', 'urbyte'];
+  if (validCodes.includes(pass)) {
+    document.getElementById('vaultGate').style.display = 'none';
+    document.getElementById('vaultContents').classList.add('open');
+    document.getElementById('vaultBadge').classList.add('unlocked');
+    document.getElementById('vaultBadgeText').textContent = 'UNLOCKED';
+    document.getElementById('vaultDot').style.animation = 'none';
+    document.getElementById('vaultErr').style.display = 'none';
+  } else {
+    const err = document.getElementById('vaultErr');
+    err.style.display = 'block';
+    document.getElementById('vaultPass').style.borderColor = 'rgba(194,0,58,0.8)';
+    document.getElementById('vaultPass').style.boxShadow = '0 0 20px rgba(194,0,58,0.3)';
+    setTimeout(() => {
+      document.getElementById('vaultPass').style.borderColor = '';
+      document.getElementById('vaultPass').style.boxShadow = '';
+    }, 1500);
+  }
+}
+function toggleVaultGate() {
+  const contents = document.getElementById('vaultContents');
+  const gate = document.getElementById('vaultGate');
+  if (contents.classList.contains('open')) {
+    contents.classList.remove('open');
+    gate.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>
