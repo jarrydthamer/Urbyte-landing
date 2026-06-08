@@ -3,249 +3,206 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Urbyte Enterprise — Turn Data Waste Into Tax-Deductible Value</title>
-  <meta name="description" content="Urbyte transforms invisible enterprise data waste into ATO-compliant charitable value. AASB 138 asset classification. 30% immediate tax benefit." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <title>Urbyte Enterprise — Convert Wasted Corporate Data Into Tax-Deductible Assets</title>
+  <meta name="description" content="Urbyte Corporate converts your fleet's unused data capacity into Data-Backed Units — triggering ATO TR 2011/4 tax deductions, ESG reporting value, and a cryptographically verified waste audit. Zero network changes required." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size:16px; scroll-behavior:smooth; }
     body {
-      font-family:'Inter',sans-serif;
       background:#00000A;
       color:#fff;
-      overflow-x:hidden;
-    }
-    body::after {
-      content:'';
-      position:fixed;
-      inset:0;
-      background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,204,0.015) 2px,rgba(0,229,204,0.015) 4px);
-      pointer-events:none;
-      z-index:0;
+      font-family:'Inter', sans-serif;
+      -webkit-font-smoothing:antialiased;
+      background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,204,0.012) 2px,rgba(0,229,204,0.012) 4px);
     }
 
     /* NAV */
     nav {
-      position:fixed; top:0; left:0; right:0; z-index:200;
+      position:fixed; top:0; left:0; right:0; z-index:100;
       display:flex; align-items:center; justify-content:space-between;
-      padding:0 40px;
-      height:64px;
+      padding:0 40px; height:60px;
       background:rgba(0,0,10,0.92);
       border-bottom:1px solid rgba(0,229,204,0.12);
-      backdrop-filter:blur(12px);
     }
     .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
     .nav-logo img { width:36px; height:36px; object-fit:contain; }
     .nav-logo-text { font-size:18px; font-weight:800; color:#fff; letter-spacing:-0.5px; }
     .nav-logo-tag {
-      font-size:10px; font-weight:700; letter-spacing:3px; color:#00E5CC;
-      border:1px solid rgba(0,229,204,0.4); padding:3px 8px;
-      text-transform:uppercase;
+      font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+      color:#00E5CC; border:1px solid rgba(0,229,204,0.4); padding:3px 8px;
     }
     .nav-links { display:flex; align-items:center; gap:32px; }
     .nav-links a { font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); text-decoration:none; letter-spacing:0.5px; transition:color 0.2s; }
     .nav-links a:hover { color:#00E5CC; }
     .btn-nav {
-      font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-      color:#00E5CC; border:1px solid #00E5CC;
-      padding:10px 22px; text-decoration:none;
-      transition:background 0.2s, color 0.2s;
+      font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+      color:#00E5CC; border:1px solid #00E5CC; padding:8px 20px; text-decoration:none; transition:all 0.2s;
     }
     .btn-nav:hover { background:#00E5CC; color:#00000A; }
 
-    /* HERO — banner image full width */
+    /* HERO */
     .hero {
-      position:relative;
-      margin-top:64px;
-      width:100%;
-      min-height:520px;
-      display:flex;
-      align-items:center;
-      overflow:hidden;
+      position:relative; margin-top:60px;
+      width:100%; overflow:hidden;
     }
     .hero-banner {
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
+      display:block; width:100%; height:auto;
+      max-height:640px; object-fit:cover; object-position:center top;
     }
     .hero-overlay {
-      position:absolute;
-      inset:0;
-      background:linear-gradient(90deg, rgba(0,0,10,0.75) 0%, rgba(0,0,10,0.55) 50%, rgba(0,0,10,0.4) 100%);
-    }
-    .hero-bottom {
-      position:absolute;
-      bottom:0; left:0; right:0; height:120px;
-      background:linear-gradient(to top, #00000A, transparent);
+      position:absolute; inset:0;
+      background:linear-gradient(to bottom,
+        transparent 0%,
+        transparent 55%,
+        rgba(0,0,10,0.6) 80%,
+        rgba(0,0,10,1.0) 100%
+      );
     }
     .hero-content {
-      position:relative;
-      z-index:10;
-      width:100%;
-      max-width:1200px;
-      margin:0 auto;
-      padding:80px 40px;
+      max-width:1200px; margin:0 auto;
+      padding:60px 60px 80px;
+      text-align:left;
     }
     .hero-badge {
       display:inline-flex; align-items:center; gap:8px;
-      font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
-      color:#00E5CC; border:1px solid rgba(0,229,204,0.35);
-      padding:7px 16px; margin-bottom:28px;
+      font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+      color:#00E5CC; border:1px solid rgba(0,229,204,0.35); padding:8px 16px;
+      margin-bottom:28px;
     }
-    .hero-badge::before {
-      content:''; width:6px; height:6px;
-      background:#00E5CC; border-radius:50%;
-      animation:pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .hero-badge::before { content:''; width:6px; height:6px; background:#00E5CC; border-radius:50%; }
     .hero h1 {
-      font-size:clamp(36px,5vw,62px);
-      font-weight:900;
-      line-height:1.05;
-      letter-spacing:-2px;
-      color:#fff;
-      max-width:600px;
-      margin-bottom:24px;
+      font-size:clamp(36px,5vw,60px); font-weight:900; line-height:1.05;
+      letter-spacing:-2px; margin-bottom:24px;
+      text-shadow:0 2px 20px rgba(0,0,10,0.9), 0 0 40px rgba(0,0,10,0.7);
     }
     .hero h1 em { font-style:normal; color:#00E5CC; }
     .hero-sub {
-      font-size:16px; font-weight:400; color:rgba(255,255,255,0.65);
-      max-width:480px; line-height:1.7; margin-bottom:36px;
+      font-size:16px; font-weight:400; color:rgba(255,255,255,0.72);
+      line-height:1.75; margin-bottom:36px;
+      text-shadow:0 1px 10px rgba(0,0,10,0.8);
     }
     .hero-ctas { display:flex; gap:16px; flex-wrap:wrap; }
     .btn-primary {
-      font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-      background:#00E5CC; color:#00000A;
-      padding:16px 32px; text-decoration:none;
-      transition:opacity 0.2s;
+      display:inline-block; font-size:13px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; text-decoration:none;
+      background:#00E5CC; color:#00000A; padding:14px 32px; transition:opacity 0.2s;
     }
     .btn-primary:hover { opacity:0.85; }
     .btn-ghost {
-      font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-      color:#fff; border:1px solid rgba(255,255,255,0.3);
-      padding:16px 32px; text-decoration:none;
-      transition:border-color 0.2s, color 0.2s;
+      display:inline-block; font-size:13px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; text-decoration:none;
+      border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.7);
+      padding:14px 32px; transition:all 0.2s;
     }
     .btn-ghost:hover { border-color:#00E5CC; color:#00E5CC; }
+    .hero-trust { display:flex; gap:24px; margin-top:28px; flex-wrap:wrap; }
+    .hero-trust span { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); display:flex; align-items:center; gap:6px; }
+    .hero-trust span::before { content:''; width:5px; height:5px; background:#00E5CC; }
 
     /* STAT STRIP */
     .stat-strip {
-      background:rgba(0,229,204,0.05);
+      display:flex; justify-content:space-around; flex-wrap:wrap;
+      padding:32px 60px; gap:0;
+      background:rgba(0,229,204,0.04);
       border-top:1px solid rgba(0,229,204,0.12);
       border-bottom:1px solid rgba(0,229,204,0.12);
-      padding:32px 40px;
-      display:flex; justify-content:center; gap:48px; flex-wrap:wrap;
     }
-    .stat-item { text-align:center; min-width:140px; }
-    .stat-num { font-size:28px; font-weight:900; color:#00E5CC; letter-spacing:-1px; }
-    .stat-label { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:6px; line-height:1.5; }
+    .stat-item { text-align:center; padding:12px 20px; }
+    .stat-num { font-size:30px; font-weight:900; color:#00E5CC; letter-spacing:-1px; }
+    .stat-source { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(0,229,204,0.45); margin-top:2px; }
+    .stat-label { font-size:11px; font-weight:500; color:rgba(255,255,255,0.45); margin-top:4px; line-height:1.4; max-width:160px; margin-left:auto; margin-right:auto; }
 
     /* SECTIONS */
     section { max-width:1200px; margin:0 auto; padding:100px 40px; }
-    .section-tag {
-      font-size:10px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
-      color:#00E5CC; margin-bottom:16px;
+    .section-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#00E5CC; margin-bottom:20px; }
+    .section-title { font-size:clamp(28px,4vw,48px); line-height:1.1; font-weight:900; letter-spacing:-1.5px; color:#fff; margin-bottom:20px; }
+    .section-sub { font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8; max-width:720px; margin-bottom:60px; }
+
+    /* TWO COL */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .col-panel { padding:36px; background:rgba(255,255,255,0.02); border:1px solid rgba(0,229,204,0.08); }
+    .col-panel.teal { border-color:rgba(0,229,204,0.2); background:rgba(0,229,204,0.05); }
+    .col-panel h3 { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#00E5CC; margin-bottom:20px; }
+    .col-panel p { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; }
+    .col-panel ul { list-style:none; margin-top:16px; }
+    .col-panel ul li { font-size:14px; color:rgba(255,255,255,0.65); line-height:1.7; display:flex; gap:12px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .col-panel ul li::before { content:'→'; color:#00E5CC; flex-shrink:0; font-size:13px; }
+
+    /* DASHBOARD TERMINAL */
+    .terminal {
+      background:#00000A; border:1px solid rgba(0,229,204,0.2);
+      padding:32px; font-family:monospace; font-size:13px;
+      color:rgba(0,229,204,0.8); line-height:1.9;
+      white-space:pre; overflow-x:auto;
+      margin-top:0;
     }
-    .section-title {
-      font-size:clamp(28px,3.5vw,44px);
-      font-weight:900; letter-spacing:-1.5px; color:#fff;
-      line-height:1.1; margin-bottom:16px;
-    }
-    .section-sub {
-      font-size:15px; color:rgba(255,255,255,0.55); line-height:1.75;
-      max-width:560px; margin-bottom:56px;
+    .terminal-header {
+      font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+      color:rgba(0,229,204,0.4); margin-bottom:20px; border-bottom:1px solid rgba(0,229,204,0.1); padding-bottom:12px;
     }
 
-    /* HOW IT WORKS */
-    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; }
-    .step {
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,229,204,0.08);
-      padding:36px 28px;
-      position:relative;
-      transition:border-color 0.3s, background 0.3s;
-    }
-    .step:hover { border-color:rgba(0,229,204,0.3); background:rgba(0,229,204,0.04); }
-    .step-num {
-      font-size:11px; font-weight:700; letter-spacing:3px;
-      color:rgba(0,229,204,0.4); margin-bottom:20px;
-    }
-    .step-icon { font-size:28px; margin-bottom:16px; }
-    .step h3 { font-size:16px; font-weight:700; color:#fff; margin-bottom:10px; letter-spacing:-0.3px; }
-    .step p { font-size:13.5px; color:rgba(255,255,255,0.5); line-height:1.65; }
+    /* THREE STEP */
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; counter-reset:step; }
+    .step { padding:36px 28px; border:1px solid rgba(0,229,204,0.08); background:rgba(255,255,255,0.01); position:relative; }
+    .step-num { font-size:11px; font-weight:700; letter-spacing:3px; color:rgba(0,229,204,0.35); margin-bottom:16px; }
+    .step h3 { font-size:16px; font-weight:800; color:#fff; margin-bottom:12px; letter-spacing:-0.3px; }
+    .step p { font-size:14px; color:rgba(255,255,255,0.5); line-height:1.75; }
+    .step .step-value { font-size:24px; font-weight:900; color:#00E5CC; margin-top:20px; letter-spacing:-1px; }
+    .step .step-value-label { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(0,229,204,0.45); margin-top:4px; }
 
-    /* TAX BENEFIT */
-    .tax-block {
-      display:grid; grid-template-columns:1fr 1fr; gap:2px;
+    /* CALCULATOR */
+    .calc-section {
+      background:rgba(0,229,204,0.03); border:1px solid rgba(0,229,204,0.1);
+      padding:60px; margin:0;
     }
-    .tax-panel {
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,229,204,0.08);
-      padding:48px 40px;
+    .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin-top:32px; }
+    .calc-input-group { margin-bottom:24px; }
+    .calc-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,229,204,0.6); margin-bottom:8px; display:block; }
+    .calc-input {
+      width:100%; background:transparent; border:1px solid rgba(0,229,204,0.2);
+      color:#00E5CC; padding:12px 20px; font-family:'Inter',sans-serif;
+      font-size:20px; font-weight:800; outline:none; letter-spacing:-0.5px;
     }
-    .tax-panel.accent {
-      background:rgba(0,229,204,0.06);
-      border-color:rgba(0,229,204,0.25);
+    .calc-btn {
+      background:#00E5CC; color:#00000A; border:none; padding:14px 32px;
+      font-size:12px; font-weight:800; letter-spacing:2px; cursor:pointer; width:100%; margin-top:8px;
     }
-    .tax-panel h3 { font-size:13px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#00E5CC; margin-bottom:20px; }
-    .tax-panel p { font-size:14px; color:rgba(255,255,255,0.6); line-height:1.75; }
-    .tax-panel .big-num { font-size:56px; font-weight:900; color:#00E5CC; letter-spacing:-3px; line-height:1; margin:20px 0 12px; }
-    .compliance-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-    .tag {
-      font-size:11px; font-weight:600; letter-spacing:1.5px;
-      border:1px solid rgba(0,229,204,0.3); color:rgba(0,229,204,0.8);
-      padding:6px 14px;
-    }
+    .calc-results { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .calc-result-item { padding:20px; border:1px solid rgba(0,229,204,0.12); background:rgba(0,0,10,0.4); }
+    .calc-result-num { font-size:24px; font-weight:900; color:#00E5CC; letter-spacing:-1px; }
+    .calc-result-label { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-top:6px; line-height:1.4; }
 
-    /* FEATURES GRID */
-    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2px; }
-    .feature {
-      padding:36px 32px;
-      background:rgba(255,255,255,0.025);
-      border:1px solid rgba(255,255,255,0.06);
-      transition:border-color 0.3s;
-    }
-    .feature:hover { border-color:rgba(0,229,204,0.2); }
-    .feature-icon { font-size:24px; margin-bottom:16px; }
-    .feature h3 { font-size:15px; font-weight:700; color:#fff; margin-bottom:8px; }
-    .feature p { font-size:13.5px; color:rgba(255,255,255,0.48); line-height:1.65; }
+    /* BADGES */
+    .badge-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .badge { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; border:1px solid rgba(0,229,204,0.3); color:rgba(0,229,204,0.8); padding:7px 14px; }
+
+    /* DIVIDER */
+    .section-divider { border:none; border-top:1px solid rgba(0,229,204,0.07); margin:0 40px; }
 
     /* CONTACT */
-    .contact-block {
-      background:rgba(0,229,204,0.05);
-      border:1px solid rgba(0,229,204,0.15);
-      padding:64px;
-      text-align:center;
-    }
+    .contact-block { text-align:center; padding:80px 40px; border:1px solid rgba(0,229,204,0.07); background:rgba(0,229,204,0.02); }
     .contact-block h2 { font-size:36px; font-weight:900; letter-spacing:-1px; margin-bottom:12px; }
-    .contact-block p { font-size:15px; color:rgba(255,255,255,0.55); margin-bottom:32px; }
-    .contact-block a.btn-primary { display:inline-block; }
+    .contact-block p { font-size:16px; color:rgba(255,255,255,0.5); max-width:580px; margin:0 auto 32px; line-height:1.7; }
 
     /* FOOTER */
-    footer {
-      border-top:1px solid rgba(255,255,255,0.06);
-      padding:40px;
-      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-    }
+    footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:40px 60px; border-top:1px solid rgba(0,229,204,0.08); }
     .footer-logo { font-size:15px; font-weight:800; color:#fff; }
     .footer-meta { font-size:12px; color:rgba(255,255,255,0.3); }
     .footer-links { display:flex; gap:24px; }
     .footer-links a { font-size:12px; color:rgba(255,255,255,0.35); text-decoration:none; }
     .footer-links a:hover { color:#00E5CC; }
 
-    @media(max-width:768px) {
+    @media (max-width:900px) {
       nav { padding:0 20px; }
       .nav-links { display:none; }
-      .hero-content { padding:60px 24px; }
+      .hero-content { padding:80px 24px; max-width:100%; }
       section { padding:60px 24px; }
-      .tax-block { grid-template-columns:1fr; }
-      .stat-strip { gap:32px; }
-      .contact-block { padding:40px 24px; }
+      .stat-strip { padding:24px; }
+      .two-col, .steps, .calc-grid, .calc-results { grid-template-columns:1fr; }
+      .calc-section { padding:40px 24px; }
       footer { padding:32px 24px; flex-direction:column; align-items:flex-start; }
+      .terminal { font-size:11px; padding:20px; }
     }
   </style>
 </head>
@@ -253,8 +210,8 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="/">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/88600f73a_generated_image.png" alt="Urbyte" />
+  <a href="/" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/jarrydthamer/Urbyte-landing/main/assets/IMG_6919.jpeg" alt="Urbyte" />
     <span class="nav-logo-text">Urbyte</span>
     <span class="nav-logo-tag">Enterprise</span>
   </a>
@@ -262,159 +219,217 @@
     <a href="/">Consumer</a>
     <a href="/telco">Telco & MVNO</a>
     <a href="#how">How It Works</a>
-    <a href="#tax">Tax Benefit</a>
+    <a href="#dashboard">Dashboard</a>
     <a href="#contact">Contact</a>
+    <a href="#contact" class="btn-nav">Request Audit</a>
   </div>
-  <a href="mailto:jarryd@urbyte.com.au" class="btn-nav">Request Briefing</a>
 </nav>
 
-<!-- HERO — your banner image -->
+<!-- HERO -->
 <div class="hero">
-  <img class="hero-banner" src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/88600f73a_generated_image.png" alt="Urbyte Enterprise" />
-  <div class="hero-overlay"></div>
-  <div class="hero-bottom"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Enterprise Infrastructure — ACN 692 885 019</div>
-    <h1>Your fleet's unused data<br />is already <em>an asset.</em></h1>
-    <p class="hero-sub">Urbyte converts invisible enterprise data waste into ATO-compliant charitable value — delivering an immediate 30% cash tax saving on every dollar of recaptured infrastructure value.</p>
-    <div class="hero-ctas">
-      <a href="mailto:jarryd@urbyte.com.au" class="btn-primary">Request Enterprise Briefing</a>
-      <a href="#how" class="btn-ghost">See How It Works</a>
-    </div>
+  <img class="hero-banner" src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/78f9bce12_0AAC6921-9631-4CA8-B4B3-42727C4FE9CE.png" alt="Urbyte Enterprise" />
   </div>
+<div class="hero-content">
+    <div class="hero-badge">Enterprise Platform — ACN 692 885 019</div>
+    <h1>Your corporate data<br />waste is <em>already<br />tax-deductible.</em></h1>
+    <p class="hero-sub">Enterprise fleet plans are over-provisioned by an average of 35% to avoid overage charges. That unused capacity expires worthless every billing cycle. Urbyte Corporate converts it into Data-Backed Units — triggering ATO TR 2011/4 tax deductions, producing auditable ESG reports, and creating a measurable charitable impact. Zero infrastructure changes. Zero network disruption.</p>
+    <div class="hero-ctas">
+      <a href="#calculator" class="btn-primary">Calculate Your Waste</a>
+      <a href="#how" class="btn-ghost">How It Works</a>
+    </div>
+    <div class="hero-trust">
+      <span>ATO TR 2011/4</span>
+      <span>AASB 138 Compliant</span>
+      <span>ACNC DGR Verified</span>
+      <span>Privacy Act 1988</span>
+    </div>
 </div>
 
 <!-- STAT STRIP -->
 <div class="stat-strip">
   <div class="stat-item">
-    <div class="stat-num">&gt;50%</div>
-    <div class="stat-label">Enterprise Mobile Budget Wasted<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Telgea Research 2025</span></div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">&lt;7%</div>
-    <div class="stat-label">Avg Data Consumed Per Corporate Line<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Samsung / Oxford Economics 2025</span></div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">$866K</div>
-    <div class="stat-label">Annual Waste — 1,000-Employee Fleet<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Oxford Economics / Telgea 2025</span></div>
+    <div class="stat-num">35%</div>
+    <div class="stat-source">Enterprise audit average</div>
+    <div class="stat-label">Of all provisioned corporate data capacity unused each cycle</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">30%</div>
-    <div class="stat-label">Immediate Tax Benefit<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">ATO TR 2011/4</span></div>
+    <div class="stat-source">ATO TR 2011/4</div>
+    <div class="stat-label">Immediate cash tax offset on donated DBU value at market rate</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">AASB 138</div>
-    <div class="stat-label">Intangible Asset Classification<br><span style="font-size:9px;opacity:0.5;letter-spacing:1px;">Aust. Accounting Standard</span></div>
+    <div class="stat-num">$866K</div>
+    <div class="stat-source">Oxford Economics model</div>
+    <div class="stat-label">Annual waste value per 1,000 fleet lines at $40 ARPU</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">&lt;7%</div>
+    <div class="stat-source">Telgea fleet analysis</div>
+    <div class="stat-label">Average enterprise mobile fleet data actually consumed</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">$9.9B</div>
+    <div class="stat-source">ACCC 2024–25</div>
+    <div class="stat-label">Total systemic waste across 26M Australian subscribers annually</div>
   </div>
 </div>
 
 <!-- HOW IT WORKS -->
 <section id="how">
-  <div class="section-tag">The Process</div>
-  <h2 class="section-title">Four steps.<br />Zero friction.</h2>
-  <p class="section-sub">Urbyte sits between your enterprise mobile fleet and the telco — capturing unused allowance value without touching your network or contracts.</p>
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">Three steps from<br />waste to tax deduction.</h2>
+  <p class="section-sub">Urbyte Corporate connects to your carrier's usage logs via a read-only, mTLS-secured API. No network changes. No new hardware. No disruption to your fleet. The entire process — from waste verification to tax receipt — is cryptographically auditable.</p>
   <div class="steps">
     <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-icon">📡</div>
-      <h3>Fleet Audit</h3>
-      <p>We map your enterprise mobile fleet. Identify unused data allowances across all SIMs. Zero IT integration required at this stage.</p>
+      <div class="step-num">STEP 01</div>
+      <h3>Waste Verified</h3>
+      <p>Urbyte Insight ingests anonymised usage logs from your carrier. It calculates your Systemic Waste Delta — the gap between allocated fleet capacity and what was actually consumed. Every waste event is co-signed by your carrier's node key and Urbyte's oracle key, creating a Proof of Waste (PoWst) manifest that is independently auditable.</p>
+      <div class="step-value">Δ_Waste</div>
+      <div class="step-value-label">Allocated − Consumed = Verified waste</div>
     </div>
     <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-icon">⚙️</div>
-      <h3>Value Capture</h3>
-      <p>Urbyte converts unused GB into DBUs — Data Backed Units — at a fixed rate. No hardware, no software install, no contract renegotiation.</p>
+      <div class="step-num">STEP 02</div>
+      <h3>DBUs Minted</h3>
+      <p>Verified waste is converted into Data-Backed Units at a rate of 10 DBU per GB. DBUs are classified as intangible assets under AASB 138 — no AFSL licensing required. A floor value reflecting the wholesale cost of producing the underlying network capacity prevents token inflation.</p>
+      <div class="step-value">10 DBU / GB</div>
+      <div class="step-value-label">Floor: AU $0.05 per unit</div>
     </div>
     <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-icon">🏦</div>
-      <h3>Asset Classification</h3>
-      <p>DBU holdings are classified as intangible assets under AASB 138. Your data waste becomes a measurable, reportable balance sheet item.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-icon">🎯</div>
-      <h3>Tax-Deductible Donation</h3>
-      <p>Assets are donated to ACNC-registered charities via Givabit. ATO TR 2011/4 applies — 30% immediate cash tax deduction on the full declared value.</p>
+      <div class="step-num">STEP 03</div>
+      <h3>Tax Deduction Triggered</h3>
+      <p>DBUs are routed via Givabit to your nominated ACNC-registered DGR charity. Under ATO TR 2011/4, the donation is classified as a non-cash property gift — triggering a tax deduction equal to the fair market value of the DBUs. An auditable DGR receipt is issued per transaction.</p>
+      <div class="step-value">30% offset</div>
+      <div class="step-value-label">ATO TR 2011/4 — property gift treatment</div>
     </div>
   </div>
 </section>
 
-<!-- TAX BENEFIT -->
-<section id="tax" style="padding-top:0;">
-  <div class="section-tag">Compliance Framework</div>
-  <h2 class="section-title">Real tax savings.<br />Fully compliant.</h2>
-  <p class="section-sub">Built on existing ATO and AASB frameworks — not a grey area, not a loophole. This is structured philanthropic asset strategy.</p>
-  <div class="tax-block">
-    <div class="tax-panel accent">
-      <h3>Immediate Cash Benefit</h3>
-      <div class="big-num">30%</div>
-      <p>For every $1 of captured data asset value donated to an ACNC-registered charity, your enterprise receives a 30% immediate cash tax deduction under ATO TR 2011/4.</p>
-      <div class="compliance-tags">
-        <span class="tag">ATO TR 2011/4</span>
-        <span class="tag">AASB 138</span>
-        <span class="tag">ACNC Registered</span>
+<hr class="section-divider" />
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="section-tag">Corporate Dashboard</div>
+  <h2 class="section-title">Real-time waste streams.<br />Auditable ESG receipts.</h2>
+  <p class="section-sub">The Urbyte Corporate dashboard gives CFOs, procurement teams, and ESG officers a live view of fleet waste, DBU minting, charitable distribution, and tax offset accumulation — updated every billing cycle.</p>
+  <div class="terminal">
+<span style="color:rgba(0,229,204,0.5);">========================================================================================</span>
+  URBYTE ENTERPRISE // ESG & DIGITAL EFFICIENCY DEPLOYMENT METRICS
+<span style="color:rgba(0,229,204,0.5);">========================================================================================</span>
+[ Company: AusGrid Logistics ]     [ Billing Cycle: May 2026 ]     [ Status: OPTIMISED ]
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+
+  SYSTEMIC WASTE CAPTURED          DBU VALUE MINTED              ESG REVENUE REDIRECTED
+  <span style="color:#fff;font-weight:900;">42.8 Terabytes</span>               <span style="color:#fff;font-weight:900;">42,800 DBUs</span>                  <span style="color:#fff;font-weight:900;">$12,840.00 AUD</span>
+
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  [1] WASTE STREAM BREAKDOWN (Real-Time Ingestion)
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  Fleet Mobile Data Pools:         18.4 TB allocated → 8.2 TB wasted   [Reclaimed 100%]
+  Cold Storage IoT Infrastructure:  5.2 TB allocated → 1.1 TB wasted   [Reclaimed 100%]
+  Off-Peak Network Slices:         19.2 TB allocated → 19.2 TB wasted  [Reclaimed 100%]
+
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  [2] GIVABIT DISTRIBUTION LEDGER (Verified Impact Routing)
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  Allocated Asset    Recipient                      Audited Impact
+  ───────────────────────────────────────────────────────────────────
+  15,000 DBU         OzHarvest Australia            2,400 meals distributed
+  20,000 DBU         Bush Heritage Australia         12 hectares habitat restored
+   7,800 DBU         The Smith Family               8 student education tech kits
+
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  [3] SYSTEMIC EFFICIENCY & RETENTION VALUE
+<span style="color:rgba(0,229,204,0.15);">----------------------------------------------------------------------------------------</span>
+  Contract Churn Defence Score:    <span style="color:#00E5CC;">98.4%</span>  (Locked until May 2027 via active DBU accrual)
+  Corporate Tax Deductible Offset: <span style="color:#00E5CC;">$12,840.00 AUD</span>  (Auditable ESG Receipt Issued — ATO TR 2011/4)
+<span style="color:rgba(0,229,204,0.5);">========================================================================================</span></div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- CALCULATOR -->
+<div class="calc-section" id="calculator">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-tag">Enterprise Waste Calculator</div>
+    <h2 class="section-title">Find out what<br />your fleet is losing.</h2>
+    <p class="section-sub" style="margin-bottom:0;">Enter your fleet size. Urbyte calculates your annual waste exposure, DBU minting volume, and ATO tax offset in real time.</p>
+    <div class="calc-grid">
+      <div>
+        <div class="calc-input-group">
+          <label class="calc-label">Number of Fleet Lines</label>
+          <input class="calc-input" type="number" id="fleetLines" value="1000" min="1" />
+        </div>
+        <button class="calc-btn" onclick="calculateWaste()">CALCULATE WASTE EXPOSURE</button>
+        <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.6;">Based on AU $40/line ARPU, 35% systemic waste factor, AU $0.30 DBU floor, 30% ATO company tax rate. Source: ACCC 2024–25, ATO TR 2011/4.</p>
+      </div>
+      <div class="calc-results" id="calcResults">
+        <div class="calc-result-item">
+          <div class="calc-result-num" id="annualSpend">$480,000</div>
+          <div class="calc-result-label">Annual Fleet Telecom Spend</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-num" id="sunkWaste">$168,000</div>
+          <div class="calc-result-label">Annual Sunk Waste (35%)</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-num" id="dbuMinted">560,000</div>
+          <div class="calc-result-label">DBUs Minted Per Year</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-num" id="taxShield">$50,400</div>
+          <div class="calc-result-label">ATO Cash Tax Offset (30%)</div>
+        </div>
       </div>
     </div>
-    <div class="tax-panel">
-      <h3>Why This Works</h3>
-      <p style="margin-bottom:20px;">Mobile data allowances are contractually pre-paid capacity. When unused, they represent quantifiable intangible value — not a sunk cost. Urbyte applies the same logic that governs software licences, IP portfolios, and digital infrastructure assets.</p>
-      <p>This is not speculative. It is the application of existing accounting and tax law to a category of asset that has been systematically ignored by enterprise finance teams — until now.</p>
-      <div class="compliance-tags" style="margin-top:24px;">
-        <span class="tag">Corporations Act 2001</span>
-        <span class="tag">Privacy Act 1988</span>
-        <span class="tag">ABN 54 692 885 019</span>
-      </div>
+  </div>
+</div>
+
+<!-- COMPLIANCE -->
+<section>
+  <div class="section-tag">Legal & Compliance</div>
+  <h2 class="section-title">Built for CFOs,<br />cleared by regulators.</h2>
+  <p class="section-sub">Every component of the Urbyte Corporate platform was designed with Australian legal and tax compliance as a foundation — not an afterthought.</p>
+  <div class="two-col">
+    <div class="col-panel teal">
+      <h3>Tax Treatment</h3>
+      <ul>
+        <li>DBU donations to ACNC-registered DGR charities classified as non-cash property gifts under ATO TR 2011/4</li>
+        <li>Tax deduction equal to the fair market value of DBUs at time of donation</li>
+        <li>30% cash tax offset at standard company tax rate — auditable, receipted, ATO-compliant</li>
+        <li>DBUs classified as intangible assets under AASB 138 — no AFSL licensing triggered</li>
+        <li>DGR compliance verified automatically via ACNC register integration</li>
+      </ul>
     </div>
+    <div class="col-panel">
+      <h3>Privacy & Data Governance</h3>
+      <ul>
+        <li>All carrier usage logs ingested as anonymised session data — zero PII stored at any point</li>
+        <li>Read-only, out-of-band mTLS-secured API — no write access to carrier systems ever granted</li>
+        <li>Privacy Act 1988 compliant by architecture — not by policy</li>
+        <li>Dual cryptographic signature on every waste manifest — carrier node key + Urbyte oracle key</li>
+        <li>Every DBU minting transaction independently auditable — Proof of Waste (PoWst) manifest issued</li>
+      </ul>
+    </div>
+  </div>
+  <div class="badge-row" style="margin-top:32px;">
+    <span class="badge">ATO TR 2011/4</span>
+    <span class="badge">AASB 138</span>
+    <span class="badge">ACNC DGR Verified</span>
+    <span class="badge">Privacy Act 1988</span>
+    <span class="badge">mTLS Secured</span>
+    <span class="badge">CDR Compatible</span>
+    <span class="badge">ACN 692 885 019</span>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section style="padding-top:0;">
-  <div class="section-tag">Platform Capabilities</div>
-  <h2 class="section-title">Built for enterprise.<br />Designed for scale.</h2>
-  <p class="section-sub">Every feature is designed around the needs of finance, procurement, and compliance teams — not consumers.</p>
-  <div class="features">
-    <div class="feature">
-      <div class="feature-icon">🔐</div>
-      <h3>Data Sovereignty</h3>
-      <p>No CDR access required at onboarding. Consumer self-reported data model with a clear upgrade pathway to CDR API integration.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">📊</div>
-      <h3>Reporting Dashboard</h3>
-      <p>Real-time DBU balance, asset valuation, donation history, and tax certificate generation — all in one compliance-ready portal.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🤝</div>
-      <h3>Charity Selection</h3>
-      <p>Your enterprise nominates preferred ACNC-registered charities. Urbyte handles disbursement, receipting, and ATO documentation.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <h3>No Contract Disruption</h3>
-      <p>Operates independently of your existing telco contracts. No renegotiation. No carrier notification required.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🌏</div>
-      <h3>ESG Reporting</h3>
-      <p>Givabit contributions are fully documentable for TCFD, GRI, and internal ESG reporting frameworks.</p>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🔗</div>
-      <h3>API Ready</h3>
-      <p>CDR-compatible API integration available for enterprise partners. mTLS authenticated. ACCC CDR compliant architecture.</p>
-    </div>
-  </div>
-</section>
+<hr class="section-divider" />
 
 <!-- CONTACT -->
-<section id="contact" style="padding-top:0;">
+<section id="contact" style="padding-top:80px;">
   <div class="contact-block">
-    <div class="section-tag" style="margin-bottom:16px;">Get Started</div>
-    <h2>Request an enterprise briefing.</h2>
-    <p>We'll walk your finance team through the full compliance framework, asset calculation methodology, and implementation timeline. No obligation.</p>
+    <div class="section-tag" style="margin-bottom:16px;">Request a Corporate Waste Audit</div>
+    <h2>Find out what your<br />fleet is losing every month.</h2>
+    <p>Initial discussions are NDA-protected by default. We'll run a no-cost waste exposure analysis on your fleet size before any commercial conversation begins.</p>
     <a href="mailto:jarryd@urbyte.com.au" class="btn-primary">jarryd@urbyte.com.au</a>
   </div>
 </section>
@@ -430,6 +445,28 @@
   </div>
   <div class="footer-meta">© 2026 Urbyte Pty Ltd. Acknowledges the Widjabul Wiabul people of Bundjalung Nation.</div>
 </footer>
+
+<script>
+  function calculateWaste() {
+    const lines = parseFloat(document.getElementById('fleetLines').value) || 0;
+    const ARPU = 40.00;
+    const WASTE = 0.35;
+    const DBU_FLOOR = 0.30;
+    const TAX_RATE = 0.30;
+
+    const annualSpend = lines * ARPU * 12;
+    const sunkWaste = annualSpend * WASTE;
+    const dbuMinted = Math.floor(sunkWaste / DBU_FLOOR);
+    const taxShield = sunkWaste * TAX_RATE;
+
+    const fmt = (n) => '$' + Math.round(n).toLocaleString();
+    document.getElementById('annualSpend').textContent = fmt(annualSpend);
+    document.getElementById('sunkWaste').textContent = fmt(sunkWaste);
+    document.getElementById('dbuMinted').textContent = Math.round(dbuMinted).toLocaleString();
+    document.getElementById('taxShield').textContent = fmt(taxShield);
+  }
+  document.getElementById('fleetLines').addEventListener('input', calculateWaste);
+</script>
 
 </body>
 </html>
