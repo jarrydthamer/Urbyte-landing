@@ -1,28 +1,12 @@
 {
   "rewrites": [
-    {
-      "source": "/wallet",
-      "destination": "/wallet.html"
-    },
-    {
-      "source": "/convert",
-      "destination": "/convert.html"
-    },
-    {
-      "source": "/redeem",
-      "destination": "/redeem.html"
-    },
-    {
-      "source": "/success",
-      "destination": "/success.html"
-    },
-    {
-      "source": "/privacy",
-      "destination": "/privacy.html"
-    },
-    {
-      "source": "/terms",
-      "destination": "/terms.html"
-    }
+    { "source": "/telco", "destination": "/Telco.html" },
+    { "source": "/enterprise", "destination": "/enterprise.html" },
+    { "source": "/wallet", "destination": "/wallet.html" },
+    { "source": "/convert", "destination": "/convert.html" },
+    { "source": "/redeem", "destination": "/redeem.html" },
+    { "source": "/success", "destination": "/success.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" }
   ]
 }
