@@ -25,11 +25,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-cta:hover{background:rgba(0,229,204,0.08)!important}
 
 /* HERO */
-.hero{position:relative;min-height:93vh;display:flex;align-items:center;justify-content:flex-start;padding-top:64px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% center;display:block}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,10,0.98) 0%,rgba(0,0,10,0.95) 40%,rgba(0,0,10,0.75) 65%,rgba(0,0,10,0.35) 100%)}
-.hero-inner{position:relative;z-index:2;max-width:520px;margin:0;padding:80px 48px;width:50%}
+
+
+
+
+
 .hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
 .hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
 .hero h1{font-size:clamp(44px,5.8vw,78px);font-weight:900;line-height:0.96;letter-spacing:-3px;margin-bottom:28px;max-width:780px}
@@ -143,7 +143,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 
 @media(max-width:900px){
   nav{padding:0 20px}.nav-right{display:none}
-  .hero-inner,.sec,.vault-outer,.contact-outer,.reality-grid{padding-left:24px;padding-right:24px}
+  .hero-text,.sec,.vault-outer,.contact-outer,.reality-grid{padding-left:24px;padding-right:24px}
   .stat-strip,.reality-grid,.arch-grid,.rev-grid,.ip-grid,.vault-grid,footer{padding:24px;flex-direction:column;align-items:flex-start}
 }
 
@@ -169,6 +169,14 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .gated-success-body{font-size:.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
 .gated-err{font-size:.8rem;color:#C2003A;margin-top:8px;display:none;}
 @media(max-width:640px){.gated-form{grid-template-columns:1fr;}.gated-sec{padding:60px 24px;}}
+
+.hero{position:relative;padding-top:64px}
+.hero-img-wrap{position:relative;width:100%;overflow:hidden}
+.hero-img-fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,10,0.45) 0%,rgba(0,0,10,0.7) 50%,#00000A 100%)}
+.hero-text{max-width:1100px;margin:0 auto;padding:48px 48px 0}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:700px;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
 </style>
 </head>
 <body>
@@ -192,10 +200,11 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-bg">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/78f9bce12_0AAC6921-9631-4CA8-B4B3-42727C4FE9CE.png" alt="Urbyte network infrastructure — Australia"/>
+  <div class="hero-img-wrap">
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/78f9bce12_0AAC6921-9631-4CA8-B4B3-42727C4FE9CE.png" alt="Urbyte Telco Infrastructure"/>
+    <div class="hero-img-fade"></div>
   </div>
-  <div class="hero-inner">
+  <div class="hero-text">
     <div class="hero-kicker">Telco &amp; MVNO Infrastructure — ACN 692 885 019</div>
     <h1>Latent capacity<br/>has always been<br/><em>the write-off.</em></h1>
     <p class="hero-sub">Carriers have priced, provisioned, and absorbed unused capacity as structural deadweight for thirty years. The billing model produces it. The network expects it. Nobody has monetised it — until now. Urbyte is the out-of-band infrastructure layer that converts that verified delta into a measurable retention asset. Without touching your network. Without touching your pricing. Without a single contract renegotiation.</p>
@@ -210,6 +219,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
       <span class="trust-pill">accredited intangible asset classification · ATO-compliant deduction framework</span>
       <span class="trust-pill">Privacy Act 1988</span>
     </div>
+  </div>
   </div>
 </div>
 
