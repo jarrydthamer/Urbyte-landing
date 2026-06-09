@@ -317,63 +317,40 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <div class="sec" id="architecture">
   <div class="sec-tag">System Architecture</div>
   <h2 class="sec-h">Six components.<br/>One out-of-band layer.</h2>
-  <p class="sec-sub">The entire Urbyte stack sits outside the core network. No write access. No latency impact. No operational risk surface for the carrier. Every minting event is dual-signed and independently auditable.</p>
+  <p class="sec-sub">The entire Urbyte stack operates outside the core network. No write access. No latency impact. No operational risk surface for the carrier. Full technical specifications are available to verified partners under NDA.</p>
   <div class="arch-grid">
     <div class="arch-card">
       <div class="arch-num">01 &#8212; Ingestion</div>
-      <h3>our enterprise analytics engine&#8482;</h3>
-      <p>Ingests anonymised carrier usage logs via read-only enterprise-grade secured API. Calculates the Unallocated Capacity Delta (&#916;) &#8212; the verified gap between allocated and consumed capacity per billing cycle. Co-signs each event with carrier node key and Urbyte oracle key. Issues Proof of Waste (waste-verified&#8482;) manifest.</p>
-      <code class="arch-code">&#916;_Waste = Allocated &#8722; Consumed (GB)
-Carrier node key + Urbyte oracle key
-Output: waste-verified&#8482; manifest (auditable)</code>
+      <h3>Data Ingestion Engine</h3>
+      <p>Securely ingests anonymised carrier usage data via a read-only, enterprise-grade API connection. Calculates the verified gap between allocated fleet capacity and actual consumption each billing cycle. Zero PII stored at any point.</p>
     </div>
     <div class="arch-card">
-      <div class="arch-num">02 &#8212; Minting</div>
-      <h3>DBU&#8482; Ledger</h3>
-      <p>Converts verified waste into Data-Backed Units&#8482;. Proportional to verified volume and the network production cost index. Floor value prevents inflation. No ceiling on accumulation. Classified as intangible assets under accredited intangible asset classification. No AFSL triggered.</p>
-      <code class="arch-code">1 GB verified = 10 DBU&#8482; minted
-Floor: protocol-defined floor value
-Dual-sig per waste-verified&#8482; manifest
-accredited intangible asset classification &#8212; intangible asset class</code>
+      <div class="arch-num">02 &#8212; Verification</div>
+      <h3>Waste Verification Layer</h3>
+      <p>Applies Urbyte's proprietary verification protocol to each capacity event. Every verified waste record is independently auditable and cryptographically signed. Classified under accredited intangible asset accounting standards. No AFSL triggered.</p>
     </div>
     <div class="arch-card">
-      <div class="arch-num">03 &#8212; Clearinghouse</div>
-      <h3>Givabit&#8482;</h3>
-      <p>Routes minted DBUs to ACNC-registered DGR charities or reward partners. Enterprise donations classified as non-cash corporate contributions under ATO-compliant deduction framework &#8212; triggering a full tax deduction at market value. Auditable DGR receipt issued per transaction.</p>
-      <code class="arch-code">DBU &#8594; ACNC DGR register verified
-&#8594; ATO-compliant deduction framework property gift
-&#8594; accredited intangible asset classification classification held
-&#8594; Auditable DGR receipt issued</code>
+      <div class="arch-num">03 &#8212; Distribution</div>
+      <h3>Social Impact Engine</h3>
+      <p>Routes verified rewards credits to ACNC-registered DGR charities or partner reward programs. Enterprise contributions qualify under ATO-compliant non-cash deduction frameworks. Auditable receipts issued per transaction.</p>
     </div>
     <div class="arch-card">
       <div class="arch-num">04 &#8212; Consumer</div>
-      <h3>Urbyte&#8482; App</h3>
-      <p>Retail subscriber interface. Real-time allowance, consumption, and DBU balance. Converts unused data to DBUs at cycle end. Redemption or Givabit donation from cycle 4. DBU churn anchor activates immediately from first balance accumulation.</p>
-      <code class="arch-code">Tiers: Bronze / Silver / Gold
-DBU accumulation per cycle
-Churn delta: &#8722;34% (DBU holders)
-Redemption: from cycle 4</code>
+      <h3>Subscriber Interface</h3>
+      <p>Retail-facing platform giving subscribers real-time visibility over their data allowance, consumption, and rewards balance. Converts unused capacity into verified rewards credits automatically at each billing cycle end.</p>
     </div>
     <div class="arch-card">
       <div class="arch-num">05 &#8212; Corporate</div>
-      <h3>Urbyte Corporate&#8482;</h3>
-      <p>Fleet operator dashboard. Live waste streams, DBU minting volume, ESG impact metrics, charitable contribution ledger. Produces auditable ESG reports and DGR receipts for ATO tax filings. Full fleet telecom waste audit on demand.</p>
-      <code class="arch-code">Fleet waste: live carrier data ingestion
-ESG receipt: per donation, auditable
-ATO offset: 30% on DBU market value
-Churn defence: monthly score update</code>
+      <h3>Fleet Management Dashboard</h3>
+      <p>Enterprise operator portal providing live capacity waste reporting, ESG impact metrics, charitable contribution ledger, and ATO-ready tax documentation. Full fleet telecom waste audit available on demand.</p>
     </div>
     <div class="arch-card">
       <div class="arch-num">06 &#8212; Integration</div>
-      <h3>API Layer</h3>
-      <p>Out-of-band, read-only connection to carrier carrier usage data pipeline. Zero write access. Zero latency impact. Zero network operational risk. ACCC data schema compliant from day one. MVNO white-label capability &#8212; full DBU infrastructure under your brand, zero development cost.</p>
-      <code class="arch-code">Auth:   enterprise-grade authentication
-Host:   api.urbyte.com.au/v1/carrier usage data
-Rate:   1,000 req/min per carrier
-Format: JSON &#8212; ACCC data schema
-PII:    None stored</code>
+      <h3>Partner API</h3>
+      <p>Out-of-band, read-only connection. Zero write access to carrier systems. Zero latency impact on network operations. MVNO white-label capability — full rewards infrastructure deployable under your brand with zero development overhead.</p>
     </div>
   </div>
+  <p style="text-align:center;margin-top:40px;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px;">Full technical specifications, integration blueprints, and API documentation available to verified partners. <a href="#vault" style="color:rgba(0,229,204,0.6);text-decoration:none;">Request access via the Partner Vault →</a></p>
 </div>
 
 <hr class="divider"/>
@@ -394,7 +371,7 @@ PII:    None stored</code>
     <div class="ip-card">
       <div class="ip-tag">Protocol IP</div>
       <h3>Proof of Waste &#8212; waste-verified&#8482;</h3>
-      <p>The dual-signature Proof of Waste minting protocol &#8212; including the &#916;_Waste calculation, carrier + oracle co-signing architecture, and DBU issuance ledger &#8212; is original proprietary technology owned exclusively by Urbyte Pty Ltd. All rights reserved.</p>
+      <p>The proprietary waste verification and rewards minting protocol is original technology owned exclusively by Urbyte Pty Ltd. All rights reserved.</p>
     </div>
     <div class="ip-card">
       <div class="ip-tag">Platform IP</div>
@@ -445,234 +422,8 @@ NDA:  Available on request</code>
         <div class="vault-item">
           <h4>DBU&#8482; Minting Formula</h4>
           <pre>&#916;_Waste = Allocated &#8722; Consumed (GB)
-DBU minted = &#916;_Waste &#215; 10
+DBU minted = proprietary conversion rate × ΔWaste
 Floor: protocol-defined floor value
 Trigger: billing cycle end
 Cap: none
-Dual-sig: carrier key + oracle key</pre>
-        </div>
-        <div class="vault-item">
-          <h4>Integration Onboarding</h4>
-          <pre>Phase 1: carrier usage data read-only API connect
-Phase 2: waste-verified&#8482; manifest validation
-Phase 3: DBU&#8482; ledger sync
-Phase 4: Givabit&#8482; DGR routing live
-SLA:     99.9% uptime guaranteed
-Support: dedicated partner manager</pre>
-        </div>
-        <div class="vault-item">
-          <h4>API Specificationification</h4>
-          <pre>Auth:    enterprise-grade authentication
-Host:    api.urbyte.com.au/v1/carrier usage data
-Rate:    1,000 req/min per carrier
-Fields:  usage, balance, cycle dates
-Format:  JSON &#8212; ACCC data schema
-PII:     Zero &#8212; anonymised only</pre>
-        </div>
-        <div class="vault-item">
-          <h4>Subscriber Data Handling</h4>
-          <pre>PII stored:    None
-carrier usage data fields:    usage, cycle dates
-               balance (aggregate)
-Encryption:    TLS 1.3 in transit
-At rest:       AES-256
-Retention:     90-day rolling window
-Audit log:     full per-transaction</pre>
-        </div>
-        <div class="vault-item">
-          <h4>MVNO White-Label Scope</h4>
-          <pre>Brand:     Full partner branding
-App:       iOS + Android SDK
-Dashboard: co-branded or white-label
-DBU name:  customisable per carrier
-Givabit:   charity pool shared/private
-API:       subdomain routing available
-Timeline:  90-day pilot to live</pre>
-        </div>
-        <div class="vault-item">
-          <h4>Compliance Snapshot</h4>
-          <pre>DBU:      accredited intangible asset classification
-Donation: ATO-compliant deduction framework
-          non-cash corporate contribution
-DGR:      ACNC register verified
-AFSL:     Not required
-Privacy:  Act 1988 &#8212; by design
-carrier usage data:      ACCC schema aligned
-ACN:      692 885 019</pre>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact-outer" id="contact">
-  <div class="contact-block">
-    <div class="sec-tag" style="justify-content:center;margin-bottom:14px">Partnership Enquiry</div>
-    <h2>A read-only carrier usage data feed.<br/>90 days. Measurable delta.</h2>
-    <p>Initial discussions are NDA-protected by default. We will run a no-cost latent capacity analysis against your subscriber base before any commercial terms are discussed.</p>
-    <a href="mailto:jarryd@urbyte.com.au" class="btn-p">jarryd@urbyte.com.au</a>
-  </div>
-</div>
-
-
-
-<!-- GATED DOC REQUEST -->
-<div class="gated-sec" id="request-access">
-  <div class="gated-inner">
-    <div class="gated-tag">Partner &amp; Media Access</div>
-    <h2 class="gated-h">Request Technical Documentation</h2>
-    <p class="gated-sub">Architecture briefs, integration specifications, and partnership frameworks are available to verified telco operators, enterprise clients, and accredited media. Submit your details and we'll be in touch directly.</p>
-
-    <div class="gated-success" id="gatedSuccess">
-      <div class="gated-success-title">Request Received</div>
-      <div class="gated-success-body">Thank you. Your request has been logged and forwarded to the Urbyte partnerships team. We'll be in touch at your corporate email within 2 business days.</div>
-    </div>
-
-    <form class="gated-form" id="gatedForm" novalidate>
-      <div>
-        <label class="gated-label" for="gf-name">Full Name</label>
-        <input class="gated-input" id="gf-name" type="text" placeholder="Jane Smith" autocomplete="name" required/>
-      </div>
-      <div>
-        <label class="gated-label" for="gf-company">Company / Organisation</label>
-        <input class="gated-input" id="gf-company" type="text" placeholder="Telstra, Optus, CommsDay..." required/>
-      </div>
-      <div>
-        <label class="gated-label" for="gf-role">Role / Title</label>
-        <input class="gated-input" id="gf-role" type="text" placeholder="CTO, Head of Network, Editor..."/>
-      </div>
-      <div>
-        <label class="gated-label" for="gf-email">Corporate Email</label>
-        <input class="gated-input" id="gf-email" type="email" placeholder="jane@yourcompany.com.au" required/>
-      </div>
-      <div class="full">
-        <label class="gated-label" for="gf-msg">What are you looking for?</label>
-        <textarea class="gated-input" id="gf-msg" rows="3" placeholder="Integration specs, architecture brief, partnership framework, media inquiry..."></textarea>
-      </div>
-      <div class="full">
-        <button class="gated-submit" type="submit" id="gatedBtn">Submit Access Request</button>
-        <div class="gated-err" id="gatedErr">Please fill in all required fields with a valid corporate email.</div>
-        <p class="gated-notice">&#128274;&nbsp; Your details are stored securely and will not be shared with third parties. Urbyte complies with the Privacy Act 1988 (Cth). ACN 692 885 019.</p>
-      </div>
-    </form>
-  </div>
-</div>
-
-<footer>
-  <div class="foot-logo">Urbyte&#8482; <span style="color:rgba(0,229,204,0.32);font-weight:400;font-size:11px;letter-spacing:2px;margin-left:8px">ACN 692 885 019</span></div>
-  <div class="foot-links">
-    <a href="/">Consumer</a>
-    <a href="/enterprise">Enterprise</a>
-    <a href="/privacy">Privacy</a>
-    <a href="mailto:jarryd@urbyte.com.au">Contact</a>
-  </div>
-  <div class="foot-meta">&#169; 2026 Urbyte Pty Ltd &nbsp;&#183;&nbsp; Acknowledges the Widjabul Wiabul people of Bundjalung Nation</div>
-</footer>
-
-<script>
-// LIVE CAPACITY COUNTER
-// 26M subs x 55GB/mo / (365.25 x 24 x 3600) = ~0.4975 GB/sec nationally
-var GB_SEC = 26000000 * 55 / (365.25 * 24 * 3600);
-var t0 = Date.now();
-function runCounter() {
-  var s = (Date.now() - t0) / 1000;
-  var gb = s * GB_SEC;
-  document.getElementById("liveGB").textContent = gb.toLocaleString("en-AU", {minimumFractionDigits:1, maximumFractionDigits:1});
-  document.getElementById("liveDBU").textContent = Math.round(gb * 10).toLocaleString("en-AU");
-}
-setInterval(runCounter, 100);
-runCounter();
-
-// VAULT — pure inline style toggle, no classList
-var CODES = ["urbyte2026", "partner", "mvno2026"];
-function tryUnlock() {
-  var inp = document.getElementById("vaultCode");
-  var err = document.getElementById("vaultErr");
-  var box = document.getElementById("vaultContent");
-  var val = inp.value.trim().toLowerCase();
-  if (CODES.indexOf(val) !== -1) {
-    box.style.display = "block";
-    err.style.display = "none";
-    inp.style.borderColor = "#00E5CC";
-  } else {
-    box.style.display = "none";
-    err.style.display = "block";
-    inp.style.borderColor = "rgba(194,0,58,0.7)";
-  }
-}
-document.getElementById("vaultBtn").onclick = tryUnlock;
-document.getElementById("vaultCode").onkeydown = function(e) { if (e.key === "Enter") tryUnlock(); };
-</script>
-
-<script>
-
-// GATED FORM LOGIC
-(function(){
-  var form = document.getElementById('gatedForm');
-  var btn = document.getElementById('gatedBtn');
-  var err = document.getElementById('gatedErr');
-  var success = document.getElementById('gatedSuccess');
-
-  var FREE_DOMAINS = ['gmail.com','yahoo.com','hotmail.com','outlook.com',
-    'icloud.com','live.com','yahoo.com.au','bigpond.com','bigpond.net.au',
-    'me.com','mac.com','protonmail.com','zohomail.com'];
-
-  function getEmailDomain(email){
-    return email.split('@')[1] ? email.split('@')[1].toLowerCase().trim() : '';
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name    = document.getElementById('gf-name').value.trim();
-    var company = document.getElementById('gf-company').value.trim();
-    var role    = document.getElementById('gf-role').value.trim();
-    var email   = document.getElementById('gf-email').value.trim();
-    var msg     = document.getElementById('gf-msg').value.trim();
-    var domain  = getEmailDomain(email);
-
-    err.style.display = 'none';
-
-    if(!name || !company || !email || !domain){
-      err.textContent = 'Please complete all required fields.';
-      err.style.display = 'block';
-      return;
-    }
-
-    var emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRx.test(email)){
-      err.textContent = 'Please enter a valid email address.';
-      err.style.display = 'block';
-      return;
-    }
-
-    if(FREE_DOMAINS.indexOf(domain) !== -1){
-      err.textContent = 'This documentation is restricted to verified industry operators and media. Please use your corporate or organisational email.';
-      err.style.display = 'block';
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-
-    fetch('https://sage-cb5a0228.base44.app/functions/telcoDocRequest', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({name:name, company:company, role:role, email:email, message:msg})
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      form.style.display = 'none';
-      success.style.display = 'block';
-    })
-    .catch(function(){
-      // Even on network error, show success — submission was attempted
-      form.style.display = 'none';
-      success.style.display = 'block';
-    });
-  });
-})();
-
-</script>
-</body>
-</html>
+Dual-signature protocol: proprietary
