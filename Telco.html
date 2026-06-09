@@ -69,12 +69,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .divider{border:none;border-top:1px solid rgba(0,229,204,0.07)}
 
 /* COUNTER BAR */
-.counter-bar{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:0 48px}
-.counter-cell{background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.12);padding:36px 44px}
-.counter-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:12px}
-.counter-num{font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:#00E5CC}
-.counter-sub{font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:1px;text-transform:uppercase;margin-top:8px}
-
 /* REALITY GRID */
 .reality-grid{max-width:1100px;margin:2px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
 .reality-col{padding:44px 40px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07)}
@@ -149,9 +143,8 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 
 @media(max-width:900px){
   nav{padding:0 20px}.nav-right{display:none}
-  .hero-inner,.sec,.vault-outer,.contact-outer,.counter-bar,.reality-grid{padding-left:24px;padding-right:24px}
-  .stat-strip,.reality-grid,.arch-grid,.rev-grid,.ip-grid,.vault-grid,.counter-bar{grid-template-columns:1fr}
-  footer{padding:24px;flex-direction:column;align-items:flex-start}
+  .hero-inner,.sec,.vault-outer,.contact-outer,.reality-grid{padding-left:24px;padding-right:24px}
+  .stat-strip,.reality-grid,.arch-grid,.rev-grid,.ip-grid,.vault-grid,footer{padding:24px;flex-direction:column;align-items:flex-start}
 }
 
 /* GATED FORM */
@@ -280,20 +273,6 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="sec-tag">The Structural Reality</div>
   <h2 class="sec-h">The industry absorbed it.<br/>Urbyte intercepts it.</h2>
   <p class="sec-sub">This addresses no carrier failure. It is infrastructure built on a structural given that the billing model itself produces &#8212; and that no carrier has had commercial reason to eliminate until churn became the primary margin threat.</p>
-</div>
-
-<!-- LIVE COUNTER -->
-<div class="counter-bar">
-  <div class="counter-cell">
-    <div class="counter-label">GB of latent capacity expired nationally &#8212; since this page loaded</div>
-    <div class="counter-num" id="liveGB">0.0</div>
-    <div class="counter-sub">Real-time estimate &nbsp;&#183;&nbsp; ACCC 2024&#8211;25 &nbsp;&#183;&nbsp; 26M subscribers &nbsp;&#183;&nbsp; 55GB/mo avg</div>
-  </div>
-  <div class="counter-cell">
-    <div class="counter-label">DBUs that could have been minted in that interval</div>
-    <div class="counter-num" id="liveDBU" style="color:rgba(0,229,204,0.65)">0</div>
-    <div class="counter-sub">@ proprietary conversion formula &nbsp;&#183;&nbsp; floor value per unit</div>
-  </div>
 </div>
 
 <div class="reality-grid" style="margin-top:2px">
@@ -429,39 +408,7 @@ Cap: none
 Dual-signature protocol: proprietary
 <script>
 (function(){
-  // --- LIVE COUNTER --- throttled to prevent glitch
-  var GB_PER_SECOND = (26000000 * 55) / (30.44 * 24 * 3600);
-  var startTime = Date.now();
-  var lastGBText = '';
-  var lastDBUText = '';
 
-  function updateCounters() {
-    var elapsed = (Date.now() - startTime) / 1000;
-    var gb = elapsed * GB_PER_SECOND;
-    var dbu = Math.floor(gb * 10);
-
-    var gbEl = document.getElementById('liveGB');
-    var dbuEl = document.getElementById('liveDBU');
-
-    var newGB = gb.toFixed(1);
-    var newDBU = dbu.toLocaleString();
-
-    // Only write to DOM when value actually changes — eliminates flicker
-    if (gbEl && newGB !== lastGBText) { gbEl.textContent = newGB; lastGBText = newGB; }
-    if (dbuEl && newDBU !== lastDBUText) { dbuEl.textContent = newDBU; lastDBUText = newDBU; }
-  }
-
-  function startCounters() {
-    // Update every 100ms — smooth enough, no flicker
-    setInterval(updateCounters, 100);
-    updateCounters();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startCounters);
-  } else {
-    startCounters();
-  }
 
   // --- VAULT UNLOCK ---
   var codes = ['urbyte2026','partner','mvno2026'];
