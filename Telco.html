@@ -427,3 +427,35 @@ Floor: protocol-defined floor value
 Trigger: billing cycle end
 Cap: none
 Dual-signature protocol: proprietary
+<script>
+(function(){
+  // 26M subscribers, 55GB avg monthly waste
+  // = 26,000,000 * 55 * 1024 MB / month
+  // Per second: 26e6 * 55 * 1024 / (30.44 * 24 * 3600) = ~540,000 MB/s = ~527 GB/s
+  var GB_PER_SECOND = (26000000 * 55) / (30.44 * 24 * 3600); // ~576 GB/s
+  var DBU_PER_GB = 10;
+  var startTime = Date.now();
+
+  function updateCounters() {
+    var elapsed = (Date.now() - startTime) / 1000;
+    var gb = elapsed * GB_PER_SECOND;
+    var dbu = Math.floor(gb * DBU_PER_GB);
+
+    var gbEl = document.getElementById('liveGB');
+    var dbuEl = document.getElementById('liveDBU');
+
+    if (gbEl) gbEl.textContent = gb >= 1000
+      ? (gb / 1000).toFixed(1) + ' TB'
+      : gb.toFixed(1);
+    if (dbuEl) dbuEl.textContent = dbu.toLocaleString();
+
+    requestAnimationFrame(updateCounters);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCounters);
+  } else {
+    updateCounters();
+  }
+})();
+</script>
