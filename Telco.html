@@ -301,7 +301,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <div class="arch-card">
       <div class="arch-num">01 &#8212; Ingestion</div>
       <h3>Data Ingestion Engine</h3>
-      <p>Securely ingests anonymised carrier usage data via a read-only, enterprise-grade API connection. Calculates the verified gap between allocated fleet capacity and actual consumption each billing cycle. Zero PII stored at any point.</p>
+      <p>Securely ingests anonymised carrier usage data via a read-only, enterprise-grade API connection or batch CSV/CDR upload. Calculates the verified gap between allocated fleet capacity and actual consumption each billing cycle. Zero PII stored at any point.</p>
     </div>
     <div class="arch-card">
       <div class="arch-num">02 &#8212; Verification</div>
@@ -410,16 +410,16 @@ Protocol: Proof of Waste (PoWst&#8482;)</pre>
         <div class="vault-item">
           <h4>Integration Method</h4>
           <pre>Mode: out-of-band, read-only
-Input: historic CSV / CDR log upload
-No live network access required
+Phase 1: historic CSV / CDR log upload
+Phase 2: live API (POST /v1/billing/cycle)
+No write access to carrier systems
 No OSS/BSS modification
-Zero disruption to existing stack
-Deployment: async batch processing</pre>
+Zero disruption to existing stack</pre>
         </div>
         <div class="vault-item">
           <h4>MVNO Onboarding Path</h4>
           <pre>Step 1: NDA + partner agreement
-Step 2: CSV/CDR sample data review
+Step 2: CSV/CDR sample data or API sandbox
 Step 3: DBU yield modelling report
 Step 4: commercial terms alignment
 Step 5: white-label configuration
@@ -665,13 +665,28 @@ Accepting applications now</pre>
 
       <!-- FOOTER BAR -->
       <div style="margin-top:16px;padding:10px 0;border-top:1px solid rgba(0,229,204,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-        <span style="font-size:9px;color:rgba(255,255,255,0.25);">ⓘ Last Interaction: May 18, 2026</span>
+        <span style="font-size:9px;color:rgba(255,255,255,0.25);">ⓘ Integration mode: Phase 2 — Live API (mTLS/JWT)</span>
         <span style="font-size:9px;color:rgba(255,255,255,0.25);">Predicted Churn Date: Jun 18 – Jul 02, 2026</span>
         <span style="font-size:9px;color:#C2003A;">Risk Trend: Increasing ↗</span>
       </div>
 
     </div><!-- /main content -->
   </div><!-- /grid -->
+
+      <!-- ARCHITECTURE DIAGRAM PANEL -->
+      <div style="margin-top:28px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:10px;">Phase 2 — MVNO Carrier Integration Architecture</div>
+        <div style="border:1px solid rgba(0,229,204,0.1);overflow:hidden;position:relative;">
+          <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/ded1d1b22_TechnicalAPIarchitecturediagramshowingUrbytescarrierintegrationsystemLeftsideshowstelecommunicationscarrierbillingsystemwithservericonsCentershowssecureAPIgatewaywithmTLSandJWTauthenticationshieldsTwomainAPIflows.jpg"
+            alt="Urbyte Carrier Integration Architecture"
+            style="width:100%;display:block;filter:brightness(0.92) contrast(1.05);"
+          />
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,10,0.85) 0%,transparent 100%);padding:16px 20px 14px;display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="font-size:9px;color:rgba(0,229,204,0.6);letter-spacing:1.5px;text-transform:uppercase;">Live API integration — available under executed MVNO agreement</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:1px;">Phase 1 (current): async CSV/CDR &nbsp;·&nbsp; Phase 2: POST /v1/billing/cycle</div>
+          </div>
+        </div>
+      </div>
 </div><!-- /insightDashboard -->
 
     </div>
