@@ -611,17 +611,17 @@
 <div class="geo-div"></div>
 
 <!-- LIVE WASTE COUNTER -->
-<div style="background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.08);">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;padding:0;">
-    <div style="padding:36px 44px;border-right:1px solid rgba(0,229,204,0.07);">
-      <div style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:12px;">GB of Australian mobile data expired — since this page loaded</div>
-      <div id="homeGB" style="font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:#00E5CC;">0</div>
-      <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;text-transform:uppercase;margin-top:8px;">Real-time estimate · ACCC 2024–25 · 26M subscribers · 55GB/mo avg</div>
+<div style="background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.08);overflow:hidden;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;">
+    <div style="padding:32px 36px;border-right:1px solid rgba(0,229,204,0.07);box-sizing:border-box;min-width:0;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:10px;line-height:1.5;">GB of Australian mobile data expired — since this page loaded</div>
+      <div id="homeGB" style="font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1px;font-variant-numeric:tabular-nums;line-height:1;color:#00E5CC;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">0</div>
+      <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.5px;text-transform:uppercase;margin-top:8px;line-height:1.6;">Real-time estimate · ACCC 2024–25</div>
     </div>
-    <div style="padding:36px 44px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-bottom:12px;">DBUs that could have been yours</div>
-      <div id="homeDBU" style="font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:rgba(0,229,204,0.55);">0</div>
-      <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;text-transform:uppercase;margin-top:8px;">@ 10 DBU per GB · AU $0.05 floor value per unit</div>
+    <div style="padding:32px 36px;box-sizing:border-box;min-width:0;">
+      <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-bottom:10px;line-height:1.5;">DBUs that could have been yours</div>
+      <div id="homeDBU" style="font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1px;font-variant-numeric:tabular-nums;line-height:1;color:rgba(0,229,204,0.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">0</div>
+      <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.5px;text-transform:uppercase;margin-top:8px;line-height:1.6;">@ 10 DBU per GB · AU $0.05 floor value</div>
     </div>
   </div>
 </div>
@@ -632,10 +632,10 @@
   function tickHome(){
     var el = (Date.now()-t0h)/1000;
     var gb = el*GB_SEC;
-    document.getElementById('homeGB').textContent = gb.toLocaleString('en-AU',{maximumFractionDigits:1});
-    document.getElementById('homeDBU').textContent = Math.round(gb*10).toLocaleString('en-AU');
+    document.getElementById('homeGB').textContent = gb.toFixed(1).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    document.getElementById('homeDBU').textContent = Math.round(gb*10).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
   }
-  setInterval(tickHome,100); tickHome();
+  setInterval(tickHome,200); tickHome();
 })();
 </script>
 
