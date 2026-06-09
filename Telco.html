@@ -387,43 +387,115 @@ NDA:  Available on request</code>
     <div class="vault-hdr">
       <div class="vault-icon">&#128274;</div>
       <div class="vault-hdr-text">
-        <h2>Partner Technical Vault</h2>
-        <p>Restricted access &#8212; authorised telco and MVNO partners only.<br/>Contact <a href="mailto:jarryd@urbyte.com.au" style="color:#00E5CC;text-decoration:none">jarryd@urbyte.com.au</a> to request credentials before your first technical discussion.</p>
+        <h2>Partner Vault</h2>
+        <p>Technical integration specifications, API documentation, and MVNO onboarding blueprints. Access restricted to verified partners.</p>
       </div>
     </div>
-    <div class="vault-row">
+    <div class="vault-row" id="vaultRow">
       <input class="vault-input" type="password" id="vaultCode" placeholder="ENTER ACCESS CODE" autocomplete="off"/>
       <button class="vault-btn" id="vaultBtn">UNLOCK</button>
     </div>
     <div class="vault-err" id="vaultErr">Invalid access code. Contact jarryd@urbyte.com.au to request credentials.</div>
-    <div class="vault-content" id="vaultContent">
+    <div class="vault-content" id="vaultContent" style="display:none;margin-top:28px;">
       <div class="vault-grid">
         <div class="vault-item">
           <h4>DBU&#8482; Minting Formula</h4>
           <pre>&#916;_Waste = Allocated &#8722; Consumed (GB)
-DBU minted = proprietary conversion rate × ΔWaste
+DBU minted = conversion rate &#215; &#916;Waste
 Floor: protocol-defined floor value
 Trigger: billing cycle end
 Cap: none
-Dual-signature protocol: proprietary
+Protocol: Proof of Waste (PoWst&#8482;)</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Integration Method</h4>
+          <pre>Mode: out-of-band, read-only
+Input: historic CSV / CDR log upload
+No live network access required
+No OSS/BSS modification
+Zero disruption to existing stack
+Deployment: async batch processing</pre>
+        </div>
+        <div class="vault-item">
+          <h4>MVNO Onboarding Path</h4>
+          <pre>Step 1: NDA + partner agreement
+Step 2: CSV/CDR sample data review
+Step 3: DBU yield modelling report
+Step 4: commercial terms alignment
+Step 5: white-label configuration
+Step 6: go-live + member migration</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Data Security</h4>
+          <pre>Processing: asynchronous, isolated
+Storage: encrypted at rest (AES-256)
+Transmission: TLS 1.3
+PII handling: Privacy Act 1988
+Retention: configurable per agreement
+Audit trail: full immutable log</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Commercial Structure</h4>
+          <pre>Model: revenue share per active DBU
+Margin: negotiated per partner tier
+Reporting: monthly reconciliation
+White-label: available on request
+API access: RESTful, token-auth
+SLA: 99.9% uptime commitment</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Contact &amp; Next Steps</h4>
+          <pre>Partnership enquiries:
+jarryd@urbyte.com.au
+
+Technical specifications:
+Available under NDA
+
+Pilot program:
+Accepting applications now</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-outer" style="padding:0 48px 96px;max-width:1100px;margin:0 auto;">
+  <div class="contact-block">
+    <h2>Ready to convert latent capacity into a retention asset?</h2>
+    <p>Urbyte deploys out-of-band. No network changes. No OSS/BSS modification. Verified DBU yield from day one.</p>
+    <a href="mailto:jarryd@urbyte.com.au" class="btn-p">Request Partnership Enquiry</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/05f7d10c7_IMG_6932.jpg" alt="Urbyte" style="width:32px;height:32px;border-radius:6px;object-fit:cover;vertical-align:middle;margin-right:10px;"/>
+    <span class="foot-meta">&#169; 2026 Urbyte Pty Ltd &nbsp;&#183;&nbsp; ACN 692 885 019 &nbsp;&#183;&nbsp; Acknowledges the Widjabul Wiabul people of the Bundjalung Nation</span>
+  </div>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:jarryd@urbyte.com.au">Contact</a>
+  </div>
+</footer>
+
 <script>
 (function(){
-
-
   // --- VAULT UNLOCK ---
   var codes = ['urbyte2026','partner','mvno2026'];
-  document.addEventListener('DOMContentLoaded', function(){
+  function initVault(){
     var btn = document.getElementById('vaultBtn');
     var inp = document.getElementById('vaultCode');
     var err = document.getElementById('vaultErr');
     var content = document.getElementById('vaultContent');
+    var row = document.getElementById('vaultRow');
     if(!btn) return;
     function tryUnlock(){
       var val = inp.value.trim().toLowerCase();
       if(codes.indexOf(val) !== -1){
         err.style.display = 'none';
         content.style.display = 'block';
-        inp.closest('.vault-row').style.display = 'none';
+        row.style.display = 'none';
       } else {
         err.style.display = 'block';
         inp.value = '';
@@ -432,6 +504,14 @@ Dual-signature protocol: proprietary
     }
     btn.addEventListener('click', tryUnlock);
     inp.addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
-  });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initVault);
+  } else {
+    initVault();
+  }
 })();
 </script>
+
+</body>
+</html>
