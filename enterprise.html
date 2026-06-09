@@ -266,6 +266,37 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   </div>
 </div>
 
+<!-- LIVE CAPACITY COUNTER -->
+<div style="background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.08);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;">
+    <div style="padding:36px 44px;border-right:1px solid rgba(0,229,204,0.07);">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:12px;">GB of latent capacity expired nationally — since this page loaded</div>
+      <div id="entGB" style="font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:#00E5CC;">0</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;text-transform:uppercase;margin-top:8px;">Real-time estimate · ACCC 2024–25 · 26M subscribers · 55GB/mo avg</div>
+    </div>
+    <div style="padding:36px 44px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-bottom:12px;">DBUs that could have been minted</div>
+      <div id="entDBU" style="font-size:48px;font-weight:900;letter-spacing:-2px;font-variant-numeric:tabular-nums;line-height:1;color:rgba(0,229,204,0.55);">0</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:1px;text-transform:uppercase;margin-top:8px;">@ 10 DBU per GB · AU $0.05 floor value per unit</div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var GB_SEC = 26e6*55/(365.25*24*3600);
+  var t0e = Date.now();
+  function tickEnt(){
+    var el = (Date.now()-t0e)/1000;
+    var gb = el*GB_SEC;
+    document.getElementById('entGB').textContent = gb.toLocaleString('en-AU',{maximumFractionDigits:1});
+    document.getElementById('entDBU').textContent = Math.round(gb*10).toLocaleString('en-AU');
+  }
+  setInterval(tickEnt,100); tickEnt();
+})();
+</script>
+
+
+
 <hr class="divider"/>
 
 
