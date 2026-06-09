@@ -262,7 +262,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="stat-cell">
     <div class="stat-n">$9.9B</div>
     <div class="stat-src">ACCC 2024–25</div>
-    <div class="stat-l">Total systemic waste across 26M Australian subscribers annually</div>
+    <div class="stat-l">Total unallocated capacity across 26M Australian subscribers annually</div>
   </div>
 </div>
 
@@ -336,7 +336,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <div class="step" data-n="1">
       <div class="step-tag">Step 01 — Verify</div>
       <h3>Waste Captured & Signed</h3>
-      <p>Urbyte Insight ingests anonymised CDR logs from your carrier via a read-only, mTLS-secured API. It calculates your Systemic Waste Delta — the gap between allocated fleet capacity and actual consumption. Every waste event is co-signed by your carrier's node key and Urbyte's oracle key, producing a Proof of Waste (PoWst) manifest that is independently auditable at any point.</p>
+      <p>Urbyte Insight ingests anonymised CDR logs from your carrier via a read-only, mTLS-secured API. It calculates your Unallocated Capacity Delta — the gap between allocated fleet capacity and actual consumption. Every waste event is co-signed by your carrier's node key and Urbyte's oracle key, producing a Proof of Waste (PoWst) manifest that is independently auditable at any point.</p>
       <div class="step-big">Δ_Waste</div>
       <div class="step-big-label">Allocated − Consumed = Verified</div>
     </div>
@@ -365,7 +365,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <div class="calc-left">
       <div class="sec-tag" style="margin-bottom:16px">Enterprise Waste Calculator</div>
       <h2>Find out what<br/>your fleet loses<br/>every month.</h2>
-      <p>Enter your fleet size. Urbyte calculates your annual waste exposure, DBU minting volume, and ATO tax offset in real time. Based on AU $40/line ARPU, 35% systemic waste factor, AU $0.30 DBU floor, and 30% company tax rate.</p>
+      <p>Enter your fleet size. Urbyte calculates your annual waste exposure, DBU minting volume, and ATO tax offset in real time. Based on AU $40/line ARPU, 35% unallocated capacity factor, AU $0.30 DBU floor, and 30% company tax rate.</p>
       <div class="calc-input-group">
         <label class="calc-label" for="fleetLines">Number of Fleet Lines</label>
         <input class="calc-input" type="number" id="fleetLines" value="1000" min="1" oninput="calcWaste()"/>
@@ -411,7 +411,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <span class="t-dim">[ Company: AusGrid Logistics ]   [ Cycle: June 2026 ]   [ Status:</span> <span class="t-green">OPTIMISED ✓</span> <span class="t-dim">]</span>
 <span class="t-dim">──────────────────────────────────────────────────────────────────────────────────────</span>
 
-  SYSTEMIC WASTE CAPTURED          DBU VALUE MINTED              ATO OFFSET GENERATED
+  UNALLOCATED CAPACITY RECOVERED          DBU VALUE MINTED              ATO OFFSET GENERATED
   <span class="t-bright">42.8 Terabytes</span>               <span class="t-bright">42,800 DBUs</span>                  <span class="t-green">$12,840.00 AUD</span>
 
 <span class="t-dim">──────────────────────────────────────────────────────────────────────────────────────</span>
