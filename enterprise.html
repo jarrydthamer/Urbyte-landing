@@ -25,16 +25,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-cta:hover{background:rgba(0,229,204,0.08)!important;border-color:#00E5CC!important}
 
 /* HERO */
-.hero{position:relative;padding-top:64px}
-.hero-img-wrap{position:relative;width:100%;overflow:hidden}
-.hero-img-wrap img{display:block;width:100%;height:auto;max-height:580px;object-fit:cover;object-position:center top}
-.hero-img-fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,10,0.45) 0%,rgba(0,0,10,0.7) 50%,#00000A 100%)}
-.hero-text{max-width:1100px;margin:0 auto;padding:48px 48px 0}
+.hero{position:relative;padding-top:64px;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero-img-wrap{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-img-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-img-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.92) 25%,rgba(0,0,10,0.55) 50%,rgba(0,0,10,0.05) 75%,transparent 100%)}
+.hero-text{position:relative;z-index:2;max-width:520px;padding:0 0 0 64px}
 .hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
 .hero-kicker::before{content:'';width:24px;height:1px;background:#00E5CC}
-.hero h1{font-size:clamp(38px,5.5vw,72px);font-weight:900;line-height:1.0;letter-spacing:-2.5px;margin-bottom:24px}
+.hero h1{font-size:clamp(36px,4.8vw,64px);font-weight:900;line-height:0.95;letter-spacing:-2.5px;margin-bottom:20px;max-width:480px}
 .hero h1 em{font-style:normal;color:#00E5CC}
-.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:700px;margin-bottom:36px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:440px;margin-bottom:28px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
 .btn-p{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:14px 32px;transition:opacity 0.2s}
 .btn-p:hover{opacity:0.85}
@@ -143,7 +143,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 @media(max-width:900px){
   nav{padding:0 20px}
   .nav-right{display:none}
-  .hero-text,.sec{padding:48px 24px}
+  .hero-text,.sec{padding:48px 24px}.hero-text{max-width:100%!important}
   .stat-strip{grid-template-columns:repeat(2,1fr)}
   .steps,.comp-grid,.use-grid,.calc-inner{grid-template-columns:1fr}
   .calc-results{grid-template-columns:1fr 1fr}
@@ -193,7 +193,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <!-- HERO -->
 <div class="hero">
   <div class="hero-img-wrap">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte Enterprise"/>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/78f9bce12_0AAC6921-9631-4CA8-B4B3-42727C4FE9CE.png" alt="Urbyte Enterprise"/>
     <div class="hero-img-fade"></div>
   </div>
   <div class="hero-text">
@@ -297,6 +297,35 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 
 
 
+<hr class="divider"/>
+
+
+<!-- REVENUE ASSURANCE MATRIX -->
+<div style="padding:0 24px;">
+<div class="ram-wrap">
+  <div class="ram-header">
+    <span class="ram-title">// Financial Assurance Protection Model</span>
+    <span class="ram-reg">REG_COMPLIANT // AU_2026</span>
+  </div>
+  <div class="ram-grid">
+    <div class="ram-cell">
+      <span class="ram-tag cyan">Churn Escape Plug</span>
+      <div class="ram-val">AU $600K+</div>
+      <p class="ram-desc">Plugs leakage by turning expiring data into an immediate consumer retention reward anchor.</p>
+    </div>
+    <div class="ram-cell">
+      <span class="ram-tag teal">Capacity Monetisation</span>
+      <div class="ram-val">AU $1.26M</div>
+      <p class="ram-desc">Generates a net routing yield on completely unallocated off-peak network baseline capacity.</p>
+    </div>
+    <div class="ram-cell highlight">
+      <span class="ram-tag emerald">Retained Wholesale ARPU</span>
+      <div class="ram-val">+4.2% Stability</div>
+      <p class="ram-desc">Protects core-side account longevity across competitive prepaid and MVNO carrier ecosystems.</p>
+    </div>
+  </div>
+</div>
+</div>
 
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
