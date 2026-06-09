@@ -235,6 +235,12 @@
     .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.5); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
     .tier-perks li:last-child { border-bottom:none; }
     .tier-perks .ck { color:#00E5CC; flex-shrink:0; margin-top:1px; line-height:1; }
+
+    .tier-email-wrap { margin-top:16px; margin-bottom:0; }
+    .tier-email-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:7px; display:block; }
+    .tier-email-input { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:#fff; font-size:13px; padding:10px 14px; font-family:inherit; box-sizing:border-box; outline:none; transition:border 0.2s; }
+    .tier-email-input::placeholder { color:rgba(255,255,255,0.2); }
+    .tier-email-input:focus { border-color:rgba(0,229,204,0.4); }
     .tier-btn { width:100%; padding:15px; font-weight:900; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; transition:all 0.2s; }
     .tier-btn:hover { opacity:0.9; transform:translateY(-1px); }
     .bronze .tier-btn { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.85); }
@@ -693,7 +699,11 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
         </ul>
-        <button class="tier-btn bronze-btn" onclick="joinTier('bronze',this)">Join as Bronze Member →</button>
+        <div class="tier-email-wrap">
+          <label class="tier-email-label">Want a receipt? Enter your email</label>
+          <input class="tier-email-input" type="email" id="email-bronze" placeholder="your@email.com" autocomplete="email"/>
+        </div>
+        <button class="tier-btn bronze-btn" onclick="joinTier('bronze',this)" style="margin-top:12px;">Join as Bronze Member →</button>
       </div>
       <div class="tier-card silver">
         <div class="tier-badge popular">Most Popular</div>
@@ -709,7 +719,11 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
-        <button class="tier-btn silver-btn" onclick="joinTier('silver',this)">Join as Silver Member →</button>
+        <div class="tier-email-wrap">
+          <label class="tier-email-label">Want a receipt? Enter your email</label>
+          <input class="tier-email-input" type="email" id="email-silver" placeholder="your@email.com" autocomplete="email"/>
+        </div>
+        <button class="tier-btn silver-btn" onclick="joinTier('silver',this)" style="margin-top:12px;">Join as Silver Member →</button>
       </div>
       <div class="tier-card gold">
         <div class="tier-badge best">Best Value</div>
@@ -726,7 +740,11 @@
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Prize draw eligible — equity in Urbyte</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Gold status — permanently on profile</li>
         </ul>
-        <button class="tier-btn gold-btn" onclick="joinTier('gold',this)">Join as Gold Member →</button>
+        <div class="tier-email-wrap">
+          <label class="tier-email-label">Want a receipt? Enter your email</label>
+          <input class="tier-email-input" type="email" id="email-gold" placeholder="your@email.com" autocomplete="email"/>
+        </div>
+        <button class="tier-btn gold-btn" onclick="joinTier('gold',this)" style="margin-top:12px;">Join as Gold Member →</button>
       </div>
     </div>
   </div>
@@ -1132,8 +1150,10 @@
 
   async function joinTier(tier,btn){
     const orig=btn.textContent; btn.textContent='...'; btn.disabled=true;
+    const emailEl=document.getElementById('email-'+tier);
+    const email=emailEl?emailEl.value.trim():'';
     try{
-      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,email,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
       const data=await res.json();
       if(data.url){window.location.href=data.url;}else{throw new Error();}
     }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
