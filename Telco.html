@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Urbyte — Telco &amp; MVNO Infrastructure</title>
-<meta name="description" content="Urbyte converts verified latent capacity into a measurable retention asset. Out-of-band. Read-only. Zero network disruption."/>
+<meta name="description" content="Urbyte converts verified unused allowance value into a measurable retention asset. Out-of-band. Read-only. Zero network disruption."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 
 
 
-.hero h1{font-size:clamp(44px,5.8vw,78px);font-weight:900;line-height:0.96;letter-spacing:-3px;margin-bottom:28px;max-width:780px}
+.hero h1{font-size:clamp(34px,4.4vw,60px);font-weight:900;line-height:0.92;letter-spacing:-0.05em;margin-bottom:22px;max-width:700px}
 .hero h1 em{font-style:normal;color:#00E5CC}
 .btn-p{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:15px 34px;transition:opacity 0.2s}
 .btn-p:hover{opacity:0.85}
@@ -161,14 +161,14 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .gated-success-body{font-size:.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
 .gated-err{font-size:.8rem;color:#C2003A;margin-top:8px;display:none;}
 @media(max-width:640px){.gated-form{grid-template-columns:1fr;}.gated-sec{padding:60px 24px;}}
-.hero{position:relative;padding-top:64px}
-.hero-img-wrap{position:relative;width:100%;line-height:0;overflow:hidden;max-height:460px}
-.hero-img-wrap img{display:block;width:100%;height:auto;margin-top:-80px;margin-bottom:-80px}
-.hero-img-fade{position:absolute;bottom:0;left:0;right:0;height:25%;background:linear-gradient(to bottom,transparent 0%,#00000A 100%)}
-.hero-text{position:relative;z-index:2;max-width:560px;padding:80px 48px}
+.hero{position:relative;padding-top:64px;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero-img-wrap{position:absolute;inset:0;z-index:0}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(1.3) contrast(1.05)}
+.hero-img-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.92) 25%,rgba(0,0,10,0.55) 50%,rgba(0,0,10,0.05) 75%,transparent 100%)}
+.hero-text{position:relative;z-index:2;max-width:680px;padding:0 0 0 64px}
 .hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
 .hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
-.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.9;max-width:700px;margin-bottom:42px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.62);line-height:1.7;max-width:620px;margin-bottom:38px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
 .hero-trust{display:flex;gap:22px;flex-wrap:wrap}
 .trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
@@ -200,6 +200,22 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte Telco Infrastructure"/>
     <div class="hero-img-fade"></div>
   </div>
+  <div class="hero-text">
+    <div class="hero-kicker">Telco &amp; MVNO Infrastructure — ACN 692 885 019</div>
+    <h1>The missing consumer<br/>engagement layer between<br/><em>usage and retention.</em></h1>
+    <p class="hero-sub">Carriers already understand unused allowance behaviour. The challenge has never been visibility — it has been activation. Urbyte provides an independent consumer engagement layer that converts verified unused allowance value into measurable retention, loyalty, and community impact outcomes. Without touching your network. Without touching your pricing. Without disrupting existing commercial structures.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Request Pilot Integration</a>
+      <a href="#model" class="btn-g">See The Model</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-pill">Out-of-band · Read-only</span>
+      <span class="trust-pill">enterprise-grade authentication</span>
+      <span class="trust-pill">ACCC carrier usage data Aligned</span>
+      <span class="trust-pill">accredited intangible asset classification · ATO-compliant deduction framework</span>
+      <span class="trust-pill">Privacy Act 1988</span>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -207,7 +223,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <div class="ticker">
   <div class="ticker-inner" id="tickerInner">
     <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
-    <span class="tick-item">55GB AVG MONTHLY LATENT CAPACITY PER LINE <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY UNUSED ALLOWANCE VALUE PER LINE <span>·</span></span>
     <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
     <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
     <span class="tick-item">ATO-compliant deduction framework · accredited intangible asset classification · ACCC carrier usage data <span>·</span></span>
@@ -216,7 +232,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <span class="tick-item">enterprise-grade secured · enterprise authentication <span>·</span></span>
     <span class="tick-item">ACN 692 885 019 &#8212; URBYTE PTY LTD <span>·</span></span>
     <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
-    <span class="tick-item">55GB AVG MONTHLY LATENT CAPACITY PER LINE <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY UNUSED ALLOWANCE VALUE PER LINE <span>·</span></span>
     <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
     <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
     <span class="tick-item">ATO-compliant deduction framework · accredited intangible asset classification · ACCC carrier usage data <span>·</span></span>
@@ -232,7 +248,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="stat-cell">
     <div class="stat-n">55GB</div>
     <div class="stat-src">ACCC 2024&#8211;25</div>
-    <div class="stat-l">Average monthly latent capacity per Australian subscriber</div>
+    <div class="stat-l">Average monthly unused allowance value per Australian subscriber</div>
   </div>
   <div class="stat-cell">
     <div class="stat-n">&#8722;34%</div>
@@ -269,7 +285,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="reality-col">
     <h3>Why the waste is structural</h3>
     <p>Carriers provision for peak demand and sell plans against an average-use assumption that underestimates consumption variance. The gap between allocation and consumption is not accidental &#8212; it is the mechanism that prevents overage charges and maintains margin. Artificial billing cycle boundaries ensure unused capacity cannot be deferred indefinitely. What is not consumed by cycle end evaporates.</p>
-    <p>Rollover plans slow the expiry. They do not eliminate it. The structural delta persists across every plan type, every carrier, every cycle.</p>
+    <p>Rollover plans slow the expiry. They do not eliminate it. The unused allowance value persists across every plan type, every carrier, every cycle.</p>
     <p class="close">26 million plans. 55GB average monthly delta. Expiring continuously.</p>
   </div>
   <div class="reality-col hot">
@@ -354,7 +370,7 @@ NDA:  Available on request</code>
     <div class="ip-card">
       <div class="ip-tag">Data Rights</div>
       <h3>No PII. By Architecture.</h3>
-      <p>Urbyte holds zero personally identifiable information. All carrier usage logs are ingested as anonymised usage sessions. Consumers retain full data sovereignty. The operational model uses structural capacity delta &#8212; not personal data &#8212; as its primary input.</p>
+      <p>Urbyte holds zero personally identifiable information. All carrier usage logs are ingested as anonymised usage sessions. Consumers retain full data sovereignty. The operational model uses structural unused allowance value &#8212; not personal data &#8212; as its primary input.</p>
     </div>
     <div class="ip-card">
       <div class="ip-tag">Confidentiality</div>
@@ -685,7 +701,7 @@ Accepting applications now</pre>
 
 <div class="contact-outer" id="contact" style="padding:0 48px 96px;max-width:1100px;margin:0 auto;">
   <div class="contact-block">
-    <h2>Ready to convert latent capacity into a retention asset?</h2>
+    <h2>Ready to convert unused allowance value into a retention asset?</h2>
     <p>Urbyte deploys out-of-band. No network changes. No OSS/BSS modification. Verified DBU yield from day one.</p>
     <a href="mailto:jarryd@urbyte.com.au" class="btn-p">Request Partnership Enquiry</a>
   </div>
