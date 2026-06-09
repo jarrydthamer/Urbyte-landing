@@ -429,23 +429,38 @@ Cap: none
 Dual-signature protocol: proprietary
 <script>
 (function(){
-  // --- LIVE COUNTER ---
+  // --- LIVE COUNTER --- throttled to prevent glitch
   var GB_PER_SECOND = (26000000 * 55) / (30.44 * 24 * 3600);
   var startTime = Date.now();
+  var lastGBText = '';
+  var lastDBUText = '';
+
   function updateCounters() {
     var elapsed = (Date.now() - startTime) / 1000;
     var gb = elapsed * GB_PER_SECOND;
     var dbu = Math.floor(gb * 10);
+
     var gbEl = document.getElementById('liveGB');
     var dbuEl = document.getElementById('liveDBU');
-    if (gbEl) gbEl.textContent = gb >= 1000 ? (gb/1000).toFixed(1)+' TB' : gb.toFixed(1);
-    if (dbuEl) dbuEl.textContent = dbu.toLocaleString();
-    requestAnimationFrame(updateCounters);
+
+    var newGB = gb >= 1000 ? (gb/1000).toFixed(1)+' TB' : gb.toFixed(1);
+    var newDBU = dbu.toLocaleString();
+
+    // Only write to DOM when value actually changes — eliminates flicker
+    if (gbEl && newGB !== lastGBText) { gbEl.textContent = newGB; lastGBText = newGB; }
+    if (dbuEl && newDBU !== lastDBUText) { dbuEl.textContent = newDBU; lastDBUText = newDBU; }
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateCounters);
-  } else {
+
+  function startCounters() {
+    // Update every 100ms — smooth enough, no flicker
+    setInterval(updateCounters, 100);
     updateCounters();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startCounters);
+  } else {
+    startCounters();
   }
 
   // --- VAULT UNLOCK ---
