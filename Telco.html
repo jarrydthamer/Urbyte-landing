@@ -30,20 +30,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 
 
 
-.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
-.hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
 .hero h1{font-size:clamp(44px,5.8vw,78px);font-weight:900;line-height:0.96;letter-spacing:-3px;margin-bottom:28px;max-width:780px}
 .hero h1 em{font-style:normal;color:#00E5CC}
-.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.9;max-width:600px;margin-bottom:42px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
 .btn-p{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:15px 34px;transition:opacity 0.2s}
 .btn-p:hover{opacity:0.85}
 .btn-g{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:15px 34px;transition:all 0.2s}
 .btn-g:hover{border-color:#00E5CC;color:#00E5CC}
-.hero-trust{display:flex;gap:22px;flex-wrap:wrap}
-.trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
-.trust-pill::before{content:"";width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
-
 /* TICKER */
 .ticker{background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.07);overflow:hidden;padding:13px 0}
 .ticker-inner{display:flex;gap:56px;animation:tick 34s linear infinite;white-space:nowrap}
@@ -169,14 +161,18 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .gated-success-body{font-size:.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
 .gated-err{font-size:.8rem;color:#C2003A;margin-top:8px;display:none;}
 @media(max-width:640px){.gated-form{grid-template-columns:1fr;}.gated-sec{padding:60px 24px;}}
-
 .hero{position:relative;padding-top:64px}
 .hero-img-wrap{position:relative;width:100%;overflow:hidden}
-.hero-img-fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,10,0.45) 0%,rgba(0,0,10,0.7) 50%,#00000A 100%)}
+.hero-img-wrap img{display:block;width:100%;height:auto;max-height:580px;object-fit:cover;object-position:center top}
+.hero-img-fade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,10,0.45) 0%,rgba(0,0,10,0.72) 55%,#00000A 100%)}
 .hero-text{max-width:1100px;margin:0 auto;padding:48px 48px 0}
-.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
-.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:700px;margin-bottom:36px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
+.hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.9;max-width:700px;margin-bottom:42px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.hero-trust{display:flex;gap:22px;flex-wrap:wrap}
+.trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
+.trust-pill::before{content:"";width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -201,7 +197,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <!-- HERO -->
 <div class="hero">
   <div class="hero-img-wrap">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/78f9bce12_0AAC6921-9631-4CA8-B4B3-42727C4FE9CE.png" alt="Urbyte Telco Infrastructure"/>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte Telco Infrastructure"/>
     <div class="hero-img-fade"></div>
   </div>
   <div class="hero-text">
