@@ -443,7 +443,7 @@ Dual-signature protocol: proprietary
     var gbEl = document.getElementById('liveGB');
     var dbuEl = document.getElementById('liveDBU');
 
-    var newGB = gb >= 1000 ? (gb/1000).toFixed(1)+' TB' : gb.toFixed(1);
+    var newGB = gb.toFixed(1);
     var newDBU = dbu.toLocaleString();
 
     // Only write to DOM when value actually changes — eliminates flicker
