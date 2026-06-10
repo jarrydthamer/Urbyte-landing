@@ -173,6 +173,11 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .hero-trust{display:flex;gap:22px;flex-wrap:wrap}
 .trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
 .trust-pill::before{content:"";width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
+
+@media(max-width:768px){
+  .hero .hero-text{padding:60px 24px 60px 24px!important;max-width:90%!important;}
+  .hero > div > img{object-position:70% center!important;}
+}
 </style>
 </head>
 <body>
@@ -195,12 +200,16 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-img-wrap">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/df9c995b5_-BackgroundLayer.jpeg" alt="Urbyte Telco Infrastructure"/>
-    <div class="hero-img-fade"></div>
+<div class="hero" style="position:relative;min-height:520px;overflow:hidden;display:flex;align-items:center;">
+  <!-- Full-width image, no crop, no blur, natural ratio -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="https://base44.app/api/apps/69b4b3be3eb13fdbcb5a0228/files/mp/public/69b4b3be3eb13fdbcb5a0228/07a872c91_telco_hero_new.png" alt="Urbyte Telco Infrastructure"
+      style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:none;opacity:1;"/>
+    <!-- Subtle left-side gradient only — protects text readability, globe stays untouched -->
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.82) 0%,rgba(0,0,10,0.65) 30%,rgba(0,0,10,0.15) 55%,transparent 75%);"></div>
   </div>
-  <div class="hero-text">
+  <!-- Text sits in left dark zone -->
+  <div class="hero-text" style="position:relative;z-index:2;max-width:500px;padding:80px 0 80px 64px;">
     <div class="hero-kicker">Telco &amp; MVNO Infrastructure — ACN 692 885 019</div>
     <h1>The missing consumer<br/>engagement layer between<br/><em>usage and retention.</em></h1>
     <p class="hero-sub">Carriers already understand unused allowance behaviour. The challenge has never been visibility — it has been activation. Urbyte provides an independent consumer engagement layer that converts verified unused allowance value into measurable retention, loyalty, and community impact outcomes. Without touching your network. Without touching your pricing. Without disrupting existing commercial structures.</p>
@@ -215,7 +224,6 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
       <span class="trust-pill">accredited intangible asset classification · ATO-compliant deduction framework</span>
       <span class="trust-pill">Privacy Act 1988</span>
     </div>
-  </div>
   </div>
 </div>
 
