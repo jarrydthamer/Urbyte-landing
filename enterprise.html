@@ -25,16 +25,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-cta:hover{background:rgba(0,229,204,0.08)!important;border-color:#00E5CC!important}
 
 /* HERO */
-.hero{position:relative;padding-top:64px;min-height:560px;display:flex;align-items:center;overflow:hidden}
-.hero-img-wrap{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero-img-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
-.hero-img-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.92) 25%,rgba(0,0,10,0.55) 50%,rgba(0,0,10,0.05) 75%,transparent 100%)}
-.hero-text{position:relative;z-index:2;max-width:520px;padding:0 0 0 64px}
+.hero{position:relative;padding-top:64px}
+.hero-img-wrap{position:relative;width:100%;overflow:hidden}
+.hero-img-wrap img{display:block;width:100%;height:auto;max-height:580px;object-fit:cover;object-position:center top}
+.hero-img-fade{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to bottom,transparent 0%,rgba(0,0,10,0.7) 60%,#00000A 100%)}
+.hero-text{max-width:1100px;margin:0 auto;padding:48px 48px 0}
 .hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
 .hero-kicker::before{content:'';width:24px;height:1px;background:#00E5CC}
-.hero h1{font-size:clamp(36px,4.8vw,64px);font-weight:900;line-height:0.95;letter-spacing:-2.5px;margin-bottom:20px;max-width:480px}
+.hero h1{font-size:clamp(38px,5.5vw,72px);font-weight:900;line-height:1.0;letter-spacing:-2.5px;margin-bottom:24px}
 .hero h1 em{font-style:normal;color:#00E5CC}
-.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:440px;margin-bottom:28px}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:700px;margin-bottom:36px}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
 .btn-p{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:14px 32px;transition:opacity 0.2s}
 .btn-p:hover{opacity:0.85}
@@ -143,7 +143,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 @media(max-width:900px){
   nav{padding:0 20px}
   .nav-right{display:none}
-  .hero-text,.sec{padding:48px 24px}.hero-text{max-width:100%!important}
+  .hero-text,.sec{padding:48px 24px}
   .stat-strip{grid-template-columns:repeat(2,1fr)}
   .steps,.comp-grid,.use-grid,.calc-inner{grid-template-columns:1fr}
   .calc-results{grid-template-columns:1fr 1fr}
@@ -297,7 +297,35 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 
 
 
+<hr class="divider"/>
 
+
+<!-- REVENUE ASSURANCE MATRIX -->
+<div style="padding:0 24px;">
+<div class="ram-wrap">
+  <div class="ram-header">
+    <span class="ram-title">// Financial Assurance Protection Model</span>
+    <span class="ram-reg">REG_COMPLIANT // AU_2026</span>
+  </div>
+  <div class="ram-grid">
+    <div class="ram-cell">
+      <span class="ram-tag cyan">Churn Escape Plug</span>
+      <div class="ram-val">AU $600K+</div>
+      <p class="ram-desc">Plugs leakage by turning expiring data into an immediate consumer retention reward anchor.</p>
+    </div>
+    <div class="ram-cell">
+      <span class="ram-tag teal">Capacity Monetisation</span>
+      <div class="ram-val">AU $1.26M</div>
+      <p class="ram-desc">Generates a net routing yield on completely unallocated off-peak network baseline capacity.</p>
+    </div>
+    <div class="ram-cell highlight">
+      <span class="ram-tag emerald">Retained Wholesale ARPU</span>
+      <div class="ram-val">+4.2% Stability</div>
+      <p class="ram-desc">Protects core-side account longevity across competitive prepaid and MVNO carrier ecosystems.</p>
+    </div>
+  </div>
+</div>
+</div>
 
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
@@ -487,6 +515,100 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
         <span class="badge">carrier usage data Ready</span>
         <span class="badge">ACN 692 885 019</span>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<hr class="divider"/>
+
+<!-- ATO TAX BENEFIT MODEL (from Corporate) -->
+<div class="sec" id="tax-model">
+  <div class="sec-tag">ATO Tax Benefit</div>
+  <h2 class="sec-h">Turn waste into<br/><span style="background:linear-gradient(90deg,#00E5CC,#5B00FF);-webkit-background-clip:text;background-clip:text;color:transparent;">tax-deductible value.</span></h2>
+  <p class="sec-sub">Every gigabyte your organisation doesn't use is invisible on your balance sheet. Urbyte changes that — converting verified unused allowance into an ATO-compliant non-cash donation with a 30% cash tax return.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:48px;">
+    <div style="padding:40px 32px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.12);border-top:2px solid #00E5CC;">
+      <div style="font-size:42px;font-weight:900;letter-spacing:-2px;color:#00E5CC;margin-bottom:8px;">30%</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">Cash Tax Offset</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">ATO-compliant non-cash contribution deduction at standard company tax rate — auditable, receipted, filed.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(91,0,255,0.04);border:1px solid rgba(91,0,255,0.12);border-top:2px solid #5B00FF;">
+      <div style="font-size:42px;font-weight:900;letter-spacing:-2px;color:#5B00FF;margin-bottom:8px;">DGR</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">Verified Recipients Only</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">All charity partners verified live against the ACNC register. DGR receipt issued per transaction — ATO filing ready.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(194,0,58,0.04);border:1px solid rgba(194,0,58,0.12);border-top:2px solid #C2003A;">
+      <div style="font-size:42px;font-weight:900;letter-spacing:-2px;color:#C2003A;margin-bottom:8px;">AASB</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">138 Compliant</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">DBUs classified as intangible assets under AASB 138. No AFSL licensing triggered. Dual-audited waste manifest per minting event.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(0,0,10,0.6);border:1px solid rgba(255,255,255,0.04);border-top:2px solid rgba(0,229,204,0.3);">
+      <div style="font-size:42px;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#00E5CC,#5B00FF);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px;">CDR</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">Future Ready</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">Built ahead of Consumer Data Right expansion into telco. When CDR reaches your sector, Urbyte is the accredited infrastructure waiting to receive it.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- INTEGRATION PIPELINE (from Corporate) -->
+<div class="sec" id="integration">
+  <div class="sec-tag">Integration</div>
+  <h2 class="sec-h">Zero disruption.<br/>Read-only by design.</h2>
+  <p class="sec-sub">Urbyte's enterprise integration adds nothing to your routing latency and exposes no PII. Invisible to your operations. Invisible to your carrier.</p>
+  <div style="margin-top:48px;display:flex;flex-direction:column;gap:2px;">
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid rgba(255,255,255,0.04);">
+      <div style="padding:24px 28px;background:rgba(0,229,204,0.06);border-right:1px solid rgba(0,229,204,0.1);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;">Connection</div>
+      <div style="padding:24px 28px;background:rgba(0,0,10,0.5);font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;"><strong style="color:rgba(255,255,255,0.85);">Phase 1 — Async CSV/CDR upload.</strong> No live connection required. Your team exports standard billing data; Urbyte processes it out-of-band. Phase 2 — Live API integration via secured, mTLS read-only pipeline. No write access. No routing involvement.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid rgba(255,255,255,0.04);border-top:none;">
+      <div style="padding:24px 28px;background:rgba(0,229,204,0.06);border-right:1px solid rgba(0,229,204,0.1);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;">Data Handled</div>
+      <div style="padding:24px 28px;background:rgba(0,0,10,0.5);font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;"><strong style="color:rgba(255,255,255,0.85);">Session accounting records only</strong> — volume deltas, timing, pool utilisation. Zero PII. Zero message content. Zero call records. Privacy Act 1988 compliant by architecture.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid rgba(255,255,255,0.04);border-top:none;">
+      <div style="padding:24px 28px;background:rgba(0,229,204,0.06);border-right:1px solid rgba(0,229,204,0.1);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;">Processing</div>
+      <div style="padding:24px 28px;background:rgba(0,0,10,0.5);font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;"><strong style="color:rgba(255,255,255,0.85);">Out-of-band, async</strong> — all delta calculations run outside your live network path. No latency added. No interference with active sessions.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid rgba(255,255,255,0.04);border-top:none;">
+      <div style="padding:24px 28px;background:rgba(0,229,204,0.06);border-right:1px solid rgba(0,229,204,0.1);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;">Reporting</div>
+      <div style="padding:24px 28px;background:rgba(0,0,10,0.5);font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;"><strong style="color:rgba(255,255,255,0.85);">Monthly verified waste report</strong> — ATO-ready documentation of DBUs minted, charity routing, and donation valuation for your treasury and tax teams.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:140px 1fr;gap:0;border:1px solid rgba(255,255,255,0.04);border-top:none;">
+      <div style="padding:24px 28px;background:rgba(0,229,204,0.06);border-right:1px solid rgba(0,229,204,0.1);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.7);display:flex;align-items:center;">Carrier Visibility</div>
+      <div style="padding:24px 28px;background:rgba(0,0,10,0.5);font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;"><strong style="color:rgba(255,255,255,0.85);">None.</strong> Urbyte operates entirely in the consumer and enterprise layer. Carrier cooperation is not required and is not sought at this stage.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- WHY URBYTE (from Corporate) -->
+<div class="sec" id="why">
+  <div class="sec-tag">Why Urbyte</div>
+  <h2 class="sec-h">The infrastructure<br/>nobody else could build.</h2>
+  <p class="sec-sub">The carriers cannot build this. Doing so would acknowledge the unused data had value — triggering class action exposure across 30 years of billing history. Urbyte exists precisely because they cannot move.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:48px;">
+    <div style="padding:40px 32px;background:rgba(0,0,10,0.6);border:1px solid rgba(255,255,255,0.04);border-left:2px solid #00E5CC;">
+      <div style="font-size:28px;margin-bottom:16px;">⚡</div>
+      <div style="font-size:15px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;">Carrier-Independent</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">No carrier cooperation required. Urbyte operates as a neutral, out-of-band infrastructure layer with no conflict of interest with your existing carrier contracts.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(0,0,10,0.6);border:1px solid rgba(255,255,255,0.04);border-left:2px solid #5B00FF;">
+      <div style="font-size:28px;margin-bottom:16px;">🔒</div>
+      <div style="font-size:15px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;">Regulatory Ready</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">Built ahead of Australia's Consumer Data Right expansion into telecommunications. When CDR reaches telco, Urbyte is the accredited infrastructure waiting to receive it.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(0,0,10,0.6);border:1px solid rgba(255,255,255,0.04);border-left:2px solid #C2003A;">
+      <div style="font-size:28px;margin-bottom:16px;">📊</div>
+      <div style="font-size:15px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;">Auditable by Design</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">Every DBU has a deterministic, auditable origin. Monthly reporting is structured for your tax team and external auditors. AASB 138 compliant from the ground up.</div>
+    </div>
+    <div style="padding:40px 32px;background:rgba(0,0,10,0.6);border:1px solid rgba(255,255,255,0.04);border-left:2px solid rgba(0,229,204,0.4);">
+      <div style="font-size:28px;margin-bottom:16px;">🇦🇺</div>
+      <div style="font-size:15px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;">Australian-Built</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.9;">Urbyte Pty Ltd — ACN 692 885 019. Built and operated in Australia. All charity partners are ACNC-registered, DGR-endorsed Australian organisations.</div>
     </div>
   </div>
 </div>
