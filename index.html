@@ -629,28 +629,36 @@
 </div>
 <script>
 (function(){
-  // 26M subscribers × 55GB monthly waste ÷ (30 × 24 × 3600) = ~585.6 GB/sec nationally
-  var gbPerSec = (26000000 * 55) / (30 * 24 * 3600);
-  // 1 GB = 10 DBUs
-  var dbuPerSec = gbPerSec * 10;
-  var startTime = Date.now();
+  // MATH: 26M subscribers × 55GB monthly avg unused ÷ (30d × 24h × 3600s) = 551.7 GB/sec nationally
+  var GB_PER_SEC = (26000000 * 55) / (30 * 24 * 3600); // ~551.7
+  var DBU_PER_SEC = GB_PER_SEC * 10;                    // 1 GB = 10 DBUs
 
-  function fmt(n, dec) {
-    if (dec > 0) {
-      return n.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+  var startTime = performance.now();
+
+  function fmtGB(n) {
+    // Show to 1 decimal, comma-separated thousands
+    var fixed = n.toFixed(1);
+    var parts = fixed.split('.');
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return parts.join('.');
+  }
+  function fmtDBU(n) {
     return Math.floor(n).toLocaleString('en-AU');
   }
 
-  function tick() {
-    var elapsed = (Date.now() - startTime) / 1000;
-    var gb = elapsed * gbPerSec;
-    var dbu = elapsed * dbuPerSec;
-    document.getElementById('gb-val').textContent = fmt(gb, 1);
-    document.getElementById('dbu-val').textContent = fmt(dbu, 0);
-    requestAnimationFrame(tick);
-  }
-  tick();
+  var gbEl  = document.getElementById('gb-val');
+  var dbuEl = document.getElementById('dbu-val');
+
+  // Update every 500ms — fast enough to feel live, slow enough to read
+  setInterval(function() {
+    var elapsed = (performance.now() - startTime) / 1000;
+    gbEl.textContent  = fmtGB(elapsed * GB_PER_SEC);
+    dbuEl.textContent = fmtDBU(elapsed * DBU_PER_SEC);
+  }, 500);
+
+  // Set initial values immediately
+  gbEl.textContent  = '0.0';
+  dbuEl.textContent = '0';
 })();
 </script>
 
