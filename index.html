@@ -608,28 +608,52 @@
 <div class="geo-div"></div>
 
 <!-- GB COUNTER -->
-<div style="background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);padding:28px 20px;text-align:center;">
-  <div style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:10px;">Gigabytes wasted across Australia right now</div>
-  <div id="gb-counter" style="font-size:52px;font-weight:900;letter-spacing:-3px;color:#00E5CC;font-variant-numeric:tabular-nums;">0</div>
-  <div style="font-size:10px;color:rgba(0,229,204,0.35);letter-spacing:2px;margin-top:6px;">GB · LIVE ESTIMATE · BASED ON ACCC DATA</div>
+<div style="background:#00000A;border-top:1px solid rgba(0,229,204,0.12);border-bottom:1px solid rgba(0,229,204,0.12);padding:48px 32px;">
+  <div style="max-width:860px;margin:0 auto;">
+
+    <!-- Row 1: GB -->
+    <div style="padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;margin-bottom:20px;line-height:1.6;">GB OF LATENT CAPACITY EXPIRED NATIONALLY —<br>SINCE THIS PAGE LOADED</div>
+      <div id="gb-val" style="font-size:72px;font-weight:900;letter-spacing:-4px;color:#00E5CC;line-height:1;font-variant-numeric:tabular-nums;">0.0</div>
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">REAL-TIME ESTIMATE · ACCC 2024–25 · 26M SUBSCRIBERS · 55GB/MO AVG</div>
+    </div>
+
+    <!-- Row 2: DBUs -->
+    <div style="padding-top:36px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;margin-bottom:20px;">DBUS THAT COULD HAVE BEEN MINTED</div>
+      <div id="dbu-val" style="font-size:72px;font-weight:900;letter-spacing:-4px;color:#00E5CC;line-height:1;font-variant-numeric:tabular-nums;">0</div>
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">@ PROPRIETARY CONVERSION FORMULA</div>
+    </div>
+
+  </div>
 </div>
 <script>
 (function(){
-  // 26M subscribers × 55GB monthly waste ÷ (30 days × 24h × 3600s) = ~585.6 GB/sec wasted nationally
+  // 26M subscribers × 55GB monthly waste ÷ (30 × 24 × 3600) = ~585.6 GB/sec nationally
   var gbPerSec = (26000000 * 55) / (30 * 24 * 3600);
-  // Start from a large base so it feels live (accumulated since midnight)
-  var now = new Date();
-  var secondsToday = now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds();
-  var base = Math.floor(secondsToday * gbPerSec);
-  var el = document.getElementById('gb-counter');
-  function fmt(n){ return Math.floor(n).toLocaleString('en-AU'); }
-  el.textContent = fmt(base);
-  setInterval(function(){
-    base += gbPerSec * 0.1;
-    el.textContent = fmt(base);
-  }, 100);
+  // 1 GB = 10 DBUs
+  var dbuPerSec = gbPerSec * 10;
+  var startTime = Date.now();
+
+  function fmt(n, dec) {
+    if (dec > 0) {
+      return n.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    return Math.floor(n).toLocaleString('en-AU');
+  }
+
+  function tick() {
+    var elapsed = (Date.now() - startTime) / 1000;
+    var gb = elapsed * gbPerSec;
+    var dbu = elapsed * dbuPerSec;
+    document.getElementById('gb-val').textContent = fmt(gb, 1);
+    document.getElementById('dbu-val').textContent = fmt(dbu, 0);
+    requestAnimationFrame(tick);
+  }
+  tick();
 })();
 </script>
+
 
 
 <!-- HOW IT WORKS -->
