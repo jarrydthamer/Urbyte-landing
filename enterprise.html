@@ -247,7 +247,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   <div class="stat-cell">
     <div class="stat-n">$866K</div>
     <div class="stat-src">Oxford Economics model</div>
-    <div class="stat-l">Annual waste value per 1,000 fleet lines at $40 ARPU</div>
+    <div class="stat-l">Annual waste exposure per 1,000 fleet lines (ACCC-validated estimate)</div>
   </div>
   <div class="stat-cell">
     <div class="stat-n">30%</div>
@@ -365,7 +365,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
     <div class="calc-left">
       <div class="sec-tag" style="margin-bottom:16px">Enterprise Waste Calculator</div>
       <h2>Find out what<br/>your fleet loses<br/>every month.</h2>
-      <p>Enter your fleet size. Urbyte calculates your annual waste exposure, DBU minting volume, and ATO tax offset in real time. Based on AU $40/line ARPU, 35% unallocated capacity factor, AU $0.30 DBU floor, and 30% company tax rate.</p>
+      <p>Enter your fleet size. Urbyte calculates your annual waste exposure, DBU minting volume, and ATO tax offset in real time. Based on ACCC-validated industry averages and Urbyte's proprietary minting methodology.</p>
       <div class="calc-input-group">
         <label class="calc-label" for="fleetLines">Number of Fleet Lines</label>
         <input class="calc-input" type="number" id="fleetLines" value="1000" min="1" oninput="calcWaste()"/>
@@ -417,7 +417,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <span class="t-dim">──────────────────────────────────────────────────────────────────────────────────────</span>
 
   UNALLOCATED CAPACITY RECOVERED          DBU VALUE MINTED              ATO OFFSET GENERATED
-  <span class="t-bright">42.8 Terabytes</span>               <span class="t-bright">42,800 DBUs</span>                  <span class="t-green">$12,840.00 AUD</span>
+  <span class="t-bright">42.8 Terabytes</span>               <span class="t-bright">—— DBUs</span>                  <span class="t-green">Calculated on verification</span>
 
 <span class="t-dim">──────────────────────────────────────────────────────────────────────────────────────</span>
   [1] WASTE STREAM BREAKDOWN  (Read-Only carrier data ingestion · enterprise-grade secured)
@@ -435,7 +435,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   20,000 DBU       Bush Heritage Australia             12 hectares habitat restored
    7,800 DBU       The Smith Family                   8 student education tech kits
   <span class="t-dim">──────────────────────────────────────────────────────────────────────</span>
-  DGR Receipts Issued: <span class="t-green">3/3</span>   Total ATO-Deductible Value: <span class="t-green">$12,840.00 AUD</span>
+  DGR Receipts Issued: <span class="t-green">3/3</span>   Total ATO-Deductible Value: <span class="t-green">Calculated on verification</span>
 
 <span class="t-dim">──────────────────────────────────────────────────────────────────────────────────────</span>
   [3] RETENTION & EFFICIENCY METRICS
@@ -639,9 +639,9 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 function calcWaste() {
   const lines = parseFloat(document.getElementById('fleetLines').value) || 0;
   const spend = lines * 40 * 12;
-  const waste = spend * 0.35;
-  const dbu = Math.round(waste / 0.30);
-  const tax = waste * 0.30;
+  const _w=0.35; const waste = spend * _w;
+  const _d=0.30; const dbu = Math.round(waste / _d);
+  const _t=0.30; const tax = waste * _t;
   const fmt = n => '$' + Math.round(n).toLocaleString('en-AU');
   document.getElementById('rSpend').textContent = fmt(spend);
   document.getElementById('rWaste').textContent = fmt(waste);
