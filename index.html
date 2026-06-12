@@ -527,7 +527,7 @@
       </svg>
     </div>
     <span>Urbyte</span>
-    <span class="nav-tag">// BETA</span>
+    
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
     <a href="/enterprise" class="btn-nav">Enterprise</a>
@@ -589,7 +589,7 @@
     </h1>
     <p class="hero-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
     <div class="hero-btns">
-      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="#waitlist" class="btn-primary">Start Earning</a>
       <a href="#how" class="btn-ghost">How It Works</a>
     </div>
     <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
@@ -606,6 +606,31 @@
 </div>
 
 <div class="geo-div"></div>
+
+<!-- GB COUNTER -->
+<div style="background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);padding:28px 20px;text-align:center;">
+  <div style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:10px;">Gigabytes wasted across Australia right now</div>
+  <div id="gb-counter" style="font-size:52px;font-weight:900;letter-spacing:-3px;color:#00E5CC;font-variant-numeric:tabular-nums;">0</div>
+  <div style="font-size:10px;color:rgba(0,229,204,0.35);letter-spacing:2px;margin-top:6px;">GB · LIVE ESTIMATE · BASED ON ACCC DATA</div>
+</div>
+<script>
+(function(){
+  // 26M subscribers × 55GB monthly waste ÷ (30 days × 24h × 3600s) = ~585.6 GB/sec wasted nationally
+  var gbPerSec = (26000000 * 55) / (30 * 24 * 3600);
+  // Start from a large base so it feels live (accumulated since midnight)
+  var now = new Date();
+  var secondsToday = now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds();
+  var base = Math.floor(secondsToday * gbPerSec);
+  var el = document.getElementById('gb-counter');
+  function fmt(n){ return Math.floor(n).toLocaleString('en-AU'); }
+  el.textContent = fmt(base);
+  setInterval(function(){
+    base += gbPerSec * 0.1;
+    el.textContent = fmt(base);
+  }, 100);
+})();
+</script>
+
 
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
@@ -639,139 +664,6 @@
 </div>
 
 <div class="geo-div"></div>
-<!-- SIGNAL CONCEPT — no label, just sensation -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-tag">Something Is Building</div>
-    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
-    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
-    <div class="signal-wrap">
-      <div class="signal-orb">
-        <svg class="signal-inner"><use href="#ico-signal"/></svg>
-      </div>
-      <div class="signal-text">
-        <strong>Your signal is growing.</strong>
-        It was always there. Now it has somewhere to go.
-      </div>
-    </div>
-
-    <div class="founder-box" style="margin-top:48px;">
-      <div class="founder-label">Why I Built This</div>
-      <div class="founder-text">
-        <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
-      </div>
-      <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-<!-- PROBLEM -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="prob-wrap">
-      <div>
-        <div class="sec-tag">The Pattern</div>
-        <h2 class="sec-title">The system was designed to keep it.</h2>
-        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
-      </div>
-      <div class="prob-lines">
-        <div class="prob-line">You paid for it.</div>
-        <div class="prob-line">You didn't use it.</div>
-        <div class="prob-line accent">And somehow… you still lose it.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- BUILT DIFFERENT -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-tag">Built Different</div>
-    <h2 class="sec-title">Built for people, not systems.</h2>
-    <div class="grid-2">
-      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">What was overlooked is now returned</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">Value that was wasted now flows back to you</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">You stay in control — always</p></div>
-      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">Backed by a mission to make this fairer for everyone</p></div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- MOVEMENT -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="movement-box">
-      <div class="sec-tag" style="justify-content:center;margin-bottom:20px;">The Shift</div>
-      <h2>This isn't just a product.</h2>
-      <p>Urbyte is part of something larger — a rebalancing. Where what flows out starts flowing back.</p>
-      <p>We're not here to fight the system. We're here to recalibrate it.</p>
-      <p class="movement-tagline">"What you don't use shouldn't disappear."</p>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- CHARITIES -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-tag">Where It Goes</div>
-    <div style="display:inline-block;margin-bottom:16px;padding:6px 20px;border:1px solid rgba(0,229,204,0.25);background:rgba(0,229,204,0.04);letter-spacing:4px;font-size:11px;font-weight:900;text-transform:uppercase;color:rgba(0,229,204,0.7);">Givabit</div>
-    <h2 class="sec-title">Direct your signal.<br/>Change something real.</h2>
-    <p class="sec-sub">Choose to channel returned value toward Australian organisations doing work that matters. No middlemen. Nothing lost in transit.</p>
-    <div class="charity-grid">
-      <div class="ch-card"><div class="ch-dot" style="background:#003F8A;box-shadow:0 0 10px #003F8A;"></div><div class="ch-name">Beyond Blue</div><div class="ch-cause">Mental Health</div></div>
-      <div class="ch-card"><div class="ch-dot" style="background:#F37021;box-shadow:0 0 10px #F37021;"></div><div class="ch-name">Orange Sky Australia</div><div class="ch-cause">Homelessness</div></div>
-      <div class="ch-card"><div class="ch-dot" style="background:#C2003A;box-shadow:0 0 10px #C2003A;"></div><div class="ch-name">Homelessness Australia</div><div class="ch-cause">Housing Support</div></div>
-      <div class="ch-card"><div class="ch-dot" style="background:#5B00FF;box-shadow:0 0 10px #5B00FF;"></div><div class="ch-name">1800RESPECT</div><div class="ch-cause">Domestic Violence</div></div>
-      <div class="ch-card"><div class="ch-dot" style="background:#FF6A00;box-shadow:0 0 10px #FF6A00;"></div><div class="ch-name">Indigenous Literacy Foundation</div><div class="ch-cause">Education</div></div>
-    </div>
-    <p class="donate-note">These are organisations we aspire to partner with. Formal partnerships are in progress.<br/>These causes aren't random. They're personal.</p>
-  </div>
-</div>
-
-
-
-<div class="geo-div"></div>
-
-<!-- TESTIMONIALS -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="sec-tag">Early Voices</div>
-    <h2 class="sec-title">What people are saying.</h2>
-    <div class="quote-grid">
-      <div class="q-card"><div class="q-mark">"</div><p class="q-text">To finally earn something back from the Telco company!</p><div class="q-name">Early Supporter</div></div>
-      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Passing the value on to worthy causes rather than letting it vanish.</p><div class="q-name">Waitlist Member</div></div>
-      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Beta User</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
-<!-- CTA -->
-<div class="sec">
-  <div class="sec-inner">
-    <div class="cta-block">
-      <div class="sec-tag" style="justify-content:center;">Be First</div>
-      <h2>Be there from the start.</h2>
-      <p>We're opening access in stages. Early members get the most value — and help shape what this becomes.</p>
-      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
-      <div class="cta-btns">
-        <a href="#founding" class="btn-primary">Secure Your Spot</a>
-        <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="geo-div"></div>
-
 <!-- FOUNDING MEMBERS -->
 <div class="sec" id="founding">
   <div class="sec-inner">
@@ -885,6 +777,139 @@
 
 <div class="geo-div"></div>
 
+<!-- PROBLEM -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="prob-wrap">
+      <div>
+        <div class="sec-tag">The Pattern</div>
+        <h2 class="sec-title">The system was designed to keep it.</h2>
+        <p class="sec-sub">Every cycle, value accumulates and disappears. Not by accident. By design. Urbyte interrupts that pattern.</p>
+      </div>
+      <div class="prob-lines">
+        <div class="prob-line">You paid for it.</div>
+        <div class="prob-line">You didn't use it.</div>
+        <div class="prob-line accent">And somehow… you still lose it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- BUILT DIFFERENT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Built Different</div>
+    <h2 class="sec-title">Built for people, not systems.</h2>
+    <div class="grid-2">
+      <div class="g-card"><svg class="g-geo"><use href="#ico-diamond"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">What was overlooked is now returned</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-tri"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">Value that was wasted now flows back to you</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-shield"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">You stay in control — always</p></div>
+      <div class="g-card"><svg class="g-geo"><use href="#ico-circle"/></svg><p class="g-desc" style="font-size:14px;color:rgba(255,255,255,0.72);">Backed by a mission to make this fairer for everyone</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- MOVEMENT -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="movement-box">
+      <div class="sec-tag" style="justify-content:center;margin-bottom:20px;">The Shift</div>
+      <h2>This isn't just a product.</h2>
+      <p>Urbyte is part of something larger — a rebalancing. Where what flows out starts flowing back.</p>
+      <p>We're not here to fight the system. We're here to recalibrate it.</p>
+      <p class="movement-tagline">"What you don't use shouldn't disappear."</p>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CHARITIES -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Where It Goes</div>
+    <div style="display:inline-block;margin-bottom:16px;padding:6px 20px;border:1px solid rgba(0,229,204,0.25);background:rgba(0,229,204,0.04);letter-spacing:4px;font-size:11px;font-weight:900;text-transform:uppercase;color:rgba(0,229,204,0.7);">Givabit</div>
+    <h2 class="sec-title">Direct your signal.<br/>Change something real.</h2>
+    <p class="sec-sub">Choose to channel returned value toward Australian organisations doing work that matters. No middlemen. Nothing lost in transit.</p>
+    <div class="charity-grid">
+      <div class="ch-card"><div class="ch-dot" style="background:#003F8A;box-shadow:0 0 10px #003F8A;"></div><div class="ch-name">Beyond Blue</div><div class="ch-cause">Mental Health</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#F37021;box-shadow:0 0 10px #F37021;"></div><div class="ch-name">Orange Sky Australia</div><div class="ch-cause">Homelessness</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#C2003A;box-shadow:0 0 10px #C2003A;"></div><div class="ch-name">Homelessness Australia</div><div class="ch-cause">Housing Support</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#5B00FF;box-shadow:0 0 10px #5B00FF;"></div><div class="ch-name">1800RESPECT</div><div class="ch-cause">Domestic Violence</div></div>
+      <div class="ch-card"><div class="ch-dot" style="background:#FF6A00;box-shadow:0 0 10px #FF6A00;"></div><div class="ch-name">Indigenous Literacy Foundation</div><div class="ch-cause">Education</div></div>
+    </div>
+    <p class="donate-note">These are organisations we aspire to partner with. Formal partnerships are in progress.<br/>These causes aren't random. They're personal.</p>
+  </div>
+</div>
+
+
+
+<div class="geo-div"></div>
+
+<!-- TESTIMONIALS -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Early Voices</div>
+    <h2 class="sec-title">What people are saying.</h2>
+    <div class="quote-grid">
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">To finally earn something back from the Telco company!</p><div class="q-name">Early Supporter</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Passing the value on to worthy causes rather than letting it vanish.</p><div class="q-name">Waitlist Member</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Beta User</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- CTA -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="cta-block">
+      <div class="sec-tag" style="justify-content:center;">Be First</div>
+      <h2>Be there from the start.</h2>
+      <p>We're opening access in stages. Early members get the most value — and help shape what this becomes.</p>
+      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
+      <div class="cta-btns">
+        <a href="#founding" class="btn-primary">Secure Your Spot</a>
+        <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- SIGNAL CONCEPT — no label, just sensation -->
+<div class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag">Something Is Building <span style="font-size:9px;letter-spacing:3px;color:rgba(91,0,255,0.8);border:1px solid rgba(91,0,255,0.4);padding:2px 7px;margin-left:8px;vertical-align:middle;">BETA</span></div>
+    <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
+    <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <div class="signal-wrap">
+      <div class="signal-orb">
+        <svg class="signal-inner"><use href="#ico-signal"/></svg>
+      </div>
+      <div class="signal-text">
+        <strong>Your signal is growing.</strong>
+        It was always there. Now it has somewhere to go.
+      </div>
+    </div>
+
+    <div class="founder-box" style="margin-top:48px;">
+      <div class="founder-label">Why I Built This</div>
+      <div class="founder-text">
+        <p>My name is Jarryd. I'm an everyday Australian — not a corporate executive, not someone who's ever had systems work in my favour and if you had told me I'd be a tech founder, I wouldn't have believed you. But here we are. Driven by frustration and inspired by what is fair I built Urbyte because I believe the value you pay for should come back to you. Simple as that.</p>
+      </div>
+      <div class="founder-sig">— Jarryd, Founder · Northern Rivers, NSW</div>
+    </div>
+  </div>
+</div>
+
+<div class="geo-div"></div>
 <!-- FAQ -->
 <div class="sec" id="faq">
   <div class="sec-inner narrow">
@@ -921,7 +946,7 @@
           <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
           <div id="error-msg" class="error" style="display:none;"></div>
           <div style="display:flex;gap:12px;align-items:stretch;">
-            <button type="submit" id="submit-btn" style="flex:1;">Join the Waitlist</button>
+            <button type="submit" id="submit-btn" style="flex:1;">Start Earning</button>
             <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
