@@ -606,10 +606,56 @@
     </h1>
     <p class="hero-sub">Australians pay for mobile data every month. Much of it goes unused. Urbyte helps members participate in the value of that unused allowance.</p>
     <div class="hero-btns">
-      <a href="#waitlist" class="btn-primary">Join The Waitlist</a>
-      <a href="#how" class="btn-ghost">How It Works</a>
+      <div style="width:100%;max-width:360px;margin:0 auto;">
+        <div style="display:flex;gap:12px;margin-bottom:12px;">
+          <div style="flex:1;">
+            <label style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">Your Plan (GB)</label>
+            <input id="calc-plan" type="number" min="1" max="500" placeholder="e.g. 60"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid rgba(0,229,204,0.3);color:#fff;font-size:20px;font-weight:700;padding:12px 14px;outline:none;font-family:inherit;"
+              oninput="calcDBU()"/>
+          </div>
+          <div style="flex:1;">
+            <label style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;">You Used (GB)</label>
+            <input id="calc-used" type="number" min="0" max="500" placeholder="e.g. 14"
+              style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.05);border:1px solid rgba(0,229,204,0.3);color:#fff;font-size:20px;font-weight:700;padding:12px 14px;outline:none;font-family:inherit;"
+              oninput="calcDBU()"/>
+          </div>
+        </div>
+        <div id="calc-result" style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.2);padding:16px 14px;display:flex;justify-content:space-between;align-items:center;min-height:56px;">
+          <div style="text-align:left;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);">Unused Value</div>
+            <div id="calc-dbu" style="font-size:22px;font-weight:900;color:#00E5CC;">— DBUs</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">AUD Equiv.</div>
+            <div id="calc-aud" style="font-size:22px;font-weight:900;color:#fff;">—</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <a href="#waitlist" class="btn-primary" style="display:block;text-align:center;width:100%;box-sizing:border-box;">Join The Waitlist</a>
+        </div>
+      </div>
     </div>
-    <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
+    <p class="hero-micro">1 GB = 10 DBUs · 1 DBU = $0.05 AUD · Limited early access</p>
+
+<script>
+function calcDBU() {
+  var plan = parseFloat(document.getElementById('calc-plan').value) || 0;
+  var used = parseFloat(document.getElementById('calc-used').value) || 0;
+  var unused = Math.max(0, plan - used);
+  var dbu = unused * 10;
+  var aud = (dbu * 0.05).toFixed(2);
+  var dbuEl = document.getElementById('calc-dbu');
+  var audEl = document.getElementById('calc-aud');
+  if (plan > 0) {
+    dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
+    audEl.textContent = '$' + aud;
+  } else {
+    dbuEl.textContent = '— DBUs';
+    audEl.textContent = '—';
+  }
+}
+</script>
   </div>
 </div>
 
