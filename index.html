@@ -24,7 +24,7 @@
 
     /* NAV */
     nav {
-      position: fixed; top:37px; left:0; right:0; z-index:200;
+      position: fixed; top:0; left:0; right:0; z-index:200;
       display: flex; justify-content: space-between; align-items: center;
       padding: 18px 52px;
       background: rgba(0,0,10,0.75);
@@ -50,7 +50,7 @@
       position: relative; z-index: 1;
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 170px 20px 80px;
+      text-align: center; padding: 120px 20px 80px;
       overflow: hidden;
     }
     .floor-wrap { position: absolute; bottom:0; left:0; right:0; height:50%; overflow:hidden; pointer-events:none; }
@@ -78,9 +78,9 @@
     .sys-badge {
       display: inline-flex; align-items: center; gap: 10px;
       border: 1px solid rgba(91,0,255,0.35); background: rgba(91,0,255,0.07);
-      padding: 7px 22px; margin-bottom: 36px;
-      font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-      color: rgba(140,60,255,0.85);
+      padding: 6px 16px; margin-bottom: 28px;
+      font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(140,60,255,0.85); white-space: nowrap;
     }
     .sys-dot { width:5px; height:5px; background:#00E5CC; border-radius:50%; animation:blink 1.4s infinite; box-shadow:0 0 6px #00E5CC; }
     @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.1} }
@@ -377,6 +377,8 @@
     @media(max-width:768px){
       .how-grid-4 { grid-template-columns:1fr !important; }
       .founding-benefits-grid { grid-template-columns:1fr 1fr !important; }
+      .nav-tag { display:none; }
+      .commsday-badge { display:none !important; }
       nav { padding:16px 20px; }
       .prob-wrap { grid-template-columns:1fr; gap:40px; }
       .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.founding-how { grid-template-columns:1fr; }
@@ -390,12 +392,6 @@
 <body>
 
 <canvas id="env-canvas"></canvas>
-<!-- ANNOUNCEMENT BANNER -->
-<div style="position:fixed;top:0;left:0;right:0;z-index:300;background:linear-gradient(90deg,rgba(0,229,204,0.10),rgba(91,0,255,0.10));border-bottom:1px solid rgba(0,229,204,0.18);backdrop-filter:blur(12px);text-align:center;padding:9px 20px;">
-  <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.9);">Featured in CommsDay</span>
-  <span style="color:rgba(255,255,255,0.2);margin:0 12px;">|</span>
-  <span style="font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.55);">Building Australia's Mobile Value Infrastructure</span>
-</div>
 
 
 <script>
@@ -538,7 +534,8 @@
     <span>Urbyte</span>
     
   </div>
-  <div style="display:flex;align-items:center;gap:12px;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="display:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(0,229,204,0.7);padding:4px 10px;border:1px solid rgba(0,229,204,0.2);" class="commsday-badge">CommsDay</span>
     <a href="/enterprise" class="btn-nav">Enterprise</a>
     <a href="/telco" class="btn-nav">Telco &amp; MVNO</a>
   </div>
