@@ -621,15 +621,10 @@
               oninput="calcDBU()"/>
           </div>
         </div>
-        <div id="calc-result" style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.2);padding:16px 14px;display:flex;justify-content:space-between;align-items:center;min-height:56px;">
-          <div style="text-align:left;">
-            <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);">Unused Value</div>
-            <div id="calc-dbu" style="font-size:22px;font-weight:900;color:#00E5CC;">— DBUs</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">AUD Equiv.</div>
-            <div id="calc-aud" style="font-size:22px;font-weight:900;color:#fff;">—</div>
-          </div>
+        <div id="calc-result" style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.2);padding:16px 14px;text-align:center;min-height:56px;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.6);margin-bottom:4px;">Unused Value</div>
+          <div id="calc-dbu" style="font-size:26px;font-weight:900;color:#00E5CC;line-height:1.1;">— DBUs</div>
+          <div id="calc-aud" style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:1px;">—</div>
         </div>
         <div style="margin-top:10px;">
           <a href="#waitlist" class="btn-primary" style="display:block;text-align:center;width:100%;box-sizing:border-box;">Join The Waitlist</a>
@@ -649,7 +644,7 @@ function calcDBU() {
   var audEl = document.getElementById('calc-aud');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
-    audEl.textContent = '$' + aud;
+    audEl.textContent = '$' + aud + ' AUD';
   } else {
     dbuEl.textContent = '— DBUs';
     audEl.textContent = '—';
