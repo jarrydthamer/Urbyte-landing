@@ -24,7 +24,7 @@
 
     /* NAV */
     nav {
-      position: fixed; top:0; left:0; right:0; z-index:200;
+      position: fixed; top:37px; left:0; right:0; z-index:200;
       display: flex; justify-content: space-between; align-items: center;
       padding: 18px 52px;
       background: rgba(0,0,10,0.75);
@@ -50,7 +50,7 @@
       position: relative; z-index: 1;
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 120px 20px 80px;
+      text-align: center; padding: 170px 20px 80px;
       overflow: hidden;
     }
     .floor-wrap { position: absolute; bottom:0; left:0; right:0; height:50%; overflow:hidden; pointer-events:none; }
@@ -375,6 +375,8 @@
     .footer-acknowledge { color:rgba(255,255,255,0.08); font-size:10px; margin-top:16px; line-height:1.9; max-width:480px; margin-left:auto; margin-right:auto; }
 
     @media(max-width:768px){
+      .how-grid-4 { grid-template-columns:1fr !important; }
+      .founding-benefits-grid { grid-template-columns:1fr 1fr !important; }
       nav { padding:16px 20px; }
       .prob-wrap { grid-template-columns:1fr; gap:40px; }
       .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.founding-how { grid-template-columns:1fr; }
@@ -388,6 +390,13 @@
 <body>
 
 <canvas id="env-canvas"></canvas>
+<!-- ANNOUNCEMENT BANNER -->
+<div style="position:fixed;top:0;left:0;right:0;z-index:300;background:linear-gradient(90deg,rgba(0,229,204,0.10),rgba(91,0,255,0.10));border-bottom:1px solid rgba(0,229,204,0.18);backdrop-filter:blur(12px);text-align:center;padding:9px 20px;">
+  <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.9);">Featured in CommsDay</span>
+  <span style="color:rgba(255,255,255,0.2);margin:0 12px;">|</span>
+  <span style="font-size:11px;font-weight:600;letter-spacing:1px;color:rgba(255,255,255,0.55);">Building Australia's Mobile Value Infrastructure</span>
+</div>
+
 
 <script>
 (function(){
@@ -583,16 +592,42 @@
   <div class="hero-content">
     <div class="sys-badge"><span class="sys-dot"></span> SYSTEM ONLINE · AUSTRALIA · SIGNAL RETURNING</div>
     <h1>
-      <span class="h1-line1">Stop Losing</span>
-      <span class="h1-line2">What You've</span>
-      <span class="h1-line3">Already Paid For.</span>
+      <span class="h1-line1">Reclaim Value From</span>
+      <span class="h1-line2">The Mobile Data</span>
+      <span class="h1-line3">You Never Use.</span>
     </h1>
-    <p class="hero-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
+    <p class="hero-sub">Australians pay for mobile data every month. Much of it goes unused. Urbyte helps members participate in the value of that unused allowance.</p>
     <div class="hero-btns">
-      <a href="#waitlist" class="btn-primary">Start Earning</a>
+      <a href="#waitlist" class="btn-primary">Join The Waitlist</a>
       <a href="#how" class="btn-ghost">How It Works</a>
     </div>
     <p class="hero-micro">Limited early access · Australian owned &amp; operated</p>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF BAR -->
+<div style="position:relative;z-index:1;padding:22px 20px;background:rgba(0,0,10,0.75);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);backdrop-filter:blur(12px);">
+  <div style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;max-width:900px;margin:0 auto;">
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">Featured in CommsDay</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#5B00FF;box-shadow:0 0 6px #5B00FF;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(140,60,255,0.8);">Australian Startup</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Privacy Focused</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(194,0,58,0.2);background:rgba(194,0,58,0.04);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#C2003A;box-shadow:0 0 6px #C2003A;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(194,0,58,0.8);">Community Impact Driven</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;animation:blink 1.4s infinite;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Growing Member Community</span>
+    </div>
   </div>
 </div>
 
@@ -669,33 +704,101 @@
   <div class="sec-inner">
     <div class="sec-tag">How It Works</div>
     <h2 class="sec-title">Simple. Transparent. Yours.</h2>
-    <div class="grid-3">
-      <div class="g-card">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:64px;" class="how-grid-4">
+      <div class="g-card" style="text-align:center;">
         <div class="g-num">01</div>
-        <svg class="g-geo"><use href="#ico-hex"/></svg>
+        <svg class="g-geo" style="margin:0 auto 20px;"><use href="#ico-hex"/></svg>
         <div class="g-step">Step 01</div>
-        <div class="g-title">Log Your Usage</div>
-        <p class="g-desc">Enter your monthly plan and what you actually used. The gap between the two is where Urbyte begins.</p>
+        <div class="g-title">Pay Your Plan</div>
+        <p class="g-desc">Pay for your mobile plan as normal. Nothing changes with your provider.</p>
       </div>
-      <div class="g-card">
+      <div class="g-card" style="text-align:center;">
         <div class="g-num">02</div>
-        <svg class="g-geo"><use href="#ico-diamond"/></svg>
+        <svg class="g-geo" style="margin:0 auto 20px;"><use href="#ico-diamond"/></svg>
         <div class="g-step">Step 02</div>
-        <div class="g-title">Watch It Build</div>
-        <p class="g-desc">Urbyte captures what went unclaimed and returns it to you. Your value — building in the background.</p>
+        <div class="g-title">Track Your Unused</div>
+        <p class="g-desc">Track your unused allowance each month. See exactly what the system takes back.</p>
       </div>
-      <div class="g-card">
+      <div class="g-card" style="text-align:center;">
         <div class="g-num">03</div>
-        <svg class="g-geo"><use href="#ico-star"/></svg>
+        <svg class="g-geo" style="margin:0 auto 20px;"><use href="#ico-star"/></svg>
         <div class="g-step">Step 03</div>
-        <div class="g-title">Direct It</div>
-        <p class="g-desc">Spend it on rewards and experiences, or channel it toward Australian causes that matter to you.</p>
+        <div class="g-title">Convert to DBUs</div>
+        <p class="g-desc">Convert eligible value into DBUs — your rewards credits inside the Urbyte ecosystem.</p>
+      </div>
+      <div class="g-card" style="text-align:center;">
+        <div class="g-num">04</div>
+        <svg class="g-geo" style="margin:0 auto 20px;"><use href="#ico-circle"/></svg>
+        <div class="g-step">Step 04</div>
+        <div class="g-title">Use Your DBUs</div>
+        <p class="g-desc">Spend on rewards, donate to Australian charities, or hold as they grow in value.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDING MEMBER CTA SECTION -->
+<div class="sec" style="padding:100px 20px;">
+  <div class="sec-inner" style="text-align:center;max-width:760px;margin:0 auto;">
+    <div class="sec-tag" style="justify-content:center;">Founding Members</div>
+    <h2 class="sec-title">Become A Founding Member</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:2;max-width:520px;margin:0 auto 48px;">Join early and help shape the future of the Urbyte ecosystem.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;max-width:800px;margin:0 auto 48px;" class="founding-benefits-grid">
+      <div style="padding:32px 20px;background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.08);text-align:center;">
+        <div style="font-size:22px;margin-bottom:12px;color:#00E5CC;">&#9889;</div>
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;">Early Access</div>
+      </div>
+      <div style="padding:32px 20px;background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.08);text-align:center;">
+        <div style="font-size:22px;margin-bottom:12px;color:#00E5CC;">&#9670;</div>
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;">Founding Recognition</div>
+      </div>
+      <div style="padding:32px 20px;background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.08);text-align:center;">
+        <div style="font-size:22px;margin-bottom:12px;color:#00E5CC;">&#8859;</div>
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;">Priority Updates</div>
+      </div>
+      <div style="padding:32px 20px;background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.08);text-align:center;">
+        <div style="font-size:22px;margin-bottom:12px;color:#00E5CC;">&#9670;</div>
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.5px;">Future Feature Access</div>
+      </div>
+    </div>
+    <a href="#waitlist" class="btn-primary">Join The Waitlist</a>
+  </div>
+</div>
+
+<div class="geo-div"></div>
+
+<!-- TRUST SECTION -->
+<div class="sec" style="padding:100px 20px;">
+  <div class="sec-inner" style="max-width:760px;margin:0 auto;">
+    <div class="sec-tag">Why Urbyte</div>
+    <h2 class="sec-title">Built For Consumers.<br/><span style="color:#00E5CC;text-shadow:0 0 24px rgba(0,229,204,0.4);">Designed For Industry.</span></h2>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:40px;">
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 24px;background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);">
+        <span style="color:#00E5CC;font-size:16px;flex-shrink:0;">&#9670;</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.72);font-weight:600;">Independent platform — no telco ownership, no conflicts</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 24px;background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);">
+        <span style="color:#00E5CC;font-size:16px;flex-shrink:0;">&#9670;</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.72);font-weight:600;">Privacy conscious design — we read usage figures, nothing personal</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 24px;background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);">
+        <span style="color:#00E5CC;font-size:16px;flex-shrink:0;">&#9670;</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.72);font-weight:600;">Works alongside your existing provider — no switching required</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 24px;background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);">
+        <span style="color:#00E5CC;font-size:16px;flex-shrink:0;">&#9670;</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.72);font-weight:600;">Community impact initiatives — Givabit channels value to Australian causes</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 24px;background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);">
+        <span style="color:#00E5CC;font-size:16px;flex-shrink:0;">&#9670;</span>
+        <span style="font-size:15px;color:rgba(255,255,255,0.72);font-weight:600;">Australian owned and operated — ACN 692 885 019</span>
       </div>
     </div>
   </div>
 </div>
 
 <div class="geo-div"></div>
+
 <!-- FOUNDING MEMBERS -->
 <div class="sec" id="founding">
   <div class="sec-inner">
@@ -897,17 +1000,16 @@
 
 <div class="geo-div"></div>
 
-<!-- CTA -->
-<div class="sec">
+<!-- FINAL CTA -->
+<div class="sec" style="padding:140px 20px;">
   <div class="sec-inner">
     <div class="cta-block">
-      <div class="sec-tag" style="justify-content:center;">Be First</div>
-      <h2>Be there from the start.</h2>
-      <p>We're opening access in stages. Early members get the most value — and help shape what this becomes.</p>
-      <p style="font-size:10px;color:rgba(255,255,255,0.12);letter-spacing:4px;text-transform:uppercase;">The signal was always there.</p>
+      <div class="sec-tag" style="justify-content:center;">Ready</div>
+      <h2>You're Already Paying<br/>For Mobile Data.</h2>
+      <p>Join the growing community exploring a fairer way to participate in its value.</p>
       <div class="cta-btns">
-        <a href="#founding" class="btn-primary">Secure Your Spot</a>
-        <a href="#waitlist" class="btn-ghost">Join Free Waitlist</a>
+        <a href="#waitlist" class="btn-primary">Join The Waitlist</a>
+        <a href="#founding" class="btn-ghost">Become A Founding Member</a>
       </div>
     </div>
   </div>
@@ -972,13 +1074,11 @@
         <h2>Not ready yet?<br/>Stay in range.</h2>
         <p class="sub">We'll reach out when your signal is ready to return.</p>
         <form id="waitlist-form">
-          <input type="text" id="name" placeholder="Your name" required />
           <input type="email" id="email" placeholder="Email address" required />
-          <select id="telco" style="background:#111;color:#fff;border:1px solid #333;border-radius:8px;padding:12px 16px;width:100%;font-size:15px;"><option value="" disabled selected>Select your telco provider</option><option value="Telstra">Telstra</option><option value="Optus">Optus</option><option value="Vodafone">Vodafone</option><option value="TPG">TPG</option><option value="Boost">Boost Mobile</option><option value="Amaysim">Amaysim</option><option value="Woolworths Mobile">Woolworths Mobile</option><option value="Other">Other</option></select>
-          <textarea id="message" rows="3" placeholder="Tell us why Urbyte matters to you (optional)"></textarea>
+          <input type="tel" id="mobile" placeholder="Mobile number" />
           <div id="error-msg" class="error" style="display:none;"></div>
           <div style="display:flex;gap:12px;align-items:stretch;">
-            <button type="submit" id="submit-btn" style="flex:1;">Start Earning</button>
+            <button type="submit" id="submit-btn" style="flex:1;">Join Waitlist</button>
             <button type="button" id="support-btn" title="Show your support" onclick="toggleSupport(this)" style="width:52px;background:rgba(91,0,255,0.08);border:1px solid rgba(91,0,255,0.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="thumb-path" d="M7 10V20H4V10H7ZM9 10L12 3C13.1 3 14 3.9 14 5V8H19.5C20.3 8 21 8.7 21 9.5L19.5 16.5C19.2 17.9 17.9 18.9 16.5 19H9V10Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none"/>
