@@ -708,61 +708,6 @@
 </script>
 
 <!-- HOW IT WORKS -->
-<!-- GB COUNTER -->
-<div style="background:#00000A;border-top:1px solid rgba(0,229,204,0.12);border-bottom:1px solid rgba(0,229,204,0.12);padding:48px 32px;">
-  <div style="max-width:860px;margin:0 auto;">
-
-    <!-- Row 1: GB -->
-    <div style="padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);">
-      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;margin-bottom:20px;line-height:1.6;">GB OF UNUSED ALLOWANCE EXPIRED NATIONALLY —<br>SINCE THIS PAGE LOADED</div>
-      <div id="gb-val" style="font-size:clamp(32px,10vw,72px);font-weight:900;letter-spacing:-2px;color:#00E5CC;line-height:1;font-variant-numeric:tabular-nums;">0.0</div>
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">REAL-TIME ESTIMATE · ACCC 2024–25 · 26M SUBSCRIBERS · 55GB/MO AVG UNUSED</div>
-    </div>
-
-    <!-- Row 2: DBUs -->
-    <div style="padding-top:36px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;margin-bottom:20px;">DBUS THAT COULD HAVE BEEN EARNED</div>
-      <div id="dbu-val" style="font-size:clamp(32px,10vw,72px);font-weight:900;letter-spacing:-2px;color:#00E5CC;line-height:1;font-variant-numeric:tabular-nums;">0</div>
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">@ 1GB = 10 DBUs · $0.05 AUD EACH</div>
-    </div>
-
-  </div>
-</div>
-<script>
-(function(){
-  // ACCC 2024-25: 26M subscribers × 55GB avg unused per month
-  // Seconds in a month: 30 × 24 × 3600 = 2,592,000
-  // National GB wasted per second: (26,000,000 × 55) / 2,592,000 = 551.62 GB/sec
-  var GB_PER_SEC = (26000000 * 55) / (30 * 24 * 3600);
-  // 1 GB = 10 DBUs
-  var DBU_PER_SEC = GB_PER_SEC * 10;
-
-  var startTime = performance.now();
-
-  function fmtGB(n) {
-    var fixed = n.toFixed(1);
-    var parts = fixed.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return parts.join('.');
-  }
-  function fmtDBU(n) {
-    return Math.floor(n).toLocaleString('en-AU');
-  }
-
-  var gbEl  = document.getElementById('gb-val');
-  var dbuEl = document.getElementById('dbu-val');
-
-  setInterval(function() {
-    var elapsed = (performance.now() - startTime) / 1000;
-    gbEl.textContent  = fmtGB(elapsed * GB_PER_SEC);
-    dbuEl.textContent = fmtDBU(elapsed * DBU_PER_SEC);
-  }, 500);
-
-  gbEl.textContent  = '0.0';
-  dbuEl.textContent = '0';
-})();
-</script>
-
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
   <div class="sec-inner">
