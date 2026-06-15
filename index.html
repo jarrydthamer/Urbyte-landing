@@ -710,28 +710,73 @@ function calcDBU() {
 </div>
 
 <!-- SOCIAL PROOF BAR -->
-<div style="position:relative;z-index:1;padding:22px 20px;background:rgba(0,0,10,0.75);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);backdrop-filter:blur(12px);">
-  <div style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;max-width:900px;margin:0 auto;">
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);">
+<div style="position:relative;z-index:1;padding:0;background:rgba(0,0,10,0.75);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);backdrop-filter:blur(12px);overflow:hidden;">
+  <style>
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      width: max-content;
+      animation: ticker-scroll 28s linear infinite;
+      padding: 16px 0;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+  <div class="ticker-track">
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);flex-shrink:0;">
       <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
       <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">Featured in CommsDay</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);">
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);flex-shrink:0;">
       <span style="width:6px;height:6px;border-radius:50%;background:#5B00FF;box-shadow:0 0 6px #5B00FF;display:inline-block;"></span>
       <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(140,60,255,0.8);">Australian Startup</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);">
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);flex-shrink:0;">
       <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
       <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Privacy Focused</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(194,0,58,0.2);background:rgba(194,0,58,0.04);">
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(194,0,58,0.2);background:rgba(194,0,58,0.04);flex-shrink:0;">
       <span style="width:6px;height:6px;border-radius:50%;background:#C2003A;box-shadow:0 0 6px #C2003A;display:inline-block;"></span>
       <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(194,0,58,0.8);">Community Impact Driven</span>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);">
-      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;animation:blink 1.4s infinite;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;animation:blink 1.4s infinite;display:inline-block;"></span>
       <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Growing Member Community</span>
     </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">ACCC Data Aligned</span>
+    </div>
+    <div style="width:60px;flex-shrink:0;"></div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">Featured in CommsDay</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(91,0,255,0.2);background:rgba(91,0,255,0.04);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#5B00FF;box-shadow:0 0 6px #5B00FF;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(140,60,255,0.8);">Australian Startup</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Privacy Focused</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(194,0,58,0.2);background:rgba(194,0,58,0.04);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#C2003A;box-shadow:0 0 6px #C2003A;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(194,0,58,0.8);">Community Impact Driven</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.15);background:rgba(0,229,204,0.03);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;animation:blink 1.4s infinite;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);">Growing Member Community</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid rgba(0,229,204,0.2);background:rgba(0,229,204,0.04);flex-shrink:0;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;"></span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">ACCC Data Aligned</span>
+    </div>
+    <div style="width:60px;flex-shrink:0;"></div>
   </div>
 </div>
 
