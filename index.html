@@ -641,7 +641,7 @@
             <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
               <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:9px 8px;text-align:center;">
                 <div id="calc-dbu" style="font-size:14px;font-weight:900;color:#00E5CC;line-height:1.1;">— DBUs</div>
-                <div id="calc-aud" style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-top:2px;">—</div>
+                <div id="calc-aud" style="display:none;">—</div>
               </div>
             </div>
           </div>
@@ -662,10 +662,10 @@ function calcDBU() {
   var audEl = document.getElementById('calc-aud');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
-    audEl.textContent = '$' + aud + ' AUD';
+    // AUD display removed
   } else {
     dbuEl.textContent = '— DBUs';
-    audEl.textContent = '—';
+    // AUD display removed
   }
 }
 </script>
