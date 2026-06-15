@@ -639,8 +639,12 @@
                 oninput="calcDBU()"/>
             </div>
             <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
-              <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:9px 8px;text-align:center;">
-                <div id="calc-dbu" style="font-size:14px;font-weight:900;color:#00E5CC;line-height:1.1;">— DBUs</div>
+              <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:12px 10px;text-align:center;">
+                <div id="calc-dbu" style="font-size:20px;font-weight:900;color:#00E5CC;line-height:1.1;letter-spacing:-0.5px;">— DBUs</div>
+                <div id="calc-dbu-label" style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);margin-top:3px;">per month</div>
+                <div style="height:1px;background:rgba(0,229,204,0.1);margin:7px 0;"></div>
+                <div id="calc-dbu-annual" style="font-size:13px;font-weight:800;color:rgba(0,229,204,0.75);line-height:1.1;">—</div>
+                <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:2px;">per year</div>
                 <div id="calc-aud" style="display:none;">—</div>
               </div>
             </div>
@@ -649,7 +653,7 @@
         </div>
       </div>
     </div>
-    <p class="hero-micro">1 GB = 10 DBUs · 1 DBU = $0.05 AUD · Limited early access</p>
+    <p class="hero-micro">1 GB = 10 DBUs · Limited early access</p>
 
 <script>
 function calcDBU() {
@@ -660,12 +664,13 @@ function calcDBU() {
   var aud = (dbu * 0.05).toFixed(2);
   var dbuEl = document.getElementById('calc-dbu');
   var audEl = document.getElementById('calc-aud');
+  var annualEl = document.getElementById('calc-dbu-annual');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
-    // AUD display removed
+    if (annualEl) annualEl.textContent = (dbu * 12).toLocaleString('en-AU') + ' DBUs';
   } else {
     dbuEl.textContent = '— DBUs';
-    // AUD display removed
+    if (annualEl) annualEl.textContent = '—';
   }
 }
 </script>
