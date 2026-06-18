@@ -185,6 +185,11 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   nav{padding:0 20px}
   .nav-right{display:none}
   .hero-text,.sec{padding:48px 24px}.hero-text{max-width:100%!important}
+  .hero{min-height:auto;padding-top:80px;padding-bottom:48px;align-items:flex-start}
+  .hero-img-fade{background:linear-gradient(180deg,rgba(0,0,10,0.85) 0%,rgba(0,0,10,0.80) 40%,rgba(0,0,10,0.92) 100%)}
+  .hero h1{font-size:clamp(28px,7vw,42px);letter-spacing:-1.5px}
+  .hero-btns{flex-direction:column;gap:10px}
+  .btn-p,.btn-g{width:100%;text-align:center;box-sizing:border-box}
   .stat-strip{grid-template-columns:repeat(2,1fr)}
   .steps,.comp-grid,.use-grid,.calc-inner{grid-template-columns:1fr}
   .calc-results{grid-template-columns:1fr 1fr}
@@ -208,7 +213,17 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .ram-val{font-size:24px;font-weight:900;letter-spacing:-1px;color:#fff;font-family:monospace;margin-bottom:10px;}
 .ram-cell.highlight .ram-val{color:#00C48C;}
 .ram-desc{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;}
-@media(max-width:640px){.ram-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){
+  .ram-grid{grid-template-columns:1fr;}
+  .hero{padding-top:72px;padding-bottom:40px}
+  .hero-img-wrap img{object-position:70% center}
+  .hero-img-fade{background:rgba(0,0,10,0.88)}
+  .hero-text{padding:0 20px!important}
+  .hero h1{font-size:clamp(26px,8vw,38px);letter-spacing:-1px;max-width:100%}
+  .hero-sub{font-size:13px}
+  .hero-trust{gap:12px}
+  .trust-pill{font-size:9px}
+}
 
 </style>
 <style>
