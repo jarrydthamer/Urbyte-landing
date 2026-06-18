@@ -493,7 +493,7 @@
           "name": "What is Urbyte?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Urbyte is an Australian platform that captures the value of your unused mobile data allowance each billing cycle and converts it into DBUs — rewards credits worth $0.05 AUD each. Members can redeem DBUs for rewards or donate them to Australian charities through Urbyte's Givabit arm. Urbyte operates independently of any telco."
+            "text": "Urbyte is an Australian platform that captures the value of your unused mobile data allowance each billing cycle and converts it into DBUs — rewards credits. Members can redeem DBUs for rewards or donate them to Australian charities through Urbyte's Givabit arm. Urbyte operates independently of any telco."
           }
         },
         {
@@ -754,7 +754,7 @@
         </div>
       </div>
     </div>
-    <p class="hero-micro">1 GB = 10 DBUs · 1 DBU = $0.05 AUD · Limited early access</p>
+    <p class="hero-micro">1 GB = 10 DBUs · Founding Member Access</p>
 
 <script>
 function calcDBU() {
@@ -762,15 +762,15 @@ function calcDBU() {
   var used = parseFloat(document.getElementById('calc-used').value) || 0;
   var unused = Math.max(0, plan - used);
   var dbu = unused * 10;
-  var aud = (dbu * 0.05).toFixed(2);
+  var aud = null;
   var dbuEl = document.getElementById('calc-dbu');
   var audEl = document.getElementById('calc-aud');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
-    audEl.textContent = '$' + aud + ' AUD';
+    if(audEl) audEl.style.display='none';
   } else {
     dbuEl.textContent = '— DBUs';
-    audEl.textContent = '—';
+    if(audEl) audEl.style.display='none';
   }
 }
 </script>
@@ -939,7 +939,7 @@ function calcDBU() {
     <div style="padding-top:36px;">
       <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#00E5CC;margin-bottom:20px;">DBUS THAT COULD HAVE BEEN EARNED</div>
       <div id="dbu-val" style="font-size:clamp(32px,10vw,72px);font-weight:900;letter-spacing:-2px;color:#00E5CC;line-height:1;font-variant-numeric:tabular-nums;">0</div>
-      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">@ 1GB = 10 DBUs · $0.05 AUD EACH</div>
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:14px;">@ 1 GB = 10 DBUs</div>
     </div>
 
   </div>
