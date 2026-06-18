@@ -404,6 +404,40 @@
       .stat-label { font-size:10px !important; }
       .hero { padding: 30px 20px 40px !important; }
     }
+  
+    @keyframes readPulse {
+      0%, 100% { color: #00E5CC; text-shadow: 0 0 8px rgba(0,229,204,0.9), 0 0 20px rgba(0,229,204,0.6); opacity: 1; }
+      50% { color: #fff; text-shadow: 0 0 16px rgba(0,229,204,1), 0 0 40px rgba(91,0,255,0.8); opacity: 0.7; }
+    }
+    @keyframes cardGlow {
+      0%, 100% { box-shadow: 0 0 0px rgba(0,229,204,0); }
+      50% { box-shadow: 0 0 18px rgba(0,229,204,0.25), 0 0 40px rgba(91,0,255,0.1); }
+    }
+    .read-tag {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #00E5CC;
+      margin-top: 14px;
+      display: inline-block;
+      animation: readPulse 1.8s ease-in-out infinite;
+    }
+    .seo-card {
+      display: block;
+      padding: 24px;
+      border: 1px solid rgba(0,229,204,0.2);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: cardGlow 2.4s ease-in-out infinite;
+      cursor: pointer;
+    }
+    .seo-card:hover {
+      border-color: rgba(0,229,204,0.7) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(0,229,204,0.3), 0 0 60px rgba(91,0,255,0.15) !important;
+    }
+
   </style>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M4QVJVZ8');</script>
 <!-- Google tag (gtag.js) -->
@@ -901,20 +935,20 @@ function calcDBU() {
   <div class="sec-inner">
     <div class="sec-tag">Learn More</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px;">
-      <a href="/what-happens-to-unused-mobile-data-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+      <a href="/what-happens-to-unused-mobile-data-australia" class="seo-card">
         <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">The Problem</div>
         <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">What happens to unused mobile data in Australia?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+        <span class="read-tag">Read →</span>
       </a>
-      <a href="/can-you-get-refund-unused-mobile-data-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+      <a href="/can-you-get-refund-unused-mobile-data-australia" class="seo-card">
         <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">Your Rights</div>
         <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">Can you get a refund for unused mobile data?</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+        <span class="read-tag">Read →</span>
       </a>
-      <a href="/unused-data-rewards-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+      <a href="/unused-data-rewards-australia" class="seo-card">
         <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">The Solution</div>
         <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">Turn unused mobile data into real rewards</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+        <span class="read-tag">Read →</span>
       </a>
     </div>
   </div>
