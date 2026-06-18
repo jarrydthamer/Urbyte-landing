@@ -984,11 +984,12 @@ function calcDBU() {
   // Rate range: 535.90-558.09 GB/sec depending on month length model
   // Using midpoint of validated range: 546.995 GB/sec
   // Delta-based on Date.now() -- immune to tab freeze & device time drift
-  var GB_PER_SEC  = 546.995;
+  var GB_PER_SEC  = 543.768; // ACCC 2024-25: 26M x 55GB/mo x 12 / (365.25*24*3600)
   var DBU_PER_SEC = GB_PER_SEC * 10;
 
-  // Anchored to wall-clock time -- survives tab backgrounding & device sleep
-  var START_MS = Date.now();
+  var gbEl  = document.getElementById("gb-val");
+  var dbuEl = document.getElementById("dbu-val");
+  var START = performance.now();
 
   function fmtGB(n) {
     var fixed = n.toFixed(1);
@@ -1000,17 +1001,14 @@ function calcDBU() {
     return Math.floor(n).toLocaleString("en-AU");
   }
 
-  var gbEl  = document.getElementById("gb-val");
-  var dbuEl = document.getElementById("dbu-val");
-
-  function tick() {
-    var elapsed = (Date.now() - START_MS) / 1000;
+  function tick(ts) {
+    var elapsed = (ts - START) / 1000;
     gbEl.textContent  = fmtGB(elapsed * GB_PER_SEC);
     dbuEl.textContent = fmtDBU(elapsed * DBU_PER_SEC);
+    requestAnimationFrame(tick);
   }
 
-  tick();
-  setInterval(tick, 500);
+  requestAnimationFrame(tick);
 })();
 </script>
 
