@@ -19,7 +19,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
     body { font-family: 'Inter', sans-serif; background: #00000A; color: #fff; overflow-x: hidden; }
     a { text-decoration: none; }
 
@@ -390,7 +390,10 @@
       .founding-benefits-grid { grid-template-columns:1fr 1fr !important; }
       .nav-tag { display:none; }
       .commsday-badge { display:none !important; }
-      nav { padding:16px 20px; }
+      nav { padding:12px 16px; }
+      .nav-right { gap:2px !important; }
+      .nav-right > div:first-child { gap:12px !important; font-size:11px; }
+      .nav-right > div:last-child { display:none !important; }
       .prob-wrap { grid-template-columns:1fr; gap:40px; }
       .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.founding-how { grid-template-columns:1fr; }
       .waitlist-box { padding:36px 24px; }
@@ -692,19 +695,19 @@
     <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:44px;height:44px;object-fit:contain;border-radius:0;" />
     <span class="nav-brand" style="color:#ffffff;">Urbyte</span>
   </div>
-  <div class="nav-right">
-    <a href="/enterprise">Enterprise</a>
-    <a href="/telco">Telco & MVNO</a>
+  <div class="nav-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+    <div style="display:flex;gap:20px;">
+      <a href="/enterprise">Enterprise</a>
+      <a href="/telco">Telco &amp; MVNO</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:7px;">
+      <span style="width:5px;height:5px;border-radius:50%;background:#00E5CC;box-shadow:0 0 5px #00E5CC;display:inline-block;flex-shrink:0;"></span>
+      <span style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.8);">Featured in CommsDay</span>
+    </div>
   </div>
 </nav>
 
-<!-- COMMSDAY STRIP — visible on mobile, below nav -->
-<div id="commsday-strip" style="width:100%;background:rgba(0,0,10,0.92);border-bottom:1px solid rgba(0,229,204,0.15);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:10px;z-index:99;position:relative;">
-  <span style="width:6px;height:6px;border-radius:50%;background:#00E5CC;box-shadow:0 0 6px #00E5CC;display:inline-block;flex-shrink:0;"></span>
-  <span style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.85);">Featured in CommsDay</span>
-  <span style="font-size:10px;color:rgba(255,255,255,0.25);margin:0 4px;">·</span>
-  <span style="font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Australia's Telco Industry Publication</span>
-</div>
+
 
 <!-- HERO -->
 <div class="hero">
@@ -755,7 +758,6 @@
     <div style="text-align:center;margin-bottom:16px;">
       <span style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.85);">Featured in CommsDay</span>
       <span style="color:rgba(255,255,255,0.2);margin:0 10px;">|</span>
-      <span style="font-size:10px;font-weight:500;letter-spacing:1px;color:rgba(255,255,255,0.45);">Building Australia's Mobile Value Infrastructure</span>
     </div>
     <div class="sys-badge"><span class="sys-dot"></span> SYSTEM ONLINE · AUSTRALIA · SIGNAL RETURNING</div>
     <h1>
