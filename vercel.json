@@ -39,6 +39,18 @@
     {
       "source": "/member/(.*)",
       "destination": "/member/index.html"
+    },
+    {
+      "source": "/what-happens-to-unused-mobile-data-australia",
+      "destination": "/what-happens-to-unused-mobile-data-australia.html"
+    },
+    {
+      "source": "/can-you-get-refund-unused-mobile-data-australia",
+      "destination": "/can-you-get-refund-unused-mobile-data-australia.html"
+    },
+    {
+      "source": "/unused-data-rewards-australia",
+      "destination": "/unused-data-rewards-australia.html"
     }
   ]
 }
