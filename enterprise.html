@@ -329,15 +329,16 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 </div>
 <script>
 (function(){
-  var GB_SEC = 26e6*55*12/(365.25*24*3600); // ACCC 2024-25: 26M x 55GB/mo x 12
-  var t0e = Date.now();
-  function tickEnt(){
-    var el = (Date.now()-t0e)/1000;
+  var GB_SEC = 543.768; // ACCC 2024-25: 26M x 55GB/mo x 12 / (365.25*24*3600)
+  var START_E = performance.now();
+  function tickEnt(ts){
+    var el = (ts - START_E)/1000;
     var gb = el*GB_SEC;
-    document.getElementById('entGB').textContent = gb.toLocaleString('en-AU',{maximumFractionDigits:1});
+    document.getElementById('entGB').textContent = gb.toLocaleString('en-AU',{minimumFractionDigits:1,maximumFractionDigits:1});
     document.getElementById('entDBU').textContent = Math.round(gb*10).toLocaleString('en-AU');
+    requestAnimationFrame(tickEnt);
   }
-  setInterval(tickEnt,100); tickEnt();
+  requestAnimationFrame(tickEnt);
 })();
 </script>
 
