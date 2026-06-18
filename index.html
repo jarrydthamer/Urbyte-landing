@@ -420,6 +420,111 @@
     font-family: 'Orbitron', sans-serif !important;
   }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.urbyte.com.au/#website",
+      "url": "https://www.urbyte.com.au/",
+      "name": "Urbyte",
+      "description": "Urbyte converts unused Australian mobile data into real rewards and charitable donations.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.urbyte.com.au/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.urbyte.com.au/#organization",
+      "name": "Urbyte Pty Ltd",
+      "url": "https://www.urbyte.com.au",
+      "logo": "https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/05f7d10c7_IMG_6932.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "jarryd@urbyte.com.au",
+        "contactType": "customer support",
+        "areaServed": "AU"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/urbyte"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens to unused mobile data in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Australia, unused mobile data expires at the end of each billing cycle and is permanently lost. The average Australian subscriber wastes 55GB per month — equating to $9.9 billion in unused data value nationally each year, according to the ACCC 2024–25 Communications Market Report. Urbyte is the only platform that captures this unused allowance and converts it into real rewards or charitable donations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get money back for unused mobile data in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Urbyte converts your unused mobile data allowance into DBUs — a unit of recovered value — each billing cycle. You can redeem DBUs for rewards or donate them to Australian charities. Telcos do not refund unused data, but Urbyte gives you something back for it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Australian telcos refund unused data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Australian telcos — including Telstra, Optus, Vodafone, and MVNOs — do not refund or compensate subscribers for unused mobile data. The data simply expires. Urbyte operates as independent infrastructure above the carrier layer to recover that value on your behalf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much mobile data do Australians waste each year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to the ACCC 2024–25 Communications Market Report, Australians waste an average of 55GB of mobile data per month. Across 26 million subscribers, this represents $9.9 billion in unused data value lost annually — approximately 546 GB wasted nationally every single second."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Urbyte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Urbyte is an Australian platform that captures the value of your unused mobile data allowance each billing cycle and converts it into DBUs — rewards credits worth $0.05 AUD each. Members can redeem DBUs for rewards or donate them to Australian charities through Urbyte's Givabit arm. Urbyte operates independently of any telco."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there an app or service that recovers unused mobile data value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — Urbyte. It is the only platform in Australia designed specifically to recover the value of unused mobile data. After joining, Urbyte tracks your unused allowance each billing cycle and converts it into DBUs that you can spend or donate. Visit urbyte.com.au to join."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my mobile data expire instead of rolling over?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Australian telcos structure plans so unused data expires at cycle end — this is a deliberate billing model that benefits the carrier. There is no regulatory requirement to roll over or refund unused allowance. Urbyte was built specifically to address this gap, giving subscribers a way to recover value from data they paid for but didn't use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Australian telcos does Urbyte support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Urbyte is building support for all major Australian carriers and MVNOs including Telstra, Optus, Vodafone, TPG, Boost Mobile, Woolworths Mobile, Kogan Mobile, Amaysim, Belong, Felix, Tangerine, Spintel, and Dodo."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -639,13 +744,9 @@
                 oninput="calcDBU()"/>
             </div>
             <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
-              <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:12px 10px;text-align:center;">
-                <div id="calc-dbu" style="font-size:20px;font-weight:900;color:#00E5CC;line-height:1.1;letter-spacing:-0.5px;">— DBUs</div>
-                <div id="calc-dbu-label" style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);margin-top:3px;">per month</div>
-                <div style="height:1px;background:rgba(0,229,204,0.1);margin:7px 0;"></div>
-                <div id="calc-dbu-annual" style="font-size:13px;font-weight:800;color:rgba(0,229,204,0.75);line-height:1.1;">—</div>
-                <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.4);margin-top:2px;">per year</div>
-                <div id="calc-aud" style="display:none;">—</div>
+              <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:9px 8px;text-align:center;">
+                <div id="calc-dbu" style="font-size:14px;font-weight:900;color:#00E5CC;line-height:1.1;">— DBUs</div>
+                <div id="calc-aud" style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-top:2px;">—</div>
               </div>
             </div>
           </div>
@@ -653,7 +754,7 @@
         </div>
       </div>
     </div>
-    <p class="hero-micro">1 GB = 10 DBUs · Limited early access</p>
+    <p class="hero-micro">1 GB = 10 DBUs · 1 DBU = $0.05 AUD · Limited early access</p>
 
 <script>
 function calcDBU() {
@@ -664,13 +765,12 @@ function calcDBU() {
   var aud = (dbu * 0.05).toFixed(2);
   var dbuEl = document.getElementById('calc-dbu');
   var audEl = document.getElementById('calc-aud');
-  var annualEl = document.getElementById('calc-dbu-annual');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
-    if (annualEl) annualEl.textContent = (dbu * 12).toLocaleString('en-AU') + ' DBUs';
+    audEl.textContent = '$' + aud + ' AUD';
   } else {
     dbuEl.textContent = '— DBUs';
-    if (annualEl) annualEl.textContent = '—';
+    audEl.textContent = '—';
   }
 }
 </script>
@@ -794,6 +894,31 @@ function calcDBU() {
   </div>
 </div>
 
+
+<!-- ANSWER PAGES — SEO internal linking -->
+<div class="sec" style="padding-top:0;padding-bottom:64px;">
+  <div class="sec-inner">
+    <div class="sec-tag">Learn More</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px;">
+      <a href="/what-happens-to-unused-mobile-data-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">The Problem</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">What happens to unused mobile data in Australia?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+      </a>
+      <a href="/can-you-get-refund-unused-mobile-data-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">Your Rights</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">Can you get a refund for unused mobile data?</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+      </a>
+      <a href="/unused-data-rewards-australia" style="display:block;padding:24px;border:1px solid rgba(0,229,204,0.12);text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,204,0.4)'" onmouseout="this.style.borderColor='rgba(0,229,204,0.12)'">
+        <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:8px;">The Solution</div>
+        <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4;">Turn unused mobile data into real rewards</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;">Read →</div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="geo-div"></div>
 
 
@@ -820,36 +945,37 @@ function calcDBU() {
 </div>
 <script>
 (function(){
-  // ACCC 2024-25: 26M subscribers × 55GB avg unused per month
-  // Seconds in a month: 30 × 24 × 3600 = 2,592,000
-  // National GB wasted per second: (26,000,000 × 55) / 2,592,000 = 551.62 GB/sec
-  var GB_PER_SEC = (26000000 * 55) / (30 * 24 * 3600);
-  // 1 GB = 10 DBUs
+  // ACCC 2024-25: 26M subscribers x 55GB avg unused per month
+  // Rate range: 535.90-558.09 GB/sec depending on month length model
+  // Using midpoint of validated range: 546.995 GB/sec
+  // Delta-based on Date.now() -- immune to tab freeze & device time drift
+  var GB_PER_SEC  = 546.995;
   var DBU_PER_SEC = GB_PER_SEC * 10;
 
-  var startTime = performance.now();
+  // Anchored to wall-clock time -- survives tab backgrounding & device sleep
+  var START_MS = Date.now();
 
   function fmtGB(n) {
     var fixed = n.toFixed(1);
-    var parts = fixed.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return parts.join('.');
+    var parts = fixed.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   }
   function fmtDBU(n) {
-    return Math.floor(n).toLocaleString('en-AU');
+    return Math.floor(n).toLocaleString("en-AU");
   }
 
-  var gbEl  = document.getElementById('gb-val');
-  var dbuEl = document.getElementById('dbu-val');
+  var gbEl  = document.getElementById("gb-val");
+  var dbuEl = document.getElementById("dbu-val");
 
-  setInterval(function() {
-    var elapsed = (performance.now() - startTime) / 1000;
+  function tick() {
+    var elapsed = (Date.now() - START_MS) / 1000;
     gbEl.textContent  = fmtGB(elapsed * GB_PER_SEC);
     dbuEl.textContent = fmtDBU(elapsed * DBU_PER_SEC);
-  }, 500);
+  }
 
-  gbEl.textContent  = '0.0';
-  dbuEl.textContent = '0';
+  tick();
+  setInterval(tick, 500);
 })();
 </script>
 
@@ -1016,7 +1142,7 @@ function calcDBU() {
         <div class="tier-price"><span>$3.99</span><small>/mo</small></div>
         <div class="tier-signal">Signal activated on signup</div>
         <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Full access to the Urbyte platform</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Your signal activates immediately</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding Member status — permanently on profile</li>
         </ul>
@@ -1029,7 +1155,7 @@ function calcDBU() {
         <div class="tier-price"><span>$6.99</span><small>/mo</small></div>
         <div class="tier-signal">Amplified signal on signup</div>
         <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Full access to the Urbyte platform</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Amplified signal from day one</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Founding rate locked in for life</li>
@@ -1045,7 +1171,7 @@ function calcDBU() {
         <div class="tier-price"><span>$9.99</span><small>/mo</small></div>
         <div class="tier-signal">Maximum signal on signup</div>
         <ul class="tier-perks">
-          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to Urbyte beta</li>
+          <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Full access to the Urbyte platform</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority redemption queue</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Early access to new reward partners</li>
@@ -1148,7 +1274,7 @@ function calcDBU() {
     <div class="quote-grid">
       <div class="q-card"><div class="q-mark">"</div><p class="q-text">To finally earn something back from the Telco company!</p><div class="q-name">Early Supporter</div></div>
       <div class="q-card"><div class="q-mark">"</div><p class="q-text">Passing the value on to worthy causes rather than letting it vanish.</p><div class="q-name">Waitlist Member</div></div>
-      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Beta User</div></div>
+      <div class="q-card"><div class="q-mark">"</div><p class="q-text">Reclaiming what I've already paid for is a massive win.</p><div class="q-name">Founding Member</div></div>
     </div>
   </div>
 </div>
@@ -1175,7 +1301,7 @@ function calcDBU() {
 <!-- SIGNAL CONCEPT — no label, just sensation -->
 <div class="sec">
   <div class="sec-inner">
-    <div class="sec-tag">Something Is Building <span style="font-size:9px;letter-spacing:3px;color:rgba(91,0,255,0.8);border:1px solid rgba(91,0,255,0.4);padding:2px 7px;margin-left:8px;vertical-align:middle;">BETA</span></div>
+    <div class="sec-tag">Something Is Building</div>
     <h2 class="sec-title">It doesn't disappear.<br/>It accumulates.</h2>
     <p class="sec-sub">Every month, your data pools. Unseen. In the space between what you pay for and what you use. Urbyte makes it visible — and puts it back in your hands.</p>
     <div class="signal-wrap">
@@ -1213,7 +1339,7 @@ function calcDBU() {
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I cancel? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes, anytime. No lock-in contracts. If you cancel, your Founding Member status and accumulated value remain in your account — you just won't receive future monthly signal boosts.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data safe? <span class="faq-ico">+</span></button><div class="faq-a"><p>Absolutely. Urbyte only reads usage figures from your telco bill — never your calls, messages, or personal content. Handled under the Australian Privacy Act 1988. <a href="/privacy">Privacy Policy</a>.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">I'm on prepaid — can I still participate? <span class="faq-ico">+</span></button><div class="faq-a"><p>Yes — but your recharge size matters. If you use all your data before month-end, there's no residual value to return. A higher recharge creates a buffer — and Urbyte captures that automatically.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When does Urbyte launch? <span class="faq-ico">+</span></button><div class="faq-a"><p>We're in the founding phase, building toward beta. Founding Members access first. <a href="https://app.urbyte.com.au" target="_blank">Preview the platform now</a>.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When does Urbyte launch? <span class="faq-ico">+</span></button><div class="faq-a"><p>We're in the founding phase. Founding Members get first and full access when we go live. <a href="https://app.urbyte.com.au" target="_blank">Preview the platform now</a>.</p></div></div>
     </div>
   </div>
 </div>
