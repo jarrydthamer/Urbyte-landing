@@ -779,8 +779,11 @@
             </div>
             <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
               <div style="background:rgba(0,229,204,0.05);border:1px solid rgba(0,229,204,0.15);padding:9px 8px;text-align:center;">
+                <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);margin-bottom:3px;">Monthly</div>
                 <div id="calc-dbu" style="font-size:14px;font-weight:900;color:#00E5CC;line-height:1.1;">— DBUs</div>
-                <div id="calc-aud" style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-top:2px;">—</div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:6px;margin-bottom:2px;">Annual</div>
+                <div id="calc-dbu-annual" style="font-size:13px;font-weight:700;color:rgba(0,229,204,0.7);line-height:1.1;">—</div>
+                <div id="calc-aud" style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);margin-top:2px;"></div>
               </div>
             </div>
           </div>
@@ -796,14 +799,17 @@ function calcDBU() {
   var used = parseFloat(document.getElementById('calc-used').value) || 0;
   var unused = Math.max(0, plan - used);
   var dbu = unused * 10;
-  var aud = null;
+  var dbuAnnual = dbu * 12;
   var dbuEl = document.getElementById('calc-dbu');
+  var dbuAnnualEl = document.getElementById('calc-dbu-annual');
   var audEl = document.getElementById('calc-aud');
   if (plan > 0) {
     dbuEl.textContent = dbu.toLocaleString('en-AU') + ' DBUs';
+    dbuAnnualEl.textContent = dbuAnnual.toLocaleString('en-AU') + ' DBUs';
     if(audEl) audEl.style.display='none';
   } else {
     dbuEl.textContent = '— DBUs';
+    dbuAnnualEl.textContent = '—';
     if(audEl) audEl.style.display='none';
   }
 }
