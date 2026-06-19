@@ -68,7 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 /* HERO */
 .hero{position:relative;padding-top:64px;min-height:560px;display:flex;align-items:center;overflow:hidden}
 .hero-img-wrap{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero-img-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
+.hero-img-wrap img{display:block;width:100%;height:100%;object-fit:cover;object-position:40% center}
 .hero-img-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.92) 25%,rgba(0,0,10,0.55) 50%,rgba(0,0,10,0.05) 75%,transparent 100%)}
 .hero-text{position:relative;z-index:2;max-width:520px;padding:0 0 0 64px}
 .hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:24px}
@@ -185,7 +185,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   nav{padding:0 20px}
   .nav-right{display:none}
   .hero-text,.sec{padding:48px 24px}.hero-text{max-width:100%!important}
-  .hero{min-height:auto;padding-top:80px;padding-bottom:48px;align-items:flex-start}
+  .hero{min-height:500px;padding-top:80px;padding-bottom:48px;align-items:flex-start}
   .hero-img-fade{background:linear-gradient(180deg,rgba(0,0,10,0.85) 0%,rgba(0,0,10,0.80) 40%,rgba(0,0,10,0.92) 100%)}
   .hero h1{font-size:clamp(28px,7vw,42px);letter-spacing:-1.5px}
   .hero-btns{flex-direction:column;gap:10px}
@@ -215,13 +215,13 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 .ram-desc{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.8;}
 @media(max-width:640px){
   .ram-grid{grid-template-columns:1fr;}
-  .hero{padding-top:72px;padding-bottom:40px}
-  .hero-img-wrap img{object-position:70% center}
-  .hero-img-fade{background:rgba(0,0,10,0.88)}
-  .hero-text{padding:0 20px!important}
-  .hero h1{font-size:clamp(26px,8vw,38px);letter-spacing:-1px;max-width:100%}
+  .hero{padding-top:72px;padding-bottom:40px;min-height:460px}
+  .hero-img-wrap img{object-position:60% center}
+  .hero-img-fade{background:rgba(0,0,10,0.93)!important}
+  .hero-text{padding:0 20px!important;max-width:100%!important;z-index:3;position:relative;}
+  .hero h1{font-size:clamp(24px,8vw,36px);letter-spacing:-1px;max-width:100%}
   .hero-sub{font-size:13px}
-  .hero-trust{gap:12px}
+  .hero-trust{gap:10px}
   .trust-pill{font-size:9px}
 }
 
@@ -237,7 +237,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <!-- NAV -->
 <nav>
   <a class="nav-left" href="/">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:44px;height:44px;object-fit:contain;border-radius:0;filter:sepia(1) hue-rotate(140deg) saturate(4) brightness(1.2);"/>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/05f7d10c7_IMG_6932.jpg" alt="Urbyte" style="width:44px;height:44px;object-fit:contain;border-radius:0;"/>
     <span class="nav-brand" style="color:#00E5CC;">Urbyte</span>
     <span class="nav-pill">Enterprise</span>
   </a>
