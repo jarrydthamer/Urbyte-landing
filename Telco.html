@@ -239,10 +239,10 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 }
 
 /* TELCO HERO — image at natural ratio, text overlaid left */
-.telco-hero-wrap{position:relative;width:100%;margin-top:64px;overflow:hidden;background:#00000A;}
-.telco-hero-img{display:block;width:100%;height:auto;object-fit:contain;filter:none;opacity:1;vertical-align:bottom;}
-.telco-hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.88) 0%,rgba(0,0,10,0.72) 28%,rgba(0,0,10,0.2) 50%,transparent 68%);pointer-events:none;}
-.telco-hero-text{position:absolute;top:50%;left:0;transform:translateY(-50%);padding:0 0 0 60px;max-width:46%;z-index:2;}
+.telco-hero-wrap{position:relative;width:100%;margin-top:64px;overflow:hidden;background:#00000A;min-height:500px;}
+.telco-hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;filter:none;opacity:1;vertical-align:bottom;position:absolute;inset:0;}
+.telco-hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.88) 0%,rgba(0,0,10,0.72) 28%,rgba(0,0,10,0.2) 50%,transparent 68%);pointer-events:none;z-index:1;}
+.telco-hero-text{position:absolute;top:50%;left:0;transform:translateY(-50%);padding:0 0 0 60px;max-width:46%;z-index:3;}
 .telco-hero-text .hero-kicker{color:#00E5CC;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .telco-hero-text .hero-kicker::before{content:'';width:20px;height:1px;background:#00E5CC;}
 .telco-hero-text h1{font-size:clamp(26px,3.2vw,52px);font-weight:900;line-height:1.0;letter-spacing:-1.5px;margin-bottom:18px;color:#fff;}
@@ -254,10 +254,10 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   .telco-hero-text{max-width:55%;padding:0 0 0 32px;}
 }
 @media(max-width:640px){
-  .telco-hero-wrap{margin-top:64px;}
-  .telco-hero-img{width:200%;margin-left:-50%;} /* show globe+phone on mobile */
-  .telco-hero-grad{background:linear-gradient(180deg,rgba(0,0,10,0.92) 0%,rgba(0,0,10,0.75) 50%,rgba(0,0,10,0.4) 100%);}
-  .telco-hero-text{position:relative;top:auto;left:auto;transform:none;max-width:100%;padding:32px 24px;background:rgba(0,0,10,0.7);}
+  .telco-hero-wrap{margin-top:64px;min-height:460px;display:flex;flex-direction:column;}
+  .telco-hero-img{width:100%;margin-left:0;object-fit:cover;max-height:460px;}
+  .telco-hero-grad{background:linear-gradient(180deg,rgba(0,0,10,0.88) 0%,rgba(0,0,10,0.78) 40%,rgba(0,0,10,0.92) 100%);}
+  .telco-hero-text{position:absolute;top:50%;left:0;transform:translateY(-50%);max-width:100%;padding:0 24px;background:none;}
 }
 </style>
 <style>
@@ -270,7 +270,7 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
 <!-- NAV -->
 <nav>
   <a class="nav-left" href="/">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:44px;height:44px;object-fit:contain;border-radius:0;filter:sepia(1) hue-rotate(140deg) saturate(4) brightness(1.2);"/>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/05f7d10c7_IMG_6932.jpg" alt="Urbyte" style="width:44px;height:44px;object-fit:contain;border-radius:0;"/>
     <span class="nav-brand" style="color:#00E5CC;">Urbyte</span>
     <span class="nav-pill">Telco &amp; MVNO</span>
   </a>
