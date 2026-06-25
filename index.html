@@ -240,7 +240,6 @@
     .tier-price small { color:rgba(255,255,255,0.2); font-size:13px; }
     .tier-signal { padding:10px 14px; text-align:center; font-weight:800; font-size:11px; color:#000; margin-bottom:20px; letter-spacing:1px; text-transform:uppercase; }
     .bronze .tier-signal { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.8); }
-    .silver .tier-signal { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
     .gold .tier-signal { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
     .tier-perks { list-style:none; margin-bottom:28px; flex:1; }
     .tier-perks li { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,0.22); padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
@@ -249,11 +248,10 @@
     .tier-btn { width:100%; padding:15px; font-weight:900; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; transition:all 0.2s; }
     .tier-btn:hover { opacity:0.9; transform:translateY(-1px); }
     .bronze .tier-btn { background:linear-gradient(135deg,#7A3B1E,#A0522D); color:rgba(255,255,255,0.85); }
-    .silver .tier-btn { background:linear-gradient(135deg,#4A4A5A,#8A8A9A); color:#000; }
     .gold .tier-btn { background:linear-gradient(135deg,#6B5000,#DAA520); color:#000; }
     .tier-btn{width:100%;padding:14px 20px;border:none;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:all 0.2s;margin-top:12px;}
     .bronze-btn{background:linear-gradient(135deg,#a0522d,#cd853f);color:#fff;}
-    .silver-btn{background:linear-gradient(135deg,#808080,#c0c0c0);color:#000;}
+    
     .gold-btn{background:linear-gradient(135deg,#DAA520,#FFD700);color:#000;}
     .tier-btn:hover{opacity:0.88;transform:translateY(-1px);}
     .tier-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
@@ -765,7 +763,7 @@
       <span class="h1-line2">Has value</span>
       <span class="h1-line3">Access it now.</span>
     </h1>
-    <p class="hero-sub">Paying Australians lose billions in unused mobile data allowance - 531GB a second to be precise. The figures match the problem. At Urbyte we align solutions to the best and most obvious outcome. A fairer more transparent system.</p>
+    <p class="hero-sub">Australians lose billions in unused mobile data allowance every year. Sign up free — no card required. Track your waste, earn DBUs, and donate to charity at zero cost. Subscribe only when you want to unlock the rewards marketplace.</p>
     <div class="hero-btns">
       <div style="width:100%;max-width:320px;margin:0 auto;text-align:center;margin-bottom:8px;">
         <span style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);">Estimate Your Unused Mobile Value</span>
@@ -1193,7 +1191,7 @@ function calcDBU() {
       </div>
       <div class="tier-card bronze" id="tier-bronze">
         <svg class="tier-geo"><use href="#ico-tri"/></svg>
-        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Bronze</div>
+        <div class="tier-size-label">Marketplace Access</div><div class="tier-name">Bronze</div>
         <div class="tier-price"><span>$3.99</span><small>/mo</small></div>
         <div style="font-size:9px;color:rgba(0,229,204,0.6);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;">Marketplace Access — Rewards up to $50</div>
         <ul class="tier-perks">
@@ -1206,9 +1204,9 @@ function calcDBU() {
       <div class="tier-card gold" id="tier-gold">
         <div class="tier-badge best">Best Value</div>
         <svg class="tier-geo"><use href="#ico-diamond"/></svg>
-        <div class="tier-size-label">Your Bite Size</div><div class="tier-name">Gold</div>
+        <div class="tier-size-label">Premium Marketplace</div><div class="tier-name">Gold</div>
         <div class="tier-price"><span>$9.99</span><small>/mo</small></div>
-        <div class="tier-signal">Maximum signal on signup</div>
+        <div style="font-size:9px;color:rgba(218,165,32,0.7);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;">Marketplace Access — Rewards $50.01+</div>
         <ul class="tier-perks">
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Full access to the Urbyte platform</li>
           <li><svg width="14" height="14" class="ck" viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3" fill="none" stroke="#00E5CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <strong style="color:#DAA520;">Maximum signal</strong> from day one</li>
@@ -1534,7 +1532,6 @@ function calcDBU() {
   }
   const STRIPE_PRICES = {
     bronze: 'price_1TYRSHEU7MnbcOa9DcXkegyb',
-    silver: 'price_1TYRSHEU7MnbcOa9Yl5ebN3a',
     gold:   'price_1TYRSHEU7MnbcOa9c8l24m6z'
   };
 
