@@ -1,56 +1,17 @@
 {
   "rewrites": [
-    {
-      "source": "/telco",
-      "destination": "/Telco.html"
-    },
-    {
-      "source": "/enterprise",
-      "destination": "/enterprise.html"
-    },
-    {
-      "source": "/wallet",
-      "destination": "/wallet.html"
-    },
-    {
-      "source": "/convert",
-      "destination": "/convert.html"
-    },
-    {
-      "source": "/redeem",
-      "destination": "/redeem.html"
-    },
-    {
-      "source": "/success",
-      "destination": "/success.html"
-    },
-    {
-      "source": "/privacy",
-      "destination": "/privacy.html"
-    },
-    {
-      "source": "/terms",
-      "destination": "/terms.html"
-    },
-    {
-      "source": "/member",
-      "destination": "/member/index.html"
-    },
-    {
-      "source": "/member/(.*)",
-      "destination": "/member/index.html"
-    },
-    {
-      "source": "/what-happens-to-unused-mobile-data-australia",
-      "destination": "/what-happens-to-unused-mobile-data-australia.html"
-    },
-    {
-      "source": "/can-you-get-refund-unused-mobile-data-australia",
-      "destination": "/can-you-get-refund-unused-mobile-data-australia.html"
-    },
-    {
-      "source": "/unused-data-rewards-australia",
-      "destination": "/unused-data-rewards-australia.html"
-    }
+    { "source": "/telco", "destination": "/Telco.html" },
+    { "source": "/enterprise", "destination": "/enterprise.html" },
+    { "source": "/wallet", "destination": "/wallet.html" },
+    { "source": "/convert", "destination": "/convert.html" },
+    { "source": "/redeem", "destination": "/redeem.html" },
+    { "source": "/success", "destination": "/success.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/member", "destination": "/member/index.html" },
+    { "source": "/member/(.*)", "destination": "/member/index.html" },
+    { "source": "/what-happens-to-unused-mobile-data-australia", "destination": "/what-happens-to-unused-mobile-data-australia.html" },
+    { "source": "/can-you-get-refund-unused-mobile-data-australia", "destination": "/can-you-get-refund-unused-mobile-data-australia.html" },
+    { "source": "/unused-data-rewards-australia", "destination": "/unused-data-rewards-australia.html" }
   ]
 }
