@@ -209,17 +209,17 @@
     .q-name { font-size:9px; color:rgba(255,255,255,0.18); letter-spacing:2px; text-transform:uppercase; }
 
     /* FOUNDING */
-    .founding-header { text-align:center; margin-bottom:64px; }
-    .founding-badge-tag { display:inline-block; border:1px solid rgba(255,215,0,0.2); background:rgba(255,215,0,0.04); color:rgba(255,215,0,0.8); font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:7px 22px; margin-bottom:24px; }
+    .member-header { text-align:center; margin-bottom:64px; }
+    .member-badge-tag { display:inline-block; border:1px solid rgba(255,215,0,0.2); background:rgba(255,215,0,0.04); color:rgba(255,215,0,0.8); font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:7px 22px; margin-bottom:24px; }
     .milestone-bar { max-width:480px; margin:0 auto 64px; border:1px solid rgba(0,229,204,0.12); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:22px 30px; text-align:center; }
     .milestone-label { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:5px; }
     .milestone-sub { font-size:9px; color:rgba(255,255,255,0.5); letter-spacing:2px; text-transform:uppercase; }
-    .founding-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; max-width:800px; margin:0 auto 40px; }
+    .member-how { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; max-width:800px; margin:0 auto 40px; }
     .fh-step { text-align:center; padding:30px 20px; background:rgba(0,0,10,0.6); backdrop-filter:blur(10px); border:1px solid rgba(91,0,255,0.07); }
     .fh-geo { width:32px; height:32px; margin:0 auto 12px; opacity:0.6; }
     .fh-title { font-size:13px; font-weight:800; margin-bottom:6px; letter-spacing:-0.3px; }
     .fh-desc { font-size:11px; color:rgba(255,255,255,0.28); line-height:1.8; }
-    .founding-verify { max-width:640px; margin:0 auto 40px; text-align:center; border:1px solid rgba(0,229,204,0.1); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:14px 24px; font-size:12px; color:rgba(0,229,204,0.65); line-height:1.8; }
+    .member-verify { max-width:640px; margin:0 auto 40px; text-align:center; border:1px solid rgba(0,229,204,0.1); background:rgba(0,229,204,0.03); backdrop-filter:blur(10px); padding:14px 24px; font-size:12px; color:rgba(0,229,204,0.65); line-height:1.8; }
     .prepaid-callout { display:flex; align-items:flex-start; gap:16px; max-width:760px; margin:0 auto 48px; border:1px solid rgba(255,106,0,0.15); background:rgba(255,106,0,0.03); backdrop-filter:blur(10px); padding:20px 26px; font-size:13px; color:rgba(255,255,255,0.4); line-height:1.9; }
     .prepaid-callout strong { color:rgba(255,106,0,0.9); display:block; margin-bottom:4px; }
     .prepaid-mark { width:28px; height:28px; flex-shrink:0; margin-top:2px; opacity:0.7; }
@@ -255,7 +255,7 @@
     .gold-btn{background:linear-gradient(135deg,#DAA520,#FFD700);color:#000;}
     .tier-btn:hover{opacity:0.88;transform:translateY(-1px);}
     .tier-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
-    .founding-legal { text-align:center; color:rgba(255,255,255,0.35); font-size:10px; margin-top:28px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.9; letter-spacing:0.5px; }
+    .member-legal { text-align:center; color:rgba(255,255,255,0.35); font-size:10px; margin-top:28px; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.9; letter-spacing:0.5px; }
 
     /* FAQ */
     .faq-list { margin-top:64px; }
@@ -385,7 +385,7 @@
 
     @media(max-width:768px){
       .how-grid-4 { grid-template-columns:1fr !important; }
-      .founding-benefits-grid { grid-template-columns:1fr 1fr !important; }
+      .member-benefits-grid { grid-template-columns:1fr 1fr !important; }
       .nav-tag { display:none; }
       .commsday-badge { display:none !important; }
       nav { padding:10px 16px; align-items:center; }
@@ -393,7 +393,7 @@
       .nav-right > div:first-child { gap:12px !important; }
       .nav-right > div:last-child { font-size:9px !important; gap:5px !important; opacity:0.85; }
       .prob-wrap { grid-template-columns:1fr; gap:40px; }
-      .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.founding-how { grid-template-columns:1fr; }
+      .grid-3,.grid-2,.quote-grid,.tier-grid,.contact-grid,.charity-grid,.member-how { grid-template-columns:1fr; }
       .waitlist-box { padding:36px 24px; }
       .founder-box { padding:36px 24px; }
       .movement-box { padding:48px 24px; }
@@ -825,7 +825,7 @@ function calcDBU() {
   </div>
 </div>
 
-<!-- FOUNDING MEMBER QUICKLINKS -->
+<!-- MEMBER ACCESS SECTION -->
 <div style="background:#00000A;padding:48px 24px;text-align:center;border-top:1px solid rgba(0,229,204,0.08);">
   <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Member Access</div>
   <div style="font-size:clamp(22px,5vw,32px);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:16px;">Join Urbyte</div>
@@ -1056,7 +1056,7 @@ function calcDBU() {
   </div>
 </div>
 
-<!-- FOUNDING MEMBER CTA SECTION -->
+<!-- MEMBER CTA SECTION -->
 <div class="sec" style="padding:100px 20px;">
   <div class="sec-inner" style="text-align:center;max-width:760px;margin:0 auto;">
     <div class="sec-tag" style="justify-content:center;">Member Access</div>
@@ -1118,16 +1118,16 @@ function calcDBU() {
 
 <div class="geo-div"></div>
 
-<!-- FOUNDING MEMBERS -->
-<div class="sec" id="founding">
+<!-- MEMBERS SECTION -->
+<div class="sec" id="members">
   <div class="sec-inner">
-    <div class="founding-header">
-      <div class="founding-badge-tag">Member Access</div>
+    <div class="member-header">
+      <div class="member-badge-tag">Member Access</div>
       <h2 class="sec-title" style="text-align:center;">This is a movement.<br><span style="color:#00E5CC;text-shadow:0 0 30px rgba(0,229,204,0.4);">Not a subscription.</span></h2>
       <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:600px;">Every month, billions of dollars in data value quietly disappears back into the telco system. Urbyte members are the first Australians to verify their waste and take it back.</p>
     </div>
 
-    <div class="founding-how">
+    <div class="member-how">
       <div class="fh-step">
         <svg class="fh-geo"><use href="#ico-hex"/></svg>
         <div class="fh-title">Signal Begins</div>
@@ -1145,7 +1145,7 @@ function calcDBU() {
       </div>
     </div>
 
-    <div class="founding-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
+    <div class="member-verify">The 3-cycle window is there to protect you — it ensures what you hold is real, verified, and yours</div>
 
     <div style="max-width:760px;margin:0 auto 56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
       <div style="padding:28px 24px;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.1);text-align:center;">
@@ -1224,7 +1224,7 @@ function calcDBU() {
       <div class="milestone-label">10,000 Members — Platform Threshold</div>
       <div class="milestone-sub">Members who join now lock in the best available rate — permanently</div>
     </div>
-    <p class="founding-legal">Sign up free — no card required. Earn DBUs and donate via Givabit at zero cost. Marketplace access tiers are optional and cancel anytime. Founding rate locked for the life of your active subscription. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
+    <p class="member-legal">Sign up free — no card required. Earn DBUs and donate via Givabit at zero cost. Marketplace access tiers are optional and cancel anytime. Your subscription rate is locked for the life of your active, uninterrupted membership. Urbyte Pty Ltd, ACN 692 885 019, Australia.</p>
   </div>
 </div>
 
@@ -1327,7 +1327,7 @@ function calcDBU() {
       <p>Join the growing community exploring a fairer way to participate in its value.</p>
       <div class="cta-btns">
         <a href="#waitlist" class="btn-primary">Start Earning Free — No Card Needed →</a>
-        <a href="#founding" class="btn-ghost">Join Urbyte Free →</a>
+        <a href="#members" class="btn-ghost">Join Urbyte Free →</a>
       </div>
     </div>
   </div>
@@ -1544,8 +1544,8 @@ function calcDBU() {
     }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
   }
   const params=new URLSearchParams(window.location.search);
-  if(params.get('founding')==='success'){
-    document.getElementById('founding').scrollIntoView({behavior:'smooth'});
+  if(params.get('member')==='success'){
+    document.getElementById('members').scrollIntoView({behavior:'smooth'});
     setTimeout(()=>{alert('Welcome to Urbyte. Your signal has been activated.');},500);
   }
   function toggleSupport(btn){
