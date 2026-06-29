@@ -3,15 +3,65 @@ import Stripe from 'npm:stripe@14.0.0';
 
 const DBU_BONUS: Record<string, number> = {
   bronze: 50,
-  silver: 150,
   gold:   350,
 };
 
 const TIER_PRICE: Record<string, string> = {
-  bronze: '$5/month',
-  silver: '$15/month',
-  gold:   '$29/month',
+  bronze: '$3.99/month',
+  gold:   '$9.99/month',
 };
+
+async function notifyJarrydNewMember(resendKey: string, userEmail: string, userName: string, tier: string, entryNumber: number) {
+  const tierLabel = tier.charAt(0).toUpperCase() + tier.slice(1);
+  const price = TIER_PRICE[tier] || '';
+  const dbu = DBU_BONUS[tier] || 0;
+
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8">
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #00000A; color: #fff; margin: 0; padding: 0; }
+      .wrap { max-width: 520px; margin: 0 auto; padding: 32px 24px; }
+      .badge { display: inline-block; background: #5B00FF; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; margin-bottom: 20px; }
+      h2 { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; margin: 0 0 20px; }
+      .row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 14px; }
+      .label { color: rgba(255,255,255,0.4); }
+      .val { font-weight: 600; color: #fff; }
+      .val.gold { color: #00E5CC; }
+      .foot { margin-top: 24px; font-size: 11px; color: rgba(255,255,255,0.2); }
+    </style>
+    </head>
+    <body>
+    <div class="wrap">
+      <div class="badge">💳 New Member — ${tierLabel}</div>
+      <h2>${userName || userEmail} just subscribed.</h2>
+      <div class="row"><span class="label">Name</span><span class="val">${userName || '—'}</span></div>
+      <div class="row"><span class="label">Email</span><span class="val">${userEmail}</span></div>
+      <div class="row"><span class="label">Tier</span><span class="val">${tierLabel}</span></div>
+      <div class="row"><span class="label">Price</span><span class="val">${price}</span></div>
+      <div class="row"><span class="label">DBU Bonus</span><span class="val gold">+${dbu} DBUs</span></div>
+      <div class="row"><span class="label">Entry #</span><span class="val">#${entryNumber} of 50,000</span></div>
+      <div class="foot">Urbyte · urbyte.com.au</div>
+    </div>
+    </body>
+    </html>
+  `;
+
+  await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${resendKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'Urbyte Notifications <accounts@urbyte.com.au>',
+      to: ['jarryd@urbyte.com.au'],
+      subject: `💳 New ${tierLabel} Member — ${userName || userEmail}`,
+      html,
+    }),
+  });
+}
 
 async function sendReceiptEmail(userEmail: string, userName: string, tier: string, dbuBonus: number, entryNumber: number) {
   const resendKey = Deno.env.get('RESEND_API_KEY') ?? '';
@@ -48,10 +98,10 @@ async function sendReceiptEmail(userEmail: string, userName: string, tier: strin
         <div class="card">
           <div class="tier-badge">${tierLabel} Member</div>
           <h1>Welcome, ${firstName}! 🎉</h1>
-          <p class="subtitle">You're officially a Founding Member of Urbyte. Here's your receipt.</p>
+          <p class="subtitle">You're officially a member of Urbyte. Here's your receipt.</p>
           <div class="detail-row">
             <span class="detail-label">Plan</span>
-            <span class="detail-value">Founding Member — ${tierLabel}</span>
+            <span class="detail-value">Member — ${tierLabel}</span>
           </div>
           <div class="detail-row">
             <span class="detail-label">Price</span>
@@ -68,14 +118,18 @@ async function sendReceiptEmail(userEmail: string, userName: string, tier: strin
           <p class="entry-number">Founders Entry #${entryNumber} of 50,000</p>
         </div>
         <p style="color: #888; font-size: 14px; line-height: 1.6;">
-          Your DBUs are ready in your wallet. You'll be able to redeem them after 3 billing cycles — we'll remind you when the time comes.
+          Your DBUs are already accumulating. You'll be able to redeem them after 3 billing cycles — we'll remind you when the time comes.
         </p>
-        <p style="color: #888; font-size: 14px; line-height: 1.6;">
+        <div style="margin: 28px 0; text-align: center;">
+          <a href="https://member.urbyte.com.au" style="display:inline-block;background:linear-gradient(135deg,#00E5CC,#5B00FF);color:#000;padding:14px 36px;font-weight:900;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Access Your Member Portal →</a>
+        </div>
+        <p style="color: #666; font-size: 12px; line-height: 1.6; text-align:center;">A separate sign-in link is on its way to your inbox.</p>
+        <p style="color: #888; font-size: 14px; line-height: 1.6; margin-top: 16px;">
           Thanks for believing in Urbyte from the start. This means everything to us. 🙏
         </p>
         <div class="footer">
           Urbyte Pty Ltd · <a href="https://urbyte.com.au">urbyte.com.au</a><br>
-          Questions? Reply to this email or contact <a href="mailto:jarryd@urbyte.com.au">jarryd@urbyte.com.au</a>
+          Questions? Reply to this email or contact <a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a>
         </div>
       </div>
     </body>
@@ -91,7 +145,7 @@ async function sendReceiptEmail(userEmail: string, userName: string, tier: strin
     body: JSON.stringify({
       from: 'Urbyte <accounts@urbyte.com.au>',
       to: [userEmail],
-      subject: `Welcome to Urbyte, ${firstName}! Your Founding Member receipt 🎉`,
+      subject: `Welcome to Urbyte, ${firstName} — your membership receipt`,
       html,
     }),
   });
@@ -104,7 +158,7 @@ Deno.serve(async (req) => {
     const sig = req.headers.get('stripe-signature') ?? '';
     const webhookSecret = Deno.env.get('STRIPE_WEBHOOK_SECRET') ?? '';
 
-    const stripe = new Stripe(Deno.env.get('STRIPE_SECRET_KEY') ?? '', {
+    const stripe = new Stripe(Deno.env.get('STRIPE_LIVE_SECRET_KEY') ?? '', {
       apiVersion: '2023-10-16',
     });
 
@@ -128,13 +182,13 @@ Deno.serve(async (req) => {
       }
 
       const db = base44.asServiceRole;
+      const resendKey = Deno.env.get('RESEND_API_KEY') ?? '';
 
       let entryNumber = 1;
 
-      // Check if already a founding member
+      // Check if already a member
       const existing = await db.entities.FoundersEntry.filter({ user_email: userEmail });
       if (existing.length === 0) {
-        // Get current count for entry number
         const all = await db.entities.FoundersEntry.list();
         entryNumber = (all.length || 0) + 1;
 
@@ -147,11 +201,29 @@ Deno.serve(async (req) => {
           prize_draw_eligible: true,
         });
 
-        // Send receipt email to new founding members only
+        // Send receipt to new member
         try {
           await sendReceiptEmail(userEmail, userName, tier, dbuBonus, entryNumber);
         } catch (emailErr) {
-          console.error('Email send failed:', emailErr.message);
+          console.error('Receipt email failed:', emailErr.message);
+        }
+
+        // Notify Jarryd
+        try {
+          if (resendKey) await notifyJarrydNewMember(resendKey, userEmail, userName, tier, entryNumber);
+        } catch (notifyErr) {
+          console.error('Jarryd notification failed:', notifyErr.message);
+        }
+
+        // Auto-send magic link
+        try {
+          await fetch('https://sage-cb5a0228.base44.app/functions/sendMagicLink', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail }),
+          });
+        } catch (mlErr) {
+          console.error('Magic link send failed:', mlErr);
         }
       }
 
@@ -178,7 +250,7 @@ Deno.serve(async (req) => {
         user_email: userEmail,
         type: 'bonus',
         amount_dbu: dbuBonus,
-        description: `Founding Member ${tier.charAt(0).toUpperCase() + tier.slice(1)} — Welcome bonus`,
+        description: `Member ${tier.charAt(0).toUpperCase() + tier.slice(1)} — Welcome bonus`,
         reference_id: session.id,
       });
     }
