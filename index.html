@@ -1538,7 +1538,7 @@ function calcDBU() {
   async function joinTier(tier,btn){
     const orig=btn.textContent; btn.textContent='...'; btn.disabled=true;
     try{
-      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,successUrl:'https://urbyte.com.au/?founding=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#founding'})});
+      const res=await fetch('https://sage-cb5a0228.base44.app/functions/createCheckoutSession',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier,successUrl:'https://urbyte.com.au/?member=success&tier='+tier,cancelUrl:'https://urbyte.com.au/#members'})});
       const data=await res.json();
       if(data.url){window.location.href=data.url;}else{throw new Error();}
     }catch(e){alert('Something went wrong. Please try again.');btn.textContent=orig;btn.disabled=false;}
