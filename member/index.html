@@ -713,7 +713,7 @@
   <!-- NAV -->
   <nav>
     <a href="https://urbyte.com.au" class="nav-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/e48e35fdf_generated_image.png" alt="Urbyte" />
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/05f7d10c7_IMG_6932.jpg" alt="Urbyte" />
       <span>Urbyte</span>
     </a>
     <span class="nav-tag">Member Portal</span>
@@ -1056,8 +1056,12 @@
   }
 
   window.addEventListener('DOMContentLoaded', async () => {
+    // Read token from query string OR hash (belt and braces)
     const params = new URLSearchParams(window.location.search);
-    const token = params.get('token');
+    let token = params.get('token');
+    if (!token && window.location.hash.includes('token=')) {
+      token = new URLSearchParams(window.location.hash.replace('#','?')).get('token');
+    }
 
     if (token) {
       show('view-loading');
