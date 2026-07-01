@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gold BY mark — vector, transparent background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Gold membership mark">
+  <title>Urbyte Gold BY mark</title>
+  <desc>Gold BY logo for Urbyte — vector, transparent background</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .by { font-family: 'Orbitron', 'Segoe UI', Roboto, Arial, sans-serif; font-weight:800; font-size:520px; }
+    ]]></style>
+  </defs>
+  <g fill="#FFD700" fill-rule="evenodd">
+    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" class="by">BY</text>
+  </g>
+</svg>
