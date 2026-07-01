@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" width="1200" height="160" role="img" aria-label="Urbyte logo">
+  <!-- Transparent background -->
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00E5CC"/>
+      <stop offset="60%" stop-color="#5B00FF"/>
+      <stop offset="100%" stop-color="#00E5CC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main wordmark (URBYT) rendered as text to keep the file compact. Font fallback provided. -->
+  <text x="20" y="110" font-family="Orbitron, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="700" font-size="110" fill="#FFFFFF" letter-spacing="-6">
+    URBYT
+  </text>
+
+  <!-- Stylised 'E' replaced by three cyan/teal rounded bars -->
+  <g transform="translate(980,24)">
+    <rect x="0" y="0" rx="10" ry="10" width="160" height="18" fill="#00E5CC" opacity="1" />
+    <rect x="0" y="44" rx="10" ry="10" width="160" height="18" fill="#00E5CC" opacity="1" />
+    <rect x="0" y="88" rx="10" ry="10" width="160" height="18" fill="#00E5CC" opacity="1" />
+  </g>
+
+  <!-- Small glow for the cyan bars -->
+  <g opacity="0.35">
+    <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+    </filter>
+    <rect x="980" y="0" width="160" height="160" fill="none" filter="url(#f1)" />
+  </g>
+</svg>
