@@ -1,4 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urbyte — Member Portal</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #00000A;
+      --teal: #00E5CC;
+      --uv: #5B00FF;
+      --crimson: #C2003A;
+      --white: rgba(255,255,255,0.9);
+      --dim: rgba(255,255,255,0.4);
+      --faint: rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,204,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,204,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* CRT scanlines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(0,229,204,0.1);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img { width: 36px; height: 36px; }
+    .nav-logo span {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--teal), var(--uv));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* ===================== PROFILE SETUP FLOW ===================== */
+    #view-setup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+      padding: 40px 20px;
+    }
+
+    .setup-wizard {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,229,204,0.15);
+      padding: 48px;
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .setup-wizard::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), var(--uv), transparent);
+    }
+
+    .setup-header {
+      margin-bottom: 32px;
+    }
+
+    .setup-step {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(0,229,204,0.5);
+      margin-bottom: 12px;
+    }
+
+    .setup-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .setup-subtitle {
+      font-size: 13px;
+      color: var(--dim);
+      line-height: 1.6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .form-grid.full {
+      grid-template-columns: 1fr;
+    }
+
+    .field-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    input[type=date],
+    select {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 14px;
+      color: var(--white);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+
+    input[type=text]::placeholder,
+    input[type=email]::placeholder,
+    input[type=tel]::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    input:focus, select:focus {
+      border-color: rgba(0,229,204,0.5);
+      background: rgba(0,229,204,0.02);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn-primary {
+      flex: 1;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--teal), var(--uv));
+      color: #000;
+      font-weight: 900;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .btn-secondary {
+      flex: 1;
+      padding: 14px;
+      background: transparent;
+      color: var(--dim);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--faint);
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(0,229,204,0.3);
+      color: var(--teal);
+    }
+
+    .setup-msg {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .setup-msg.success { color: var(--teal); }
+    .setup-msg.error { color: var(--crimson); }
+
+    /* ===================== LOGIN VIEW ===================== */
+    #view-login {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+      padding: 40px 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,229,204,0.15);
+      padding: 44px;
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), var(--uv), transparent);
+    }
+
+    .login-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(0,229,204,0.5);
+      margin-bottom: 14px;
+    }
+
+    .login-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .login-sub {
+      font-size: 13px;
+      color: var(--dim);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    input[type=email] {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 14px;
+      color: var(--white);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      border-radius: 4px;
+    }
+
+    input[type=email]:focus {
+      border-color: rgba(0,229,204,0.5);
+      background: rgba(0,229,204,0.02);
+    }
+
+    input[type=email]::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .login-msg {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .login-msg.success { color: var(--teal); }
+    .login-msg.error { color: var(--crimson); }
+
+    /* ===================== DASHBOARD VIEW ===================== */
+    #view-dashboard {
+      display: none;
+      padding: 40px 20px 80px;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    .member-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: start;
+    }
+
+    .member-greeting {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+
+    .member-name {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      margin-bottom: 12px;
+    }
+
+    .tier-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 3px;
+    }
+
+    .tier-pill.bronze {
+      background: rgba(160,82,45,0.15);
+      border: 1px solid rgba(160,82,45,0.3);
+      color: #CD7F32;
+    }
+
+    .tier-pill.silver {
+      background: rgba(192,192,192,0.08);
+      border: 1px solid rgba(192,192,192,0.25);
+      color: #C0C0C0;
+    }
+
+    .tier-pill.gold {
+      background: rgba(218,165,32,0.08);
+      border: 1px solid rgba(218,165,32,0.3);
+      color: #DAA520;
+    }
+
+    .member-position {
+      text-align: right;
+    }
+
+    .position-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 4px;
+    }
+
+    .position-number {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+    }
+
+    .position-cap {
+      font-size: 11px;
+      color: var(--dim);
+      margin-top: 3px;
+    }
+
+    /* Stats grid */
+    .section-title {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(0,229,204,0.35);
+      margin: 36px 0 16px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(0,229,204,0.06);
+      border: 1px solid rgba(0,229,204,0.06);
+      margin-bottom: 28px;
+    }
+
+    .stat-block {
+      background: var(--bg);
+      padding: 24px;
+      position: relative;
+    }
+
+    .stat-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,229,204,0.2), transparent);
+    }
+
+    .stat-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,229,204,0.4);
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -1.8px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-value.teal {
+      color: var(--teal);
+      text-shadow: 0 0 24px rgba(0,229,204,0.3);
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--dim);
+      font-weight: 500;
+    }
+
+    /* Progress block */
+    .progress-block {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 20px;
+      margin-bottom: 28px;
+      border-radius: 4px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .progress-label {
+      font-size: 12px;
+      color: var(--dim);
+      font-weight: 500;
+    }
+
+    .progress-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .progress-bar-wrap {
+      height: 3px;
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 8px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--uv));
+      transition: width 1s ease;
+    }
+
+    .progress-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.18);
+      line-height: 1.5;
+    }
+
+    /* Marketplace coming soon */
+    .marketplace-block {
+      background: rgba(91,0,255,0.03);
+      border: 1px solid rgba(91,0,255,0.1);
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 28px;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .marketplace-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--uv), transparent);
+    }
+
+    .soon-badge {
+      display: inline-block;
+      background: rgba(91,0,255,0.15);
+      border: 1px solid rgba(91,0,255,0.3);
+      padding: 4px 12px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(91,0,255,0.8);
+      margin-bottom: 16px;
+      border-radius: 2px;
+    }
+
+    .marketplace-title {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+    }
+
+    .marketplace-sub {
+      font-size: 13px;
+      color: var(--dim);
+      line-height: 1.6;
+      max-width: 360px;
+      margin: 0 auto 20px;
+    }
+
+    .marketplace-items {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .m-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 10px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+      filter: blur(1.8px);
+      user-select: none;
+      border-radius: 2px;
+    }
+
+    /* Sign out */
+    .signout-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      display: block;
+      margin-top: 36px;
+      border-radius: 2px;
+    }
+
+    .signout-btn:hover {
+      border-color: rgba(194,0,58,0.3);
+      color: var(--crimson);
+    }
+
+    /* Loading */
+    #view-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 2px solid rgba(0,229,204,0.08);
+      border-top-color: var(--teal);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* Error view */
+    #view-error {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .error-box {
+      max-width: 380px;
+    }
+
+    .error-icon {
+      font-size: 44px;
+      margin-bottom: 16px;
+    }
+
+    .error-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: var(--crimson);
+    }
+
+    .error-sub {
+      font-size: 13px;
+      color: var(--dim);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .btn-back {
+      background: none;
+      border: 1px solid rgba(0,229,204,0.25);
+      color: var(--teal);
+      padding: 10px 20px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .setup-wizard { padding: 36px 24px; }
+      .login-box { padding: 32px 20px; }
+      .member-header { grid-template-columns: 1fr; gap: 20px; }
+      .member-position { text-align: left; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .member-name { font-size: 24px; }
+      .stat-value { font-size: 28px; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav>
     <a href="https://urbyte.com.au" class="nav-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:36px;height:36px;object-fit:contain;"/>
-      <img src="/assets/bronze.svg" alt="Urbyte Bronze mark" style="height:24px;width:auto;object-fit:contain;margin-left:8px;"/>
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:36px;height:36px;object-fit:contain;"/><img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/3309a6182_9030A4CE-0C5A-4387-B075-0BDFAC65E0AB.png" alt="Urbyte" style="height:24px;width:auto;object-fit:contain;margin-left:8px;"/>
     </a>
+    <span class="nav-tag">Member Portal</span>
+  </nav>
+
+  <!-- LOADING -->
+  <div id="view-loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Verifying access</div>
+  </div>
+
+  <!-- PROFILE SETUP -->
+  <div id="view-setup" style="display:none;">
+    <div class="setup-wizard">
+      <div class="setup-header">
+        <div class="setup-step">Complete Setup</div>
+        <div class="setup-title">Claim your signal.</div>
+        <div class="setup-subtitle">Set up your profile to start earning. Takes 2 minutes.</div>
+      </div>
+
+      <form id="setup-form">
+        <div class="form-grid full">
+          <div>
+            <label class="field-label">Full Name</label>
+            <input type="text" id="setup-name" placeholder="Your name" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="field-label">Email</label>
+            <input type="email" id="setup-email" placeholder="email@example.com" required />
+          </div>
+          <div>
+            <label class="field-label">Phone</label>
+            <input type="tel" id="setup-phone" placeholder="0400000000" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="field-label">Carrier</label>
+            <select id="setup-carrier" required>
+              <option value="">Select carrier</option>
+              <option value="vodafone">Vodafone</option>
+              <option value="telstra">Telstra</option>
+              <option value="optus">Optus</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Service Type</label>
+            <select id="setup-service" required>
+              <option value="">Select type</option>
+              <option value="postpaid">Postpaid</option>
+              <option value="prepaid">Prepaid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div>
+            <label class="field-label">Cycle Start</label>
+            <input type="date" id="setup-cycle-start" required />
+          </div>
+          <div>
+            <label class="field-label">Cycle End</label>
+            <input type="date" id="setup-cycle-end" required />
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div>
+            <label class="field-label">Monthly Plan (GB)</label>
+            <input type="text" id="setup-plan-gb" placeholder="e.g. 50" required />
+          </div>
+        </div>
+
+        <div class="form-grid full">
+          <div>
+            <label class="field-label">Email Reminders</label>
+            <select id="setup-reminders" required>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="setup-btn">Continue</button>
+          <button type="button" class="btn-secondary" id="setup-cancel" onclick="cancelSetup()">Skip</button>
+        </div>
+
+        <div class="setup-msg" id="setup-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="view-login" style="display:none;">
+    <div class="login-box">
+      <div class="login-eyebrow">Member Access</div>
+      <div class="login-title">Access your<br/>signal.</div>
+      <div class="login-sub">Enter your email and we'll send you a secure sign-in link. No password needed.</div>
+      <label class="field-label" for="login-email">Email Address</label>
+      <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email" />
+      <button class="btn-primary" id="login-btn" onclick="sendMagicLink()" style="width:100%;margin-top:16px;">Send Sign-in Link</button>
+      <div class="login-msg" id="login-msg"></div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="view-dashboard">
+    <div class="member-header">
+      <div>
+        <div class="member-greeting">Welcome back</div>
+        <div class="member-name" id="dash-name">—</div>
+        <div style="margin-top:12px;">
+          <span class="tier-pill" id="dash-tier-pill">—</span>
+        </div>
+      </div>
+      <div class="member-position">
+        <div class="position-label">Founding Member</div>
+        <div class="position-number" id="dash-entry">#—</div>
+        <div class="position-cap">of 50,000</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="section-title">Your Signal</div>
+    <div class="stats-grid">
+      <div class="stat-block">
+        <div class="stat-label">DBU Balance</div>
+        <div class="stat-value teal" id="dash-dbu">—</div>
+        <div class="stat-sub">Data Backed Units</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">Monthly Allocation</div>
+        <div class="stat-value" id="dash-monthly">—</div>
+        <div class="stat-sub">per cycle</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">Cycles Complete</div>
+        <div class="stat-value" id="dash-cycles">—</div>
+        <div class="stat-sub" id="dash-cycles-sub">—</div>
+      </div>
+    </div>
+
+    <!-- Unlock progress -->
+    <div class="section-title" style="margin-top:32px;">Redemption Path</div>
+    <div class="progress-block">
+      <div class="progress-header">
+        <div class="progress-label">Cycles until you can redeem</div>
+        <div class="progress-val" id="dash-cycles-remaining">—</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="dash-progress-bar" style="width:0%"></div>
+      </div>
+      <div class="progress-note" id="dash-progress-note">Complete 3 billing cycles to unlock redemption. This protects your balance — ensuring it's verified and real before access.</div>
+    </div>
+
+    <!-- Marketplace -->
+    <div class="section-title">DBU Marketplace</div>
+    <div class="marketplace-block">
+      <div class="soon-badge">Coming Soon</div>
+      <div class="marketplace-title">Redeem your DBUs</div>
+      <div class="marketplace-sub">Convert DBUs to rewards, charitable donations, or cash equivalent with our Australian partner network.</div>
+      <div class="marketplace-items">
+        <div class="m-item">Retail Rewards</div>
+        <div class="m-item">Charity Donations</div>
+        <div class="m-item">Cash Equivalent</div>
+        <div class="m-item">Partner Offers</div>
+      </div>
+    </div>
+
+    <button class="signout-btn" onclick="signOut()">Sign Out</button>
+  </div>
+
+  <!-- ERROR -->
+  <div id="view-error" style="display:none;">
+    <div class="error-box">
+      <div class="error-icon">⚠️</div>
+      <div class="error-title" id="error-title">Link expired</div>
+      <div class="error-sub" id="error-sub">This sign-in link has expired or already been used. Sign-in links are valid for 15 minutes and can only be used once.</div>
+      <button class="btn-back" onclick="showLogin()">Request a new link</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const API = 'https://sage-cb5a0228.base44.app/functions';
+
+  function show(viewId) {
+    ['view-loading','view-setup','view-login','view-dashboard','view-error'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    const target = document.getElementById(viewId);
+    if (target) {
+      target.style.display = viewId === 'view-dashboard' ? 'block' : 'flex';
+    }
+  }
+
+  function showLogin() { show('view-login'); }
+
+  function cancelSetup() {
+    sessionStorage.removeItem('urbyte_setup');
+    show('view-login');
+  }
+
+  function signOut() {
+    sessionStorage.removeItem('urbyte_member');
+    sessionStorage.removeItem('urbyte_setup');
+    show('view-login');
+  }
+
+  async function completeSetup() {
+    const form = document.getElementById('setup-form');
+    const msg = document.getElementById('setup-msg');
+    
+    const data = {
+      name: document.getElementById('setup-name').value,
+      email: document.getElementById('setup-email').value,
+      phone: document.getElementById('setup-phone').value,
+      carrier: document.getElementById('setup-carrier').value,
+      service_type: document.getElementById('setup-service').value,
+      cycle_start: document.getElementById('setup-cycle-start').value,
+      cycle_end: document.getElementById('setup-cycle-end').value,
+      plan_gb: parseInt(document.getElementById('setup-plan-gb').value),
+      reminder_preference: document.getElementById('setup-reminders').value
+    };
+
+    if (!data.name || !data.email || !data.phone) {
+      msg.textContent = 'Please complete all required fields.';
+      msg.className = 'setup-msg error';
+      msg.style.display = 'block';
+      return;
+    }
+
+    sessionStorage.setItem('urbyte_setup', JSON.stringify(data));
+    msg.textContent = '✓ Profile saved. Proceeding...';
+    msg.className = 'setup-msg success';
+    msg.style.display = 'block';
+
+    setTimeout(() => {
+      populateDashboard({ name: data.name, email: data.email, tier: 'bronze', entry_number: 12847 });
+      show('view-dashboard');
+    }, 1200);
+  }
+
+  document.getElementById('setup-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    completeSetup();
+  });
+
+  async function sendMagicLink() {
+    const emailEl = document.getElementById('login-email');
+    const btn = document.getElementById('login-btn');
+    const msg = document.getElementById('login-msg');
+    const email = emailEl.value.trim();
+
+    if (!email || !email.includes('@')) {
+      msg.textContent = 'Enter a valid email address.';
+      msg.className = 'login-msg error';
+      msg.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    msg.style.display = 'none';
+
+    try {
+      const res = await fetch(`${API}/sendMagicLink`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      msg.textContent = '✓ Check your inbox — link expires in 15 minutes.';
+      msg.className = 'login-msg success';
+      msg.style.display = 'block';
+      btn.textContent = 'Link sent';
+    } catch(e) {
+      msg.textContent = 'Error sending link. Please try again.';
+      msg.className = 'login-msg error';
+      msg.style.display = 'block';
+      btn.textContent = 'Send Sign-in Link';
+      btn.disabled = false;
+    }
+  }
+
+  function populateDashboard(member) {
+    document.getElementById('dash-name').textContent = member.name || member.email.split('@')[0];
+    document.getElementById('dash-entry').textContent = '#' + (member.entry_number || '—');
+    document.getElementById('dash-dbu').textContent = (member.dbu_balance || 0).toLocaleString();
+    document.getElementById('dash-monthly').textContent = (member.tier_monthly_dbu || 0).toLocaleString();
+
+    const cycles = member.billing_cycles_completed || 0;
+    const remaining = member.cycles_remaining ?? Math.max(0, 3 - cycles);
+    document.getElementById('dash-cycles').textContent = cycles;
+    document.getElementById('dash-cycles-sub').textContent = cycles === 1 ? 'cycle completed' : 'cycles completed';
+    document.getElementById('dash-cycles-remaining').textContent = remaining === 0 ? 'Unlocked!' : remaining + ' remaining';
+
+    const pct = Math.min(100, (cycles / 3) * 100);
+    document.getElementById('dash-progress-bar').style.width = pct + '%';
+
+    if (remaining === 0) {
+      document.getElementById('dash-progress-note').textContent = '🎉 Your balance is unlocked and ready to redeem. Marketplace opens soon.';
+    }
+
+    const tier = (member.tier || 'bronze').toLowerCase();
+    const pill = document.getElementById('dash-tier-pill');
+    pill.textContent = tier.charAt(0).toUpperCase() + tier.slice(1) + ' Member';
+    pill.className = 'tier-pill ' + tier;
+  }
+
+  async function verifyToken(token) {
+    try {
+      const res = await fetch(`${API}/verifyMagicLink`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token })
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        sessionStorage.setItem('urbyte_member', JSON.stringify(data.member));
+        populateDashboard(data.member);
+        show('view-dashboard');
+      } else {
+        document.getElementById('error-title').textContent = 'Link expired';
+        document.getElementById('error-sub').textContent = data.error || 'This link has expired or been used. Request a new one.';
+        show('view-error');
+      }
+    } catch(e) {
+      show('view-error');
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    // Read token from query string OR hash (belt and braces)
+    const params = new URLSearchParams(window.location.search);
+    let token = params.get('token');
+    if (!token && window.location.hash.includes('token=')) {
+      token = new URLSearchParams(window.location.hash.replace('#','?')).get('token');
+    }
+
+    if (token) {
+      show('view-loading');
+      window.history.replaceState({}, '', window.location.pathname);
+      await verifyToken(token);
+      return;
+    }
+
+    const cached = sessionStorage.getItem('urbyte_member');
+    if (cached) {
+      try {
+        const member = JSON.parse(cached);
+        populateDashboard(member);
+        show('view-dashboard');
+        return;
+      } catch(e) {}
+    }
+
+    const setup = sessionStorage.getItem('urbyte_setup');
+    if (setup) {
+      show('view-dashboard');
+      return;
+    }
+
+    show('view-login');
+  });
+</script>
+</body>
+</html>
