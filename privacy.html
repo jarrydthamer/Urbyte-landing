@@ -1,114 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Urbyte</title>
-  <meta name="description" content="Urbyte Privacy Policy — how we collect, use, and protect your personal information in accordance with the Australian Privacy Act 1988." />
+  <meta name="description" content="How Urbyte Pty Ltd collects, uses, stores and protects personal information." />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; background: #0A0E1A; color: #fff; }
-    a { text-decoration: none; color: #00C9FF; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav-logo { display: flex; align-items: center; gap: 12px; }
-    .nav-logo img { width: 40px; height: 40px; border-radius: 8px; }
-    .nav-logo span { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
-    .btn-primary { background: linear-gradient(135deg, #00C9FF, #0077FF); color: #fff; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 14px; }
-    .content { max-width: 760px; margin: 60px auto; padding: 0 24px 100px; }
-    h1 { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 8px; }
-    .subtitle { color: rgba(255,255,255,0.4); font-size: 15px; margin-bottom: 48px; }
-    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: #fff; }
-    p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.8; margin-bottom: 14px; }
-    ul { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.8; padding-left: 20px; margin-bottom: 14px; }
-    ul li { margin-bottom: 6px; }
-    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 32px 0; }
-    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 20px; text-align: center; }
-    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; }
-    .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
-    .footer-logo span { font-weight: 700; font-size: 16px; }
-    footer p { color: rgba(255,255,255,0.3); font-size: 13px; }
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      h1 { font-size: 30px; }
-    }
+    :root { --bg:#070b14; --panel:#0d1421; --text:#f6f8fb; --muted:#a9b2c3; --line:rgba(255,255,255,.10); --teal:#00e5cc; --blue:#2787ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#05070c; color:var(--text); }
+    a { color:var(--teal); }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:18px 34px; border-bottom:1px solid var(--line); background:rgba(7,11,20,.84); backdrop-filter:blur(14px); position:sticky; top:0; z-index:2; }
+    .brand { color:#fff; text-decoration:none; font-weight:800; letter-spacing:.16em; }
+    .home { color:#fff; text-decoration:none; border:1px solid var(--line); padding:9px 17px; border-radius:999px; font-size:14px; }
+    main { max-width:860px; margin:0 auto; padding:72px 24px 100px; }
+    .eyebrow { color:var(--teal); text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:800; }
+    h1 { font-size:clamp(38px,7vw,64px); letter-spacing:-.04em; line-height:1; margin:15px 0 12px; }
+    .updated { color:#7f8a9e; margin:0 0 34px; }
+    .summary { padding:22px 24px; background:linear-gradient(135deg,rgba(0,229,204,.09),rgba(39,135,255,.07)); border:1px solid rgba(0,229,204,.22); border-radius:16px; }
+    h2 { margin:45px 0 13px; font-size:22px; letter-spacing:-.02em; }
+    h3 { margin:25px 0 8px; font-size:16px; }
+    p,li { color:var(--muted); font-size:15.5px; line-height:1.75; }
+    strong { color:#eef3fa; }
+    ul { padding-left:21px; }
+    li { margin:7px 0; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:14px; }
+    table { width:100%; border-collapse:collapse; min-width:640px; }
+    th,td { text-align:left; vertical-align:top; padding:15px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14px; line-height:1.55; }
+    th { color:#fff; background:rgba(255,255,255,.035); }
+    tr:last-child td { border-bottom:0; }
+    .note { border-left:3px solid var(--teal); padding:2px 0 2px 18px; }
+    footer { border-top:1px solid var(--line); padding:36px 20px; text-align:center; }
+    footer p { margin:5px 0; font-size:13px; color:#697386; }
+    @media (max-width:600px) { nav { padding:15px 18px; } main { padding-top:52px; } }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="/" class="nav-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:36px;height:36px;object-fit:contain;"/><img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/3309a6182_9030A4CE-0C5A-4387-B075-0BDFAC65E0AB.png" alt="Urbyte" style="height:24px;width:auto;object-fit:contain;margin-left:8px;"/>
-    </a>
-    <a href="/#waitlist" class="btn-primary">Join Waitlist</a>
+    <a class="brand" href="https://urbyte.com.au/">URBYTE</a>
+    <a class="home" href="https://urbyte.com.au/">Back to Urbyte</a>
   </nav>
 
-  <div class="content">
+  <main>
+    <div class="eyebrow">Privacy at Urbyte</div>
     <h1>Privacy Policy</h1>
-    <p class="subtitle">Last updated: April 2026</p>
+    <p class="updated">Effective and last updated: 16 July 2026</p>
 
-    <p>Urbyte Pty Ltd ("Urbyte", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information in accordance with the <strong style="color:#fff;">Australian Privacy Act 1988 (Cth)</strong> and the Australian Privacy Principles (APPs).</p>
+    <div class="summary">
+      <p><strong>In plain terms:</strong> Urbyte collects the information needed to operate accounts, verify telecommunications waste, maintain DBU records, process optional memberships, support Givabit activity and keep the platform secure. We do not access the content of your calls, messages or browsing, and we do not sell your personal information.</p>
+    </div>
 
-    <hr class="divider" />
+    <h2>1. About this policy</h2>
+    <p>Urbyte Pty Ltd (ACN 692 885 019) (<strong>Urbyte</strong>, <strong>we</strong>, <strong>us</strong> or <strong>our</strong>) operates an independent telecommunications waste verification platform, including Urbyte accounts and wallets, Data-Backed Units (DBUs), marketplace access and Givabit features.</p>
+    <p>This policy explains how we manage personal information in connection with our websites, platform, communications and services. We seek to handle personal information consistently with the <em>Privacy Act 1988</em> (Cth), the Australian Privacy Principles (APPs) and other applicable Australian laws.</p>
 
-    <h2>1. Who We Are</h2>
-    <p>Urbyte helps Australians recognise and recover value from unused mobile data allowance through DBU credits — a platform-based reward system designed for fairness, transparency, and community impact...</p>
-    <p>If you have any questions about this policy, contact us at: <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a></p>
+    <h2>2. Information we collect</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Examples</th><th>Why we need it</th></tr></thead>
+        <tbody>
+          <tr><td>Account and contact details</td><td>Name, email address, mobile number, login and account identifiers, communication preferences.</td><td>To create and secure your account, contact you and provide support.</td></tr>
+          <tr><td>Mobile service and verification details</td><td>Carrier, plan type, billing cycle, data allowance, data used or remaining, and documents or screenshots you submit as evidence.</td><td>To verify unused allowance and telecommunications waste and calculate platform records.</td></tr>
+          <tr><td>DBU and platform activity</td><td>Entries, verification status, DBU balances and transaction history, marketplace activity, Givabit directions and account tier.</td><td>To maintain the integrity of your wallet, ledger and service history.</td></tr>
+          <tr><td>Payment information</td><td>Membership tier, payment status, transaction reference and limited billing information supplied by our payment processor.</td><td>To process and administer optional paid marketplace access. Urbyte does not receive or store your full card number.</td></tr>
+          <tr><td>Communications</td><td>Enquiries, feedback, complaints, survey responses and support correspondence.</td><td>To respond, improve the service and maintain appropriate records.</td></tr>
+          <tr><td>Device and usage data</td><td>IP address, browser and device information, pages viewed, referring page, approximate location derived from IP, timestamps, cookie identifiers and security logs.</td><td>For security, fraud prevention, diagnostics, analytics and site improvement.</td></tr>
+          <tr><td>Enterprise information</td><td>Business contact details and authorised, aggregated, de-identified or service-level fleet data supplied for an enterprise engagement.</td><td>To deliver enterprise waste-verification and reporting services.</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h2>2. What Information We Collect</h2>
-    <p>We collect personal information that you provide to us voluntarily, including:</p>
+    <h2>3. Information in uploaded evidence</h2>
+    <p>Mobile bills and screenshots may contain personal information beyond what Urbyte needs, such as your address, account number, other services or charges. Please crop or redact information that is not required for verification. Do not upload call histories, message content, browsing content, identity documents, payment card details or other sensitive material unless we specifically request it through a secure process.</p>
+    <p>Urbyte verifies the figures and account context needed to support a data entry. We do not connect to or control your mobile service and do not access the content of your calls, messages or internet use.</p>
+
+    <h2>4. How we collect information</h2>
+    <p>We collect information directly from you when you register, complete a form, upload evidence, use the platform, purchase marketplace access, direct DBUs, contact us or participate in a pilot. We also collect technical information automatically through our websites and may receive limited information from service providers that support authentication, hosting, analytics and payments.</p>
+    <p>If you provide information about another person, you must be authorised to do so and should make them aware of this policy where appropriate.</p>
+
+    <h2>5. How we use information</h2>
+    <p>We may use personal information to:</p>
     <ul>
-      <li>Your name and email address (via our waitlist or sign-up form pr onboarding at entry point of wallet)</li>
-      <li>Your mobile carrier and plan details (to calculate unused data)</li>
-      <li>Any message or feedback you submit to us</li>
+      <li>provide, administer and secure Urbyte accounts, wallets and platform features;</li>
+      <li>assess submitted evidence, verify telecommunications waste and maintain DBU ledger records;</li>
+      <li>process optional paid marketplace access and manage subscription status;</li>
+      <li>record and action marketplace or Givabit directions;</li>
+      <li>communicate service notices, respond to enquiries and resolve complaints;</li>
+      <li>detect misuse, duplicate claims, security incidents or suspected fraud;</li>
+      <li>analyse and improve platform reliability, performance and user experience;</li>
+      <li>create aggregated or de-identified insights that do not reasonably identify an individual;</li>
+      <li>meet legal, accounting, regulatory and dispute-resolution obligations; and</li>
+      <li>send marketing where we have consent or are otherwise permitted by law.</li>
     </ul>
-    <p>We may also collect technical information automatically, including your IP address, browser type, and pages visited, for analytics and security purposes.</p>
+    <p>We do not use uploaded bills or screenshots to inspect personal communications. We do not sell personal information or DBU activity to data brokers.</p>
 
-    <h2>3. How We Use Your Information</h2>
-    <p>We use your personal information to:</p>
+    <h2>6. When we disclose information</h2>
+    <p>We may disclose relevant information to:</p>
     <ul>
-      <li>Add you to our waitlist and send you product updates</li>
-      <li>Improve our platform and user experience</li>
-      <li>Respond to your enquiries</li>
-      <li>Comply with our legal obligations</li>
+      <li><strong>technology and hosting providers</strong> that operate or secure our website, platform, databases, file storage, authentication and communications;</li>
+      <li><strong>payment providers</strong>, including Stripe, to process optional paid access and manage payment events;</li>
+      <li><strong>analytics providers</strong>, including Google Analytics and Google Tag Manager, to understand website use and performance;</li>
+      <li><strong>professional advisers</strong>, auditors, insurers or contractors where reasonably necessary and subject to appropriate obligations;</li>
+      <li><strong>marketplace, Givabit or service partners</strong> where needed to carry out an action you request. We will not disclose more identifying information than is reasonably necessary;</li>
+      <li><strong>regulators, courts, law-enforcement bodies or other persons</strong> where required or authorised by law; and</li>
+      <li>a party involved in a genuine corporate transaction, subject to confidentiality and applicable law.</li>
     </ul>
-    <p>We will not use your information for any purpose that you would not reasonably expect.</p>
+    <p>Urbyte does not provide your mobile bill to your telecommunications provider merely because you use Urbyte, unless you ask us to, it is necessary to resolve a matter you have authorised, or disclosure is required by law.</p>
 
-    <h2>4. Marketing Communications</h2>
-    <p>By joining our waitlist, you consent to receiving product updates and launch information from Urbyte. You can opt out at any time by clicking the unsubscribe link in any email we send, or by contacting us directly at <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a>.</p>
+    <h2>7. Overseas handling</h2>
+    <p>Some providers used by Urbyte operate global infrastructure or process information outside Australia. This may include recipients or systems located in the United States and other countries in which those providers operate. The countries involved can vary according to the provider and service configuration.</p>
+    <p>Where the APPs apply to an overseas disclosure, we take reasonable steps appropriate to the circumstances to ensure the recipient handles personal information consistently with the APPs, unless an exception applies. Service-provider privacy terms may also apply to their processing.</p>
 
-    <h2>5. Disclosure of Your Information</h2>
-    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
-    <ul>
-      <li>Trusted service providers who assist us in operating our platform (e.g. email delivery, analytics), under strict confidentiality agreements</li>
-      <li>Law enforcement or regulatory bodies where required by law</li>
-    </ul>
+    <h2>8. Cookies and analytics</h2>
+    <p>Our sites use essential technologies required for functionality and security, and may use analytics technologies such as Google Analytics and Google Tag Manager. These tools can collect device, usage and cookie information. You can limit non-essential cookies through available consent controls and your browser settings. Blocking some technologies may affect site functionality.</p>
 
-    <h2>6. Overseas Disclosure</h2>
-    <p>Some of our service providers may be located overseas (e.g. the United States). Where we disclose information to overseas recipients, we take reasonable steps to ensure those recipients handle your information in accordance with the Australian Privacy Principles.</p>
+    <h2>9. Marketing communications</h2>
+    <p>Where you consent to marketing, we may send Urbyte news, platform updates and offers by email or SMS. You can withdraw consent using the unsubscribe option in the message or by contacting us. We will action unsubscribe requests in accordance with applicable law. Essential account, security, transaction and service messages are not marketing and may still be sent while you use the service.</p>
 
-    <h2>7. Data Security</h2>
-    <p>We take reasonable steps to protect your personal information from misuse, loss, unauthorised access, modification, or disclosure. Our platform uses industry-standard encryption and security practices.</p>
+    <h2>10. Security</h2>
+    <p>We take reasonable technical and organisational steps to protect personal information against misuse, interference, loss and unauthorised access, modification or disclosure. No online service can guarantee absolute security. You should use a secure device, protect access to your email and account, and notify us promptly if you suspect unauthorised activity.</p>
+    <p>If a data breach is likely to result in serious harm and the Notifiable Data Breaches scheme applies, we will notify affected individuals and the Office of the Australian Information Commissioner (OAIC) as required.</p>
 
-    <h2>8. Access and Correction</h2>
-    <p>You have the right to access the personal information we hold about you and request corrections if it is inaccurate, incomplete, or outdated. To make a request, contact us at <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a>. We will respond within 30 days.</p>
+    <h2>11. Retention and deletion</h2>
+    <p>We retain personal information only for as long as reasonably needed for the purposes in this policy, including maintaining account and ledger integrity, preventing duplicate or fraudulent claims, resolving disputes and meeting legal, tax, accounting and audit obligations. Different records may have different retention periods.</p>
+    <p>When information is no longer required, we take reasonable steps to delete it or de-identify it, subject to legal requirements and technical backup cycles. Closing an account may not immediately remove records we are required or reasonably need to retain. De-identified information that no longer reasonably identifies you may be retained.</p>
 
-    <h2>9. Complaints</h2>
-    <p>If you believe we have breached the Australian Privacy Principles, you may lodge a complaint with us at <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a>. If you are not satisfied with our response, you may contact the <a href="https://www.oaic.gov.au" target="_blank">Office of the Australian Information Commissioner (OAIC)</a>.</p>
+    <h2>12. Access, correction and account requests</h2>
+    <p>You may ask to access or correct personal information we hold about you, or request account closure and deletion of information that we are not required to retain. We may need to verify your identity before acting. In some circumstances the law permits us to refuse or limit a request; if so, we will explain the reason where required.</p>
+    <p>Send requests to <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a>. We aim to acknowledge privacy requests promptly and respond within a reasonable period, generally within 30 days.</p>
 
-    <h2>10. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. We encourage you to review this policy periodically.</p>
+    <h2>13. Anonymity and children</h2>
+    <p>You may browse public parts of our website without identifying yourself, although technical data may still be collected. An identified account is required where identity or service information is reasonably necessary for verification, security, transactions or legal compliance.</p>
+    <p>Urbyte's account and verification services are intended for people aged 18 years and over. We do not knowingly seek to collect personal information from children for these services. If you believe a child has supplied information to us, please contact us.</p>
 
-    <hr class="divider" />
-    <p>For any privacy-related questions, email us at <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a></p>
-  </div>
+    <h2>14. Privacy complaints</h2>
+    <p>If you believe we have mishandled your personal information, email <a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a> with enough detail for us to investigate. We will acknowledge the complaint, investigate it fairly and respond within a reasonable period.</p>
+    <p>If you are not satisfied with our response, you may contact the <a href="https://www.oaic.gov.au/privacy/privacy-complaints" target="_blank" rel="noopener noreferrer">Office of the Australian Information Commissioner</a>.</p>
+
+    <h2>15. Changes to this policy</h2>
+    <p>We may update this policy as Urbyte's services, technology providers or legal obligations change. The current version will be published on this page with its effective date. If a change materially affects how we handle existing personal information, we will take reasonable steps to notify affected users.</p>
+
+    <h2>16. Contact Urbyte</h2>
+    <div class="note">
+      <p><strong>Urbyte Pty Ltd</strong><br />ACN 692 885 019<br />Northern Rivers, New South Wales, Australia<br /><a href="mailto:privacy@urbyte.com.au">privacy@urbyte.com.au</a><br /><a href="https://urbyte.com.au/">urbyte.com.au</a></p>
+    </div>
+  </main>
 
   <footer>
-    <div class="footer-logo">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:36px;height:36px;object-fit:contain;"/><img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/3309a6182_9030A4CE-0C5A-4387-B075-0BDFAC65E0AB.png" alt="Urbyte" style="height:24px;width:auto;object-fit:contain;margin-left:8px;"/>
-    </div>
-    <p>© 2026 Urbyte Pty Ltd · ACN 692 885 019 · Built in Australia  </p>
-    <p style="margin-top:8px;"><a href="/">← Back to Home</a></p>
+    <p>© 2026 Urbyte Pty Ltd · ACN 692 885 019</p>
+    <p>Independent telecommunications waste verification infrastructure.</p>
   </footer>
-
 </body>
 </html>
