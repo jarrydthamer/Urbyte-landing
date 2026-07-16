@@ -1,280 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions — Urbyte</title>
-  <meta name="description" content="Urbyte Terms & Conditions" />
+  <title>Terms of Use — Urbyte</title>
+  <meta name="description" content="Terms governing use of the Urbyte platform, DBUs, memberships, marketplace access and Givabit features." />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #00000A; color: #fff; overflow-x: hidden; line-height: 1.8; }
-    a { color: #00E5CC; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    body::after {
-      content: '';
-      position: fixed; inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px);
-      pointer-events: none; z-index: 9998;
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 52px;
-      background: rgba(0,0,10,0.85);
-      backdrop-filter: blur(28px);
-      border-bottom: 1px solid rgba(91,0,255,0.15);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo span { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: #fff; }
-    .nav-back {
-      background: transparent;
-      border: 1px solid rgba(91,0,255,0.4);
-      color: rgba(140,60,255,0.9);
-      padding: 9px 24px;
-      font-weight: 700; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      cursor: pointer; font-family: inherit; transition: all 0.3s;
-      text-decoration: none; display: inline-block;
-    }
-    .nav-back:hover { background: rgba(91,0,255,0.12); text-decoration: none; }
-
-    .page-wrap {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 140px 32px 100px;
-      position: relative; z-index: 1;
-    }
-
-    .page-tag {
-      font-size: 9px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
-      color: rgba(0,229,204,0.6); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .page-tag::before { content: ''; display: block; width: 32px; height: 1px; background: linear-gradient(90deg, rgba(0,229,204,0.6), transparent); }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 900; letter-spacing: -3px; line-height: 0.95;
-      margin-bottom: 16px;
-    }
-
-    .last-updated {
-      font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px;
-      text-transform: uppercase; margin-bottom: 64px;
-      border-bottom: 1px solid rgba(91,0,255,0.1); padding-bottom: 32px;
-    }
-
-    .section {
-      margin-bottom: 56px;
-    }
-
-    h2 {
-      font-size: 18px; font-weight: 800; letter-spacing: -0.5px;
-      color: rgba(255,255,255,0.9); margin-bottom: 16px;
-      padding-top: 8px;
-      border-left: 2px solid rgba(0,229,204,0.4);
-      padding-left: 16px;
-    }
-
-    p {
-      font-size: 14px; color: rgba(255,255,255,0.45); line-height: 2;
-      margin-bottom: 14px;
-    }
-
-    ul {
-      margin: 12px 0 16px 0; padding-left: 0; list-style: none;
-    }
-    ul li {
-      font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.9;
-      padding: 6px 0 6px 20px; position: relative;
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-    }
-    ul li:last-child { border-bottom: none; }
-    ul li::before { content: '—'; position: absolute; left: 0; color: rgba(0,229,204,0.4); }
-
-    .highlight-box {
-      background: rgba(0,229,204,0.04);
-      border: 1px solid rgba(0,229,204,0.12);
-      padding: 20px 24px;
-      margin: 20px 0;
-      font-size: 13px;
-      color: rgba(0,229,204,0.7);
-      line-height: 1.9;
-    }
-
-    .warning-box {
-      background: rgba(194,0,58,0.04);
-      border: 1px solid rgba(194,0,58,0.15);
-      padding: 20px 24px;
-      margin: 20px 0;
-      font-size: 13px;
-      color: rgba(255,100,100,0.7);
-      line-height: 1.9;
-    }
-
-    .footer-legal {
-      margin-top: 80px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(91,0,255,0.1);
-      font-size: 10px;
-      color: rgba(255,255,255,0.12);
-      letter-spacing: 1px;
-      line-height: 2;
-      text-align: center;
-    }
-
-    .section-num {
-      font-size: 9px; font-weight: 700; letter-spacing: 3px;
-      color: rgba(91,0,255,0.4); text-transform: uppercase; margin-bottom: 6px;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .page-wrap { padding: 110px 20px 80px; }
-    }
+    :root { --bg:#070b14; --text:#f6f8fb; --muted:#a9b2c3; --line:rgba(255,255,255,.10); --teal:#00e5cc; --blue:#2787ff; --red:#ff7385; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:#05070c; color:var(--text); }
+    a { color:var(--teal); }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:18px 34px; border-bottom:1px solid var(--line); background:rgba(7,11,20,.84); backdrop-filter:blur(14px); position:sticky; top:0; z-index:2; }
+    .brand { color:#fff; text-decoration:none; font-weight:800; letter-spacing:.16em; }
+    .home { color:#fff; text-decoration:none; border:1px solid var(--line); padding:9px 17px; border-radius:999px; font-size:14px; }
+    main { max-width:860px; margin:0 auto; padding:72px 24px 100px; }
+    .eyebrow { color:var(--teal); text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:800; }
+    h1 { font-size:clamp(38px,7vw,64px); letter-spacing:-.04em; line-height:1; margin:15px 0 12px; }
+    .updated { color:#7f8a9e; margin:0 0 34px; }
+    .summary,.notice { padding:22px 24px; background:linear-gradient(135deg,rgba(0,229,204,.09),rgba(39,135,255,.07)); border:1px solid rgba(0,229,204,.22); border-radius:16px; }
+    .notice { background:rgba(255,115,133,.055); border-color:rgba(255,115,133,.22); }
+    h2 { margin:46px 0 13px; font-size:22px; letter-spacing:-.02em; }
+    h3 { margin:25px 0 8px; font-size:16px; }
+    p,li { color:var(--muted); font-size:15.5px; line-height:1.75; }
+    strong { color:#eef3fa; }
+    ul,ol { padding-left:22px; }
+    li { margin:7px 0; }
+    .note { border-left:3px solid var(--teal); padding:2px 0 2px 18px; }
+    footer { border-top:1px solid var(--line); padding:36px 20px; text-align:center; }
+    footer p { margin:5px 0; font-size:13px; color:#697386; }
+    @media (max-width:600px) { nav { padding:15px 18px; } main { padding-top:52px; } }
   </style>
 </head>
 <body>
+  <nav>
+    <a class="brand" href="https://urbyte.com.au/">URBYTE</a>
+    <a class="home" href="https://urbyte.com.au/">Back to Urbyte</a>
+  </nav>
 
-<nav>
-  <a href="/" class="nav-logo">
-    <span>Urbyte</span>
-  </a>
-  <a href="/" class="nav-back">← Back</a>
-</nav>
+  <main>
+    <div class="eyebrow">Platform terms</div>
+    <h1>Terms of Use</h1>
+    <p class="updated">Effective and last updated: 16 July 2026</p>
 
-<div class="page-wrap">
-
-  <div class="page-tag">Legal</div>
-  <h1>Terms &amp;<br>Conditions</h1>
-  <p class="last-updated">Last updated: 30 April 2026 &nbsp;·&nbsp; Urbyte Pty Ltd &nbsp;·&nbsp; ACN 692 885 019 · ABN 54 692 885 019</p>
-
-  <div class="section">
-    <div class="section-num">01</div>
-    <h2>About Urbyte</h2>
-    <p>Urbyte Pty Ltd (ACN 692 885 019 · ABN 54 692 885 019) ("Urbyte", "we", "us", "our") operates the Urbyte platform, including the website at urbyte.com.au and any associated applications or services. By accessing or using our platform, you agree to these Terms and Conditions.</p>
-    <p>If you do not agree, please do not use the platform.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-num">02</div>
-    <h2>Member Subscriptions</h2>
-    <p>Urbyte operates a free-to-earn, pay-to-spend model. Registering an account and earning DBUs from verified telecommunications waste is free for all members. Optional paid subscriptions unlock marketplace redemption access above the free tier threshold.</p>
-    <ul>
-      <li>Subscriptions are billed monthly to the payment method provided at signup</li>
-      <li>You may cancel at any time — no lock-in period applies</li>
-      <li>Members who subscribe and maintain an uninterrupted active subscription lock in the rate applicable at their time of subscription for the duration of that active membership</li>
-      <li>If a subscription lapses or is cancelled, the locked rate is forfeited — the rate applicable at the time of resubscription will apply</li>
-      <li>Urbyte reserves the right to change pricing for new subscribers at any time</li>
-      <li>Free tier access — including DBU earning and Givabit donations — remains available to all registered members regardless of subscription status</li>
-    </ul>
-    <div class="highlight-box">
-      Members who subscribe early lock in the lowest available rate for as long as they maintain an active, uninterrupted subscription.
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-num">03</div>
-    <h2>DBUs — Data Backed Units</h2>
-    <p>DBUs (Data Backed Units) are Urbyte's internal rewards credits system. They are issued by Urbyte at our discretion and governed by the following conditions:</p>
-
-    <div class="warning-box">
-      DBUs are rewards credits issued by Urbyte. They are not currency, financial products, securities, or investments. They carry no guaranteed monetary value and cannot be exchanged directly for cash.
+    <div class="summary">
+      <p><strong>These Terms govern your use of Urbyte.</strong> Urbyte independently verifies telecommunications waste and records eligible internal Data-Backed Units (DBUs). Urbyte is not a telecommunications provider, does not resell mobile data, does not access or control your mobile service, and does not claim ownership of your unused mobile data.</p>
     </div>
 
+    <h2>1. Agreement and eligibility</h2>
+    <p>These Terms form an agreement between you and Urbyte Pty Ltd (ACN 692 885 019) (<strong>Urbyte</strong>, <strong>we</strong>, <strong>us</strong> or <strong>our</strong>) when you access or use urbyte.com.au, an Urbyte account or wallet, the DBU ledger, marketplace access, Givabit features or another consumer service we provide (together, the <strong>Platform</strong>).</p>
+    <p>You must be at least 18 years old and legally able to enter this agreement. If you use the Platform for an organisation, you confirm that you are authorised to bind that organisation. Separate written terms may apply to enterprise pilots and services; if those terms conflict with these Terms, the separate written terms prevail for that engagement.</p>
+
+    <h2>2. What Urbyte provides</h2>
+    <p>Urbyte provides carrier-adjacent, telco-agnostic telecommunications waste verification infrastructure. Consumer features may include:</p>
     <ul>
-      <li>DBUs are issued based on self-reported mobile usage data submitted via your telco bill</li>
-      <li>The standard conversion rate is 10 DBUs per GB of verified unused data</li>
-      <li>DBUs may be redeemed for rewards, gift cards, or charitable donations as listed in the Urbyte platform at the time of redemption</li>
-      <li>DBU redemption values and available rewards are subject to change at Urbyte's discretion</li>
-      <li>DBUs have no expiry while your account remains active</li>
-      <li>DBUs are non-transferable and cannot be sold, gifted, or traded between accounts</li>
-      <li>DBUs are not redeemable for cash under any circumstances</li>
-      <li>Urbyte does not guarantee the availability of any specific reward or redemption option</li>
+      <li>an account and wallet;</li>
+      <li>submission and verification of mobile plan and usage evidence;</li>
+      <li>internal DBU entries linked to eligible verified telecommunications waste;</li>
+      <li>free accumulation and eligible Givabit directions;</li>
+      <li>optional paid marketplace access; and</li>
+      <li>marketplace items, offers or other uses made available from time to time.</li>
+    </ul>
+    <p>Features and availability may differ by account, verification status, membership tier and location. Urbyte does not alter your mobile plan, obtain a refund from your carrier or transfer unused gigabytes away from your carrier account.</p>
+
+    <h2>3. Your account</h2>
+    <p>You must provide accurate, current information, maintain control of your login method and promptly tell us about suspected unauthorised access. One person may not operate multiple accounts to duplicate entries, avoid limits or obtain an unfair advantage.</p>
+    <p>You are responsible for activity carried out through your account unless caused by Urbyte's failure to take reasonable care. You must not sell, transfer or give another person access to your account.</p>
+
+    <h2>4. Verification evidence</h2>
+    <p>DBU entries depend on evidence that satisfies Urbyte's current verification requirements. Evidence may include a mobile bill, account screenshot or other carrier-issued information showing the account context, plan allowance, usage or remaining allowance, and relevant billing or expiry date.</p>
+    <ul>
+      <li>Evidence must be genuine, legible, current and relate to a mobile service you own or are authorised to manage.</li>
+      <li>You must not alter evidence except to crop or redact information that Urbyte does not require.</li>
+      <li>Postpaid and prepaid services may have different timing and evidence requirements.</li>
+      <li>Only one entry for the same service and cycle may be processed unless Urbyte approves a correction.</li>
+      <li>Urbyte may request clarification, reject insufficient evidence, correct an error, reverse an improperly issued entry or place an entry in review.</li>
+    </ul>
+    <p>An estimate displayed by the website or calculator is indicative only. A DBU entry is not verified until the Platform marks it as verified.</p>
+
+    <h2>5. Verification sequence and availability</h2>
+    <p>Urbyte uses a multi-cycle verification sequence to establish a consistent, auditable record. Unless the Platform states otherwise for a particular service:</p>
+    <ul>
+      <li>eligible evidence is submitted and assessed on a monthly billing or recharge cadence;</li>
+      <li>one qualifying conversion is recorded at a time;</li>
+      <li>three completed qualifying conversions are required before broader use of verified DBUs unlocks from the fourth qualifying entry; and</li>
+      <li>entries may remain pending during checks, corrections, dispute periods or platform integrity reviews.</li>
+    </ul>
+    <p>Missing or ineligible evidence does not create an entitlement for that cycle. Urbyte may correct a genuine processing error where adequate evidence is supplied.</p>
+
+    <h2>6. DBUs — Data-Backed Units</h2>
+    <div class="notice">
+      <p><strong>DBUs are proprietary internal platform units recorded from eligible verified telecommunications waste.</strong> They are not legal tender, deposits, stored money, cryptocurrency, securities, financial products or investments. They do not represent ownership of mobile data, a debt owed by a telecommunications provider or a guaranteed cash entitlement.</p>
+    </div>
+    <p>Unless the Platform expressly states otherwise:</p>
+    <ul>
+      <li>the displayed issue basis is 10 DBUs for each verified eligible gigabyte, but eligibility, calculation rules and unit treatment remain subject to these Terms and the rules shown before submission;</li>
+      <li>DBUs cannot be withdrawn for cash, sold, traded, pledged or transferred between members;</li>
+      <li>a displayed DBU balance is a Platform record, not a bank balance or representation that a particular item is continuously available;</li>
+      <li>DBUs may be used only through uses that Urbyte makes available, subject to verification, tier, stock, partner and campaign conditions;</li>
+      <li>pending or provisional DBUs may not be used until they become eligible; and</li>
+      <li>DBUs obtained through error, duplicate evidence, manipulation, fraud or breach of these Terms may be withheld or reversed after reasonable review.</li>
+    </ul>
+    <p>We will not arbitrarily remove properly verified DBUs. Any material change to DBU rules will be handled under section 17 and will not limit rights that cannot legally be excluded.</p>
+
+    <h2>7. Free access and paid marketplace tiers</h2>
+    <p>Registration, eligible DBU accumulation and eligible Givabit participation are available without a paid membership. Some limited marketplace functionality may also be available on the free tier as described on the Platform. Optional Bronze, Gold or other paid tiers provide the marketplace access and limits displayed at checkout.</p>
+    <p>Before purchase, we display the price, billing frequency, included access and any material limits. By purchasing a monthly tier, you authorise the payment provider to charge the displayed fee each month until you cancel.</p>
+    <ul>
+      <li>You may cancel at any time through the available account or support process.</li>
+      <li>Cancellation stops future renewals and ordinarily takes effect at the end of the paid billing period.</li>
+      <li>Unless required by law, a change of mind or unused access does not automatically entitle you to a refund for a billing period already supplied.</li>
+      <li>If a grandfathered rate is offered, it applies while the same eligible membership remains active and uninterrupted. If it ends, a later subscription uses the price then offered.</li>
+      <li>We may change prices for a future billing period by giving reasonable advance notice and allowing you to cancel before the change takes effect.</li>
+      <li>Cancellation does not itself delete your account or properly verified DBU record, but paid marketplace access closes when the paid period ends.</li>
     </ul>
 
-  </div>
-
-  <div class="section">
-    <div class="section-num">04</div>
-    <h2>The 3-Cycle Verification Window</h2>
-    <p>Full DBU marketplace redemption value unlocks after 3 completed billing cycles. This window is a platform-side architectural constraint — it allows Urbyte to build an accurate, verified picture of a member's genuine monthly unused data average before marketplace redemption access is activated. It is not a development-stage buffer — it is a permanent platform integrity mechanism that applies to all members.</p>
+    <h2>8. Marketplace access and fulfilment</h2>
+    <p>Marketplace availability, limits and eligibility are shown on the Platform and may change as inventory, partners and campaigns change. An item is not secured until the Platform confirms the transaction.</p>
     <ul>
-      <li>A billing cycle is one calendar month from your subscription start date</li>
-      <li>Members must submit bill data each month to receive DBU credits for that cycle</li>
-      <li>Failure to submit bill data in a given cycle forfeits DBU credits for that cycle only</li>
+      <li>Separate item or partner terms, expiry dates and use restrictions may apply and will be disclosed where relevant.</li>
+      <li>We may set reasonable quantity, account, tier, verification or campaign limits.</li>
+      <li>If a confirmed item cannot be supplied, we will restore the applicable DBUs or provide another remedy required by law.</li>
+      <li>Third-party goods or services may be supplied by the named partner. This does not remove any responsibility Urbyte has under applicable law.</li>
     </ul>
-  </div>
 
-  <div class="section">
-    <div class="section-num">05</div>
-    <h2>Data &amp; Privacy</h2>
-    <p>Urbyte only collects the data necessary to operate the platform. This includes your name, email address, mobile plan details, and usage figures submitted via bill upload.</p>
+    <h2>9. Givabit directions</h2>
+    <p>Givabit allows eligible members to direct DBUs toward causes or campaigns made available on the Platform. Organisations shown as aspirational, proposed or pending partners are not confirmed partners and cannot receive a completed direction until an active arrangement and campaign are shown.</p>
+    <p>A DBU direction is an instruction within the Platform. It is not a cash donation by you and is not tax deductible unless Urbyte or an eligible recipient expressly confirms otherwise and issues the documentation required by law. Once a direction has been completed and applied to a campaign, it may not be reversible.</p>
+
+    <h2>10. Acceptable use</h2>
+    <p>You must not:</p>
     <ul>
-      <li>Urbyte does not access your calls, messages, browsing history, or personal content</li>
-      <li>All data is handled in accordance with the Australian Privacy Act 1988</li>
-      <li>We do not sell your personal data to third parties</li>
-      <li>Full details are available in our <a href="/privacy">Privacy Policy</a></li>
+      <li>submit false, altered, stolen or duplicate evidence;</li>
+      <li>access another person's account or submit their information without authority;</li>
+      <li>circumvent verification, tier, transaction or security controls;</li>
+      <li>use automation to scrape, overload or interfere with the Platform;</li>
+      <li>reverse engineer or copy protected Platform components except where law permits;</li>
+      <li>introduce malicious code or attempt unauthorised access; or</li>
+      <li>use the Platform unlawfully or to infringe another person's rights.</li>
     </ul>
-  </div>
 
-  <div class="section">
-    <div class="section-num">06</div>
-    <h2>Accuracy of Usage Data</h2>
-    <p>Urbyte relies on member-submitted bill data to calculate unused data and issue DBUs. By submitting usage data, you confirm it is accurate and reflects your genuine telco bill.</p>
-    <ul>
-      <li>Submitting false or misleading usage data constitutes a breach of these Terms</li>
-      <li>Urbyte reserves the right to suspend or terminate accounts where data misrepresentation is suspected</li>
-      <li>DBUs issued on the basis of inaccurate data may be reversed</li>
-    </ul>
-  </div>
+    <h2>11. Reviews, suspension and closure</h2>
+    <p>We may temporarily restrict an entry or account where reasonably necessary to investigate security, evidence integrity, duplicate claims, suspected fraud, legal compliance or material breach. Where appropriate, we will provide notice and an opportunity to respond.</p>
+    <p>We may close an account for a serious or repeated breach, unlawful conduct, fraud or a security risk that cannot reasonably be resolved. We will not exercise this right arbitrarily. You may request account closure at any time. Treatment of personal information after closure is explained in our Privacy Policy.</p>
 
-  <div class="section">
-    <div class="section-num">07</div>
-    <h2>Charitable Donations</h2>
-    <p>Members may elect to direct DBU value toward Urbyte's registered charity partners. Charitable donations facilitated through the platform are subject to the following:</p>
-    <ul>
-      <li>Donations are made in equivalent value, not cash, unless otherwise stated</li>
-      <li>Charity partner availability is subject to change</li>
-      <li>Urbyte does not guarantee tax deductibility of donations made via the platform — consult a registered tax agent for advice</li>
-    </ul>
-  </div>
+    <h2>12. Intellectual property</h2>
+    <p>Urbyte and its licensors retain rights in the Platform, branding, verification methods, software, content, DBU ledger design and related intellectual property. These Terms give you a limited, personal, non-exclusive, non-transferable and revocable right to use the consumer Platform in accordance with these Terms.</p>
+    <p>You retain ownership of information and content you submit. You give Urbyte a limited permission to host, process, reproduce and use it only as reasonably required to provide, secure and improve the service and comply with law, subject to our Privacy Policy.</p>
 
-  <div class="section">
-    <div class="section-num">08</div>
-    <h2>Limitation of Liability</h2>
-    <p>To the maximum extent permitted by Australian law, Urbyte is not liable for any indirect, incidental, or consequential loss arising from your use of the platform, including but not limited to loss of DBU value, failure of reward redemption, or service interruption.</p>
-    <p>Urbyte's total liability to any member shall not exceed the total subscription fees paid by that member in the 3 months prior to the claim.</p>
-  </div>
+    <h2>13. Third-party services</h2>
+    <p>The Platform may use or link to telecommunications providers, payment processors, analytics services, marketplace suppliers, charities and other third parties. Their own terms and privacy practices may apply when you use their services. Urbyte is not endorsed by or affiliated with a carrier merely because that carrier can be selected or its evidence can be submitted.</p>
 
-  <div class="section">
-    <div class="section-num">09</div>
-    <h2>Changes to These Terms</h2>
-    <p>Urbyte may update these Terms from time to time. Material changes will be communicated via email to active members at least 14 days before taking effect. Continued use of the platform after that date constitutes acceptance of the updated Terms.</p>
-  </div>
+    <h2>14. Service availability</h2>
+    <p>We aim to operate the Platform reliably but do not promise uninterrupted or error-free availability. Maintenance, security events, provider outages and circumstances outside reasonable control may affect access. We will take reasonable steps to restore affected services and will not charge for a period in which a paid service cannot be supplied where doing so would breach applicable law.</p>
 
-  <div class="section">
-    <div class="section-num">10</div>
-    <h2>Governing Law</h2>
-    <p>These Terms are governed by the laws of New South Wales, Australia. Any disputes will be subject to the exclusive jurisdiction of the courts of New South Wales.</p>
-  </div>
+    <h2>15. Australian Consumer Law</h2>
+    <div class="summary">
+      <p><strong>Nothing in these Terms excludes, restricts or modifies a consumer guarantee, right or remedy that cannot lawfully be excluded.</strong> Our services come with guarantees that cannot be excluded under the Australian Consumer Law. For a major failure with a service, you are entitled to cancel the service contract and obtain a refund for the unused portion, or compensation for its reduced value. You may also be entitled to compensation for other reasonably foreseeable loss or damage. If a failure is not major, you are entitled to have it rectified within a reasonable time and, if that does not occur, to cancel and obtain a refund for the unused portion.</p>
+    </div>
 
-  <div class="section">
-    <div class="section-num">11</div>
-    <h2>Contact</h2>
-    <p>For questions about these Terms, contact us at <a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a>.</p>
-    <p>Urbyte Pty Ltd &nbsp;·&nbsp; ACN 692 885 019 · ABN 54 692 885 019 &nbsp;·&nbsp; Northern Rivers, NSW, Australia</p>
-  </div>
+    <h2>16. Liability</h2>
+    <p>To the extent permitted by law, Urbyte is not responsible for loss caused by your inaccurate evidence, unauthorised account sharing, failure to secure your login, a carrier's billing or service decision, or a third party acting outside Urbyte's reasonable control.</p>
+    <p>To the extent permitted by law, neither party is liable to the other for indirect or consequential loss that was not reasonably foreseeable when the agreement was made. This section does not exclude liability for fraud, wilful misconduct, breach of confidentiality or privacy obligations, personal injury caused by negligence, or any liability that cannot lawfully be excluded or limited.</p>
 
-  <div class="footer-legal">
-    © 2026 Urbyte Pty Ltd · ACN 692 885 019 · ABN 54 692 885 019 · All rights reserved<br>
-    Urbyte is not a financial product, investment vehicle, or regulated entity under the Corporations Act 2001 (Cth).<br>
-    DBUs are internal rewards credits only and carry no guaranteed monetary value.
-  </div>
+    <h2>17. Changes to the Platform or these Terms</h2>
+    <p>We may update the Platform and these Terms to reflect new features, partner arrangements, security needs, legal requirements or reasonable operational changes. We will publish the current Terms with their effective date.</p>
+    <p>For a material change that may adversely affect an existing paid member, we will provide reasonable advance notice where practicable and a reasonable opportunity to cancel before it takes effect. Changes will not operate retrospectively to remove accrued legal rights. If a change requires fresh consent by law, we will seek it.</p>
 
-</div>
+    <h2>18. Privacy</h2>
+    <p>Our <a href="https://urbyte.com.au/privacy">Privacy Policy</a> explains how we collect, use, disclose, retain and protect personal information. It forms part of the rules governing your use of the Platform but does not reduce any statutory privacy rights.</p>
+
+    <h2>19. General</h2>
+    <p>These Terms and any policies or checkout terms expressly incorporated into them form the agreement for the consumer Platform. If part of these Terms is unlawful or unenforceable, it will be read down or severed to the minimum extent necessary and the remainder continues.</p>
+    <p>A delay in enforcing a right is not a waiver. You may not transfer this agreement without our consent. We may transfer it as part of a genuine restructuring or sale provided this does not materially reduce your rights.</p>
+
+    <h2>20. Governing law and disputes</h2>
+    <p>These Terms are governed by the laws of New South Wales, Australia. The parties submit to the courts having jurisdiction in New South Wales, subject to any right you have under applicable consumer law to bring a claim elsewhere.</p>
+    <p>Please contact us first so we can try to resolve a concern directly. Nothing in this section prevents either party seeking urgent relief or using an external complaint or dispute-resolution process available by law.</p>
+
+    <h2>21. Contact</h2>
+    <div class="note">
+      <p><strong>Urbyte Pty Ltd</strong><br />ACN 692 885 019<br />Northern Rivers, New South Wales, Australia<br /><a href="mailto:information@urbyte.com.au">information@urbyte.com.au</a><br /><a href="https://urbyte.com.au/">urbyte.com.au</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Urbyte Pty Ltd · ACN 692 885 019</p>
+    <p>Independent telecommunications waste verification infrastructure.</p>
+  </footer>
 </body>
 </html>
