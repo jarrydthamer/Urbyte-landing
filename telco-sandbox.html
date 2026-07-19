@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Urbyte — Telco &amp; MVNO Infrastructure</title>
+<meta name="robots" content="index, follow"/>
+<meta name="keywords" content="Urbyte, telco data waste, MVNO analytics, CDR intelligence, churn prediction, unused data monetisation, data backed units, DBU, Australian telco infrastructure, Urbyte Insight, carrier analytics, mobile data waste Australia"/>
+<meta name="author" content="Urbyte Pty Ltd"/>
+<link rel="canonical" href="https://urbyte.com.au/telco"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Urbyte"/>
+<meta property="og:title" content="Urbyte — Telco &amp; MVNO Infrastructure | Convert Data Waste Into Retained Revenue"/>
+<meta property="og:description" content="Urbyte Insight gives Australian telcos and MVNOs predictive churn intelligence and unused allowance monetisation — out-of-band, read-only, zero network disruption. $9.9B in annual data waste, finally captured."/>
+<meta property="og:url" content="https://urbyte.com.au/telco"/>
+<meta property="og:image" content="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Urbyte — Telco &amp; MVNO Infrastructure"/>
+<meta name="twitter:description" content="Predictive churn intelligence and unused data monetisation for Australian carriers and MVNOs. Out-of-band. Read-only. Zero disruption."/>
+<meta name="twitter:image" content="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Urbyte Telco & MVNO Infrastructure",
+  "description": "Urbyte Insight delivers predictive churn intelligence and unused allowance monetisation to Australian telcos and MVNOs. Out-of-band CDR analysis. Zero network disruption.",
+  "url": "https://urbyte.com.au/telco",
+  "inLanguage": "en-AU",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Urbyte Pty Ltd",
+    "url": "https://urbyte.com.au",
+    "logo": "https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg",
+    "contactPoint": {"@type": "ContactPoint","email": "jarryd@urbyte.com.au","telephone": "+61431553493","contactType": "Business Enquiries","areaServed": "AU"},
+    "sameAs": ["https://linkedin.com/in/jarryd-urbyte","https://urbyte.com.au"]
+  },
+  "about": {
+    "@type": "Service",
+    "name": "Urbyte Insight",
+    "description": "Carrier-grade CDR analytics platform delivering churn prediction and unused capacity intelligence to Australian telcos and MVNOs.",
+    "provider": {"@type": "Organization","name": "Urbyte Pty Ltd"},
+    "areaServed": "AU",
+    "serviceType": "Telecommunications Analytics SaaS"
+  }
+}
+</script>
+<meta name="description" content="Urbyte converts verified unused allowance value into a measurable retention asset. Out-of-band. Read-only. Zero network disruption."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"Inter",sans-serif;background:#00000A;color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 4px);pointer-events:none;z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(0,0,10,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,229,204,0.1)}
+.nav-left{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-left img{width:44px;height:44px;object-fit:contain;border-radius:0;}
+.nav-brand{font-family:'Orbitron',sans-serif!important;font-size:18px;font-weight:700;letter-spacing:-0.5px;color:#fff;line-height:1;}
+.nav-pill{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#00E5CC;border:1px solid rgba(0,229,204,0.35);padding:3px 10px}
+.nav-right{display:flex;align-items:center;gap:28px}
+.nav-right a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.nav-right a:hover{color:#00E5CC}
+.nav-cta{font-size:11px!important;font-weight:700!important;letter-spacing:1.5px!important;text-transform:uppercase;color:#00E5CC!important;border:1px solid rgba(0,229,204,0.4);padding:8px 18px;transition:all 0.2s!important}
+.nav-cta:hover{background:rgba(0,229,204,0.08)!important}
+
+/* HERO */
+
+
+
+
+
+.hero h1{font-size:clamp(34px,4.4vw,60px);font-weight:900;line-height:0.92;letter-spacing:-0.05em;margin-bottom:22px;max-width:700px}
+.hero h1 em{font-style:normal;color:#00E5CC}
+.btn-p{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;background:#00E5CC;color:#00000A;padding:15px 34px;transition:opacity 0.2s}
+.btn-p:hover{opacity:0.85}
+.btn-g{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);padding:15px 34px;transition:all 0.2s}
+.btn-g:hover{border-color:#00E5CC;color:#00E5CC}
+/* TICKER */
+.ticker{background:rgba(0,229,204,0.03);border-top:1px solid rgba(0,229,204,0.1);border-bottom:1px solid rgba(0,229,204,0.07);overflow:hidden;padding:13px 0}
+.ticker-inner{display:flex;gap:56px;animation:tick 34s linear infinite;white-space:nowrap}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick-item{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.6);flex-shrink:0;display:flex;align-items:center;gap:10px}
+.tick-item span{color:rgba(255,255,255,0.2)}
+
+/* STAT STRIP */
+.stat-strip{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid rgba(0,229,204,0.07)}
+.stat-cell{padding:38px 28px;border-right:1px solid rgba(0,229,204,0.07);transition:background 0.3s;cursor:default}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(0,229,204,0.03)}
+.stat-n{font-size:34px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;line-height:1}
+.stat-src{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(0,229,204,0.35);margin-top:5px}
+.stat-l{font-size:12px;color:rgba(255,255,255,0.5);margin-top:9px;line-height:1.55}
+
+/* LAYOUT */
+.sec{max-width:1100px;margin:0 auto;padding:96px 48px}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00E5CC;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:"";width:24px;height:1px;background:rgba(0,229,204,0.45)}
+.sec-h{font-size:clamp(28px,3.8vw,50px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:16px}
+.sec-sub{font-size:15px;color:rgba(255,255,255,0.58);line-height:1.9;max-width:660px;margin-bottom:52px}
+.divider{border:none;border-top:1px solid rgba(0,229,204,0.07)}
+
+/* COUNTER BAR */
+/* REALITY GRID */
+.reality-grid{max-width:1100px;margin:2px auto 0;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.reality-col{padding:44px 40px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07)}
+.reality-col.hot{border-color:rgba(194,0,58,0.14);background:rgba(194,0,58,0.02)}
+.reality-col h3{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;color:rgba(0,229,204,0.65)}
+.reality-col.hot h3{color:rgba(194,0,58,0.65)}
+.reality-col p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:14px}
+.reality-col .close{font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);line-height:1.6;margin-bottom:0}
+
+/* ARCHITECTURE */
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.arch-card{padding:34px 28px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.arch-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18);transform:translateY(-2px)}
+.arch-num{font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(0,229,204,0.3);margin-bottom:14px;text-transform:uppercase}
+.arch-card h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.3px}
+.arch-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.85}
+.arch-code{display:block;margin-top:18px;padding:14px 16px;background:rgba(0,229,204,0.04);border-left:2px solid rgba(0,229,204,0.2);font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.75);line-height:1.85;white-space:pre}
+
+/* REVENUE */
+.rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.rev-card{padding:36px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.rev-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18)}
+.rev-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.45);margin-bottom:14px}
+.rev-card h3{font-size:17px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.4px}
+.rev-card p{font-size:14px;color:rgba(255,255,255,0.58);line-height:1.85}
+.rev-num{font-size:30px;font-weight:900;color:#00E5CC;letter-spacing:-1.5px;margin-top:20px}
+.rev-num-label{font-size:9px;color:rgba(0,229,204,0.5);letter-spacing:1.5px;text-transform:uppercase;margin-top:5px}
+
+
+
+/* IP */
+.ip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ip-card{padding:34px 28px;background:rgba(255,255,255,0.01);border:1px solid rgba(0,229,204,0.07);transition:all 0.3s}
+.ip-card:hover{background:rgba(0,229,204,0.04);border-color:rgba(0,229,204,0.18)}
+.ip-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.45);margin-bottom:14px}
+.ip-card h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.3px}
+.ip-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.85}
+.ip-code{display:block;margin-top:16px;padding:12px 14px;background:rgba(0,229,204,0.04);border-left:2px solid rgba(0,229,204,0.2);font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.7);line-height:1.85;white-space:pre}
+
+/* VAULT */
+.vault-outer{max-width:1100px;margin:0 auto;padding:0 48px 96px}
+.vault-wrap{background:rgba(0,0,10,0.6);border:1px solid rgba(0,229,204,0.15);padding:52px 48px}
+.vault-hdr{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px}
+.vault-icon{width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:rgba(0,229,204,0.07);border:1px solid rgba(0,229,204,0.22);font-size:20px;flex-shrink:0}
+.vault-hdr-text h2{font-size:20px;font-weight:800;letter-spacing:-0.5px}
+.vault-hdr-text p{font-size:13px;color:rgba(255,255,255,0.38);margin-top:6px;line-height:1.65}
+.vault-row{display:flex;gap:12px;margin-bottom:10px}
+.vault-input{flex:1;background:transparent;border:1px solid rgba(0,229,204,0.2);color:#00E5CC;padding:13px 20px;font-family:"Courier New",monospace;font-size:14px;letter-spacing:4px;outline:none;transition:border-color 0.25s}
+.vault-input:focus{border-color:rgba(0,229,204,0.55)}
+.vault-input::placeholder{color:rgba(0,229,204,0.22);letter-spacing:3px;font-size:12px}
+.vault-btn{background:#00E5CC;color:#00000A;border:none;padding:13px 30px;font-family:"Inter",sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;flex-shrink:0}
+.vault-btn:hover{opacity:0.85}
+.vault-err{display:none;font-size:11px;color:#C2003A;letter-spacing:1px;padding:8px 0;margin-bottom:4px}
+.vault-content{display:none;margin-top:28px}
+.vault-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.vault-item{background:rgba(0,0,10,0.7);border:1px solid rgba(0,229,204,0.1);padding:26px}
+.vault-item h4{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:14px}
+.vault-item pre{font-family:"Courier New",monospace;font-size:11px;color:rgba(0,229,204,0.8);line-height:1.95;white-space:pre-wrap}
+
+/* CONTACT */
+.contact-outer{max-width:1100px;margin:0 auto;padding:0 48px 80px}
+.contact-block{text-align:center;padding:80px 40px;border:1px solid rgba(0,229,204,0.08);background:rgba(0,229,204,0.02)}
+.contact-block h2{font-size:clamp(26px,3.8vw,46px);font-weight:900;letter-spacing:-1.5px;margin-bottom:14px}
+.contact-block p{font-size:15px;color:rgba(255,255,255,0.52);max-width:520px;margin:0 auto 32px;line-height:1.85}
+
+footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:34px 48px;border-top:1px solid rgba(0,229,204,0.07)}
+.foot-logo{font-size:15px;font-weight:900;color:#fff}
+.foot-meta{font-size:11px;color:rgba(255,255,255,0.22)}
+.foot-links{display:flex;gap:24px}
+.foot-links a{font-size:11px;color:rgba(255,255,255,0.32);text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:#00E5CC}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-right{display:none}
+  .stat-cell{padding:24px 16px;}
+  .stat-n{font-size:26px;}
+  .hero-text,.sec,.vault-outer,.contact-outer,.reality-grid{padding-left:24px;padding-right:24px}
+  .reality-grid,.arch-grid,.rev-grid,.ip-grid,.vault-grid,footer{padding:24px;flex-direction:column;align-items:flex-start}
+  .stat-strip{padding:0;grid-template-columns:repeat(2,1fr);border-bottom:1px solid rgba(0,229,204,0.07)}
+  .hero{min-height:auto;padding-top:80px;padding-bottom:48px;align-items:flex-start}
+  .hero-img-fade{background:linear-gradient(180deg,rgba(0,0,10,0.82) 0%,rgba(0,0,10,0.78) 50%,rgba(0,0,10,0.92) 100%)}
+  .hero-text{padding:0 20px!important;max-width:100%!important}
+  .hero h1{font-size:clamp(26px,7vw,40px);letter-spacing:-1px;max-width:100%}
+  .hero-sub{font-size:13px}
+  .hero-btns{flex-direction:column;gap:10px}
+  .btn-p,.btn-g,.btn-sec{width:100%;text-align:center;box-sizing:border-box;display:block}
+  .hero-trust{gap:12px}
+  .trust-pill{font-size:9px}
+}
+
+/* GATED FORM */
+.gated-sec{background:#050510;border-top:1px solid rgba(0,229,204,0.12);padding:80px 48px;}
+.gated-inner{max-width:760px;margin:0 auto;}
+.gated-tag{font-size:11px;letter-spacing:.18em;color:#00E5CC;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.gated-tag::before{content:'';display:block;width:32px;height:1px;background:#00E5CC;}
+.gated-h{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;}
+.gated-sub{font-size:.95rem;color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:560px;line-height:1.6;}
+.gated-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.gated-form .full{grid-column:1/-1;}
+.gated-label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:6px;}
+.gated-input{width:100%;background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.18);color:#fff;padding:13px 16px;font-size:.9rem;font-family:inherit;outline:none;transition:border .2s;box-sizing:border-box;}
+.gated-input:focus{border-color:rgba(0,229,204,0.55);background:rgba(0,229,204,0.07);}
+.gated-input::placeholder{color:rgba(255,255,255,0.2);}
+.gated-submit{margin-top:8px;background:#00E5CC;color:#00000A;border:none;padding:15px 36px;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;font-family:inherit;}
+.gated-submit:hover{background:#00c4ae;}
+.gated-submit:disabled{background:rgba(0,229,204,0.3);cursor:not-allowed;}
+.gated-notice{font-size:.75rem;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.5;}
+.gated-success{display:none;background:rgba(0,229,204,0.06);border:1px solid rgba(0,229,204,0.25);padding:28px 32px;text-align:center;}
+.gated-success-title{font-size:1.1rem;font-weight:700;color:#00E5CC;margin-bottom:8px;}
+.gated-success-body{font-size:.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+.gated-err{font-size:.8rem;color:#C2003A;margin-top:8px;display:none;}
+@media(max-width:640px){
+  .gated-form{grid-template-columns:1fr;}
+  .gated-sec{padding:60px 24px;}
+  .hero{padding-top:64px;padding-bottom:36px}
+  .hero-img-wrap img{object-position:60% center}
+  .hero-img-fade{background:rgba(0,0,10,0.86)!important}
+  .hero h1{font-size:clamp(24px,8vw,34px)}
+}
+.hero{position:relative;padding-top:64px;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero-img-wrap{position:absolute;inset:0;z-index:0}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:brightness(1.3) contrast(1.05)}
+.hero-img-fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.97) 0%,rgba(0,0,10,0.92) 25%,rgba(0,0,10,0.55) 50%,rgba(0,0,10,0.05) 75%,transparent 100%)}
+.hero-text{position:relative;z-index:2;max-width:680px;padding:0 0 0 64px}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,229,204,0.7);margin-bottom:28px}
+.hero-kicker::before{content:"";width:28px;height:1px;background:rgba(0,229,204,0.5)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.62);line-height:1.7;max-width:620px;margin-bottom:38px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.hero-trust{display:flex;gap:22px;flex-wrap:wrap}
+.trust-pill{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:7px}
+.trust-pill::before{content:"";width:4px;height:4px;background:#00E5CC;border-radius:50%;flex-shrink:0}
+
+@media(max-width:768px){
+  .hero .hero-text{padding:60px 24px 60px 24px!important;max-width:90%!important;}
+  .hero > div > img{object-position:70% center!important;}
+}
+
+/* TELCO HERO — image at natural ratio, text overlaid left */
+.telco-hero-wrap{position:relative;width:100%;margin-top:64px;overflow:hidden;background:#00000A;min-height:500px;}
+.telco-hero-img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;filter:none;opacity:1;vertical-align:bottom;position:absolute;inset:0;}
+.telco-hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,10,0.88) 0%,rgba(0,0,10,0.72) 28%,rgba(0,0,10,0.2) 50%,transparent 68%);pointer-events:none;z-index:1;}
+.telco-hero-text{position:absolute;top:50%;left:0;transform:translateY(-50%);padding:0 0 0 60px;max-width:46%;z-index:3;}
+.telco-hero-text .hero-kicker{color:#00E5CC;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.telco-hero-text .hero-kicker::before{content:'';width:20px;height:1px;background:#00E5CC;}
+.telco-hero-text h1{font-size:clamp(26px,3.2vw,52px);font-weight:900;line-height:1.0;letter-spacing:-1.5px;margin-bottom:18px;color:#fff;}
+.telco-hero-text h1 em{font-style:normal;color:#00E5CC;}
+.telco-hero-text .hero-sub{font-size:clamp(12px,1.1vw,14px);color:rgba(255,255,255,0.62);line-height:1.65;margin-bottom:24px;}
+.telco-hero-text .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.telco-hero-text .hero-trust{display:flex;gap:8px;flex-wrap:wrap;}
+@media(max-width:900px){
+  .telco-hero-text{max-width:55%;padding:0 0 0 32px;}
+}
+@media(max-width:640px){
+  .stat-strip{grid-template-columns:1fr 1fr;}
+  .stat-cell{padding:20px 14px;}
+  .stat-n{font-size:22px;letter-spacing:-0.5px;}
+  .stat-l{font-size:11px;}
+  .telco-hero-wrap{margin-top:64px;min-height:420px;display:block;position:relative;}
+  .telco-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% center;margin-left:0;}
+  .telco-hero-grad{background:linear-gradient(135deg,rgba(0,0,10,0.95) 0%,rgba(0,0,10,0.88) 40%,rgba(0,0,10,0.6) 70%,rgba(0,0,10,0.3) 100%);}
+  .telco-hero-text{position:absolute;top:50%;left:0;transform:translateY(-50%);max-width:100%;width:100%;padding:0 24px;background:none;z-index:3;}
+  .telco-hero-text h1{font-size:clamp(24px,7vw,36px);}
+  .telco-hero-text .hero-sub{font-size:13px;line-height:1.6;}
+  .telco-hero-text .hero-btns{flex-direction:column;gap:10px;}
+  .telco-hero-text .btn-p,.telco-hero-text .btn-g{width:100%;text-align:center;box-sizing:border-box;}
+}
+</style>
+<style>
+  /* Orbitron — headings only */
+  h1, h2, h3, .nav-logo-text { font-family: 'Orbitron', sans-serif !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-left" href="/">
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte logo" style="width:36px;height:36px;object-fit:contain;"/><span class="nav-brand">Urbyte</span>
+    <span class="nav-pill">Telco &amp; MVNO</span>
+  </a>
+  <div class="nav-right">
+    <a href="/">Consumer</a>
+    <a href="/enterprise">Enterprise</a>
+    <a href="#model">The Model</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#vault">MVNO Partners</a>
+    <a href="#contact" class="nav-cta">Partnership Enquiry</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="telco-hero-wrap">
+  <!-- Image at full natural width — no crop, no stretch, no blur -->
+  <img class="telco-hero-img" src="https://base44.app/api/apps/69b4b3be3eb13fdbcb5a0228/files/mp/public/69b4b3be3eb13fdbcb5a0228/95f2d3386_telco_hero_v2.png" alt="Urbyte Telco Infrastructure"/>
+  <!-- Left-side gradient only — fades out before globe -->
+  <div class="telco-hero-grad"></div>
+  <!-- Text block anchored to left dark zone -->
+  <div class="telco-hero-text">
+    <div class="hero-kicker">Telco &amp; MVNO Infrastructure — ACN 692 885 019</div>
+    <h1>The missing consumer<br/>engagement layer between<br/><em>usage and retention.</em></h1>
+    <p class="hero-sub">Carriers already understand unused allowance behaviour. The challenge has never been visibility — it has been activation. Urbyte provides an independent consumer engagement layer that converts verified unused allowance value into measurable retention, loyalty, and community impact outcomes. Without touching your network. Without touching your pricing. Without disrupting existing commercial structures.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p">Request Pilot Integration</a>
+      <a href="#model" class="btn-g">See The Model</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-pill">Out-of-band · Read-only</span>
+      <span class="trust-pill">enterprise-grade authentication</span>
+      <span class="trust-pill">ACCC carrier usage data Aligned</span>
+      <span class="trust-pill">accredited intangible asset classification · ATO-compliant deduction framework</span>
+      <span class="trust-pill">Privacy Act 1988</span>
+    </div>
+  </div>
+</div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner">
+    <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY UNUSED ALLOWANCE VALUE PER LINE <span>·</span></span>
+    <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
+    <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
+    <span class="tick-item">ATO-compliant deduction framework · accredited intangible asset classification · ACCC carrier usage data <span>·</span></span>
+    <span class="tick-item">ZERO PII STORED <span>·</span></span>
+    <span class="tick-item">ZERO WRITE ACCESS · READ-ONLY API <span>·</span></span>
+    <span class="tick-item">enterprise-grade secured · enterprise authentication <span>·</span></span>
+    <span class="tick-item">ACN 692 885 019 &#8212; URBYTE PTY LTD <span>·</span></span>
+    <span class="tick-item">26M AUSTRALIAN SUBSCRIBERS <span>·</span></span>
+    <span class="tick-item">55GB AVG MONTHLY UNUSED ALLOWANCE VALUE PER LINE <span>·</span></span>
+    <span class="tick-item">&#8722;34% CHURN &#8212; DBU BALANCE HOLDERS <span>·</span></span>
+    <span class="tick-item">&#8722;51% CHURN &#8212; GIVABIT ACTIVE DONORS <span>·</span></span>
+    <span class="tick-item">ATO-compliant deduction framework · accredited intangible asset classification · ACCC carrier usage data <span>·</span></span>
+    <span class="tick-item">ZERO PII STORED <span>·</span></span>
+    <span class="tick-item">ZERO WRITE ACCESS · READ-ONLY API <span>·</span></span>
+    <span class="tick-item">enterprise-grade secured · enterprise authentication <span>·</span></span>
+    <span class="tick-item">ACN 692 885 019 &#8212; URBYTE PTY LTD <span>·</span></span>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-cell">
+    <div class="stat-n">55GB</div>
+    <div class="stat-src">ACCC 2024&#8211;25</div>
+    <div class="stat-l">Average monthly unused allowance value per Australian subscriber</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-n">&#8722;34%</div>
+    <div class="stat-src">Urbyte DBU cohort</div>
+    <div class="stat-l">Churn rate delta &#8212; active DBU balance holders vs baseline</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-n">&#8722;51%</div>
+    <div class="stat-src">Urbyte Givabit cohort</div>
+    <div class="stat-l">Churn rate delta &#8212; active Givabit donors vs carrier baseline</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-n">30%</div>
+    <div class="stat-src">ATO-compliant deduction framework</div>
+    <div class="stat-l">Cash tax offset on DBU value donated via Givabit DGR pathway</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-n">NDA</div>
+    <div class="stat-src">Commercial terms</div>
+    <div class="stat-l">Revenue projections available to qualified partners under NDA</div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- THE MODEL -->
+<div class="sec" id="model">
+  <div class="sec-tag">The Structural Reality</div>
+  <h2 class="sec-h">The industry absorbed it.<br/>Urbyte intercepts it.</h2>
+  <p class="sec-sub">This addresses no carrier failure. It is infrastructure built on a structural given that the billing model itself produces &#8212; and that no carrier has had commercial reason to eliminate until churn became the primary margin threat.</p>
+</div>
+
+<div class="reality-grid" style="margin-top:2px">
+  <div class="reality-col">
+    <h3>Why the waste is structural</h3>
+    <p>Carriers provision for peak demand and sell plans against an average-use assumption that underestimates consumption variance. The gap between allocation and consumption is not accidental &#8212; it is the mechanism that prevents overage charges and maintains margin. Artificial billing cycle boundaries ensure unused capacity cannot be deferred indefinitely. What is not consumed by cycle end evaporates.</p>
+    <p>Rollover plans slow the expiry. They do not eliminate it. The unused allowance value persists across every plan type, every carrier, every cycle.</p>
+    <p class="close">26 million plans. 55GB average monthly delta. Expiring continuously.</p>
+  </div>
+  <div class="reality-col hot">
+    <h3>Why retention is the commercial case</h3>
+    <p>A DBU balance accruing over three or more billing cycles creates a measurable switching cost that operates independently of pricing &#8212; the subscriber leaves demonstrable accrued value on the table if they move. No discount strategy replicates that.</p>
+    <p>The Givabit cohort extends it further. Subscribers routing DBUs to a nominated DGR charity introduce a non-financial identity attachment to their plan. That cohort churns 51% less than the carrier baseline.</p>
+    <p class="close">No pricing change. No contract renegotiation. A read-only feed and 90 days.</p>
+  </div>
+</div>
+
+<hr class="divider" style="margin-top:2px"/>
+
+<!-- ARCHITECTURE -->
+<div class="sec" id="architecture">
+  <div class="sec-tag">System Architecture</div>
+  <h2 class="sec-h">Six components.<br/>One out-of-band layer.</h2>
+  <p class="sec-sub">The entire Urbyte stack operates outside the core network. No write access. No latency impact. No operational risk surface for the carrier. Full technical specifications are available to verified partners under NDA.</p>
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-num">01 &#8212; Ingestion</div>
+      <h3>Data Ingestion Engine</h3>
+      <p>Securely ingests anonymised carrier usage data via a read-only, enterprise-grade API connection or batch CSV/CDR upload. Calculates the verified gap between allocated fleet capacity and actual consumption each billing cycle. Zero PII stored at any point.</p>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">02 &#8212; Verification</div>
+      <h3>Waste Verification Layer</h3>
+      <p>Applies Urbyte's proprietary verification protocol to each capacity event. Every verified waste record is independently auditable and cryptographically signed. Classified under accredited intangible asset accounting standards. No AFSL triggered.</p>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">03 &#8212; Distribution</div>
+      <h3>Social Impact Engine</h3>
+      <p>Routes verified rewards credits to ACNC-registered DGR charities or partner reward programs. Enterprise contributions qualify under ATO-compliant non-cash deduction frameworks. Auditable receipts issued per transaction.</p>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">04 &#8212; Consumer</div>
+      <h3>Subscriber Interface</h3>
+      <p>Retail-facing platform giving subscribers real-time visibility over their data allowance, consumption, and rewards balance. Converts unused capacity into verified rewards credits automatically at each billing cycle end.</p>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">05 &#8212; Corporate</div>
+      <h3>Fleet Management Dashboard</h3>
+      <p>Enterprise operator portal providing live capacity waste reporting, ESG impact metrics, charitable contribution ledger, and ATO-ready tax documentation. Full fleet telecom waste audit available on demand.</p>
+    </div>
+    <div class="arch-card">
+      <div class="arch-num">06 &#8212; Integration</div>
+      <h3>Partner API</h3>
+      <p>Out-of-band, read-only connection. Zero write access to carrier systems. Zero latency impact on network operations. MVNO white-label capability — full rewards infrastructure deployable under your brand with zero development overhead.</p>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:40px;font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px;">Full technical specifications, integration blueprints, and API documentation available to verified partners. <a href="#vault" style="color:rgba(0,229,204,0.6);text-decoration:none;">Request access via the Partner Vault →</a></p>
+</div>
+
+<hr class="divider"/>
+
+<hr class="divider"/>
+
+<!-- IP -->
+<div class="sec">
+  <div class="sec-tag">Intellectual Property</div>
+  <h2 class="sec-h">Proprietary architecture.<br/>100% Urbyte-owned.</h2>
+  <p class="sec-sub">Every component was designed and built entirely by Urbyte Pty Ltd. No agency, contractor, or third party holds any claim on any element of the platform, protocol, or brand.</p>
+  <div class="ip-grid">
+    <div class="ip-card">
+      <div class="ip-tag">Trademark</div>
+      <h3>Urbyte&#8482; &nbsp;&#183;&nbsp; Givabit&#8482; &nbsp;&#183;&nbsp; DBU&#8482;</h3>
+      <p>The names Urbyte, Givabit, and DBU (Data-Backed Unit) are proprietary trademarks of Urbyte Pty Ltd. Unauthorised use in connection with telecommunications, data services, or loyalty programs is prohibited. All rights reserved.</p>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Protocol IP</div>
+      <h3>Proof of Waste &#8212; waste-verified&#8482;</h3>
+      <p>The proprietary waste verification and rewards minting protocol is original technology owned exclusively by Urbyte Pty Ltd. All rights reserved.</p>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Platform IP</div>
+      <h3>Full-Stack Ownership</h3>
+      <p>our enterprise analytics engine&#8482;, the DBU&#8482; Ledger, Givabit&#8482; clearinghouse, consumer app, enterprise dashboard, and API layer were built entirely by Urbyte Pty Ltd. Zero third-party IP exposure. Due diligence is clean.</p>
+      <code class="ip-code">ACN:  692 885 019
+ABN:  54 692 885 019
+IP:   100% Urbyte Pty Ltd
+NDA:  Available on request</code>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Data Rights</div>
+      <h3>No PII. By Architecture.</h3>
+      <p>Urbyte holds zero personally identifiable information. All carrier usage logs are ingested as anonymised usage sessions. Consumers retain full data sovereignty. The operational model uses structural unused allowance value &#8212; not personal data &#8212; as its primary input.</p>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Confidentiality</div>
+      <h3>NDA By Default</h3>
+      <p>All partnership discussions &#8212; pilot integration, MVNO white-label, carrier data-sharing assessments &#8212; are protected under mutual NDA from first contact. No commercial sensitivity is required before a technical conversation begins.</p>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Regulatory Posture</div>
+      <h3>Compliance Architecture</h3>
+      <p>DBU classification: accredited intangible asset classification. Donation pathway: ATO-compliant deduction framework non-cash corporate contribution. DGR routing: ACNC register verified. AFSL: not required. Privacy Act 1988 compliant by design. ACCC data schema aligned.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- VAULT -->
+<div class="vault-outer" id="vault">
+  <div class="vault-wrap">
+    <div class="vault-hdr">
+      <div class="vault-icon">&#128274;</div>
+      <div class="vault-hdr-text">
+        <h2>Partner Vault</h2>
+        <p>Technical integration specifications, API documentation, and MVNO onboarding blueprints. Access restricted to verified partners.</p>
+      </div>
+    </div>
+    <div class="vault-row" id="vaultRow">
+      <input class="vault-input" type="password" id="vaultCode" placeholder="ENTER ACCESS CODE" autocomplete="off"/>
+      <button class="vault-btn" id="vaultBtn">UNLOCK</button>
+    </div>
+    <div class="vault-err" id="vaultErr">Invalid access code. Contact jarryd@urbyte.com.au to request credentials.</div>
+    <div class="vault-content" id="vaultContent" style="display:none;margin-top:28px;">
+      <div class="vault-grid">
+        <div class="vault-item">
+          <h4>DBU&#8482; Minting Formula</h4>
+          <pre>&#916;_Waste = Allocated &#8722; Consumed (GB)
+DBU minting is triggered by verified unused allowance
+Floor: proprietary protocol value
+Trigger: billing cycle end
+Cap: none
+Protocol: Proof of Waste (PoWst&#8482;)</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Integration Method</h4>
+          <pre>Mode: out-of-band, read-only
+Phase 1: historic CSV / CDR log upload
+Phase 2: live API (POST /v1/billing/cycle)
+No write access to carrier systems
+No OSS/BSS modification
+Zero disruption to existing stack</pre>
+        </div>
+        <div class="vault-item">
+          <h4>MVNO Onboarding Path</h4>
+          <pre>Step 1: NDA + partner agreement
+Step 2: CSV/CDR sample data or API sandbox
+Step 3: DBU yield modelling report
+Step 4: commercial terms alignment
+Step 5: white-label configuration
+Step 6: go-live + member migration</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Data Security</h4>
+          <pre>Processing: asynchronous, isolated
+Storage: encrypted at rest (AES-256)
+Transmission: TLS 1.3
+PII handling: Privacy Act 1988
+Retention: configurable per agreement
+Audit trail: full immutable log</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Commercial Structure</h4>
+          <pre>Model: revenue share per active DBU
+Margin: negotiated per partner tier
+Reporting: monthly reconciliation
+White-label: available on request
+API access: RESTful, token-auth
+SLA: 99.9% uptime commitment</pre>
+        </div>
+        <div class="vault-item">
+          <h4>Contact &amp; Next Steps</h4>
+          <pre>Partnership enquiries:
+jarryd@urbyte.com.au
+
+Technical specifications:
+Available under NDA
+
+Pilot program:
+Accepting applications now</pre>
+        </div>
+      </div>
+      <!-- INSIGHT DASHBOARD -->
+
+<div id="insightDashboard" style="margin-top:36px;background:#00000A;border:1px solid rgba(0,229,204,0.18);overflow:hidden;">
+
+  <!-- DASHBOARD HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:rgba(0,229,204,0.04);border-bottom:1px solid rgba(0,229,204,0.12);">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" style="width:28px;height:28px;border-radius:4px;object-fit:cover;"/>
+      <div>
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.5px;color:#fff;">Urbyte Insight</div>
+        <div style="font-size:10px;color:#00E5CC;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">Churn Prediction System</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1px;">MAY 20, 2026</span>
+      <span style="background:rgba(0,229,204,0.1);border:1px solid rgba(0,229,204,0.25);color:#00E5CC;font-size:9px;font-weight:700;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;">● LIVE</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:180px 1fr;min-height:500px;">
+
+    <!-- SIDEBAR -->
+    <div style="background:rgba(0,0,0,0.4);border-right:1px solid rgba(0,229,204,0.08);padding:20px 0;">
+      <div style="padding:0 16px 16px;border-bottom:1px solid rgba(0,229,204,0.08);margin-bottom:12px;">
+        <div style="font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:10px;">Navigation</div>
+      </div>
+      <div id="sideLinks">
+<div style="padding:9px 16px;font-size:11px;color:#00E5CC;font-weight:700;background:rgba(0,229,204,0.08);border-right:2px solid #00E5CC;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Dashboard</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Subscribers</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Risk Analysis</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Predictions</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Alerts<span style="background:#C2003A;color:#fff;font-size:8px;font-weight:700;padding:1px 6px;border-radius:0;margin-left:6px;">12</span></div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Retention</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Reports</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Data Explorer</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Models</div>
+<div style="padding:9px 16px;font-size:11px;color:rgba(255,255,255,0.45);cursor:pointer;display:flex;align-items:center;justify-content:space-between;">Settings</div>
+      </div>
+      <div style="margin-top:auto;padding:16px;border-top:1px solid rgba(0,229,204,0.08);margin-top:32px;">
+        <div style="font-size:9px;color:rgba(0,229,204,0.5);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">System Status</div>
+        <div style="display:flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#00E5CC;display:inline-block;box-shadow:0 0 6px #00E5CC;"></span><span style="font-size:10px;color:rgba(255,255,255,0.6);">Operational</span></div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.25);margin-top:4px;">Model v2.4.1</div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.25);">Updated 5m ago</div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div style="padding:24px;overflow-y:auto;max-height:600px;">
+
+      <!-- SECTION 1: DWFI -->
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:22px;height:22px;background:#00E5CC;color:#00000A;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+          <span style="font-size:13px;font-weight:800;letter-spacing:-0.3px;color:#fff;">DWFI — Data-Waste Frustration Index</span>
+        </div>
+
+        <!-- Formula -->
+        <div style="background:rgba(0,229,204,0.03);border:1px solid rgba(0,229,204,0.1);padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:11px;font-weight:900;color:#00E5CC;letter-spacing:2px;font-family:'Courier New',monospace;">DWFI</span>
+          <span style="color:rgba(255,255,255,0.3);font-size:14px;">=</span>
+          <div style="background:rgba(0,229,204,0.06);border:1px solid rgba(0,229,204,0.15);padding:8px 14px;text-align:center;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:3px;">Data Waste Score</div>
+            <div style="font-size:11px;font-weight:700;color:#00E5CC;">35%</div>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;font-weight:300;">+</span>
+          <div style="background:rgba(0,229,204,0.06);border:1px solid rgba(0,229,204,0.15);padding:8px 14px;text-align:center;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:3px;">Billing Frustration</div>
+            <div style="font-size:11px;font-weight:700;color:#00E5CC;">35%</div>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;font-weight:300;">+</span>
+          <div style="background:rgba(0,229,204,0.06);border:1px solid rgba(0,229,204,0.15);padding:8px 14px;text-align:center;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:3px;">Support Friction</div>
+            <div style="font-size:11px;font-weight:700;color:#00E5CC;">30%</div>
+          </div>
+          <div style="margin-left:auto;padding:8px 14px;border-left:1px solid rgba(0,229,204,0.1);">
+            <div style="font-size:9px;font-weight:700;letter-spacing:1px;color:#00E5CC;text-transform:uppercase;margin-bottom:4px;">DWFI Range</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);">0 (Best) – 100 (Worst)</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);">Higher = greater churn risk</div>
+          </div>
+        </div>
+
+        <!-- Trend Cycles -->
+        <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;">DWFI Trend — Last 3 Billing Cycles</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;">
+          <div style="background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.08);padding:14px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Cycle 1 &nbsp;·&nbsp; Feb 20 – Mar 19</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">DWFI Score</div>
+            <div style="font-size:22px;font-weight:900;color:rgba(0,229,204,0.7);letter-spacing:-1px;">32.1</div>
+            <div style="height:3px;background:rgba(0,229,204,0.15);margin-top:8px;"><div style="height:100%;width:32%;background:rgba(0,229,204,0.5);"></div></div>
+          </div>
+          <div style="background:rgba(255,150,0,0.04);border:1px solid rgba(255,150,0,0.12);padding:14px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Cycle 2 &nbsp;·&nbsp; Mar 20 – Apr 19</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">DWFI Score</div>
+            <div style="font-size:22px;font-weight:900;color:#FF9500;letter-spacing:-1px;">54.7</div>
+            <div style="height:3px;background:rgba(255,150,0,0.15);margin-top:8px;"><div style="height:100%;width:55%;background:#FF9500;"></div></div>
+          </div>
+          <div style="background:rgba(194,0,58,0.06);border:1px solid rgba(194,0,58,0.25);padding:14px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Cycle 3 (Current) &nbsp;·&nbsp; Apr 20 – May 19</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">DWFI Score</div>
+            <div style="font-size:22px;font-weight:900;color:#C2003A;letter-spacing:-1px;">87.4</div>
+            <div style="height:3px;background:rgba(194,0,58,0.2);margin-top:8px;"><div style="height:100%;width:87%;background:#C2003A;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: CHURN RISK METER -->
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:22px;height:22px;background:#C2003A;color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+          <span style="font-size:13px;font-weight:800;letter-spacing:-0.3px;color:#fff;">Churn Risk Meter</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(0,229,204,0.08);padding:24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <!-- Gauge SVG -->
+          <div style="flex-shrink:0;">
+            <svg width="200" height="110" viewBox="0 0 200 110">
+              <defs>
+                <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#00E5CC"/>
+                  <stop offset="45%" style="stop-color:#FF9500"/>
+                  <stop offset="100%" style="stop-color:#C2003A"/>
+                </linearGradient>
+              </defs>
+              <!-- Background arc -->
+              <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="16" stroke-linecap="butt"/>
+              <!-- Colored arc -->
+              <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#gaugeGrad)" stroke-width="16" stroke-linecap="butt" opacity="0.85"/>
+              <!-- Needle at 87.4% -->
+              <line x1="100" y1="100" x2="166" y2="72" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="100" cy="100" r="6" fill="#fff"/>
+              <!-- Labels -->
+              <text x="14" y="108" font-size="8" fill="rgba(0,229,204,0.7)" font-family="Helvetica">Low</text>
+              <text x="163" y="108" font-size="8" fill="rgba(194,0,58,0.9)" font-family="Helvetica">High</text>
+            </svg>
+            <div style="display:flex;justify-content:space-between;font-size:8px;color:rgba(255,255,255,0.3);margin-top:-8px;padding:0 14px;">
+              <span>0%–35%</span><span style="color:rgba(255,149,0,0.7);">36%–65%</span><span>66%–100%</span>
+            </div>
+          </div>
+          <!-- Score -->
+          <div style="text-align:center;">
+            <div style="font-size:52px;font-weight:900;color:#C2003A;letter-spacing:-3px;line-height:1;">87.4%</div>
+            <div style="font-size:14px;font-weight:800;color:#C2003A;letter-spacing:1px;text-transform:uppercase;margin-top:4px;">High Risk</div>
+          </div>
+          <!-- Alert -->
+          <div style="background:rgba(194,0,58,0.08);border:1px solid rgba(194,0,58,0.25);padding:16px 20px;flex:1;min-width:160px;">
+            <div style="font-size:10px;font-weight:800;color:#C2003A;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">⚠ High churn risk detected</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.55);line-height:1.6;">Immediate retention action recommended.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: SUBSCRIBER PROFILE -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:22px;height:22px;background:rgba(0,229,204,0.15);border:1px solid rgba(0,229,204,0.4);color:#00E5CC;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+          <span style="font-size:13px;font-weight:800;letter-spacing:-0.3px;color:#fff;">Subscriber Profile &amp; Recommended Action</span>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(0,229,204,0.08);padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr 1.2fr;gap:20px;">
+          <!-- Profile -->
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;">Subscriber</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Subscriber ID</div>
+            <div style="font-family:'Courier New',monospace;font-size:11px;color:#00E5CC;margin-bottom:12px;">a9f3c2e7b8d91c4e</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div><div style="font-size:9px;color:rgba(255,255,255,0.35);">Account Type</div><div style="font-size:10px;color:rgba(255,255,255,0.7);">Postpaid Mobile</div></div>
+              <div><div style="font-size:9px;color:rgba(255,255,255,0.35);">Tenure</div><div style="font-size:10px;color:rgba(255,255,255,0.7);">14 months</div></div>
+            </div>
+          </div>
+          <!-- Churn Prob -->
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;">Churn Probability</div>
+            <div style="font-size:32px;font-weight:900;color:#C2003A;letter-spacing:-1px;line-height:1;">87.4%</div>
+            <div style="font-size:10px;font-weight:800;color:#C2003A;text-transform:uppercase;letter-spacing:1px;margin:6px 0;">High Risk</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.35);">Model: Urbyte Churn AI v2.4</div>
+            <div style="background:rgba(0,229,204,0.08);border:1px solid rgba(0,229,204,0.2);padding:3px 8px;display:inline-block;margin-top:6px;">
+              <span style="font-size:9px;color:#00E5CC;font-weight:700;">Confidence: 92%</span>
+            </div>
+          </div>
+          <!-- DWFI Drivers -->
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;">Top DWFI Drivers</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:10px;color:rgba(255,255,255,0.6);">↑ High Data Waste</span>
+                <span style="font-size:9px;font-weight:700;color:#C2003A;background:rgba(194,0,58,0.12);padding:2px 8px;">HIGH</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:10px;color:rgba(255,255,255,0.6);">$ Billing Disputes</span>
+                <span style="font-size:9px;font-weight:700;color:#C2003A;background:rgba(194,0,58,0.12);padding:2px 8px;">HIGH</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:10px;color:rgba(255,255,255,0.6);">⊙ Support Friction</span>
+                <span style="font-size:9px;font-weight:700;color:#FF9500;background:rgba(255,150,0,0.1);padding:2px 8px;">MEDIUM</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommended Action -->
+          <div style="background:rgba(0,229,204,0.04);border:1px solid rgba(0,229,204,0.12);padding:16px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px;">Recommended Action</div>
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;">
+              <span style="font-size:16px;">★</span>
+              <div style="font-size:11px;font-weight:700;color:#00E5CC;line-height:1.5;">Offer Data Optimisation Plan + Loyalty Discount</div>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:14px;">Personalised offer likely to reduce churn risk by <span style="color:#00E5CC;font-weight:700;">62%</span>.</div>
+            <div style="background:#00E5CC;color:#00000A;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:10px 14px;text-align:center;cursor:pointer;">Initiate Retention Workflow →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER BAR -->
+      <div style="margin-top:16px;padding:10px 0;border-top:1px solid rgba(0,229,204,0.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:9px;color:rgba(255,255,255,0.25);">ⓘ Integration mode: Phase 2 — Live API (mTLS/JWT)</span>
+        <span style="font-size:9px;color:rgba(255,255,255,0.25);">Predicted Churn Date: Jun 18 – Jul 02, 2026</span>
+        <span style="font-size:9px;color:#C2003A;">Risk Trend: Increasing ↗</span>
+      </div>
+
+    </div><!-- /main content -->
+  </div><!-- /grid -->
+
+      <!-- ARCHITECTURE DIAGRAM PANEL -->
+      <div style="margin-top:28px;">
+        <div style="font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(0,229,204,0.55);margin-bottom:10px;">Phase 2 — MVNO Carrier Integration Architecture</div>
+        <div style="border:1px solid rgba(0,229,204,0.1);overflow:hidden;position:relative;">
+          <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/ded1d1b22_TechnicalAPIarchitecturediagramshowingUrbytescarrierintegrationsystemLeftsideshowstelecommunicationscarrierbillingsystemwithservericonsCentershowssecureAPIgatewaywithmTLSandJWTauthenticationshieldsTwomainAPIflows.jpg"
+            alt="Urbyte Carrier Integration Architecture"
+            style="width:100%;display:block;filter:brightness(0.92) contrast(1.05);"
+          />
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,10,0.85) 0%,transparent 100%);padding:16px 20px 14px;display:flex;align-items:flex-end;justify-content:space-between;">
+            <div style="font-size:9px;color:rgba(0,229,204,0.6);letter-spacing:1.5px;text-transform:uppercase;">Live API integration — available under executed MVNO agreement</div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:1px;">Phase 1 (current): async CSV/CDR &nbsp;·&nbsp; Phase 2: POST /v1/billing/cycle</div>
+          </div>
+        </div>
+      </div>
+</div><!-- /insightDashboard -->
+
+    </div>
+  </div>
+</div>
+
+<div class="contact-outer" id="contact" style="padding:0 48px 96px;max-width:1100px;margin:0 auto;">
+  <div class="contact-block">
+    <h2>Ready to convert unused allowance value into a retention asset?</h2>
+    <p>Urbyte deploys out-of-band. No network changes. No OSS/BSS modification. Verified DBU yield from day one.</p>
+    <a href="mailto:jarryd@urbyte.com.au" class="btn-p">Request Partnership Enquiry</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte" style="width:32px;height:32px;border-radius:6px;object-fit:cover;vertical-align:middle;margin-right:10px;"/>
+    <span class="foot-meta">&#169; 2026 Urbyte Pty Ltd &nbsp;&#183;&nbsp; ACN 692 885 019 &nbsp;&#183;&nbsp; Acknowledges the Widjabul Wiabul people of the Bundjalung Nation</span>
+  </div>
+  <div class="foot-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:jarryd@urbyte.com.au">Contact</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // --- VAULT UNLOCK ---
+  var codes = ['urbyte2026','partner','mvno2026'];
+  function initVault(){
+    var btn = document.getElementById('vaultBtn');
+    var inp = document.getElementById('vaultCode');
+    var err = document.getElementById('vaultErr');
+    var content = document.getElementById('vaultContent');
+    var row = document.getElementById('vaultRow');
+    if(!btn) return;
+    function tryUnlock(){
+      var val = inp.value.trim().toLowerCase();
+      if(codes.indexOf(val) !== -1){
+        err.style.display = 'none';
+        content.style.display = 'block';
+        row.style.display = 'none';
+      } else {
+        err.style.display = 'block';
+        inp.value = '';
+        inp.focus();
+      }
+    }
+    btn.addEventListener('click', tryUnlock);
+    inp.addEventListener('keydown', function(e){ if(e.key==='Enter') tryUnlock(); });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initVault);
+  } else {
+    initVault();
+  }
+})();
+</script>
+
+</body>
+</html>
