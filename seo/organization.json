@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Urbyte",
+  "legalName": "Urbyte Pty Ltd",
+  "url": "https://www.urbyte.com.au",
+  "description": "Australian telecommunications waste verification infrastructure.",
+  "founder": {
+    "@type": "Person",
+    "name": "Jarryd Thamer"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  }
+}
