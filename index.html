@@ -502,6 +502,123 @@
   ]
 }
 </script>
+<style>
+/* Landing hero aligned exactly to the live Telco page structure.
+   Existing landing colours, typography, copy, controls and icons are retained. */
+.hero{
+  position:relative;
+  margin-top:64px;
+  padding:0;
+  min-height:clamp(620px,calc(100vh - 64px),880px);
+  display:flex;
+  flex-direction:row!important;
+  align-items:center;
+  justify-content:flex-start;
+  overflow:hidden;
+  text-align:left;
+  isolation:isolate;
+}
+.landing-hero-img{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:none;
+}
+.landing-hero-fade{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:linear-gradient(90deg,rgba(0,0,10,.92) 0%,rgba(0,0,10,.76) 28%,rgba(0,0,10,.26) 52%,transparent 72%);
+  pointer-events:none;
+}
+.hero .floor-wrap,.hero .hero-sweep-wrap,.hero .hero-vortex{display:none!important}
+.hero-content{
+  position:relative;
+  z-index:3;
+  width:min(600px,44%);
+  padding:54px 0 48px;
+  margin:0 0 0 clamp(24px,4vw,60px)!important;
+  text-align:left;
+}
+.hero-content>div:first-child{text-align:left!important}
+.sys-badge{margin-bottom:20px}
+.hero h1{
+  font-size:clamp(34px,3.65vw,54px);
+  line-height:.96;
+  letter-spacing:-.045em;
+  margin-bottom:22px;
+  max-width:560px;
+}
+.hero .h1-line1,.hero .h1-line2,.hero .h1-line3{
+  letter-spacing:inherit;
+  color:transparent;
+  -webkit-background-clip:text;
+  background-clip:text;
+}
+.hero .h1-line1,.hero .h1-line2{
+  background-image:linear-gradient(180deg,#ffffff 0%,#d9e9fa 24%,#7894b5 46%,#f7fbff 52%,#91aac5 66%,#ffffff 100%);
+  text-shadow:none;
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.72)) drop-shadow(0 0 16px rgba(109,186,255,.22));
+}
+.hero .h1-line3{
+  background-image:linear-gradient(110deg,#dff8ff 0%,#62d5ff 18%,#087dff 42%,#d7f8ff 52%,#189dff 68%,#75e7ff 86%,#eefcff 100%);
+  background-size:180% 100%;
+  text-shadow:none;
+  filter:drop-shadow(0 2px 0 rgba(0,25,55,.9)) drop-shadow(0 0 19px rgba(0,164,255,.45));
+  animation:metal-shift 8s ease-in-out infinite alternate;
+}
+.hero .h1-line3{font-size:.48em;line-height:1.22;letter-spacing:.015em;margin-top:13px;max-width:560px}
+@keyframes metal-shift{from{background-position:0 50%}to{background-position:100% 50%}}
+.hero-sub{font-size:13px;line-height:1.68;max-width:510px;margin:0 0 20px;color:rgba(230,241,252,.7);text-shadow:0 1px 12px rgba(0,0,10,.9)}
+.hero-audiences{font-size:8px;line-height:1.7;letter-spacing:1.7px;text-transform:uppercase;color:rgba(0,229,204,.62);margin-top:13px}
+.hero-enterprise-link{display:block;text-align:center;width:100%;box-sizing:border-box;margin-top:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.68);font-size:9px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;transition:.2s}
+.hero-enterprise-link:hover{border-color:#00E5CC;color:#00E5CC}
+.hero-btns{justify-content:flex-start}
+.hero-btns>div{margin-left:0!important;margin-right:0!important}
+.hero-micro{text-align:left;margin-top:14px;letter-spacing:2px}
+#landingTicker{
+  position:relative;
+  z-index:4;
+  background:rgba(0,229,204,.03)!important;
+  border-top:1px solid rgba(0,229,204,.1)!important;
+  border-bottom:1px solid rgba(0,229,204,.07)!important;
+}
+#landingTicker .ticker-track{padding:13px 0}
+#landingStats{border-top:0}
+@media(max-width:900px){
+  .hero{min-height:auto!important;margin-top:64px;padding:0!important;display:block!important;background:#00000A}
+  .landing-hero-img{inset:0 0 auto;height:270px;object-fit:cover;object-position:62% center}
+  .landing-hero-fade{inset:0 0 auto;height:271px;background:linear-gradient(180deg,rgba(0,0,10,.08) 0%,rgba(0,0,10,.2) 50%,#00000A 100%)}
+  .hero-content{width:100%;padding:235px 24px 36px;margin:0!important;text-align:left}
+  .hero h1{font-family:'Orbitron',sans-serif!important;font-size:clamp(31px,8.6vw,42px);line-height:1.02;letter-spacing:-1.7px;max-width:100%;margin-bottom:20px}
+  .hero .h1-line3{font-size:.46em;line-height:1.3;margin-top:11px;letter-spacing:0}
+  .hero-sub{font-size:12px;line-height:1.72;max-width:100%;margin-bottom:18px}
+  .sys-badge{font-size:8px;letter-spacing:1.35px;padding:6px 10px;margin-bottom:18px}
+  .hero-content>div:first-child{margin-bottom:10px!important}
+  .hero-content>div:first-child span{font-size:8px!important;letter-spacing:2px!important}
+  .hero-micro{font-size:7px;line-height:1.6;letter-spacing:1.3px}
+  .stats-inner{display:grid!important;grid-template-columns:repeat(3,1fr);gap:0!important;width:100%}
+  .stats-inner>div{padding:4px 8px}
+  .stat-label{font-size:8px!important;line-height:1.5}
+  .member-access-options{gap:8px!important;flex-wrap:nowrap!important;align-items:flex-start}
+  .member-access-options>a{min-width:0!important;max-width:none!important;flex:1 1 0}
+  .member-access-options>a>div{width:58px!important;height:58px!important}
+  .member-access-options>a>span:last-child{font-size:7px!important;line-height:1.45!important}
+  .sec{padding-top:76px;padding-bottom:76px}
+}
+@media(max-width:560px){
+  .landing-hero-img{height:245px;object-position:64% center}
+  .landing-hero-fade{height:246px}
+  .hero-content{padding:212px 18px 32px;margin:0!important}
+  .sys-badge{white-space:normal;line-height:1.5}
+  .hero-btns>div{max-width:100%!important}
+}
+</style>
 </head>
 <body>
 
@@ -632,7 +749,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" alt="Urbyte logo" style="width:44px;height:44px;object-fit:contain;border-radius:0;" />
+    <img src="assets/urbyte-tier-icon.jpg" alt="Urbyte logo" style="width:44px;height:44px;object-fit:contain;border-radius:0;" />
     <span style="font-size:18px;font-weight:700;letter-spacing:-0.5px;color:#fff;line-height:1;">Urbyte</span>
   </div>
   <div class="nav-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
@@ -651,6 +768,8 @@
 
 <!-- HERO -->
 <div class="hero">
+  <img class="landing-hero-img" src="assets/urbyte-hero-australia.png" alt="Urbyte digital infrastructure with Australia visible on the globe" />
+  <div class="landing-hero-fade"></div>
   <div class="floor-wrap">
     <div class="hero-sun"></div>
     <div class="hero-sun-stripes">
@@ -702,10 +821,10 @@
     <div class="sys-badge"><span class="sys-dot"></span> SYSTEM ONLINE · AUSTRALIA · SIGNAL RETURNING</div>
     <h1>
       <span class="h1-line1">Your unused data</span>
-      <span class="h1-line2">Has value</span>
-      <span class="h1-line3">Access it now.</span>
+      <span class="h1-line2">has value.</span>
+      <span class="h1-line3">Across one phone—or an entire fleet.</span>
     </h1>
-    <p class="hero-sub">Australians are paying billions for mobile data that simply expires. Track yours, catch it before its expires, donate to charity at zero cost. join the marketpalce to redeem your DBU's.</p>
+    <p class="hero-sub">Urbyte verifies the mobile data people and businesses pay for but never use, turning invisible telecommunications waste into measurable value—without changing providers or mobile plans.</p>
     <div class="hero-btns">
       <div style="width:100%;max-width:320px;margin:0 auto;text-align:center;margin-bottom:8px;">
         <span style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,229,204,0.5);">Estimate Your Unused Mobile Value</span>
@@ -737,11 +856,13 @@
               </div>
             </div>
           </div>
-          <a href="#signup" class="btn-primary" style="display:block;text-align:center;width:100%;box-sizing:border-box;font-size:12px;padding:11px 0;margin-bottom:14px;">Start Earning Free — No Card Needed →</a>
+          <a href="#signup" class="btn-primary" style="display:block;text-align:center;width:100%;box-sizing:border-box;font-size:12px;padding:11px 0;margin-bottom:0;">See What Yours Is Worth →</a>
+          <a href="/enterprise" class="hero-enterprise-link">Audit a Mobile Fleet →</a>
         </div>
       </div>
     </div>
     <p class="hero-micro">1 GB = 10 DBUs · Free to earn · Free to donate via Givabit</p>
+    <p class="hero-audiences">For individuals · Enterprise fleets · Telcos &amp; MVNOs · Community impact</p>
 
 <script>
 function calcDBU() {
@@ -772,12 +893,12 @@ function calcDBU() {
   <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Member Access</div>
   <div style="font-size:clamp(22px,5vw,32px);font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:16px;">Join Urbyte</div>
     <p style="font-size:13px;color:rgba(0,229,204,0.75);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:28px;text-align:center;">Earning and donating are always free. Unlock the marketplace when you're ready to spend your DBUs.</p>
-  <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+  <div class="member-access-options" style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
 
     <!-- Free -->
     <a href="#tier-free" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:118px;max-width:138px;">
       <div style="width:72px;height:72px;border-radius:0;overflow:hidden;">
-        <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" style="width:100%;height:100%;object-fit:contain;" alt="Free"/>
+        <img src="assets/urbyte-tier-icon.jpg" style="width:100%;height:100%;object-fit:contain;" alt="Free"/>
       </div>
       <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.92);">Free</span>
       <span style="font-size:18px;font-weight:900;color:#fff;">$0<span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.4);">/mo</span></span>
@@ -787,7 +908,7 @@ function calcDBU() {
     <!-- Bronze -->
     <a href="#tier-bronze" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:118px;max-width:138px;">
       <div style="width:72px;height:72px;border-radius:0;overflow:hidden;">
-        <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" style="width:100%;height:100%;object-fit:contain;filter:sepia(1) saturate(3.6) hue-rotate(330deg) brightness(1.02) contrast(1.24);" alt="Bronze"/>
+        <img src="assets/urbyte-tier-icon.jpg" style="width:100%;height:100%;object-fit:contain;filter:sepia(1) saturate(3.6) hue-rotate(330deg) brightness(1.02) contrast(1.24);" alt="Bronze"/>
       </div>
       <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CD7F32;">Bronze</span>
       <span style="font-size:18px;font-weight:900;color:#fff;">$3.99<span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.4);">/mo</span></span>
@@ -797,7 +918,7 @@ function calcDBU() {
     <!-- Gold -->
     <a href="#tier-gold" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:118px;max-width:138px;">
       <div style="width:72px;height:72px;border-radius:0;overflow:hidden;">
-        <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/48c4942a0_IMG_7052.jpg" style="width:100%;height:100%;object-fit:contain;filter:sepia(1) saturate(5.2) hue-rotate(5deg) brightness(1.22) contrast(1.22);" alt="Gold"/>
+        <img src="assets/urbyte-tier-icon.jpg" style="width:100%;height:100%;object-fit:contain;filter:sepia(1) saturate(5.2) hue-rotate(5deg) brightness(1.22) contrast(1.22);" alt="Gold"/>
       </div>
       <span style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FFD700;">Gold</span>
       <span style="font-size:18px;font-weight:900;color:#fff;">$9.99<span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.4);">/mo</span></span>
@@ -809,7 +930,7 @@ function calcDBU() {
 </div>
 
 <!-- SOCIAL PROOF BAR -->
-<div style="position:relative;z-index:1;padding:0;background:rgba(0,0,10,0.75);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);backdrop-filter:blur(12px);overflow:hidden;">
+<div id="landingTicker" style="position:relative;z-index:1;padding:0;background:rgba(0,0,10,0.75);border-top:1px solid rgba(0,229,204,0.08);border-bottom:1px solid rgba(0,229,204,0.08);backdrop-filter:blur(12px);overflow:hidden;">
   <style>
     .ticker-track {
       display: flex;
@@ -896,7 +1017,7 @@ function calcDBU() {
 </div>
 
 <!-- STATS -->
-<div class="stats">
+<div class="stats" id="landingStats">
   <div class="stats-inner">
     <div><div class="stat-num s1">26M<span class="stat-suffix">+</span></div><div class="stat-label">Australians paying for more than they use</div></div>
     <div><div class="stat-num s2">$9.9B<span class="stat-suffix">+</span></div><div class="stat-label">In value lost to the system every year</div></div>
@@ -1414,7 +1535,7 @@ function calcDBU() {
 <footer>
   <div class="footer-logo" style="position:relative;">
     <div style="position:relative;display:inline-block;">
-      <img src="https://media.base44.com/images/public/69b4b3be3eb13fdbcb5a0228/3309a6182_9030A4CE-0C5A-4387-B075-0BDFAC65E0AB.png" alt="Urbyte" style="width:26px;height:26px;border-radius:6px;object-fit:cover;" />
+      <img src="assets/urbyte-footer-logo.png" alt="Urbyte" style="width:26px;height:26px;border-radius:6px;object-fit:cover;" />
       <svg class="logo-fol logo-fol-nav" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;">
         <!-- Flower of Life: central circle + 6 surrounding -->
         <circle cx="50" cy="50" r="18" fill="none" stroke="rgba(167,139,255,0.7)" stroke-width="1"/>
@@ -1558,6 +1679,17 @@ function calcDBU() {
       }else{throw new Error();}
     }catch{err.textContent='Something went wrong. Please try again.';err.style.display='block';btn.textContent='Join the Waitlist';btn.disabled=false;}
   });
+</script>
+<script>
+  // Match the live Telco/Enterprise sequence: hero → ticker → stat statement.
+  // The original ticker, stats, copy, icons and colours are moved, not recreated.
+  (function () {
+    var hero = document.querySelector('.hero');
+    var ticker = document.getElementById('landingTicker');
+    var stats = document.getElementById('landingStats');
+    if (hero && ticker) hero.insertAdjacentElement('afterend', ticker);
+    if (ticker && stats) ticker.insertAdjacentElement('afterend', stats);
+  })();
 </script>
 </body>
 </html>
