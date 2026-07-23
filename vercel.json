@@ -55,6 +55,10 @@
     {
       "source": "/unused-data-rewards-australia",
       "destination": "/unused-data-rewards-australia.html"
+    },
+    {
+      "source": "/blog/unused-mobile-data-australia",
+      "destination": "/blog/unused-mobile-data-australia.html"
     }
   ]
 }
