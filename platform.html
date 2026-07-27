@@ -83,7 +83,7 @@
     .count-label{font-size:8px;color:rgba(255,255,255,0.2);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
 
     /* ═══════════════════════════════════════
-       CHARITY DONATION
+       GIVABIT DIRECTION
     ═══════════════════════════════════════ */
     .give-wrap{max-width:1100px;margin:0 auto;padding:48px 24px;}
     .give-header{margin-bottom:52px;}
@@ -255,7 +255,7 @@
         <div class="kpi-unit">Across all cycles</div>
       </div>
       <div class="kpi-card crimson">
-        <div class="kpi-label">AUD Equivalent</div>
+        <div class="kpi-label">Pathway Status</div>
         <div class="kpi-val crimson" id="audEquiv">$0.00</div>
         <div class="kpi-unit">At standard DBU rate</div>
       </div>
@@ -292,8 +292,8 @@
           <th>Plan</th>
           <th>Used</th>
           <th>Unused</th>
-          <th>Recovery</th>
-          <th>DBUs Earned</th>
+          <th>Verified Waste</th>
+          <th>DBUs Recorded</th>
         </tr>
       </thead>
       <tbody id="usageTableBody">
@@ -305,7 +305,7 @@
     <div class="redemption-card" style="position:relative;margin-top:48px;">
       <div class="redemption-info">
         <h3>Redemption Unlock</h3>
-        <p>Your DBUs become redeemable after 3 completed billing cycles. This protects the platform's integrity and ensures sustainable value for every member.</p>
+        <p>Eligibility review occurs after three completed billing cycles. DBUs remain internal records and any supported pathway is subject to approval.</p>
       </div>
       <div class="countdown-wrap">
         <div class="count-block">
@@ -334,7 +334,7 @@
     <div class="give-header">
       <div class="dash-section-title">Social Impact</div>
       <div class="give-title">Direct your<br/>signal.</div>
-      <p class="give-sub">Convert your DBU credits into real support for Australian organisations doing work that matters. No middlemen. No fees. 100% of your directed value goes to your chosen cause.</p>
+      <p class="give-sub">Record a proposed Givabit direction toward an Australian organisation. This interface does not transfer money or complete a donation; supported pathways remain subject to partner, funding and processor approval.</p>
     </div>
 
     <div class="give-balance">
@@ -347,8 +347,8 @@
       </div>
       <div style="width:1px;height:40px;background:rgba(0,229,204,0.15);"></div>
       <div>
-        <div class="give-bal-label">AUD Equivalent</div>
-        <div style="font-size:18px;font-weight:700;color:rgba(0,229,204,0.6);" id="giveAud">$0.00</div>
+        <div class="give-bal-label">Pathway Status</div>
+        <div style="font-size:18px;font-weight:700;color:rgba(0,229,204,0.6);" id="giveAud">Not active</div>
       </div>
     </div>
 
@@ -414,15 +414,15 @@
 
     <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
       <button class="give-submit" onclick="submitDonation()">Direct My DBUs →</button>
-      <div style="font-size:11px;color:rgba(255,255,255,0.15);">Selected: <span id="selectedCharity">None</span> · <span id="selectedAmt">0</span> DBUs = <span id="selectedAud">$0.00</span></div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.15);">Selected: <span id="selectedCharity">None</span> · <span id="selectedAmt">0</span> DBUs · <span id="selectedAud">No cash value</span></div>
     </div>
-    <div id="donateSuccess" class="success-msg">✓ Donation submitted. Your impact has been recorded.</div>
+    <div id="donateSuccess" class="success-msg">✓ Direction submitted. Your platform record has been updated.</div>
 
     <!-- HISTORY -->
     <div class="donation-history">
-      <div class="dash-section-title">Donation History</div>
+      <div class="dash-section-title">Direction History</div>
       <div id="donationList">
-        <div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DONATIONS YET</div>
+        <div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DIRECTIONS YET</div>
       </div>
     </div>
 
@@ -528,7 +528,7 @@
       <div class="if-card">
         <div class="if-icon">□</div>
         <div class="if-title">CSR Impact Dashboard</div>
-        <p class="if-desc">Track and report on the social impact generated through the Givabit partnership — charity donations, community value, and ESG metrics in one view.</p>
+        <p class="if-desc">Track proposed Givabit directions, supported community-impact activity and ESG reporting records in one view.</p>
         <span class="if-tag">Coming Soon</span>
       </div>
       <div class="if-card">
@@ -633,10 +633,10 @@
     const used = parseFloat(document.getElementById('usedGb').value);
     if (!month || !plan || isNaN(used)) return;
     const unused = Math.max(0, plan - used);
-    const dbuEarned = Math.round(unused * 10 * tierMultiplier());
-    state.usageLogs.unshift({ month, telco, plan, used, unused, dbuEarned });
+    const dbuRecorded = Math.round(unused * 10 * tierMultiplier());
+    state.usageLogs.unshift({ month, telco, plan, used, unused, dbuRecorded });
     state.totalUnused += unused;
-    state.dbuBalance += dbuEarned;
+    state.dbuBalance += dbuRecorded;
     state.cyclesCompleted = Math.min(3, state.cyclesCompleted + 1);
     updateKPIs();
     renderUsageTable();
@@ -666,12 +666,12 @@
         <td>${l.used} GB</td>
         <td style="color:#00E5CC">${l.unused.toFixed(1)} GB</td>
         <td><div class="unused-bar-wrap"><div class="unused-bar" style="width:${pct}%"></div></div></td>
-        <td><span class="dbu-pill">+${l.dbuEarned} DBU</span></td>
+        <td><span class="dbu-pill">+${l.dbuRecorded} DBU</span></td>
       </tr>`;
     }).join('');
   }
 
-  // ─── CHARITY DONATION ───
+  // ─── GIVABIT DIRECTION ───
   function selectCharity(el, name, cause) {
     document.querySelectorAll('.charity-opt').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
@@ -686,13 +686,13 @@
     state.donateAmount = amt;
     document.getElementById('customAmount').value = '';
     document.getElementById('selectedAmt').textContent = amt;
-    document.getElementById('selectedAud').textContent = '$' + (amt * 0.05).toFixed(2);
+    document.getElementById('selectedAud').textContent = 'No cash value';
     updateSelectedSummary();
   }
 
   function updateSelectedSummary() {
     document.getElementById('selectedAmt').textContent = state.donateAmount;
-    document.getElementById('selectedAud').textContent = '$' + (state.donateAmount * 0.05).toFixed(2);
+    document.getElementById('selectedAud').textContent = 'No cash value';
   }
 
   function submitDonation() {
@@ -705,7 +705,7 @@
       charity: state.selectedCharity.name,
       cause: state.selectedCharity.cause,
       dbu: state.donateAmount,
-      aud: (state.donateAmount * 0.05).toFixed(2),
+      aud: null,
       date: new Date().toLocaleDateString('en-AU'),
       status: 'Confirmed'
     };
@@ -724,13 +724,13 @@
     document.getElementById('customAmount').value = '';
     document.getElementById('selectedCharity').textContent = 'None';
     document.getElementById('selectedAmt').textContent = '0';
-    document.getElementById('selectedAud').textContent = '$0.00';
+    document.getElementById('selectedAud').textContent = 'No cash value';
   }
 
   function renderDonations() {
     const el = document.getElementById('donationList');
     if (!state.donations.length) {
-      el.innerHTML = '<div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DONATIONS YET</div>';
+      el.innerHTML = '<div style="text-align:center;color:rgba(255,255,255,0.12);padding:32px;font-size:11px;letter-spacing:2px;">NO DIRECTIONS YET</div>';
       return;
     }
     el.innerHTML = state.donations.map(d => `
@@ -740,7 +740,7 @@
           <div class="don-date">${d.date} · ${d.cause}</div>
         </div>
         <div style="display:flex;align-items:center;gap:20px;">
-          <div class="don-amt">${d.dbu} DBU · $${d.aud}</div>
+          <div class="don-amt">${d.dbu} DBU · internal direction record</div>
           <div class="don-status">${d.status}</div>
         </div>
       </div>
