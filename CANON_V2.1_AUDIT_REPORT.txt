@@ -1,0 +1,36 @@
+URBYTE PUBLIC WEBSITE — CANON v2.1 ALIGNMENT AUDIT
+Completed: 27 July 2026
+
+Scope reviewed and corrected:
+- index.html
+- enterprise.html
+- Telco.html
+- privacy.html
+- terms.html
+- platform.html
+- app.html
+- wallet.html
+- member/index.html
+- can-you-get-refund-unused-mobile-data-australia.html
+- unused-data-rewards-australia.html
+- what-happens-to-unused-mobile-data-australia.html
+
+Corrections applied:
+- Removed claims that mobile data is converted, returned, reclaimed, recovered or redeemed.
+- Removed public "earn", "rewards", "minting" and cash-equivalent language.
+- Reframed DBUs as internal records created only after eligible telecommunications-waste verification.
+- Removed definitive tax-offset, intangible-asset, AFSL and deduction claims.
+- Added conditional language for legal, tax, funding, charity, partner and processor approval.
+- Removed fixed AUD-equivalent calculations from the Givabit interface.
+- Reframed marketplace/redemption language as supported future pathways.
+- Corrected enterprise and telco copy to verification, analytics, retention and reporting language.
+- Corrected SEO metadata and structured data to match Canon v2.1.
+
+Validation completed:
+- Blocked-phrase scan across 12 public and account-facing HTML files.
+- HTML parser validation across all 12 files.
+- Existing layout, CSS, images, navigation and form structure retained.
+
+Important:
+- The legacy filename /unused-data-rewards-australia remains for URL continuity, but its visible copy and metadata no longer describe Urbyte as a rewards system.
+- Professional legal, tax and regulatory advice is still required before any external settlement, superannuation, donation or tax pathway is activated.

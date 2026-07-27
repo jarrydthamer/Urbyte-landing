@@ -1,0 +1,1 @@
+Upload all files to the root of your GitHub repo. This version has a clearly visible wireframe landscape on Wallet, Convert and Redeem.

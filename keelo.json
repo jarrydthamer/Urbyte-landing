@@ -1,0 +1,5 @@
+{
+  "entity": "KEELO",
+  "status": "OPERATIONAL",
+  "security_perimeter": "IMMUTABLE_ZERO_TRUST"
+}

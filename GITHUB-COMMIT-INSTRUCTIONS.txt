@@ -1,0 +1,18 @@
+URBYTE LANDING PAGE UPDATE
+
+1. Extract this ZIP into the root of your local Urbyte-landing repository.
+   Allow it to replace index.html and merge the assets folder.
+
+2. In the terminal, from the Urbyte-landing directory, run:
+
+git status
+git add index.html assets/urbyte-hero-australia.png assets/urbyte-tier-icon.jpg assets/urbyte-footer-logo.png
+git commit -m "Upgrade landing hero and mobile layout"
+git push origin main
+
+Files changed:
+- index.html
+- assets/urbyte-hero-australia.png
+- assets/urbyte-tier-icon.jpg
+- assets/urbyte-footer-logo.png
+
