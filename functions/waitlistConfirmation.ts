@@ -52,7 +52,7 @@ Deno.serve(async (req) => {
               </div>
             </div>
             <p style="color: #888; font-size: 14px; line-height: 1.7;">
-              When Urbyte launches, you'll be first in line to start converting your unused data into <span class="highlight">DBUs</span> — digital units you can spend on rewards, cash back, or donate to Australian charities like Beyond Blue, Orange Sky, and 1800RESPECT.
+              When Urbyte launches, you'll be first in line to start converting your unused data into <span class="highlight">DBUs</span> — digital units you can track across complete billing cycles and review supported pathways or donate to Australian charities like Beyond Blue, Orange Sky, and 1800RESPECT.
             </p>
           </div>
 
