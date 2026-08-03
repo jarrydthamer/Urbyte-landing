@@ -271,6 +271,91 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   .telco-hero-text .btn-p,.telco-hero-text .btn-g{width:100%;text-align:center;box-sizing:border-box;}
 }
 </style>
+  /* ==========================================================================
+   URBYTE SAFARI & MOBILE BUGFIXES 
+   ========================================================================== */
+
+/* 1. Prevent parent grid/flex containers from stretching horizontally */
+.arch-grid, .ip-grid, .vault-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Fix the Insight Gated Partner Dashboard Grid for all screens */
+#insightDashboard * {
+  box-sizing: border-box !important;
+}
+
+/* Force the main 180px sidebar split grid to adjust layout constraints */
+#insightDashboard > div[style*="display:grid"] {
+  display: grid !important;
+  grid-template-columns: 180px 1fr !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 3. Handle specific narrow viewport drops (Media Query Overrides) */
+@media (max-width: 900px) {
+  /* Stack the main system layouts safely */
+  .arch-grid, .rev-grid, .ip-grid, .vault-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+  
+  /* Break down the dashboard inner sections safely */
+  #insightDashboard > div[style*="display:grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  #insightDashboard div[style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  
+  #insightDashboard div[style*="grid-template-columns:1fr 1fr 1fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  /* Prevent code boxes and formulas from overflowing the screen boundaries */
+  .arch-code, .ip-code, .vault-item pre, pre, code {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Smooth out the stat strip scaling on mobile devices */
+  .stat-strip {
+    grid-template-columns: 1fr !important;
+  }
+  .stat-cell {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0,229,204,0.07) !important;
+  }
+  
+  /* Prevent the inline dashboard flex strings from causing overflow */
+  #insightDashboard div[style*="display:flex;align-items:center;gap:8px;flex-wrap:wrap"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  
+  #insightDashboard div[style*="margin-left:auto"] {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-top: 12px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(0,229,204,0.1) !important;
+    width: 100% !important;
+  }
+}
+
 <style>
   /* Orbitron — headings only */
   h1, h2, h3, .nav-logo-text { font-family: 'Orbitron', sans-serif !important; }
