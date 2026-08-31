@@ -814,6 +814,93 @@
   }
 </style>
 
+
+<style id="urbyte-critical-layout-fix">
+/* FINAL NAV LOGO FIX — no baked black square, wrapper, border or shadow */
+nav .nav-logo,
+nav .nav-logo img {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+nav .nav-logo {
+  overflow: visible !important;
+}
+nav .nav-logo img {
+  display: block !important;
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+}
+
+/* FINAL HERO FIX — hero owns one viewport and cannot overlap Member Access */
+.urbyte-verification-hero {
+  position: relative !important;
+  width: 100% !important;
+  height: 100svh !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+.urbyte-verification-stage {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+.urbyte-verification-art {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+/* Desktop hotspot Y positions follow the uncropped 3:2 artwork, not viewport height. */
+@media (min-aspect-ratio: 3/2) and (min-width: 761px) {
+  .uv-waste    { top: calc(66.6667vw * .552) !important; }
+  .uv-evidence { top: calc(66.6667vw * .748) !important; }
+  .uv-value    { top: calc(66.6667vw * .835) !important; }
+  .uv-benefits { top: calc(66.6667vw * .552) !important; }
+  .uv-impact   { top: calc(66.6667vw * .748) !important; }
+  .uv-core     { top: calc(66.6667vw * .660) !important; }
+}
+
+/* The following section stays in normal flow, below the clipped hero. */
+.urbyte-verification-hero + div {
+  position: relative !important;
+  z-index: 2 !important;
+  margin-top: 0 !important;
+  clear: both !important;
+}
+
+@media (max-width: 760px) {
+  nav .nav-logo img {
+    width: 34px !important;
+    height: 34px !important;
+  }
+  .urbyte-verification-hero {
+    height: auto !important;
+    aspect-ratio: 3 / 2 !important;
+  }
+  .urbyte-verification-art {
+    object-fit: contain !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -944,7 +1031,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="assets/urbyte-tier-icon.jpg" alt="Urbyte logo" style="width:44px;height:44px;object-fit:contain;border-radius:0;" />
+    <img src="assets/urbyte-tier-icon-transparent.png" alt="Urbyte logo" />
   </div>
   <div class="nav-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
     <div style="display:flex;gap:20px;">
