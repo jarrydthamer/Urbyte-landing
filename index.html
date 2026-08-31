@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -620,66 +620,53 @@
 }
 </style>
 
-<style id="urbyte-interactive-hero-fix">
+<style id="urbyte-sales-ready-hero-css">
   :root{
-    --ur-bg:#01070c;
-    --ur-panel:#06131d;
-    --ur-cyan:#66d9ee;
-    --ur-cyan-soft:#8fb6c6;
-    --ur-text:#eaf8fb;
+    --uv-bg:#01070c;
+    --uv-panel:rgba(3,15,23,.97);
+    --uv-cyan:#66d9ee;
+    --uv-ice:#b9f3ff;
+    --uv-steel:#8fb6c6;
+    --uv-line:rgba(102,217,238,.22);
   }
 
-  html,body{
-    margin:0!important;
-    padding:0!important;
-    background:#01070c!important;
-    color:var(--ur-text)!important;
-  }
+  html,body{margin:0!important;padding:0!important;background:var(--uv-bg)!important}
 
-  /* Header: keep it, remove duplicated brand word, make it clean and compact. */
+  /* HEADER: overlays the hero. No separate black strip. */
   nav{
-    position:sticky!important;
-    top:0!important;
+    position:absolute!important;
+    top:0!important;left:0!important;right:0!important;
     z-index:500!important;
-    min-height:64px!important;
-    padding:10px 42px!important;
     margin:0!important;
-    background:rgba(1,7,12,.97)!important;
-    border-bottom:1px solid rgba(102,217,238,.15)!important;
-    backdrop-filter:blur(18px)!important;
+    padding:14px 42px!important;
+    background:linear-gradient(180deg,rgba(1,7,12,.82) 0%,rgba(1,7,12,.35) 58%,rgba(1,7,12,0) 100%)!important;
+    border-bottom:0!important;
+    backdrop-filter:none!important;
     box-shadow:none!important;
   }
   .nav-logo{gap:0!important}
   .nav-logo span{display:none!important}
-  .nav-logo img{
-    width:42px!important;
-    height:42px!important;
-  }
-  .nav-right a,
-  .nav-right a:visited{
-    color:#8fb6c6!important;
-    text-shadow:none!important;
-  }
-  .nav-right a:hover{color:#dffaff!important}
+  .nav-logo img{width:40px!important;height:40px!important}
+  .nav-right a,.nav-right a:visited{color:var(--uv-steel)!important}
+  .nav-right a:hover{color:var(--uv-ice)!important}
 
-  /* No top margin. The artwork begins immediately after the header. */
-  .verification-image-hero{
+  /* HERO: image starts at page top and stays proportional. */
+  .urbyte-verification-hero{
     position:relative!important;
-    z-index:1;
     width:100%!important;
     margin:0!important;
     padding:0!important;
-    background:#01070c!important;
+    background:var(--uv-bg)!important;
     overflow:hidden!important;
   }
-  .verification-image-stage{
-    position:relative;
-    width:100%;
-    margin:0;
-    padding:0;
-    line-height:0;
+  .urbyte-verification-stage{
+    position:relative!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    line-height:0!important;
   }
-  .verification-image-art{
+  .urbyte-verification-art{
     display:block!important;
     width:100%!important;
     height:auto!important;
@@ -690,144 +677,122 @@
     object-position:center top!important;
   }
 
-  /* Invisible button hit areas aligned to the icons in the artwork.
-     They only show a subtle hover/focus cue — NO pulse animation. */
-  .verification-hotspot{
+  /* Click targets are invisible until hover/focus: no pulse, no fake ring. */
+  .uv-hotspot{
     position:absolute;
-    z-index:8;
-    width:5.2%;
-    aspect-ratio:1;
-    min-width:38px;
-    min-height:38px;
+    z-index:20;
     transform:translate(-50%,-50%);
     border:1px solid transparent;
     border-radius:50%;
     background:transparent;
-    cursor:pointer;
+    width:5.5%;
+    aspect-ratio:1;
+    min-width:38px;
+    min-height:38px;
     padding:0;
+    cursor:pointer;
     animation:none!important;
-    box-shadow:none;
-    transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    box-shadow:none!important;
+    transition:background .16s ease,border-color .16s ease,box-shadow .16s ease;
   }
-  .verification-hotspot:hover,
-  .verification-hotspot:focus-visible{
+  .uv-hotspot:hover,.uv-hotspot:focus-visible{
     outline:none;
-    border-color:rgba(102,217,238,.65);
-    background:rgba(102,217,238,.06);
-    box-shadow:0 0 18px rgba(102,217,238,.22);
-  }
-  .hs-waste{left:13.2%;top:55.1%}
-  .hs-evidence{left:18.0%;top:75.0%}
-  .hs-value{left:49.8%;top:83.8%}
-  .hs-benefits{left:81.0%;top:55.1%}
-  .hs-impact{left:78.8%;top:75.0%}
-  .hs-core{
-    left:49.8%;top:66.2%;
-    width:14%;
-    border-radius:50%;
+    background:rgba(102,217,238,.055);
+    border-color:rgba(102,217,238,.55);
+    box-shadow:0 0 20px rgba(102,217,238,.18)!important;
   }
 
-  .verification-popover[hidden]{display:none!important}
-  .verification-popover{
+  /* Coordinates map to the supplied 1536×1024 artwork. */
+  .uv-waste{left:13.2%;top:55.2%}
+  .uv-evidence{left:18.0%;top:74.8%}
+  .uv-value{left:49.8%;top:83.5%}
+  .uv-benefits{left:80.9%;top:55.2%}
+  .uv-impact{left:78.7%;top:74.8%}
+  .uv-core{left:49.8%;top:66.0%;width:14%;}
+
+  .uv-proof-card[hidden]{display:none!important}
+  .uv-proof-card{
     position:absolute;
-    z-index:20;
-    left:50%;
-    top:50%;
+    z-index:40;
+    left:50%;top:54%;
     transform:translate(-50%,-50%);
-    width:min(430px,calc(100% - 32px));
-    line-height:1.5;
+    width:min(460px,calc(100% - 32px));
+    padding:28px;
+    line-height:1.45;
+    background:var(--uv-panel);
+    border:1px solid rgba(102,217,238,.36);
+    box-shadow:0 28px 90px rgba(0,0,0,.62);
     color:#eaf8fb;
-    background:rgba(3,15,23,.97);
-    border:1px solid rgba(102,217,238,.38);
-    box-shadow:0 24px 80px rgba(0,0,0,.55);
-    padding:26px;
     text-align:left;
     backdrop-filter:blur(18px);
   }
-  .verification-popover h3{
-    margin:0 30px 9px 0;
-    font-family:'Orbitron',sans-serif;
-    font-size:17px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:#b9f3ff;
-  }
-  .verification-popover p{
-    margin:0;
-    color:rgba(234,248,251,.78);
-    font-size:14px;
-  }
-  .verification-popover-close{
-    position:absolute;
-    right:12px;
-    top:9px;
-    width:34px;
-    height:34px;
-    border:0;
-    background:transparent;
-    color:#8fb6c6;
-    font-size:28px;
-    line-height:1;
-    cursor:pointer;
-  }
-  .verification-popover-close:hover{color:#fff}
-
-  .verification-calc-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin:16px 0;
-  }
-  .verification-calc-field label{
-    display:block;
-    margin-bottom:6px;
-    color:#8fb6c6;
+  .uv-proof-card .proof-kicker{
+    color:var(--uv-cyan);
     font-size:10px;
-    letter-spacing:.14em;
+    font-weight:800;
+    letter-spacing:.18em;
     text-transform:uppercase;
+    margin-bottom:8px;
   }
-  .verification-calc-field input{
-    width:100%;
-    padding:11px 12px;
-    border:1px solid rgba(102,217,238,.25);
-    background:#01070c;
+  .uv-proof-card .proof-stat{
     color:#fff;
-    font:inherit;
-    outline:none;
+    font-size:clamp(30px,4vw,48px);
+    font-weight:900;
+    line-height:1;
+    letter-spacing:-.04em;
+    margin-bottom:8px;
   }
-  .verification-calc-field input:focus{border-color:#66d9ee}
-  .verification-calc-results{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    margin-top:14px;
-  }
-  .verification-calc-result{
-    padding:12px 8px;
-    border:1px solid rgba(102,217,238,.15);
-    background:rgba(102,217,238,.04);
-    text-align:center;
-  }
-  .verification-calc-result strong{
-    display:block;
-    color:#66d9ee;
-    font-size:20px;
-  }
-  .verification-calc-result span{
-    display:block;
-    margin-top:4px;
-    color:#8fb6c6;
-    font-size:9px;
-    letter-spacing:.08em;
+  .uv-proof-card h3{
+    margin:0 34px 10px 0;
+    color:var(--uv-ice);
+    font-family:'Orbitron',sans-serif;
+    font-size:16px;
+    letter-spacing:.06em;
     text-transform:uppercase;
   }
-  .verification-calc-note{
-    margin-top:12px!important;
-    font-size:11px!important;
-    color:rgba(143,182,198,.7)!important;
+  .uv-proof-card p{
+    margin:0;
+    color:rgba(234,248,251,.76);
+    font-size:14px;
+    line-height:1.65;
   }
+  .uv-proof-card .proof-source{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid rgba(102,217,238,.12);
+    color:rgba(143,182,198,.7);
+    font-size:10px;
+    letter-spacing:.06em;
+  }
+  .uv-proof-close{
+    position:absolute;right:11px;top:9px;
+    width:34px;height:34px;
+    border:0;background:transparent;color:var(--uv-steel);
+    font-size:27px;line-height:1;cursor:pointer;
+  }
+  .uv-proof-close:hover{color:#fff}
 
-  /* Continue the new palette through the rest of the live page. */
+  .uv-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+  .uv-calc-field label{
+    display:block;margin-bottom:6px;color:var(--uv-steel);
+    font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  }
+  .uv-calc-field input{
+    width:100%;padding:11px 12px;
+    background:#01070c;border:1px solid rgba(102,217,238,.25);
+    color:#fff;font:inherit;outline:none;
+  }
+  .uv-calc-field input:focus{border-color:var(--uv-cyan)}
+  .uv-calc-results{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .uv-calc-result{
+    padding:13px 10px;text-align:center;
+    background:rgba(102,217,238,.04);
+    border:1px solid rgba(102,217,238,.14);
+  }
+  .uv-calc-result strong{display:block;color:var(--uv-cyan);font-size:24px}
+  .uv-calc-result span{display:block;margin-top:4px;color:var(--uv-steel);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+
+  /* Rest of the existing site inherits the hero palette without changing its layout. */
   .sec,.stats,footer{border-color:rgba(102,217,238,.12)!important}
   .g-card,.tier-card,.contact-card,.waitlist-box,.founder-box,.movement-box,.prepaid-callout{
     background:linear-gradient(145deg,rgba(6,19,29,.92),rgba(2,11,17,.90))!important;
@@ -835,19 +800,17 @@
   }
   .btn-primary,button[type=submit]{
     background:linear-gradient(135deg,#66d9ee,#2f7898)!important;
-    border-color:#66d9ee!important;
-    color:#011017!important;
+    border-color:#66d9ee!important;color:#011017!important;
   }
 
   @media(max-width:760px){
-    nav{padding:8px 14px!important;min-height:56px!important}
+    nav{padding:9px 14px!important}
     .nav-logo img{width:34px!important;height:34px!important}
     .nav-right>div:first-child{gap:10px!important}
     .nav-right a{font-size:10px!important}
-    .verification-hotspot{min-width:30px;min-height:30px}
-    .verification-popover{padding:22px 18px}
-    .verification-calc-grid{grid-template-columns:1fr}
-    .verification-calc-results{grid-template-columns:1fr}
+    .uv-hotspot{min-width:30px;min-height:30px}
+    .uv-proof-card{top:58%;padding:22px 18px}
+    .uv-calc-grid,.uv-calc-results{grid-template-columns:1fr}
   }
 </style>
 
@@ -998,24 +961,25 @@
 
 
 <!-- HERO -->
-<section class="verification-image-hero" aria-label="Urbyte verification system">
-  <div class="verification-image-stage">
+<section class="urbyte-verification-hero" aria-label="Urbyte verification">
+  <div class="urbyte-verification-stage">
     <img
+      class="urbyte-verification-art"
       src="assets/urbyte-verification-hero.png"
-      alt="Urbyte verification system showing data waste identified, evidence verified, value created, benefits delivered and impact measured."
-      class="verification-image-art"
+      alt="Urbyte verification system"
     />
 
-    <button class="verification-hotspot hs-waste" type="button" data-panel="waste" aria-label="Learn about data waste identified"></button>
-    <button class="verification-hotspot hs-evidence" type="button" data-panel="evidence" aria-label="Learn about evidence verified"></button>
-    <button class="verification-hotspot hs-value" type="button" data-panel="value" aria-label="Learn about value created"></button>
-    <button class="verification-hotspot hs-benefits" type="button" data-panel="benefits" aria-label="Learn about benefits delivered"></button>
-    <button class="verification-hotspot hs-impact" type="button" data-panel="impact" aria-label="Learn about impact measured"></button>
-    <button class="verification-hotspot hs-core" type="button" data-panel="calculator" aria-label="Open unused data conversion calculator"></button>
+    <!-- Invisible accessible hit areas aligned to the icons in the artwork. -->
+    <button type="button" class="uv-hotspot uv-waste" data-proof="waste" aria-label="Data waste identified"></button>
+    <button type="button" class="uv-hotspot uv-evidence" data-proof="evidence" aria-label="Evidence verified"></button>
+    <button type="button" class="uv-hotspot uv-value" data-proof="value" aria-label="Value created"></button>
+    <button type="button" class="uv-hotspot uv-benefits" data-proof="benefits" aria-label="Benefits delivered"></button>
+    <button type="button" class="uv-hotspot uv-impact" data-proof="impact" aria-label="Impact measured"></button>
+    <button type="button" class="uv-hotspot uv-core" data-proof="calculator" aria-label="Open unused data calculator"></button>
 
-    <div class="verification-popover" id="verification-popover" role="dialog" aria-modal="false" aria-live="polite" hidden>
-      <button class="verification-popover-close" type="button" aria-label="Close">×</button>
-      <div id="verification-popover-content"></div>
+    <div class="uv-proof-card" id="uv-proof-card" hidden>
+      <button class="uv-proof-close" type="button" aria-label="Close">×</button>
+      <div id="uv-proof-content"></div>
     </div>
   </div>
 </section>
@@ -1824,102 +1788,120 @@
   })();
 </script>
 
-<script id="urbyte-verification-interactions">
+<script id="urbyte-sales-proof-interactions">
 (function(){
-  const pop = document.getElementById('verification-popover');
-  const content = document.getElementById('verification-popover-content');
-  if(!pop || !content) return;
+  const card = document.getElementById('uv-proof-card');
+  const body = document.getElementById('uv-proof-content');
+  if(!card || !body) return;
 
-  const copy = {
-    waste: {
-      title: 'Data Waste Identified',
-      body: 'Urbyte identifies and quantifies paid mobile capacity that expires unused, creating a clear record of telecommunications waste.'
+  /* These figures are taken from the existing Urbyte homepage copy.
+     No new market statistics are invented here. */
+  const proof = {
+    waste:{
+      kicker:'Data waste identified',
+      stat:'660GB+',
+      title:'Expired per Australian every year',
+      text:'The current Urbyte homepage uses this figure to frame the scale of mobile capacity that expires unused.',
+      source:'Existing Urbyte homepage statistic'
     },
-    evidence: {
-      title: 'Evidence Verified',
-      body: 'Usage evidence is checked against defined verification requirements so the underlying unused capacity can be supported by an auditable record.'
+    evidence:{
+      kicker:'Evidence verified',
+      stat:'Independent',
+      title:'Verification before value',
+      text:'Urbyte positions verification as the proof layer: usage evidence is checked before eligible unused capacity is recorded.',
+      source:'Urbyte verification proposition'
     },
-    value: {
-      title: 'Value Created',
-      body: 'Eligible verified unused capacity can be recorded as internal DBUs, giving previously wasted capacity a measurable internal value record.'
+    value:{
+      kicker:'Value created',
+      stat:'$9.9B+',
+      title:'Value lost to the system every year',
+      text:'The current Urbyte homepage uses this figure to communicate the commercial scale of unused mobile capacity.',
+      source:'Existing Urbyte homepage statistic'
     },
-    benefits: {
-      title: 'Benefits Delivered',
-      body: 'Verified outcomes can support benefit pathways for individuals, enterprises, telcos and communities, subject to availability and applicable requirements.'
+    benefits:{
+      kicker:'Benefits delivered',
+      stat:'26M+',
+      title:'Australians paying for more than they use',
+      text:'The existing homepage uses this figure to show how broadly the unused-capacity problem affects the Australian market.',
+      source:'Existing Urbyte homepage statistic'
     },
-    impact: {
-      title: 'Impact Measured',
-      body: 'Urbyte provides transparent measurement and reporting so verified waste, recorded value and resulting impact can be tracked over time.'
+    impact:{
+      kicker:'Impact measured',
+      stat:'10 DBU',
+      title:'Per verified unused GB',
+      text:'Urbyte’s existing internal convention records 1 verified unused GB as 10 internal DBUs, providing a consistent measurement unit.',
+      source:'Existing Urbyte internal DBU convention'
     }
   };
 
-  function calculatorHTML(){
+  function proofHTML(p){
     return `
-      <h3>Unused Data Calculator</h3>
-      <p>Estimate unused monthly capacity and its internal DBU record.</p>
-      <div class="verification-calc-grid">
-        <div class="verification-calc-field">
-          <label for="hero-plan-gb">Monthly plan (GB)</label>
-          <input id="hero-plan-gb" type="number" min="0" step="0.1" value="100">
+      <div class="proof-kicker">${p.kicker}</div>
+      <div class="proof-stat">${p.stat}</div>
+      <h3>${p.title}</h3>
+      <p>${p.text}</p>
+      <div class="proof-source">${p.source}</div>
+    `;
+  }
+
+  function calcHTML(){
+    return `
+      <div class="proof-kicker">Conversion calculator</div>
+      <h3>Estimate your unused capacity</h3>
+      <p>Enter monthly included data and actual usage. The calculator records the unused amount using Urbyte's existing internal DBU convention.</p>
+      <div class="uv-calc-grid">
+        <div class="uv-calc-field">
+          <label for="uv-plan">Included data (GB)</label>
+          <input id="uv-plan" type="number" min="0" step="0.1" value="100">
         </div>
-        <div class="verification-calc-field">
-          <label for="hero-used-gb">Used this month (GB)</label>
-          <input id="hero-used-gb" type="number" min="0" step="0.1" value="65">
+        <div class="uv-calc-field">
+          <label for="uv-used">Used data (GB)</label>
+          <input id="uv-used" type="number" min="0" step="0.1" value="65">
         </div>
       </div>
-      <div class="verification-calc-results">
-        <div class="verification-calc-result"><strong id="hero-unused-out">35</strong><span>Unused GB</span></div>
-        <div class="verification-calc-result"><strong id="hero-dbu-out">350</strong><span>Monthly DBUs</span></div>
-        <div class="verification-calc-result"><strong id="hero-annual-out">4,200</strong><span>Annual DBUs</span></div>
+      <div class="uv-calc-results">
+        <div class="uv-calc-result"><strong id="uv-unused">35</strong><span>Unused GB</span></div>
+        <div class="uv-calc-result"><strong id="uv-dbu">350</strong><span>Internal DBUs</span></div>
       </div>
-      <p class="verification-calc-note">Uses Urbyte's existing internal convention: 1 GB = 10 internal DBUs.</p>
+      <div class="proof-source">1 verified unused GB = 10 internal DBUs</div>
     `;
   }
 
   function recalc(){
-    const plan = Math.max(0, parseFloat(document.getElementById('hero-plan-gb')?.value) || 0);
-    const used = Math.max(0, parseFloat(document.getElementById('hero-used-gb')?.value) || 0);
-    const unused = Math.max(0, plan - used);
-    const dbu = unused * 10;
-    const annual = dbu * 12;
-    const fmt = n => n.toLocaleString(undefined,{maximumFractionDigits:1});
-    const a=document.getElementById('hero-unused-out');
-    const b=document.getElementById('hero-dbu-out');
-    const c=document.getElementById('hero-annual-out');
-    if(a) a.textContent=fmt(unused);
-    if(b) b.textContent=fmt(dbu);
-    if(c) c.textContent=fmt(annual);
+    const plan=Math.max(0,parseFloat(document.getElementById('uv-plan')?.value)||0);
+    const used=Math.max(0,parseFloat(document.getElementById('uv-used')?.value)||0);
+    const unused=Math.max(0,plan-used);
+    const fmt=n=>n.toLocaleString(undefined,{maximumFractionDigits:1});
+    const u=document.getElementById('uv-unused');
+    const d=document.getElementById('uv-dbu');
+    if(u) u.textContent=fmt(unused);
+    if(d) d.textContent=fmt(unused*10);
   }
 
-  function openPanel(name){
-    if(name === 'calculator'){
-      content.innerHTML = calculatorHTML();
-      pop.hidden = false;
-      requestAnimationFrame(() => {
-        document.getElementById('hero-plan-gb')?.addEventListener('input',recalc);
-        document.getElementById('hero-used-gb')?.addEventListener('input',recalc);
+  function openProof(key){
+    body.innerHTML = key === 'calculator' ? calcHTML() : proofHTML(proof[key]);
+    card.hidden=false;
+    if(key==='calculator'){
+      requestAnimationFrame(()=>{
+        document.getElementById('uv-plan')?.addEventListener('input',recalc);
+        document.getElementById('uv-used')?.addEventListener('input',recalc);
         recalc();
       });
-    } else if(copy[name]){
-      content.innerHTML = `<h3>${copy[name].title}</h3><p>${copy[name].body}</p>`;
-      pop.hidden = false;
     }
   }
 
-  document.querySelectorAll('.verification-hotspot').forEach(btn => {
-    btn.addEventListener('click', () => openPanel(btn.dataset.panel));
+  document.querySelectorAll('.uv-hotspot').forEach(btn=>{
+    btn.addEventListener('click',()=>openProof(btn.dataset.proof));
   });
+  document.querySelector('.uv-proof-close')?.addEventListener('click',()=>card.hidden=true);
 
-  document.querySelector('.verification-popover-close')?.addEventListener('click', () => pop.hidden = true);
-
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape') pop.hidden = true;
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') card.hidden=true;
   });
-
-  document.addEventListener('click', e => {
-    if(pop.hidden) return;
-    if(pop.contains(e.target) || e.target.closest('.verification-hotspot')) return;
-    pop.hidden = true;
+  document.addEventListener('click',e=>{
+    if(card.hidden) return;
+    if(card.contains(e.target) || e.target.closest('.uv-hotspot')) return;
+    card.hidden=true;
   });
 })();
 </script>
