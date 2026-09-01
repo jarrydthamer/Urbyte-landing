@@ -902,51 +902,81 @@ nav .nav-logo img {
 </style>
 
 
-<style id="consumer-viewport-fit-v2">
-/* Consumer hero: same one-screen behaviour as the Telco page. */
+
+
+<link rel="preload" as="image" href="assets/consumer-hero-1366.webp" imagesrcset="assets/consumer-hero-1366.webp 1366w, assets/consumer-hero-1920.webp 1920w" imagesizes="100vw">
+
+<style id="consumer-performance-fit">
+/* Consumer landing: true full-bleed one-screen hero, matching Telco behaviour. */
 @media (min-width: 761px) {
   .urbyte-verification-hero {
     position: relative !important;
     width: 100% !important;
-    height: calc(100svh - 64px) !important;
-    min-height: 500px !important;
-    max-height: none !important;
-    margin: 64px 0 0 !important;
+    height: 100svh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
-    background: #00000A !important;
+    background: #000 !important;
+    contain: layout paint !important;
   }
+
   .urbyte-verification-stage {
     position: absolute !important;
     inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
     min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow: hidden !important;
   }
+
   .urbyte-verification-art {
     position: absolute !important;
     inset: 0 !important;
+    display: block !important;
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     object-fit: cover !important;
     object-position: center center !important;
-    display: block !important;
   }
 
-  /* Hotspots track the 16:9 hero area. */
-  .uv-waste    { left: 13.2% !important; top: 55.3% !important; }
-  .uv-evidence { left: 18.0% !important; top: 74.8% !important; }
-  .uv-value    { left: 49.8% !important; top: 83.4% !important; }
-  .uv-benefits { left: 81.1% !important; top: 55.3% !important; }
-  .uv-impact   { left: 78.8% !important; top: 74.8% !important; }
-  .uv-core     { left: 49.8% !important; top: 66.0% !important; }
+  /* Remapped to the new 16:9 crop. */
+  .uv-waste    { left: 13.2% !important; top: 56.1% !important; }
+  .uv-evidence { left: 18.0% !important; top: 79.4% !important; }
+  .uv-value    { left: 49.8% !important; top: 89.7% !important; }
+  .uv-benefits { left: 80.9% !important; top: 56.1% !important; }
+  .uv-impact   { left: 78.8% !important; top: 79.4% !important; }
+  .uv-core     { left: 49.8% !important; top: 69.0% !important; }
 
   .urbyte-verification-hero + div {
     position: relative !important;
+    z-index: 2 !important;
     margin-top: 0 !important;
     clear: both !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .urbyte-verification-hero {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+  .urbyte-verification-stage,
+  .urbyte-verification-art {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .urbyte-verification-art {
+    object-fit: cover !important;
+    object-position: center center !important;
   }
 }
 </style>
@@ -1102,7 +1132,13 @@ nav .nav-logo img {
   <div class="urbyte-verification-stage">
     <img
       class="urbyte-verification-art"
-      src="assets/consumer-verification-hero-16x9.png"
+      src="assets/consumer-hero-1366.webp"
+      srcset="assets/consumer-hero-1366.webp 1366w, assets/consumer-hero-1920.webp 1920w"
+      sizes="100vw"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+      decoding="async"
       alt="Urbyte verification system"
     />
 
