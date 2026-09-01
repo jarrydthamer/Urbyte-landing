@@ -901,6 +901,56 @@ nav .nav-logo img {
 }
 </style>
 
+
+<style id="consumer-viewport-fit-v2">
+/* Consumer hero: same one-screen behaviour as the Telco page. */
+@media (min-width: 761px) {
+  .urbyte-verification-hero {
+    position: relative !important;
+    width: 100% !important;
+    height: calc(100svh - 64px) !important;
+    min-height: 500px !important;
+    max-height: none !important;
+    margin: 64px 0 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #00000A !important;
+  }
+  .urbyte-verification-stage {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+  .urbyte-verification-art {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+
+  /* Hotspots track the 16:9 hero area. */
+  .uv-waste    { left: 13.2% !important; top: 55.3% !important; }
+  .uv-evidence { left: 18.0% !important; top: 74.8% !important; }
+  .uv-value    { left: 49.8% !important; top: 83.4% !important; }
+  .uv-benefits { left: 81.1% !important; top: 55.3% !important; }
+  .uv-impact   { left: 78.8% !important; top: 74.8% !important; }
+  .uv-core     { left: 49.8% !important; top: 66.0% !important; }
+
+  .urbyte-verification-hero + div {
+    position: relative !important;
+    margin-top: 0 !important;
+    clear: both !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -1052,7 +1102,7 @@ nav .nav-logo img {
   <div class="urbyte-verification-stage">
     <img
       class="urbyte-verification-art"
-      src="assets/urbyte-verification-hero.png"
+      src="assets/consumer-verification-hero-16x9.png"
       alt="Urbyte verification system"
     />
 
