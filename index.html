@@ -456,6 +456,28 @@
   }
 </style>
 
+<style id="consumer-image-palette-alignment">
+/* Text palette aligned to the canonical consumer hero artwork. */
+:root{
+  --consumer-ink:#edf2f3;
+  --consumer-silver:#a9b5b7;
+  --consumer-steel:#8fb6c6;
+  --consumer-cyan:#66d9ee;
+  --consumer-cyan-dark:#35b9cc;
+}
+body{color:var(--consumer-ink)!important}
+.sec h1,.sec h2,.sec h3,.stats h2,.movement-box h2,.founder-box h2,.waitlist-box h2,
+.g-title,.tier-name,.contact-card h3{color:var(--consumer-ink)!important;text-shadow:none!important}
+.sec p,.g-desc,.founder-copy,.tier-desc,.faq-a p,.contact-card p{color:rgba(169,181,183,.82)!important}
+.sec-tag,.stat-suffix,.read-tag,.faq-ico,.ct-lbl,.prepaid-label{color:var(--consumer-cyan)!important}
+.stat-num{color:#b9f3ff!important;text-shadow:0 0 22px rgba(102,217,238,.16)!important}
+.stat-label{color:rgba(169,181,183,.72)!important}
+.hero-audiences,.hero-micro{color:rgba(143,182,198,.76)!important}
+.geo-div,.faq-item,.g-card,.tier-card,.contact-card{border-color:rgba(102,217,238,.16)!important}
+.seo-card .read-tag,.seo-card:hover .read-tag{color:var(--consumer-cyan)!important}
+a:not(.btn-primary):not(.btn-ghost):not(.tier-btn):not(.consumer-hero-primary):not(.consumer-hero-secondary):hover{color:#b9f3ff}
+</style>
+
 
 <script type="application/ld+json">
 {
@@ -904,7 +926,7 @@ nav .nav-logo img {
 
 
 
-<link rel="preload" as="image" href="assets/consumer-hero-1366.webp" imagesrcset="assets/consumer-hero-1366.webp 1366w, assets/consumer-hero-1920.webp 1920w" imagesizes="100vw">
+<link rel="preload" as="image" href="assets/consumer-canonical-hero.png">
 
 <style id="consumer-performance-fit">
 /* Consumer landing: true full-bleed one-screen hero, matching Telco behaviour. */
@@ -978,6 +1000,53 @@ nav .nav-logo img {
     object-fit: cover !important;
     object-position: center center !important;
   }
+}
+</style>
+
+<style id="consumer-canonical-hero">
+/* Consumer hero uses the same 500px desktop / 420px mobile presentation height
+   as the Telco page. The ticker is anchored inside the first screen. */
+.urbyte-verification-hero{
+  position:relative!important;
+  width:100%!important;
+  height:500px!important;
+  min-height:500px!important;
+  margin:0!important;
+  overflow:hidden!important;
+  background:#01070c!important;
+}
+.urbyte-verification-stage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.urbyte-verification-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
+.consumer-hero-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(1,7,12,.98) 0%,rgba(1,7,12,.88) 25%,rgba(1,7,12,.36) 47%,rgba(1,7,12,.04) 70%,rgba(1,7,12,0) 100%);pointer-events:none}
+.consumer-hero-copy{position:absolute;z-index:5;left:clamp(24px,4vw,60px);top:50%;transform:translateY(-52%);width:min(550px,43vw);padding-bottom:58px;line-height:normal;text-align:left}
+.consumer-hero-kicker{display:flex;align-items:center;gap:10px;margin-bottom:20px;color:#66d9ee;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+.consumer-hero-kicker::before{content:"";width:22px;height:1px;background:#66d9ee}
+.consumer-hero-copy h1{max-width:530px;margin:0 0 20px;font-family:'Orbitron',sans-serif;font-size:clamp(36px,4vw,60px);font-weight:900;line-height:.98;letter-spacing:-.045em;color:#fff}
+.consumer-hero-copy h1 span{display:block;color:#66d9ee}
+.consumer-hero-copy p{max-width:510px;margin:0 0 25px;color:rgba(237,242,243,.74);font-size:clamp(13px,1.05vw,15px);line-height:1.68}
+.consumer-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.consumer-hero-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase}
+.consumer-hero-primary{background:linear-gradient(135deg,#66d9ee,#2f7898);border:1px solid #66d9ee;color:#011017}
+.consumer-hero-secondary{border:1px solid rgba(237,242,243,.25);color:#edf2f3;background:rgba(1,7,12,.3)}
+.uv-hotspot{display:none!important}
+#landingTicker{position:absolute!important;left:0;right:0;bottom:0;z-index:10!important;background:rgba(1,7,12,.86)!important;backdrop-filter:blur(12px);overflow:hidden}
+#landingTicker .ticker-track{padding:10px 0!important}
+@media(max-width:760px){
+  .urbyte-verification-hero{height:420px!important;min-height:420px!important;aspect-ratio:auto!important}
+  .urbyte-verification-art{object-fit:cover!important;object-position:68% center!important}
+  .consumer-hero-shade{background:linear-gradient(90deg,rgba(1,7,12,.96) 0%,rgba(1,7,12,.82) 54%,rgba(1,7,12,.34) 100%),linear-gradient(180deg,rgba(1,7,12,.18) 0%,rgba(1,7,12,.22) 62%,rgba(1,7,12,.88) 100%)}
+  .consumer-hero-copy{left:20px;right:20px;top:49%;width:auto;transform:translateY(-50%);padding:38px 0 45px}
+  .consumer-hero-copy h1{font-size:clamp(28px,8.4vw,38px);max-width:390px;margin-bottom:13px}
+  .consumer-hero-copy p{font-size:11px;line-height:1.55;max-width:390px;margin-bottom:15px}
+  .consumer-hero-kicker{margin-bottom:12px}
+  .consumer-hero-actions{gap:9px}
+  .consumer-hero-actions a{padding:0 16px;font-size:9px;letter-spacing:1.25px}
+  #landingTicker .ticker-track{padding:8px 0!important}
+}
+@media(max-width:420px){
+  .consumer-hero-copy{left:17px;right:17px}
+  .consumer-hero-kicker{font-size:8px;letter-spacing:2px}
+  .consumer-hero-actions a{padding:0 10px;font-size:8px;letter-spacing:1px}
 }
 </style>
 
@@ -1132,17 +1201,27 @@ nav .nav-logo img {
   <div class="urbyte-verification-stage">
     <img
       class="urbyte-verification-art"
-      src="assets/consumer-hero-1366.webp"
-      srcset="assets/consumer-hero-1366.webp 1366w, assets/consumer-hero-1920.webp 1920w"
+      src="assets/consumer-canonical-hero.png"
       sizes="100vw"
-      width="1920"
-      height="1080"
+      width="1672"
+      height="941"
       fetchpriority="high"
       decoding="async"
       alt="Urbyte verification system"
     />
 
-    <!-- Invisible accessible hit areas aligned to the icons in the artwork. -->
+    <div class="consumer-hero-shade" aria-hidden="true"></div>
+    <div class="consumer-hero-copy">
+      <div class="consumer-hero-kicker">Consumer Waste Verification</div>
+      <h1>Verify the waste.<span>Unlock the value.</span></h1>
+      <p>Urbyte independently verifies the mobile data you paid for but did not use. Complete monthly conversions to build your DBU record and unlock eligible benefits.</p>
+      <div class="consumer-hero-actions">
+        <a class="consumer-hero-primary" href="#signup">Start Your Conversion</a>
+        <a class="consumer-hero-secondary" href="#how">How It Works</a>
+      </div>
+    </div>
+
+    <!-- Legacy proof controls retained for existing scripts but removed from presentation. -->
     <button type="button" class="uv-hotspot uv-waste" data-proof="waste" aria-label="Data waste identified"></button>
     <button type="button" class="uv-hotspot uv-evidence" data-proof="evidence" aria-label="Evidence verified"></button>
     <button type="button" class="uv-hotspot uv-value" data-proof="value" aria-label="Value created"></button>
@@ -1284,6 +1363,11 @@ nav .nav-logo img {
     <div style="width:60px;flex-shrink:0;"></div>
   </div>
 </div>
+
+<script>
+  /* Keep the ticker inside the hero so it is visible before the first scroll. */
+  document.querySelector('.urbyte-verification-hero')?.appendChild(document.getElementById('landingTicker'));
+</script>
 
 <!-- STATS -->
 <div class="stats" id="landingStats">
