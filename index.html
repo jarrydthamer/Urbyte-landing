@@ -2034,14 +2034,13 @@ nav .nav-logo img {
   });
 </script>
 <script>
-  // Match the live Telco/Enterprise sequence: hero → ticker → stat statement.
-  // The original ticker, stats, copy, icons and colours are moved, not recreated.
+  // Keep the ticker inside the hero and the statistics in normal flow below it.
   (function () {
-    var hero = document.querySelector('.hero');
+    var hero = document.querySelector('.urbyte-verification-hero');
     var ticker = document.getElementById('landingTicker');
     var stats = document.getElementById('landingStats');
-    if (hero && ticker) hero.insertAdjacentElement('afterend', ticker);
-    if (ticker && stats) ticker.insertAdjacentElement('afterend', stats);
+    if (hero && ticker && ticker.parentElement !== hero) hero.appendChild(ticker);
+    if (hero && stats) hero.insertAdjacentElement('afterend', stats);
   })();
 </script>
 
