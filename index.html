@@ -229,6 +229,23 @@ footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:w
   .trust-pill{font-size:9px}
 }
 
+
+/* KEELO CROSS-PROPERTY CTA */
+.nav-keelo{
+  font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  color:#000!important;text-decoration:none;padding:9px 18px;border-radius:999px;
+  background:linear-gradient(135deg,#8BE2FF,#2EA8FF);
+  box-shadow:0 0 24px rgba(46,168,255,.18);transition:transform .2s,box-shadow .2s!important
+}
+.nav-keelo:hover{color:#000!important;transform:translateY(-1px);box-shadow:0 0 34px rgba(46,168,255,.3)}
+.btn-keelo{
+  display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;color:#9FE1FF;padding:14px 28px;border-radius:999px;
+  background:rgba(46,168,255,.08);box-shadow:inset 0 0 0 1px rgba(102,204,255,.32);
+  transition:all .2s
+}
+.btn-keelo:hover{color:#fff;background:rgba(46,168,255,.16);box-shadow:inset 0 0 0 1px rgba(102,204,255,.55),0 0 28px rgba(20,126,255,.12)}
+
 </style>
 <style>
   /* Orbitron — headings only */
@@ -422,6 +439,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     <a href="#how">How It Works</a>
     <a href="#calculator">Waste Estimator</a>
     <a href="#compliance">Compliance</a>
+    <a href="https://keelo-test.vercel.app/" class="nav-keelo" aria-label="Explore Keelo governed execution infrastructure">Explore Keelo ↗</a>
     <a href="#contact" class="nav-cta">Request Audit</a>
   </div>
 </nav>
@@ -439,6 +457,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     <div class="hero-btns">
       <a href="#calculator" class="btn-p">Estimate Your Waste</a>
       <a href="#how" class="btn-g">How It Works</a>
+      <a href="https://keelo-test.vercel.app/" class="btn-keelo" aria-label="Explore Keelo governed execution infrastructure">Explore Keelo ↗</a>
     </div>
     <div class="hero-trust">
       <span class="trust-pill">Professional advice required</span>
