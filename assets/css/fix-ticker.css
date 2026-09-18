@@ -1,0 +1,66 @@
+:root{
+  /* defaults (overwritten by JS if available) */
+  --ticker-height: 56px;
+  --nav-height: 64px;
+}
+
+/* Ensure ticker sits on top of hero and is visible at bottom of viewport */
+#landingTicker {
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  bottom: env(safe-area-inset-bottom, 0);
+  height: var(--ticker-height);
+  min-height: var(--ticker-height);
+  box-sizing: border-box;
+  z-index: 9999 !important;
+  display: block;
+  background: rgba(0,229,204,0.03) !important;
+  border-top: 1px solid rgba(0,229,204,0.08) !important;
+  border-bottom: 0 !important;
+  padding: 0 12px;
+  pointer-events: auto;
+}
+
+/* Keep internal ticker track vertically centered */
+#landingTicker .ticker-track {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Make sure the rest of the page doesn't get covered by the ticker */
+body, .site-wrapper {
+  padding-bottom: calc(var(--ticker-height) + env(safe-area-inset-bottom, 0));
+}
+
+/* Hero should fill remaining viewport between nav and ticker.
+   This overrides places where hero was set to 100svh and prevents clipping. */
+.urbyte-verification-hero,
+.urbyte-verification-stage {
+  height: calc(100svh - var(--nav-height) - var(--ticker-height)) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* When media queries currently switch the hero to 'auto' on small screens,
+   keep a safe stacked layout — the hero will grow naturally. */
+@media (max-width: 760px) {
+  .urbyte-verification-hero,
+  .urbyte-verification-stage {
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+  }
+  body, .site-wrapper {
+    padding-bottom: calc(var(--ticker-height) + env(safe-area-inset-bottom, 0));
+  }
+}
+
+/* Small polish: ensure hero image keeps its focal point visible when hero is resized */
+.urbyte-verification-art {
+  object-position: center top !important;
+  will-change: transform;
+}
