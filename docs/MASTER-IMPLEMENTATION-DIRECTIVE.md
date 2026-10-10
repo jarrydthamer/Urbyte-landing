@@ -72,3 +72,7 @@ Inspect default/deployment branches, homepage files, hosting, assets, documentat
 
 ## Required delivery
 Return both repository and pull-request links, changed files, evidence inventory and link verification, actual verification results, homepage confirmations and explicit prepared/committed/merged/deployed status. Keep production unchanged until approval.
+
+## Review refinement
+
+Use domain-specific allocation-waste verification for Urbyte’s role. KƎƎLO™ Core remains domain agnostic. Domain-specific evidence requirements change; the core governance architecture does not. KƎƎLO™ governs the relationship between authority, execution, evidence and outcome. Label evidenced fleet and data-centre demonstrations Controlled Proof. Preserve target labels for untested application metrics.

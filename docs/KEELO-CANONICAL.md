@@ -25,7 +25,7 @@
 ## Canonical relationship
 Urbyte™ proves the condition. KƎƎLO™ governs the response.
 
-Urbyte™ performs domain-specific evidence qualification; KƎƎLO Core enforces organisation-neutral policy, delegated authority and governed execution. KƎƎLO is a standalone platform architecture and is not limited to Urbyte or waste recovery.
+Urbyte™ performs domain-specific allocation-waste verification; KƎƎLO Core enforces organisation-neutral policy, delegated authority and governed execution. KƎƎLO is a standalone platform architecture and is not limited to Urbyte or waste recovery.
 
 ## Execution architecture
 System intent → distinct material ingress → `OrganisationPolicyEvaluator` → `DelegatedExecutionAuthorityService` → `GovernedExecutionGateway` → authorised controlled effect → receipt → outcome evidence → reconciliation.
@@ -70,3 +70,9 @@ Detailed topology: System Intent → Material Ingress → KƎƎLO Core → Autho
 - Destination Case: wider resource-domain application. No unverified deployments are claimed.
 
 Givabit™ connects verified recovery to real-world human and community benefit through supported pathways.
+
+## Platform relationship refinement
+
+KƎƎLO™ governs the relationship between authority, execution, evidence and outcome.
+
+Telecommunications is the first operational environment. KƎƎLO™ Core remains domain agnostic. Domain-specific evidence requirements change; the core governance architecture does not.
