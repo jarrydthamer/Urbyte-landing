@@ -60,5 +60,10 @@
       "source": "/blog/unused-mobile-data-australia",
       "destination": "/blog/unused-mobile-data-australia.html"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "alignment/canonical-evidence-20261010": false
+    }
+  }
 }

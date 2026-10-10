@@ -1,80 +1,78 @@
-# Keelo — Canonical Definition
+# KƎƎLO™ / Urbyte™ — Canonical Positioning (Frozen)
 
-## Canonical Definition
+## Urbyte™
+**Category:** Independent Allocation-Waste Verification
 
-Keelo is an industry- and organisation-agnostic Executive Operating System for governed delegated execution, delivered through Waste Recovery Software as a Service (WRSaaS).
+**Purpose:** Recovering value from verified allocation waste.
 
-Keelo operates inline between system intent and controlled effect. Material invocation routes converge on a governed execution boundary where organisation policy and delegated execution authority are evaluated before authorised effective execution.
+**Relationship:** Urbyte™ proves the condition. **Built on KƎƎLO™.**
 
-Keelo is not another AI system and is not primarily a retrospective audit, monitoring, analytics or reporting product. Durable evidence, receipts and execution lineage are outputs of governed execution rather than the category definition.
+## KƎƎLO™
+**Category:** Executive Operating System
 
-## Short Canonical Form
+**Technical architecture:** Compute-Agnostic Governed Execution Infrastructure
 
-Keelo is the Executive Operating System for governed delegated execution.
+**Constitutional principle:** Capability ≠ Authority
 
-## Category
+**Role:** KƎƎLO™ governs the response.
 
-Executive Operating System (EOS) for governed delegated execution.
+## WRSaaS™
+**Operating model:** Waste Recovery Software as a Service.
 
-## Operating / Delivery Model
+## Givabit™
+**Role:** Social impact mechanism associated with the Urbyte offering.
 
-WRSaaS — Waste Recovery Software as a Service.
+## Canonical relationship
+Urbyte™ proves the condition. KƎƎLO™ governs the response.
 
-## Architecture
+Urbyte™ performs domain-specific allocation-waste verification; KƎƎLO Core enforces organisation-neutral policy, delegated authority and governed execution. KƎƎLO is a standalone platform architecture and is not limited to Urbyte or waste recovery.
 
-System Intent → Material Ingress → Keelo Core → Authorised Execution → Controlled Effect
+## Execution architecture
+System intent → distinct material ingress → `OrganisationPolicyEvaluator` → `DelegatedExecutionAuthorityService` → `GovernedExecutionGateway` → authorised controlled effect → receipt → outcome evidence → reconciliation.
 
-Keelo Core provides organisation-neutral governance and execution controls. Domain-specific evidence qualification remains outside Keelo Core.
+This is a conceptual description; actual handler composition is specified by the tested implementation and its proof configuration. The nine distinct route contracts in `KEELO-NO-MEANS-NO-001` converge at the gateway.
 
-Core responsibilities include:
+## Controlled assurance
+- `KEELO-NO-MEANS-NO-001`: nine materially distinct runtime routes; 100,000 attempts; 90,000 prohibited commands denied; 10,000 authorised effects; zero unauthorised effects, duplicates or route-substitution bypasses in the tested configuration.
+- `KEELO-ROGUE-FLEET-001`: 10,000 synthetic agents; 100,000 commands; 10,000 authorised effective executions; zero unauthorised or duplicate effects; three forced runtime interruptions recovered; deterministic reproduction matched.
+- Enterprise fleet, data-centre, quantum-derived candidate and authority-revocation evidence are presented in their own supplied redacted reports, with their individual maturity and scope qualifications.
+- Submission 48 (12 September 2026) includes a controlled 1,000-service proof annex and requested policy recommendations. It is a parliamentary submission, not endorsement or certification.
+- The Australian Government consultation submission record (9 October 2026) is an acknowledgement of submission, not evidence of adoption.
 
-- `OrganisationPolicyEvaluator` — derives runtime `ALLOW` or `DENY` from the loaded Organisation Package.
-- `DelegatedExecutionAuthorityService` — re-evaluates the exact action at execution time.
-- `GovernedExecutionGateway` — the authorised convergence path to controlled effect in the tested architecture.
-- effective-execution adapters — record attributable, idempotent controlled effects and durable receipts.
+Exactly-once language is limited to the tested effective-execution contract and receiver observations, not universal distributed semantics. The tests do not establish customer production deployment or universal security.
 
-## Frontier Operating Loop
+## Terminology
+Do not define KƎƎLO as an AI assistant, retrospective audit tool, reporting dashboard or mere overlay. Durable evidence and audit trails support execution accountability; they are not the system's category.
 
-Detect → Verify → Govern → Act → Measure → Reduce → Prevent
+## Internal brand shorthand
+Urbyte™ proves. KƎƎLO™ governs. WRSaaS™ commercialises. Givabit™ humanises.
 
-## Relationship to Urbyte
+## Public model and implementation topology
+Public model: Evidence → Authority → Execution → Outcome → Reconciliation.
 
-Urbyte performs domain-specific evidence qualification.
+Detailed topology: System Intent → Material Ingress → KƎƎLO Core → Authorised Execution → Controlled Effect → Durable Receipt → Outcome Verification → Reconciliation.
 
-Keelo Core performs organisation-neutral governance and governed execution.
+| Component | Role |
+| --- | --- |
+| `OrganisationPolicyEvaluator` | Evaluate organisation policy outside domain qualification |
+| `DelegatedExecutionAuthorityService` | Evaluate current delegated execution authority |
+| `GovernedExecutionGateway` | Enforce the effective-execution boundary |
+| Effective execution adapters | Apply controlled effects through the tested receiver contract |
+| Durable execution state | Retain state, pending obligations and recoverable outcomes |
+| Idempotency controls | Prevent repeat effects within the tested contract |
+| Evidence lineage | Connect source evidence, conditions, decisions and outcomes |
+| Execution receipts | Record durable receiver observations |
+| Reconciliation | Match governed commands and outcomes; retain unresolved obligations |
 
-Urbyte proves → Keelo governs.
+## Maturity
+- Evidenced/Current: supplied controlled results and public submission records.
+- Next Proving Work: production connectors, broader authority-revocation sequences and measured post-action outcomes require their own evidence.
+- Destination Case: wider resource-domain application. No unverified deployments are claimed.
 
-## Assurance-Grounded Claim Boundary
+Givabit™ connects verified recovery to real-world human and community benefit through supported pathways.
 
-Public technical claims must be scoped to the applicable tested configuration.
+## Platform relationship refinement
 
-`KEELO-NO-MEANS-NO-001` tested nine materially distinct runtime routes, 10,000 distinct synthetic agent identities and 100,000 command attempts. The final clean proof recorded 90,000 prohibited commands denied, 10,000 authorised effective executions, zero unauthorised effective executions, zero duplicate effective executions, zero route-substitution bypasses and exact recovery after a forced runtime interruption.
+KƎƎLO™ governs the relationship between authority, execution, evidence and outcome.
 
-`KEELO-ROGUE-FLEET-001` tested 10,000 synthetic agents and 100,000 commands in a deterministic controlled emulator environment. It recorded 10,000 authorised effective executions, zero unauthorised effective executions, zero duplicate effective executions, complete reconciliation, recovery from three forced runtime interruptions and detection of all ten defined integrity attacks. A detached reproduction matched the deterministic evidence.
-
-“Exactly once” applies only to the tested effective-execution contract and receiver observations. It must not be presented as universal distributed exactly-once semantics.
-
-These proofs do not establish universal security, production certification, unrestricted real-world autonomous-agent performance, customer production proof or live third-party penetration testing.
-
-## Explicitly Not
-
-Keelo is not:
-
-- an AI assistant or chatbot
-- a retrospective audit tool
-- a compliance monitor
-- an analytical tracker or reporting suite
-- a dashboard
-- a FinOps product
-- an Urbyte-specific application
-
-## Terminology Rule
-
-Preferred introduction:
-
-> Keelo is the organisation-agnostic Executive Operating System for governed delegated execution, delivered through the WRSaaS operating model.
-
-For architecture-focused material:
-
-> Keelo is an inline authority-bounded execution architecture governing the boundary between system intent and controlled effect.
+Telecommunications is the first operational environment. KƎƎLO™ Core remains domain agnostic. Domain-specific evidence requirements change; the core governance architecture does not.
