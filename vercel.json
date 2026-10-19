@@ -9,14 +9,6 @@
       "destination": "/enterprise.html"
     },
     {
-      "source": "/app",
-      "destination": "/app.html"
-    },
-    {
-      "source": "/wallet",
-      "destination": "/wallet.html"
-    },
-    {
       "source": "/convert",
       "destination": "/convert.html"
     },
@@ -66,11 +58,5 @@
       "alignment/canonical-evidence-20261010": false
     }
   },
-  "redirects": [
-    {
-      "source": "/index-consumer-backup.html",
-      "destination": "/consumer",
-      "permanent": true
-    }
-  ]
+  "redirects": []
 }
