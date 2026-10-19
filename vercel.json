@@ -65,5 +65,12 @@
     "deploymentEnabled": {
       "alignment/canonical-evidence-20261010": false
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/index-consumer-backup.html",
+      "destination": "/consumer",
+      "permanent": true
+    }
+  ]
 }
