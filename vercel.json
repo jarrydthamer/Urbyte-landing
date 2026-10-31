@@ -9,14 +9,6 @@
       "destination": "/enterprise.html"
     },
     {
-      "source": "/convert",
-      "destination": "/convert.html"
-    },
-    {
-      "source": "/redeem",
-      "destination": "/redeem.html"
-    },
-    {
       "source": "/success",
       "destination": "/success.html"
     },
@@ -27,14 +19,6 @@
     {
       "source": "/terms",
       "destination": "/terms.html"
-    },
-    {
-      "source": "/member",
-      "destination": "/member/index.html"
-    },
-    {
-      "source": "/member/(.*)",
-      "destination": "/member/index.html"
     },
     {
       "source": "/what-happens-to-unused-mobile-data-australia",
@@ -58,5 +42,36 @@
       "alignment/canonical-evidence-20261010": false
     }
   },
-  "redirects": []
+  "redirects": [
+    {
+      "source": "/convert",
+      "destination": "/consumer",
+      "permanent": false
+    },
+    {
+      "source": "/wallet",
+      "destination": "/consumer",
+      "permanent": false
+    },
+    {
+      "source": "/member",
+      "destination": "/consumer",
+      "permanent": false
+    },
+    {
+      "source": "/member/:path*",
+      "destination": "/consumer",
+      "permanent": false
+    },
+    {
+      "source": "/app",
+      "destination": "/consumer",
+      "permanent": false
+    },
+    {
+      "source": "/redeem",
+      "destination": "/consumer",
+      "permanent": false
+    }
+  ]
 }
