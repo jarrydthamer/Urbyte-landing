@@ -387,6 +387,31 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
   .sec::before,.calc-inner::before,.terminal-wrap::before{width:90vw;opacity:.13}
 }
 @media(prefers-reduced-motion:reduce){body::before,body::after,.sec::before,.calc-inner::before,.terminal-wrap::before,.contact-block::before{animation:none!important}}
+
+/* Finance-led homepage additions */
+.pilot-cta{text-align:center;padding:0 24px 52px}
+.pilot-cta p{font-size:13px;color:rgba(255,255,255,.65);margin-top:14px}
+.footer-legal{width:100%;flex-basis:100%;font-size:12px;color:rgba(255,255,255,.58)}
+.footer-legal summary{cursor:pointer;color:#9fe1ff;font-weight:600;margin-bottom:12px}
+.footer-legal .sec{padding:18px 0;max-width:none}
+.footer-legal .comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.footer-legal .comp-card{padding:20px}
+@media(max-width:900px){.footer-legal .comp-grid{grid-template-columns:1fr}}
+
+/* HOMEPAGE MEDIA AND PUBLIC RECORD TRUST BAR */
+.public-record-bar{padding:30px 5vw 34px;border-bottom:1px solid rgba(46,168,255,.14);background:rgba(5,15,29,.96);text-align:center}
+.public-record-inner{max-width:1120px;margin:0 auto}
+.public-record-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.5px;color:#66ccff;margin-bottom:20px}
+.public-record-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 34px}
+.public-record-group{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 14px;font-size:13px;line-height:1.8}
+.public-record-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9fe1ff;font-weight:800}
+.public-record-name{color:#fff;font-weight:650}
+.public-record-name a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(158,225,255,.3)}
+.public-record-name a:hover,.public-record-name a:focus-visible{color:#9fe1ff;border-bottom-color:#9fe1ff}
+.public-record-separator{color:rgba(255,255,255,.26)}
+.public-record-support{max-width:880px;margin:22px auto 0;font-size:12px;line-height:1.75;color:rgba(255,255,255,.65)}
+.public-record-support strong{color:#fff}
+@media(max-width:640px){.public-record-bar{padding:26px 20px}.public-record-groups{gap:18px}.public-record-group{font-size:12px}.public-record-support{font-size:11px}}
 </style>
 
 <style id="enterprise-viewport-fit-v2">
@@ -498,7 +523,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     <a href="/telco">Telco &amp; MVNO</a>
     <a href="#how">How It Works</a>
     <a href="#calculator">Waste Estimator</a>
-    <a href="#compliance">Compliance</a>
+    <a href="#legal-footer">Compliance</a>
     <a href="https://keelo.urbyte.com.au/" class="nav-keelo" title="KƎƎLO™ Executive Operating System" aria-label="KƎƎLO™ Executive Operating System">KƎƎLO™</a>
     <a href="#contact" class="nav-cta">Request Audit</a>
   </div>
@@ -512,21 +537,36 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
   </div>
   <div class="hero-text">
     <div class="hero-kicker">Independent Allocation-Waste Verification — ACN 692 885 019</div>
-    <h1>Make allocation waste<br><span class="gradient-text">visible, verifiable,</span><br>and actionable.</h1>
+    <h1 style="font-size:clamp(24px,2.4vw,34px)!important;line-height:1.16!important;letter-spacing:-1px;">Stop paying for unused mobile fleet and cloud capacity. We verify your exact allocation waste from a single read-only billing CSV with zero supplier changes.</h1>
     <p class="hero-sub">Urbyte independently verifies allocation waste across enterprise resources, establishing what is unused, what is actionable and what must remain excluded.</p>
     <div class="hero-btns">
       <a href="#calculator" class="btn-p">Estimate Your Waste</a>
       <a href="#contact" class="btn-g">Request an Audit</a>
       <a href="https://keelo.urbyte.com.au/" class="btn-keelo" title="Keelo — Executive Operating System for governed delegated execution" aria-label="Explore Keelo, the Executive Operating System for governed delegated execution">Built on KƎƎLO™ →</a>
     </div>
-    <div class="hero-trust">
-      <span class="trust-pill">Professional advice required</span>
-      <span class="trust-pill">Accounting treatment subject to advice</span>
-      <span class="trust-pill">DGR eligibility subject to verification</span>
-      <span class="trust-pill">Privacy Act 1988</span>
-    </div>
   </div>
 </div>
+
+<!-- INDEPENDENT COVERAGE AND PUBLIC RECORD -->
+<section class="public-record-bar" id="public-record" aria-labelledby="public-record-heading">
+  <div class="public-record-inner">
+    <h2 class="public-record-eyebrow" id="public-record-heading">INDEPENDENT COVERAGE &amp; PUBLIC RECORD</h2>
+    <div class="public-record-groups">
+      <div class="public-record-group" aria-label="Featured in">
+        <span class="public-record-label">Featured in</span>
+        <span class="public-record-name">CommsDay</span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name"><a href="https://techday.com.au/tag/ai-security" target="_blank" rel="noopener noreferrer">TechDay Australia</a></span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name"><a href="https://wisevoter.com/world/au/2026/11/09/urbyte-kellomvp-ai-agent-security-tests" target="_blank" rel="noopener noreferrer">Wisevoter</a></span>
+      </div>
+      <div class="public-record-group" aria-label="Public record">
+        <span class="public-record-label">Public Record</span>
+        <span class="public-record-name">Parliament of Australia AI Inquiry (Submission #48)</span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name">ACCC Mobile Services Inquiry 2026–27</span>
+      </div>
+    </div>
+    <p class="public-record-support"><strong>Backed by independent scrutiny and industry coverage.</strong> Urbyte’s allocation-waste verification and governance framework has been featured across <strong>CommsDay</strong>, <strong>TechDay</strong>, and <strong>Wisevoter</strong>, and forms part of the official public record—including <strong>Submission #48</strong> (and Supplementary Submissions 48.1 &amp; 48.2) to the <strong>Australian Parliament’s Joint Select Committee on Artificial Intelligence</strong> and our submission to the <strong>ACCC Mobile Services Inquiry 2026–27</strong>.</p>
+  </div>
+</section>
 
 <!-- TICKER -->
 <div class="ticker" aria-label="Verification capability and technical proof"><div class="ticker-inner">
@@ -542,8 +582,6 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 <span class="tick-item">1,157 CONTROLLED EXECUTIONS <span>·</span></span>
 <span class="tick-item">100,000 COMMANDS · ROGUE FLEET <span>·</span></span>
 <span class="tick-item">ZERO UNAUTHORISED EFFECTIVE EXECUTIONS <span>·</span></span>
-<span class="tick-item">DGR ELIGIBILITY SUBJECT TO VERIFICATION <span>·</span></span>
-<span class="tick-item">PRIVACY ACT 1988 <span>·</span></span>
 <span class="tick-item">VERIFIED ALLOCATION WASTE <span>·</span></span>
 <span class="tick-item">ALLOCATION VISIBILITY <span>·</span></span>
 <span class="tick-item">READ-ONLY EVIDENCE REVIEW <span>·</span></span>
@@ -556,15 +594,13 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 <span class="tick-item">1,157 CONTROLLED EXECUTIONS <span>·</span></span>
 <span class="tick-item">100,000 COMMANDS · ROGUE FLEET <span>·</span></span>
 <span class="tick-item">ZERO UNAUTHORISED EFFECTIVE EXECUTIONS <span>·</span></span>
-<span class="tick-item">DGR ELIGIBILITY SUBJECT TO VERIFICATION <span>·</span></span>
-<span class="tick-item">PRIVACY ACT 1988 <span>·</span></span>
 </div></div>
 <!-- COMMERCIAL PROBLEM -->
 <section class="sec" id="problem" aria-labelledby="problem-title"><div class="sec-tag">The Commercial Problem</div><h2 class="sec-h" id="problem-title">Your organisation pays for<br>capacity it doesn't use.</h2><p class="sec-sub">Allocated resources can remain unused across connectivity, computing infrastructure, storage and operational systems. Urbyte turns the allocation gap into verifiable evidence that finance, procurement and sustainability teams can act on.</p><div class="use-grid"><div class="use-card"><div class="use-tag">IDENTIFY</div><h3>Find unused allocation</h3><p>Establish what has been allocated and what available evidence shows was consumed.</p></div><div class="use-card"><div class="use-tag">VERIFY</div><h3>Prove the condition</h3><p>Classify qualifying unused capacity and retain an attributable verification record.</p></div><div class="use-card"><div class="use-tag">ACT</div><h3>Support approved outcomes</h3><p>Carry verified conditions into accountable efficiency, reporting or controlled action.</p></div></div></section><hr class="divider"/>
 <!-- HOW IT WORKS -->
 <div class="sec" id="how">
   <div class="sec-tag">How It Works</div>
-  <h2 class="sec-h">Three steps.<br/>Waste in. Verified impact out.</h2>
+  <h2 class="sec-h">Three steps.<br/>Allocation in. Cost evidence out.</h2>
   <p class="sec-sub">Urbyte verifies evidence, records qualifying allocation waste and supports controlled outcomes through KƎƎLO™. Evidence-led assessment does not require changes to existing network infrastructure.</p>
   <div class="steps">
     <div class="step" data-n="1">
@@ -576,15 +612,15 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     </div>
     <div class="step" data-n="2">
       <div class="step-tag">Step 02 — Record</div>
-      <h3>DBUs Recorded</h3>
-      <p>Verified telecommunications waste may be recorded as internal Data-Backed Units under Urbyte's documented methodology. DBUs are internal platform records, not cash, cryptocurrency, legal tender or a guaranteed financial entitlement. Legal, tax and accounting treatment depends on the facts and independent professional advice.</p>
-      <div class="step-big">documented recording methodology</div>
-      <div class="step-big-label">Internal record only</div>
+      <h3>Cost Exposure Documented</h3>
+      <p>Qualifying unused capacity is recorded against attributable billing and usage evidence so finance teams can assess the potential cost exposure.</p>
+      <div class="step-big">Traceable</div>
+      <div class="step-big-label">Evidence behind the estimate</div>
     </div>
     <div class="step" data-n="3">
       <div class="step-tag">Step 03 — Direct</div>
       <h3>Approved Outcomes</h3>
-      <p>Verified records can support defined efficiency, enterprise reporting and approved impact pathways. Execution is controlled by current authority through KƎƎLO™.</p>
+      <p>Verified records can support expenditure reviews, supplier discussions and authorised cost-reduction decisions. Execution is controlled by current authority through KƎƎLO™.</p>
       <div class="step-big">Governed</div>
       <div class="step-big-label">Authority before action</div>
     </div>
@@ -606,7 +642,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     <p><strong>KƎƎLO™ governs the relationship between authority, execution, evidence and outcome.</strong></p>
     <p>Urbyte™ performs domain-specific allocation-waste verification. KƎƎLO™ Core applies organisation-neutral policy, current delegated authority, controlled execution and reconciliation.</p>
     <p><strong>A fixed, organisation-neutral core architecture that remained unchanged.</strong></p><p>AUTHORITY · EXECUTION · EVIDENCE · OUTCOME</p>
-    <p><strong>WRSaaS™</strong> means Waste Recovery Software as a Service, the commercial and operating model. <strong>Givabit™</strong> connects verified outcomes to measurable human and community benefit through governed pathways.</p>
+    <p>Urbyte provides independent allocation-waste evidence for financial visibility and cost assurance.</p>
     <p class="uk-canon-principle">CAPABILITY ≠ AUTHORITY</p><p>The ability to propose or perform an action does not create the authority to execute it.</p>
     <p><a href="https://keelo.urbyte.com.au/">Explore KƎƎLO™ ↗</a> &nbsp;·&nbsp; <a href="https://keelo.urbyte.com.au/proofs.html">Technical proofs &amp; public submissions ↗</a></p>
   </div>
@@ -643,22 +679,11 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
           <div class="calc-r-num" id="rWaste">$168,000</div>
           <div class="calc-r-label">Modelled Annual Waste Exposure</div>
         </div>
-        <div class="calc-r">
-          <div class="calc-r-num" id="rImpact">$8,400–$33,600</div>
-          <div class="calc-r-label">Potential Social Impact Allocation</div>
-        </div>
-        <div class="calc-r">
-          <div class="calc-r-num" id="rDBU">560,000</div>
-          <div class="calc-r-label">Indicative Internal DBU Records</div>
-        </div>
-        <div class="calc-r highlight">
-          <div class="calc-r-num" id="rReport" style="font-size:16px;letter-spacing:0;">Annual ESG Report</div>
-          <div class="calc-r-label">Auditable Waste Reporting Package</div>
-        </div>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;line-height:1.8;">These figures are conversation starters, not financial claims. Verified waste opportunity requires a formal Urbyte telecommunications audit. Social impact allocation is at the discretion of the organisation.</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:16px;line-height:1.8;">These figures are illustrative, not verified savings. Actual cost exposure requires review of eligible billing and usage evidence.</p>
     </div>
   </div>
+  <div class="pilot-cta"><a class="btn-p" href="mailto:jarryd@urbyte.com.au?subject=Request%20a%2048-Hour%20Pilot%20Check&amp;body=I%20would%20like%20to%20request%20a%2048-hour%20pilot%20check.%20Please%20confirm%20the%20secure%20process%20for%20sending%20one%20anonymised%20carrier%20CSV.">Request a 48-Hour Pilot Check</a><p>Send one anonymised carrier CSV.</p></div>
 </div>
 
 <div style="max-width:860px;margin:-16px auto 0;padding:0 0 40px;text-align:center;">
@@ -672,13 +697,13 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 <section class="sec" id="evidence-previews">
   <div class="sec-tag">Enterprise Evidence Previews</div>
   <h2 class="sec-h">Verification records.<br/>Sector-specific evidence.</h2>
-  <p class="sec-sub">Explore example reporting layouts for enterprise mobility, data-centre allocation and other resource domains. Controlled proof results remain separate from illustrative ESG and donation receipts.</p>
+  <p class="sec-sub">Explore example reporting layouts for enterprise mobility, data-centre allocation and other resource domains. Controlled proof results remain separate from illustrative reporting examples.</p>
   <div class="use-grid">
     <div class="use-card"><div class="use-tag">MOBILITY</div><h3>Allocation and usage evidence</h3><p>Controlled 5,000-service proof. 3,512 services verified and 266,750.6 GB unused allocation established.</p></div>
     <div class="use-card"><div class="use-tag">DATA CENTRES</div><h3>Compute and energy exposure</h3><p>5,000 assets assessed with 1,157 controlled executions and durable receipts. Energy and emissions exposure modelled from specified assumptions.</p></div>
-    <div class="use-card"><div class="use-tag">OTHER RESOURCE DOMAINS</div><h3>Illustrative evidence records</h3><p>Explore proposed allocation-waste and ESG reporting formats for energy, software and facilities, clearly marked as examples.</p></div>
+    <div class="use-card"><div class="use-tag">OTHER RESOURCE DOMAINS</div><h3>Illustrative evidence records</h3><p>Explore proposed allocation-waste reporting formats for energy, software and facilities, clearly marked as examples.</p></div>
   </div>
-  <p class="sec-sub"><a href="/evidence-previews.html">Open sector evidence and ESG receipt previews →</a></p>
+  <p class="sec-sub"><a href="/evidence-previews.html">Open sector evidence previews →</a></p>
 </section>
 <hr class="divider"/>
 <!-- USE CASES -->
@@ -689,7 +714,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
   <div class="use-grid">
     <div class="use-card"><div class="use-tag">CFO / Finance</div><h3>Financial Visibility</h3><p>Identify verified allocation waste and retain an evidence trail behind reported financial outcomes.</p><div class="use-stat">Evidence</div><div class="use-stat-label">Verified conditions</div></div>
     <div class="use-card"><div class="use-tag">Procurement / IT</div><h3>Operational Evidence</h3><p>Understand unused resource allocation and support controlled changes through accountable evidence.</p><div class="use-stat">Control</div><div class="use-stat-label">Allocation decisions</div></div>
-    <div class="use-card"><div class="use-tag">ESG / Sustainability</div><h3>Supported Impact Reporting</h3><p>Connect eligible verified outcomes to supporting records without presenting modelled estimates as realised impact.</p><div class="use-stat">Traceable</div><div class="use-stat-label">Outcome records</div></div>
+    <div class="use-card"><div class="use-tag">Cost Assurance</div><h3>Evidence Behind Spend</h3><p>Support budget reviews and supplier discussions with attributable allocation and usage records.</p><div class="use-stat">Traceable</div><div class="use-stat-label">Cost evidence</div></div>
   </div>
 </div>
 
@@ -697,8 +722,32 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 
 <!-- PROOF AND DOCUMENTATION -->
 <section class="sec" id="proof"><div class="sec-tag">Technical Evidence</div><h2 class="sec-h">Don't take the architecture on trust.</h2><p class="sec-sub">Examine the completed controlled proofs, execution records, architecture documentation and public submissions.</p><div class="use-grid"><div class="use-card"><div class="use-tag">CONTROLLED PROOF</div><h3>100,000 commands</h3><p>Rogue Fleet recorded zero unauthorised and zero duplicate effective executions in the tested configuration.</p></div><div class="use-card"><div class="use-tag">RESOURCE VERIFICATION</div><h3>5,000 data-centre assets</h3><p>1,157 controlled executions and 1,157 durable receipts, with zero duplicate executions.</p></div><div class="use-card"><div class="use-tag">EVIDENCE LIBRARY</div><h3>Review the source</h3><p>Technical reports, implementation boundaries and parliamentary submission records in one place.</p></div></div><p class="sec-sub"><a href="https://keelo.urbyte.com.au/proofs.html">Explore technical proofs and public submissions →</a></p></section><hr class="divider"/>
+<!-- CONTACT -->
+<div style="padding:0 48px 80px">
+  <div class="contact-block" id="contact">
+    <div class="sec-tag" style="justify-content:center;margin-bottom:16px">Request A Corporate Waste Audit</div>
+    <h2>Find out what your organisation<br/>allocates but doesn't use.</h2>
+    <p>Discuss an enterprise waste exposure assessment and establish the evidence required for a formal verification engagement. Confidentiality terms can be agreed before sensitive data is exchanged.</p>
+    <a href="mailto:jarryd@urbyte.com.au?subject=Enterprise%20Allocation%20Waste%20Audit" class="btn-p">Request an Audit</a><p><a href="mailto:jarryd@urbyte.com.au">jarryd@urbyte.com.au</a></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Urbyte <span style="color:rgba(46,168,255,0.35);font-weight:400;font-size:11px;letter-spacing:2px;margin-left:8px">ACN 692 885 019</span></div>
+  <div class="foot-links">
+    <a href="/consumer">Consumer</a>
+    
+    <a href="/privacy">Privacy</a>
+    <a href="mailto:jarryd@urbyte.com.au">Contact</a>
+  </div>
+  <div class="foot-meta">© 2026 Urbyte Pty Ltd · Acknowledges the Widjabul Wiabul people of Bundjalung Nation
+    <p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:12px;line-height:1.6;">This estimator is for directional modelling only. Actual outcomes depend on plan structure and billing data. This is not a tax outcome, refund estimate, or guaranteed deduction.</p>
+  </div>
+  <details id="legal-footer" class="footer-legal"><summary>Legal and compliance information</summary>
+    <p>Professional advice required. Accounting and tax treatment are subject to independent advice. DGR eligibility must be verified. Personal information handling is subject to the Privacy Act 1988 (Cth).</p>
 <!-- COMPLIANCE -->
-<div class="sec" id="compliance">
+<div class="sec" id="footer-compliance">
   <div class="sec-tag">Legal & Compliance</div>
   <h2 class="sec-h">Designed for<br/>enterprise scrutiny.</h2>
   <p class="sec-sub">Every component was designed with Australian legal and tax compliance as a foundation — not an afterthought.</p>
@@ -737,28 +786,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
   </div>
 </div>
 
-<!-- CONTACT -->
-<div style="padding:0 48px 80px">
-  <div class="contact-block" id="contact">
-    <div class="sec-tag" style="justify-content:center;margin-bottom:16px">Request A Corporate Waste Audit</div>
-    <h2>Find out what your organisation<br/>allocates but doesn't use.</h2>
-    <p>Discuss an enterprise waste exposure assessment and establish the evidence required for a formal verification engagement. Confidentiality terms can be agreed before sensitive data is exchanged.</p>
-    <a href="mailto:jarryd@urbyte.com.au?subject=Enterprise%20Allocation%20Waste%20Audit" class="btn-p">Request an Audit</a><p><a href="mailto:jarryd@urbyte.com.au">jarryd@urbyte.com.au</a></p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">Urbyte <span style="color:rgba(46,168,255,0.35);font-weight:400;font-size:11px;letter-spacing:2px;margin-left:8px">ACN 692 885 019</span></div>
-  <div class="foot-links">
-    <a href="/consumer">Consumer</a>
-    
-    <a href="/privacy">Privacy</a>
-    <a href="mailto:jarryd@urbyte.com.au">Contact</a>
-  </div>
-  <div class="foot-meta">© 2026 Urbyte Pty Ltd · Acknowledges the Widjabul Wiabul people of Bundjalung Nation
-    <p style="font-size:11px;color:rgba(255,255,255,0.35);margin-top:12px;line-height:1.6;">This estimator is for directional modelling only. Actual outcomes depend on plan structure and billing data. This is not a tax outcome, refund estimate, or guaranteed deduction.</p>
-  </div>
+  </details>
 </footer>
 
 <script>
@@ -768,16 +796,10 @@ function calcWaste() {
   const spend = lines * arpu * 12;
   const unusedPct = 0.35;
   const waste = spend * unusedPct;
-  const dbu = Math.round(waste / 0.05);
-  const impactLow = waste * 0.05;
-  const impactHigh = waste * 0.20;
   const fmt = n => '$' + Math.round(n).toLocaleString('en-AU');
-  const fmtR = n => '$' + Math.round(n).toLocaleString('en-AU');
   document.getElementById('rSpend').textContent = fmt(spend);
   document.getElementById('rAlloc').textContent = '35%';
   document.getElementById('rWaste').textContent = fmt(waste);
-  document.getElementById('rImpact').textContent = fmtR(impactLow) + '–' + fmtR(impactHigh);
-  document.getElementById('rDBU').textContent = Math.round(dbu).toLocaleString('en-AU');
 }
 
 // Animate stat cells on scroll
