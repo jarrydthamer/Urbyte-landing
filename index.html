@@ -397,6 +397,21 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .footer-legal .comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .footer-legal .comp-card{padding:20px}
 @media(max-width:900px){.footer-legal .comp-grid{grid-template-columns:1fr}}
+
+/* HOMEPAGE MEDIA AND PUBLIC RECORD TRUST BAR */
+.public-record-bar{padding:30px 5vw 34px;border-bottom:1px solid rgba(46,168,255,.14);background:rgba(5,15,29,.96);text-align:center}
+.public-record-inner{max-width:1120px;margin:0 auto}
+.public-record-eyebrow{font-size:10px;font-weight:800;letter-spacing:2.5px;color:#66ccff;margin-bottom:20px}
+.public-record-groups{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 34px}
+.public-record-group{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 14px;font-size:13px;line-height:1.8}
+.public-record-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9fe1ff;font-weight:800}
+.public-record-name{color:#fff;font-weight:650}
+.public-record-name a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(158,225,255,.3)}
+.public-record-name a:hover,.public-record-name a:focus-visible{color:#9fe1ff;border-bottom-color:#9fe1ff}
+.public-record-separator{color:rgba(255,255,255,.26)}
+.public-record-support{max-width:880px;margin:22px auto 0;font-size:12px;line-height:1.75;color:rgba(255,255,255,.65)}
+.public-record-support strong{color:#fff}
+@media(max-width:640px){.public-record-bar{padding:26px 20px}.public-record-groups{gap:18px}.public-record-group{font-size:12px}.public-record-support{font-size:11px}}
 </style>
 
 <style id="enterprise-viewport-fit-v2">
@@ -531,6 +546,27 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     </div>
   </div>
 </div>
+
+<!-- INDEPENDENT COVERAGE AND PUBLIC RECORD -->
+<section class="public-record-bar" id="public-record" aria-labelledby="public-record-heading">
+  <div class="public-record-inner">
+    <h2 class="public-record-eyebrow" id="public-record-heading">INDEPENDENT COVERAGE &amp; PUBLIC RECORD</h2>
+    <div class="public-record-groups">
+      <div class="public-record-group" aria-label="Featured in">
+        <span class="public-record-label">Featured in</span>
+        <span class="public-record-name">CommsDay</span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name"><a href="https://techday.com.au/tag/ai-security" target="_blank" rel="noopener noreferrer">TechDay Australia</a></span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name"><a href="https://wisevoter.com/world/au/2026/11/09/urbyte-kellomvp-ai-agent-security-tests" target="_blank" rel="noopener noreferrer">Wisevoter</a></span>
+      </div>
+      <div class="public-record-group" aria-label="Public record">
+        <span class="public-record-label">Public Record</span>
+        <span class="public-record-name">Parliament of Australia AI Inquiry (Submission #48)</span><span class="public-record-separator" aria-hidden="true">·</span>
+        <span class="public-record-name">ACCC Mobile Services Inquiry 2026–27</span>
+      </div>
+    </div>
+    <p class="public-record-support"><strong>Backed by independent scrutiny and industry coverage.</strong> Urbyte’s allocation-waste verification and governance framework has been featured across <strong>CommsDay</strong>, <strong>TechDay</strong>, and <strong>Wisevoter</strong>, and forms part of the official public record—including <strong>Submission #48</strong> (and Supplementary Submissions 48.1 &amp; 48.2) to the <strong>Australian Parliament’s Joint Select Committee on Artificial Intelligence</strong> and our submission to the <strong>ACCC Mobile Services Inquiry 2026–27</strong>.</p>
+  </div>
+</section>
 
 <!-- TICKER -->
 <div class="ticker" aria-label="Verification capability and technical proof"><div class="ticker-inner">
